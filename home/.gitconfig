@@ -1,0 +1,12 @@
+[user]
+	name = cartolari
+	email = bruno.cartolari@gmail.com
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	st = status
+[diff]
+	tool = kdiff3
+[merge]
+	defaultToUpstream = true

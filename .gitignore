@@ -34,3 +34,7 @@ build/
 .rvmrc
 
 npm-debug.log
+
+#Vundler
+/home/.vim/bundle
+!/home/.vim/bundle/Vundle.vim

@@ -46,6 +46,11 @@ Plugin 'vim-scripts/ZoomWin'
 Plugin 'AnsiEsc.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'Lokaltog/powerline'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'michalliu/jsruntime.vim'
+Plugin 'michalliu/jsoncodecs.vim'
+Plugin 'michalliu/sourcebeautify.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

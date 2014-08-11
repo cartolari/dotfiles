@@ -2,6 +2,7 @@
 --type-add=haml:ext:haml
 
 --ignore-dir=log
+--ignore-dir=coverage
 --ignore-dir=doc
 --ignore-dir=tmp
 --ignore-dir=public/assets

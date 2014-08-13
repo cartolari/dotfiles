@@ -22,7 +22,7 @@ ZSH_THEME="avit"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -47,13 +47,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby command-not-found gem vagrant)
+plugins=(git rails ruby command-not-found gem vagrant docker)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/bruno/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jre1.7.0_60/bin"
+export PATH="/home/bruno/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jre1.7.0_60/bin:/opt/eb/eb/linux/python2.7/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

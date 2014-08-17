@@ -3,6 +3,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+let mapleader = ","
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
@@ -31,7 +32,7 @@ Plugin 'rstacruz/sparkup'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
-" Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'trapd00r/neverland-vim-theme'
 Plugin 'ecomba/vim-ruby-refactoring'
@@ -48,9 +49,15 @@ Plugin 'mileszs/ack.vim'
 Plugin 'Lokaltog/powerline'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'michalliu/jsruntime.vim'
-Plugin 'michalliu/jsoncodecs.vim'
-Plugin 'michalliu/sourcebeautify.vim'
+Plugin 'vim-scripts/JavaScript-Indent'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'godlygeek/tabular'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'listmaps.vim'
+Plugin 'Valloric/vim-instant-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,6 +95,22 @@ runtime macros/matchit.vim " match the opening/closign html tag when pressing '%
 " auto exit the last NERDTree window when the last 'content' window is closed
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Indent-Guides Plugin
+let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+
+" Rsense
+let g:rsenseHome = $RSENSE_HOME
+let g:rsenseUseOmniFunc = 1
+
+
+"Tabular
+nmap <silent> <Leader>t= :Tabularize /=<CR>
+vmap <silent> <Leader>t= :Tabularize /=<CR>
+nmap <silent> <Leader>t: :Tabularize /:\zs<CR>
+vmap <silent> <Leader>t: :Tabularize /:\zs<CR>
+
 
 "VimShell
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'

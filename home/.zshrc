@@ -88,3 +88,4 @@ export EDITOR=vim
 export JAVA_HOME=/usr/local/java/jre1.7.0_60
 export PATH=$HOME/npm/bin:$PATH
 export PATH=$PATH:/usr/local/java/jre1.7.0_60/bin
+export RSENSE_HOME=/opt/rsense-0.3

@@ -7,6 +7,7 @@
 	co = checkout
 	st = status
 [diff]
-	tool = kdiff3
+	tool = vimdiff
 [merge]
 	defaultToUpstream = true
+	tool = vimdiff

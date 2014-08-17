@@ -35,5 +35,9 @@ build/
 
 npm-debug.log
 
+# Vim temp files
+*.swp
+*.swo
+
 #Vundler
 /home/.vim/bundle

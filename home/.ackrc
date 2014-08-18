@@ -1,5 +1,6 @@
 --type-set=html:ext:haml
 --type-add=haml:ext:haml
+--type-set=js:ext:js,coffee
 
 --ignore-dir=log
 --ignore-dir=coverage

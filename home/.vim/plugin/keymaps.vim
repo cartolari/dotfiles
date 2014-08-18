@@ -46,3 +46,11 @@ nmap <silent> <Leader>t= :Tabularize /=<CR>
 vmap <silent> <Leader>t= :Tabularize /=<CR>
 nmap <silent> <Leader>t: :Tabularize /:\zs<CR>
 vmap <silent> <Leader>t: :Tabularize /:\zs<CR>
+
+" Move lines or chunks of lines up and down
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv

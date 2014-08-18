@@ -1,67 +1,71 @@
 set nocompatible
 filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 let mapleader = ","
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'csapprox'
-Plugin 'vim-scripts/dbext.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'groenewege/vim-less'
-Plugin 'tpope/vim-surround'
-Plugin 'tComment'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-fugitive'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'kien/ctrlp.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'sandeepravi/refactor-rails.vim'
-Plugin 'rstacruz/sparkup'
-Plugin 'vim-scripts/BufOnly.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'trapd00r/neverland-vim-theme'
-Plugin 'ecomba/vim-ruby-refactoring'
-Plugin 'ck3g/vim-change-hash-syntax'
-Plugin 'Raimondi/delimitMate'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'vim-scripts/TaskList.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'vim-scripts/ZoomWin'
-Plugin 'AnsiEsc.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'Lokaltog/powerline'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'vim-scripts/JavaScript-Indent'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'godlygeek/tabular'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'listmaps.vim'
-Plugin 'Valloric/vim-instant-markdown'
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'csapprox'
+NeoBundle 'vim-scripts/dbext.vim'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tComment'
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'sandeepravi/refactor-rails.vim'
+NeoBundle 'rstacruz/sparkup'
+NeoBundle 'vim-scripts/BufOnly.vim'
+NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'trapd00r/neverland-vim-theme'
+NeoBundle 'ecomba/vim-ruby-refactoring'
+NeoBundle 'ck3g/vim-change-hash-syntax'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'wesQ3/vim-windowswap'
+NeoBundle 'vim-scripts/TaskList.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'vim-scripts/ZoomWin'
+NeoBundle 'AnsiEsc.vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'Lokaltog/powerline'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'vim-scripts/JavaScript-Indent'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'listmaps.vim'
+NeoBundle 'Valloric/vim-instant-markdown'
+
+call neobundle#end()
 filetype plugin indent on    " required
+NeoBundleCheck
+
 syntax on
 
 " Vim options
@@ -124,3 +128,7 @@ colorscheme neverland
 
 " Need to add it for fix html identation since it was changed in vim 7.4
 let g:html_indent_inctags = "html,body,head,tbody"
+
+" Automatically closes Fugitive.vim buffers when leaving them
+autocmd BufReadPost fugitive://* set bufhidden=delete
+

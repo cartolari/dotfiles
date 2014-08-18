@@ -37,3 +37,6 @@ noremap <silent> <Down> :res -3<CR>
 " Changes the old ruby hash syntax :a => :b
 " to the newer a: :b
 nmap <silent>ch :.ChangeHashSyntax<CR>
+
+" Toggle current folding
+nnoremap <Space> za

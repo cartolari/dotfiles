@@ -109,15 +109,7 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:rsenseHome = $RSENSE_HOME
 let g:rsenseUseOmniFunc = 1
 
-
-"Tabular
-nmap <silent> <Leader>t= :Tabularize /=<CR>
-vmap <silent> <Leader>t= :Tabularize /=<CR>
-nmap <silent> <Leader>t: :Tabularize /:\zs<CR>
-vmap <silent> <Leader>t: :Tabularize /:\zs<CR>
-
-
-"VimShell
+" VimShell
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
 let g:vimshell_prompt =  '$ '
 

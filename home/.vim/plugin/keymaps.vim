@@ -40,3 +40,9 @@ nmap <silent>ch :.ChangeHashSyntax<CR>
 
 " Toggle current folding
 nnoremap <Space> za
+
+" Tabular
+nmap <silent> <Leader>t= :Tabularize /=<CR>
+vmap <silent> <Leader>t= :Tabularize /=<CR>
+nmap <silent> <Leader>t: :Tabularize /:\zs<CR>
+vmap <silent> <Leader>t: :Tabularize /:\zs<CR>

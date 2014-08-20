@@ -72,6 +72,7 @@ syntax on
 
 " Vim options
 set number
+set ignorecase
 set hlsearch
 set incsearch
 set smartindent

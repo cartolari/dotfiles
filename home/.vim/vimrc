@@ -9,6 +9,7 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'csapprox'
 NeoBundle 'vim-scripts/dbext.vim'
@@ -63,6 +64,8 @@ NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'listmaps.vim'
 NeoBundle 'Valloric/vim-instant-markdown'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'nosami/Omnisharp'
+NeoBundle 'bryanthankins/vim-aspnetide'
 
 call neobundle#end()
 filetype plugin indent on    " required
@@ -127,20 +130,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 " Automatically closes Fugitive.vim buffers when leaving them
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Neosnippet
-" Press Ctrl-k for select and expand a snippet
-" Also used for jumping positions inside snippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -148,3 +137,7 @@ endif
 
 set foldmethod=syntax
 set foldlevel=3
+
+" CtrlP
+let g:ctrlp_max_files = 100000
+let g:ctrlp_working_path_mode = 0

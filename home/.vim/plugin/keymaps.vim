@@ -24,7 +24,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 cnoremap w!! %!sudo tee > /dev/null %
 
 " Clear highlighted searchs
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <C-f> :<C-u>nohlsearch<CR>
 " Generates ctags file
 nnoremap <silent> <F6> :!ctags -R<CR>
 
@@ -68,3 +68,9 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
+
+" Slimux (for sending text from vim to a tmux pane)
+map <Leader>s :SlimuxREPLSendLine<CR>
+vmap <Leader>s :SlimuxREPLSendSelection<CR>
+map <Leader>a :SlimuxShellLast<CR>
+map <Leader>k :SlimuxSendKeysLast<CR>

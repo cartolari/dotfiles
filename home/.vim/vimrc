@@ -52,7 +52,6 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'vim-scripts/ZoomWin'
 NeoBundle 'AnsiEsc.vim'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'Lokaltog/powerline'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'vim-scripts/JavaScript-Indent'
@@ -67,6 +66,14 @@ NeoBundle 'Valloric/vim-instant-markdown'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'nosami/Omnisharp'
 NeoBundle 'bryanthankins/vim-aspnetide'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'gregsexton/MatchTag'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'wellle/tmux-complete.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'epeli/slimux'
+NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'oplatek/Conque-Shell'
 
 call neobundle#end()
 filetype plugin indent on    " required
@@ -97,6 +104,14 @@ endif
 
 if &term =~ '^\(xterm\|screen\)$' && $COLORTERM == 'gnome-terminal'
   set t_Co=256
+endif
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
 endif
 
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
@@ -149,3 +164,21 @@ let g:rails_projections = {
     \     }
     \   }
 
+"Tmux complete
+let g:tmuxcomplete#trigger = ''
+
+" Vim AirLine
+let g:airline_powerline_fonts=1
+" let g:airline_symbols = {}
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'Ξ'

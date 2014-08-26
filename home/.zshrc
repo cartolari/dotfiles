@@ -72,6 +72,15 @@ export PATH="/home/bruno/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/b
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Disable software control flow
+stty -ixon
+
+# Enable completion for tmuxinator
+tmuxinator_completion_file=$(ruby -e 'puts Gem::Specification.find_by_name("tmuxinator").gem_dir')/completion/tmuxinator.zsh
+if [ -r $tmuxinator_completion_file  ]; then
+  source $tmuxinator_completion_file
+fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -83,6 +92,7 @@ export PATH="/home/bruno/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/b
 alias ack='ack-grep'
 alias cls='printf "\033c"'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
+alias tmux='TERM=screen-256color-bce tmux'
 
 export EDITOR=vim
 export JAVA_HOME=/usr/local/java/jre1.7.0_60

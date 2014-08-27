@@ -1,16 +1,18 @@
 " Custom vim keymaps are put here for the sake of the organization
 " of the .vimrc file
 
-map <silent> <F2> :NERDTree<CR>
-map <silent> <F3> :NERDTreeClose<CR>
-map <silent> <F4> :NERDTreeFind<CR>
-map <silent> <F5> :VimShell<CR>
+nmap <silent> <F2> :NERDTree<CR>
+nmap <silent> <F3> :NERDTreeClose<CR>
+nmap <silent> <F4> :NERDTreeFind<CR>
+nmap <silent> <F5> :VimShell<CR>
 
 " Tcomment
 " Comment Line
-map <leader>c <c-_><c-_> 
+nmap <leader>c <c-_><c-_> 
+vmap <leader>c <c-_><c-_> 
 " Comment Block
-map <leader>b <c-_>b
+nmap <leader>b <c-_>b
+vmap <leader>b <c-_>b
 
 " Move through vim buffers
 nnoremap <silent> [b :bprevious<CR>
@@ -70,7 +72,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \: "\<TAB>"
 
 " Slimux (for sending text from vim to a tmux pane)
-map <Leader>s :SlimuxREPLSendLine<CR>
+nmap <Leader>s :SlimuxREPLSendLine<CR>
 vmap <Leader>s :SlimuxREPLSendSelection<CR>
-map <Leader>a :SlimuxShellLast<CR>
-map <Leader>k :SlimuxSendKeysLast<CR>
+nmap <Leader>a :SlimuxShellLast<CR>
+nmap <Leader>k :SlimuxSendKeysLast<CR>

@@ -36,7 +36,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'sandeepravi/refactor-rails.vim'
 NeoBundle 'rstacruz/sparkup'
 NeoBundle 'vim-scripts/BufOnly.vim'
-NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
+NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make', 'windows': 'mingw32-make -f make_mingw32.mak'}}
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/unite.vim'
@@ -62,11 +62,9 @@ NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'listmaps.vim'
-NeoBundle 'Valloric/vim-instant-markdown'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'nosami/Omnisharp'
 NeoBundle 'bryanthankins/vim-aspnetide'
-NeoBundle 'skammer/vim-css-color'
 NeoBundle 'gregsexton/MatchTag'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'wellle/tmux-complete.vim'
@@ -74,6 +72,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'epeli/slimux'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 NeoBundle 'oplatek/Conque-Shell'
+NeoBundle 'AndrewRadev/linediff.vim'
 
 call neobundle#end()
 filetype plugin indent on    " required
@@ -96,6 +95,7 @@ set wildmenu
 set wildmode=full
 set mouse=a
 set nowrap
+set shiftround
 
 " CSApprox, for emulating gvim colors on the terminal
 if !has('gui_running') && exists(':CSApprox')

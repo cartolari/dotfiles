@@ -6,6 +6,10 @@ nmap <silent> <F3> :NERDTreeClose<CR>
 nmap <silent> <F4> :NERDTreeFind<CR>
 nmap <silent> <F5> :VimShell<CR>
 
+" Custom search mapping
+nmap <leader>f :Ack <cword><CR>
+nmap <leader>ft :execute 'Ack --'.&filetype.' <cword>'<CR>
+
 " Tcomment
 " Comment Line
 nmap <leader>c <c-_><c-_> 

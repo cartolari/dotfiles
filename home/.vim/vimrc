@@ -9,70 +9,84 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+"Async actions
+NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make', 'windows': 'mingw32-make -f make_mingw32.mak'}}
 NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'csapprox'
-NeoBundle 'vim-scripts/dbext.vim'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'thoughtbot/vim-rspec'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'tpope/vim-surround'
+
+"Commands and mappings
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kris89/vim-multiple-cursors'
+NeoBundle 'listmaps.vim'
 NeoBundle 'tComment'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'vim-scripts/BufOnly.vim'
+NeoBundle 'vim-scripts/dbext.vim'
+
+"Completions and snippets
+NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'bryanthankins/vim-aspnetide'
+NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
+NeoBundle 'nosami/Omnisharp'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'rstacruz/sparkup'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'mattn/emmet-vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'wellle/tmux-complete.vim'
+
+"Colorschemes
+NeoBundle 'csapprox'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'trapd00r/neverland-vim-theme'
+
+"File finders and browsers
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+"Integrations
+NeoBundle 'epeli/slimux'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kris89/vim-multiple-cursors'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'sandeepravi/refactor-rails.vim'
-NeoBundle 'rstacruz/sparkup'
-NeoBundle 'vim-scripts/BufOnly.vim'
-NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make', 'windows': 'mingw32-make -f make_mingw32.mak'}}
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'trapd00r/neverland-vim-theme'
-NeoBundle 'ecomba/vim-ruby-refactoring'
-NeoBundle 'ck3g/vim-change-hash-syntax'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'wesQ3/vim-windowswap'
-NeoBundle 'vim-scripts/TaskList.vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'vim-scripts/ZoomWin'
-NeoBundle 'AnsiEsc.vim'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'vim-scripts/JavaScript-Indent'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'ekalinin/Dockerfile.vim'
-NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'listmaps.vim'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'nosami/Omnisharp'
-NeoBundle 'bryanthankins/vim-aspnetide'
-NeoBundle 'gregsexton/MatchTag'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'wellle/tmux-complete.vim'
+
+"Interface
 NeoBundle 'bling/vim-airline'
-NeoBundle 'epeli/slimux'
-NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'vim-scripts/TaskList.vim'
+NeoBundle 'vim-scripts/ZoomWin'
+NeoBundle 'wesQ3/vim-windowswap'
+
+"Language specific
+NeoBundle 'ck3g/vim-change-hash-syntax'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'vim-ruby/vim-ruby'
+
+"Syntax and indetation
+NeoBundle 'AnsiEsc.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'gregsexton/MatchTag'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-scripts/JavaScript-Indent'
+
+"Shell
 NeoBundle 'oplatek/Conque-Shell'
-NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundle 'Shougo/vimshell.vim'
+
 
 call neobundle#end()
 filetype plugin indent on    " required
@@ -115,8 +129,8 @@ if &term =~ '^screen'
 endif
 
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
-" runtime plugin/keymaps.vim " custom keymaps
-" runtime plugin/neocompletion_config.vim " neocompletion config
+runtime plugin/keymaps.vim " custom keymaps
+runtime plugin/neocompletion_config.vim " neocompletion config
 
 " auto exit the last NERDTree window when the last 'content' window is closed
 autocmd vimenter * NERDTree
@@ -169,16 +183,3 @@ let g:tmuxcomplete#trigger = ''
 
 " Vim AirLine
 let g:airline_powerline_fonts=1
-" let g:airline_symbols = {}
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'

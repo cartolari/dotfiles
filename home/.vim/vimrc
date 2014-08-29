@@ -14,6 +14,9 @@ NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make', 'windows': 'mingw32-m
 NeoBundle 'tpope/vim-dispatch'
 
 "Commands and mappings
+NeoBundle 'AndrewRadev/linediff.vim'
+NeoBundle 'AndrewRadev/splitjoin.vim'
+NeoBundle 'bryanthankins/vim-aspnetide'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kris89/vim-multiple-cursors'
@@ -22,35 +25,31 @@ NeoBundle 'tComment'
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-scripts/BufOnly.vim'
 NeoBundle 'vim-scripts/dbext.vim'
 
 "Completions and snippets
-NeoBundle 'AndrewRadev/linediff.vim'
-NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'bryanthankins/vim-aspnetide'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 NeoBundle 'nosami/Omnisharp'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rstacruz/sparkup'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'sirver/ultisnips'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'wellle/tmux-complete.vim'
 
 "Colorschemes
 NeoBundle 'csapprox'
-NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'trapd00r/neverland-vim-theme'
 
 "File finders and browsers
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/unite.vim'
 
 "Integrations
 NeoBundle 'epeli/slimux'
@@ -79,6 +78,7 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'gregsexton/MatchTag'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/JavaScript-Indent'
@@ -129,8 +129,6 @@ if &term =~ '^screen'
 endif
 
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
-runtime plugin/keymaps.vim " custom keymaps
-runtime plugin/neocompletion_config.vim " neocompletion config
 
 " auto exit the last NERDTree window when the last 'content' window is closed
 autocmd vimenter * NERDTree
@@ -183,3 +181,19 @@ let g:tmuxcomplete#trigger = ''
 
 " Vim AirLine
 let g:airline_powerline_fonts=1
+
+" For better integration of vim-multiple-cursos and Neocomplete
+function! Multiple_cursors_before()
+  exe 'NeoCompleteLock'
+  echo 'Disabled autocomplete'
+endfunction
+
+function! Multiple_cursors_after()
+  exe 'NeoCompleteUnlock'
+  echo 'Enabled autocomplete'
+endfunction
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<Tab>"                                            
+let g:UltiSnipsJumpForwardTrigger="<Tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"                                    

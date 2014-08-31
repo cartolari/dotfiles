@@ -89,3 +89,8 @@ nmap <Leader>s :SlimuxREPLSendLine<CR>
 vmap <Leader>s :SlimuxREPLSendSelection<CR>
 nmap <Leader>a :SlimuxShellLast<CR>
 nmap <Leader>k :SlimuxSendKeysLast<CR>
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<Tab>"                                            
+let g:UltiSnipsJumpForwardTrigger="<Tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"                                    

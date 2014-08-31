@@ -192,8 +192,3 @@ function! Multiple_cursors_after()
   exe 'NeoCompleteUnlock'
   echo 'Enabled autocomplete'
 endfunction
-
-" Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<Tab>"                                            
-let g:UltiSnipsJumpForwardTrigger="<Tab>"                                       
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"                                    

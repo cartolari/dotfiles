@@ -7,8 +7,31 @@ nmap <silent> <F4> :NERDTreeFind<CR>
 nmap <silent> <F5> :VimShell<CR>
 
 " Custom search mapping
-nmap <leader>f :Ack <cword><CR>
-nmap <leader>ft :execute 'Ack --'.&filetype.' <cword>'<CR>
+" This function uses Ack.vim to search for the word
+" under the cursor, optionally restricting the search
+" only for files of the same time of the current
+function AckSearch(with_file_type)
+  let ack_command = ":Ack"
+  let current_word = expand("<cword>")
+  let message = "The selected word have less than 3 characters. Are you sure you want to search for it?"
+
+  if strlen(current_word) <= 3
+    if confirm(message, "&Yes\n&no") == 2
+      return
+    endif
+  endif
+
+  if a:with_file_type == 1
+    let ack_command = ack_command.' --'.&filetype
+  endif
+
+  let ack_command = ack_command.' '.current_word.expand("<CR>")
+  execute ack_command
+endfunction
+command AckSearch execute AckSearch(0)
+command AckSearchCurrentType execute AckSearch(1)
+nmap <leader>f :AckSearch<CR>
+nmap <leader>ft :AckSearchCurrentType<CR>
 
 " Tcomment
 " Comment Line

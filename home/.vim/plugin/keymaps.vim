@@ -6,37 +6,10 @@ nmap <silent> <F3> :NERDTreeClose<CR>
 nmap <silent> <F4> :NERDTreeFind<CR>
 nmap <silent> <F5> :VimShell<CR>
 
-" Custom search mapping
-" This function uses Ack.vim to search for the word
-" under the cursor, optionally restricting the search
-" only for files of the same time of the current
-function AckSearch(with_file_type)
-  let ack_command = ":Ack"
-  let current_word = expand("<cword>")
-  let message = "The selected word have less than 3 characters. Are you sure you want to search for it?"
-
-  if strlen(current_word) <= 3
-    if confirm(message, "&Yes\n&no") == 2
-      return
-    endif
-  endif
-
-  if a:with_file_type == 1
-    let ack_command = ack_command.' --'.&filetype
-  endif
-
-  let ack_command = ack_command.' '.current_word.expand("<CR>")
-  execute ack_command
-endfunction
-command AckSearch execute AckSearch(0)
-command AckSearchCurrentType execute AckSearch(1)
-nmap <leader>f :AckSearch<CR>
-nmap <leader>ft :AckSearchCurrentType<CR>
-
 " Tcomment
 " Comment Line
-nmap <leader>c <c-_><c-_> 
-vmap <leader>c <c-_><c-_> 
+nmap <leader>c <c-_><c-_>
+vmap <leader>c <c-_><c-_>
 " Comment Block
 nmap <leader>b <c-_>b
 vmap <leader>b <c-_>b
@@ -85,12 +58,12 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Slimux (for sending text from vim to a tmux pane)
-nmap <Leader>s :SlimuxREPLSendLine<CR>
-vmap <Leader>s :SlimuxREPLSendSelection<CR>
-nmap <Leader>a :SlimuxShellLast<CR>
-nmap <Leader>k :SlimuxSendKeysLast<CR>
+nmap <silent> <Leader>s :SlimuxREPLSendLine<CR>
+vmap <silent> <Leader>s :SlimuxREPLSendSelection<CR>
+nmap <silent> <Leader>a :SlimuxShellLast<CR>
+nmap <silent> <Leader>k :SlimuxSendKeysLast<CR>
 
 " Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<Tab>"                                            
-let g:UltiSnipsJumpForwardTrigger="<Tab>"                                       
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"                                    
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"

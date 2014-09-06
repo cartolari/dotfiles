@@ -8,7 +8,7 @@ nnoremap <silent> <F5> :VimShell<CR>
 
 " Save current file
 nnoremap <leader>s :w<CR>
-inoremap <leader>s <Esc>:w<CR>i
+inoremap <leader>s <Esc>:w<CR>
 
 " Exit insert mode
 inoremap jk <Esc>

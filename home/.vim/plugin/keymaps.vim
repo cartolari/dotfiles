@@ -1,10 +1,10 @@
 " Custom vim keymaps are put here for the sake of the organization
 " of the .vimrc file
 
-nmap <silent> <F2> :NERDTree<CR>
-nmap <silent> <F3> :NERDTreeClose<CR>
-nmap <silent> <F4> :NERDTreeFind<CR>
-nmap <silent> <F5> :VimShell<CR>
+nnoremap <silent> <F2> :NERDTree<CR>
+nnoremap <silent> <F3> :NERDTreeClose<CR>
+nnoremap <silent> <F4> :NERDTreeFind<CR>
+nnoremap <silent> <F5> :VimShell<CR>
 
 " Tcomment
 " Comment Line

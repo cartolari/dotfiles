@@ -195,6 +195,7 @@ let g:tmuxcomplete#trigger = ''
 
 " Vim AirLine
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 
 " For better integration of vim-multiple-cursos and Neocomplete
 function! Multiple_cursors_before()

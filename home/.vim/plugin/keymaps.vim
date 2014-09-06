@@ -6,6 +6,19 @@ nnoremap <silent> <F3> :NERDTreeClose<CR>
 nnoremap <silent> <F4> :NERDTreeFind<CR>
 nnoremap <silent> <F5> :VimShell<CR>
 
+" Save current file
+nnoremap <leader>s :w<CR>
+inoremap <leader>s <Esc>:w<CR>i
+
+" Exit insert mode
+inoremap jk <Esc>
+
+" Quit current file
+nnoremap <leader>q :q<CR>
+
+" Indent current paragraph
+nnoremap <Leader>a =ip
+
 " Tcomment
 " Comment Line
 nmap <leader>c <c-_><c-_>
@@ -58,9 +71,8 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Slimux (for sending text from vim to a tmux pane)
-nmap <silent> <Leader>s :SlimuxREPLSendLine<CR>
-vmap <silent> <Leader>s :SlimuxREPLSendSelection<CR>
-nmap <silent> <Leader>a :SlimuxShellLast<CR>
+nmap <silent> <Leader>l :SlimuxREPLSendLine<CR>
+vmap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
 nmap <silent> <Leader>k :SlimuxSendKeysLast<CR>
 
 " Set ultisnips triggers

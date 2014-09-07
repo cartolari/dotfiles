@@ -159,11 +159,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 " Automatically closes Fugitive.vim buffers when leaving them
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 set foldmethod=syntax
 set foldlevel=3
 

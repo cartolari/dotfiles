@@ -31,7 +31,7 @@ NeoBundle 'vim-scripts/dbext.vim'
 
 "Completions and snippets
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
+NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install', 'windows': 'npm install'}}
 NeoBundle 'nosami/Omnisharp'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rstacruz/sparkup'

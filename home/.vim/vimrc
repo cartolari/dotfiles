@@ -66,6 +66,8 @@ NeoBundle 'wesQ3/vim-windowswap'
 "Language specific
 NeoBundle 'ck3g/vim-change-hash-syntax'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'suan/vim-instant-markdown'
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'

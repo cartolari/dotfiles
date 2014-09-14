@@ -48,7 +48,6 @@ NeoBundle 'trapd00r/neverland-vim-theme'
 "File finders and browsers
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 
 "Integrations
@@ -140,13 +139,9 @@ endif
 
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
 
-" auto exit the last NERDTree window when the last 'content' window is closed
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " Indent-Guides Plugin
 let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = ['help', 'netrw']
 
 " Rsense
 let g:rsenseHome = $RSENSE_HOME

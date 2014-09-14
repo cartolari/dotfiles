@@ -19,11 +19,11 @@ nnoremap <Leader>a =ip
 
 " Tcomment
 " Comment Line
-nmap <leader>c :TComment<CR>
-vmap <leader>c :TComment<CR>
+nmap <silent> <leader>c :TComment<CR>
+vmap <silent> <leader>c :TComment<CR>
 " Comment Block
-nmap <leader>b :TCommentBlock<CR>
-vmap <leader>b :TCommentBlock<CR>
+nmap <silent> <leader>b :TCommentBlock<CR>
+vmap <silent> <leader>b :TCommentBlock<CR>
 
 " Move through vim buffers
 nnoremap <silent> [b :bprevious<CR>

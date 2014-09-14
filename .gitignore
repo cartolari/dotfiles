@@ -39,5 +39,8 @@ npm-debug.log
 *.swp
 *.swo
 
-#Vundler
+# Vim Bundles
 /home/.vim/bundle
+
+# Netrw history
+.netrwhist

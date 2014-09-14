@@ -1,10 +1,8 @@
 " Custom vim keymaps are put here for the sake of the organization
 " of the .vimrc file
 
-nnoremap <silent> <F2> :NERDTree<CR>
-nnoremap <silent> <F3> :NERDTreeClose<CR>
-nnoremap <silent> <F4> :NERDTreeFind<CR>
-nnoremap <silent> <F5> :VimShell<CR>
+" netrw mapping
+nnoremap - :execute 'edit' expand('%:h:p')<CR>
 
 " Save current file
 nnoremap <leader>s :w<CR>

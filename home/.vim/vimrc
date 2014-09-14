@@ -32,7 +32,7 @@ NeoBundle 'vim-scripts/dbext.vim'
 
 "Completions and snippets
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install', 'windows': 'npm install'}}
+NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'gksudo npm install', 'windows': 'npm install'}}
 NeoBundle 'nosami/Omnisharp'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rstacruz/sparkup'
@@ -67,7 +67,14 @@ NeoBundle 'wesQ3/vim-windowswap'
 "Language specific
 NeoBundle 'ck3g/vim-change-hash-syntax'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'suan/vim-instant-markdown'
+
+let g:instant_markdown_gems = "gem install redcarpet pygments.rb"
+let g:instant_markdown_npm = "npm install -g instant-markdown-d"
+let g:linux_build = 'bash -c "gksudo \"' .  g:instant_markdown_gems . '\" && gksudo \"' . g:instant_markdown_npm . '\""'
+let g:windows_build = g:instant_markdown_gems . ' & ' . g:instant_markdown_npm
+NeoBundle 'suan/vim-instant-markdown', {'build': {'unix': g:linux_build, 'windows': g:windows_build }}
+unlet g:instant_markdown_gems g:instant_markdown_npm g:linux_build g:windows_build
+
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-rails'

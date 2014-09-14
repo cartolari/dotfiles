@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'vim-scripts/BufOnly.vim'
 NeoBundle 'vim-scripts/dbext.vim'
+NeoBundle 'vim-scripts/StarRange'
 
 "Completions and snippets
 NeoBundle 'honza/vim-snippets'

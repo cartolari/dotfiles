@@ -106,14 +106,16 @@ syntax on
 " Vim options
 set number
 set ignorecase
+set smartcase
+set infercase
 set hlsearch
 set incsearch
 set smartindent
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set backspace=indent,eol,start
-set infercase
 set wildmenu
 set wildmode=full
 set mouse=a

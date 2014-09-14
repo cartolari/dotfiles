@@ -44,6 +44,8 @@ NeoBundle 'wellle/tmux-complete.vim'
 
 "Colorschemes
 NeoBundle 'csapprox'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'trapd00r/neverland-vim-theme'
 
 "File finders and browsers

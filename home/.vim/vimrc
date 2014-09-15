@@ -127,6 +127,7 @@ set mouse=a
 set nowrap
 set shiftround
 set fillchars+=stlnc:-
+set laststatus=2
 
 " CSApprox, for emulating gvim colors on the terminal
 if !has('gui_running') && exists(':CSApprox')

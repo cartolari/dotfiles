@@ -1,9 +1,6 @@
 " Custom vim keymaps are put here for the sake of the organization
 " of the .vimrc file
 
-" Show current file directory in current window
-au BufEnter * if !exists("b:NERDTreeType") | nnoremap <buffer> <silent> - :EditCurrentDir<CR> |
-
 " Save current file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>

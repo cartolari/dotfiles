@@ -51,6 +51,7 @@ NeoBundle 'trapd00r/neverland-vim-theme'
 "File finders and browsers
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 
 "Integrations
@@ -145,9 +146,16 @@ endif
 
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
 
+"Nerd tree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+let g:netrw_liststyle = 3 " Tree view for netrw
+
 " Indent-Guides Plugin
 let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'netrw']
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'netrw']
 
 " Rsense
 let g:rsenseHome = $RSENSE_HOME

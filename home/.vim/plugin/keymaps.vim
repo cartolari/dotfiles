@@ -8,6 +8,9 @@ inoremap <leader>s <Esc>:w<CR>
 " Exit insert mode
 inoremap jk <Esc>
 
+" Inserts one break before and one break after the current line
+autocmd FileType * if &buftype ==? "" || &buftype ==? "acwrite" |nnoremap <buffer> <CR><CR> <S-o><Esc>jo<Esc>ki| endif
+
 " Quit current file
 nnoremap <leader>q :q<CR>
 

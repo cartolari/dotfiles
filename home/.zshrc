@@ -89,6 +89,8 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+bindkey -v
+
 alias ack='ack-grep'
 alias cls='printf "\033c"'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'

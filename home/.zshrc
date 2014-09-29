@@ -91,6 +91,15 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 bindkey -v
 
+# Fixes the way zle handles <Esc>/
+vi-search-fix() {
+  zle vi-cmd-mode
+  zle .vi-history-search-backward
+}
+autoload vi-search-fix
+zle -N vi-search-fix
+bindkey -M viins '\e/' vi-search-fix
+
 alias ack='ack-grep'
 alias cls='printf "\033c"'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'

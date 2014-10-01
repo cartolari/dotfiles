@@ -204,7 +204,7 @@ endif
 
 " vim-rails
 let g:rails_projections = {
-    \     "app/presenters/*": {
+    \     "app/presenters/*_presenter.rb": {
     \        "type": "presenter"
     \     }
     \   }

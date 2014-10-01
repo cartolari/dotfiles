@@ -1,6 +1,10 @@
+function! CurrentBufferEditable()
+  return !(&readonly || &ft ==? 'nerdtree' || &ft ==? 'qf')
+endfunction
+
 " Show current file directory in current window
-au BufEnter * if !exists("b:NERDTreeType") | nnoremap <buffer> <silent> - :EditCurrentDir<CR> |
-au BufLeave * if !exists("b:NERDTreeType") | let w:nerdtree_previous_file = expand("%:p") . '' |
+au BufEnter * if CurrentBufferEditable() | nnoremap <buffer> <silent> - :EditCurrentDir<CR> |
+au BufLeave * if CurrentBufferEditable() | let w:nerdtree_previous_file = expand("%:p") . '' |
 
 call NERDTreeAddKeyMap({
         \ 'key': '-',

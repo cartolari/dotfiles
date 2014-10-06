@@ -133,6 +133,8 @@ set nowrap
 set shiftround
 set fillchars+=stlnc:-
 set laststatus=2
+if !isdirectory('/tmp/vim') | silent execute '!rm -f /tmp/vim; mkdir /tmp/vim' | endif
+set directory=/tmp/vim//
 
 " CSApprox, for emulating gvim colors on the terminal
 if !has('gui_running') && exists(':CSApprox')

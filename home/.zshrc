@@ -100,6 +100,14 @@ autoload vi-search-fix
 zle -N vi-search-fix
 bindkey -M viins '\e/' vi-search-fix
 
+bindkey jk vi-cmd-mode
+bindkey "^R" history-incremental-search-backward
+bindkey "^P" history-search-backward
+bindkey "^N" history-search-forward
+bindkey "^Y" accept-and-hold
+bindkey "^[OA" up-line-or-search
+bindkey "^[OB" down-line-or-search
+
 alias ack='ack-grep'
 alias cls='printf "\033c"'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'

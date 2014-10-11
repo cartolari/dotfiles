@@ -38,7 +38,7 @@ NeoBundle 'Wolfy87/vim-enmasse'
 
 "Completions and snippets
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'gksudo npm install', 'windows': 'npm install'}}
+NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install', 'windows': 'npm install'}}
 NeoBundle 'nosami/Omnisharp'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rstacruz/sparkup'

@@ -62,6 +62,7 @@ NeoBundle 'shougo/unite.vim'
 
 "Integrations
 NeoBundle 'epeli/slimux'
+NeoBundle 'shutnik/jshint2.vim'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-fugitive'
 

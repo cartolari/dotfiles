@@ -10,6 +10,10 @@ nnoremap <silent> <leader>z :set paste!<CR>
 " Exit insert mode
 inoremap jk <Esc>
 
+" Apply macros with Q
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+
 " Inserts one break before and one break after the current line
 autocmd FileType * if &buftype ==? "" || &buftype ==? "acwrite" |nnoremap <buffer> <CR><CR> <S-o><Esc>jo<Esc>ki| endif
 

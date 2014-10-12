@@ -235,7 +235,7 @@ function! Multiple_cursors_after()
 endfunction
 
 " Show current file directory in current window
-command EditCurrentDir execute "edit " . expand('%:h')
+command! EditCurrentDir execute "edit " . expand('%:h')
 
 " AutoCwd patterns
 let g:autocwd_patternwd_pairs = [ ['*', '%:p:h'] ]

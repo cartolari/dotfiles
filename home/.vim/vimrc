@@ -76,8 +76,9 @@ NeoBundle 'wesq3/vim-windowswap'
 
 "Language specific
 NeoBundle 'ck3g/vim-change-hash-syntax'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'ingydotnet/yaml-vim'
+NeoBundle 'keithbsmiley/tmux.vim'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 let g:instant_markdown_gems = "gem install redcarpet pygments.rb"
 let g:instant_markdown_npm = "npm install -g instant-markdown-d"

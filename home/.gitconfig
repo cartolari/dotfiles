@@ -11,3 +11,11 @@
 [merge]
 	defaultToUpstream = true
 	tool = vimdiff
+[push]
+	default = simple
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[branch]
+	autosetuprebase = always

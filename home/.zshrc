@@ -114,9 +114,10 @@ alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias tmux='TERM=screen-256color-bce tmux'
 
 export EDITOR=vim
-export JAVA_HOME=/usr/local/java/jre1.7.0_60
+export M2_HOME=/opt/apache-maven-3.2.3
+export M2=$M2_HOME:/bin
 export PATH=$HOME/npm/bin:$PATH
-export PATH=$PATH:/usr/local/java/jre1.7.0_60/bin
+export PATH=$M2:$PATH
 export RSENSE_HOME=/opt/rsense-0.3
 
 if [[ -z "$TMUX" ]]

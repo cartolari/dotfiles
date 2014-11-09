@@ -79,6 +79,7 @@ NeoBundle 'ck3g/vim-change-hash-syntax'
 NeoBundle 'ingydotnet/yaml-vim'
 NeoBundle 'keithbsmiley/tmux.vim'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'othree/html5.vim'
 
 let g:instant_markdown_gems = "gem install redcarpet pygments.rb"
 let g:instant_markdown_npm = "npm install -g instant-markdown-d"
@@ -185,9 +186,6 @@ set dictionary=/usr/share/dict/words
 
 " vim theme
 colorscheme neverland
-
-" Need to add it for fix html identation since it was changed in vim 7.4
-let g:html_indent_inctags = "html,body,head,tbody"
 
 " Automatically closes Fugitive.vim buffers when leaving them
 autocmd BufReadPost fugitive://* set bufhidden=delete

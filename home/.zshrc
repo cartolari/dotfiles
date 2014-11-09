@@ -54,6 +54,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/home/bruno/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jre1.7.0_60/bin:/opt/eb/eb/linux/python2.7/"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

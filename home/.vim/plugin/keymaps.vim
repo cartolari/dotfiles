@@ -6,6 +6,8 @@ nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>
 " Toggle paste mode
 nnoremap <silent> <leader>z :set paste!<CR>
+" Toggle fold enable
+nnoremap <leader>f :set foldenable!<CR>
 
 " Exit insert mode
 inoremap jk <Esc>

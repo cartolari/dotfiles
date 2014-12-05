@@ -1,5 +1,4 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.export ZSH=$HOME/.oh-my-zsh
 
 unsetopt nomatch
 
@@ -47,8 +46,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby command-not-found gem vagrant docker node npm)
+plugins=(git rails ruby command-not-found gem vagrant docker node npm bower)
 
+export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -121,6 +121,7 @@ export M2=$M2_HOME:/bin
 export PATH=$HOME/npm/bin:$PATH
 export PATH=$M2:$PATH
 export RSENSE_HOME=/opt/rsense-0.3
+export PATH=$PATH:/opt/adt/sdk/tools/:/opt/adt/sdk/platform-tools/
 
 if [[ -z "$TMUX" ]]
 then

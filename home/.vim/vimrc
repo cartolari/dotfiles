@@ -79,13 +79,7 @@ NeoBundle 'ingydotnet/yaml-vim'
 NeoBundle 'keithbsmiley/tmux.vim'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'othree/html5.vim'
-
-let g:instant_markdown_gems = "gem install redcarpet pygments.rb"
-let g:instant_markdown_npm = "npm install -g instant-markdown-d"
-let g:linux_build = 'bash -c "gksudo \"' .  g:instant_markdown_gems . '\" && gksudo \"' . g:instant_markdown_npm . '\""'
-let g:windows_build = g:instant_markdown_gems . ' & ' . g:instant_markdown_npm
-NeoBundle 'suan/vim-instant-markdown', {'build': {'unix': g:linux_build, 'windows': g:windows_build }}
-unlet g:instant_markdown_gems g:instant_markdown_npm g:linux_build g:windows_build
+NeoBundle 'isnowfy/python-vim-instant-markdown'
 
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rake'

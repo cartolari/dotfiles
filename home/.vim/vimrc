@@ -219,12 +219,10 @@ let g:airline#extensions#tabline#enabled = 1
 " For better integration of vim-multiple-cursos and Neocomplete
 function! Multiple_cursors_before()
   exe 'NeoCompleteLock'
-  echo 'Disabled autocomplete'
 endfunction
 
 function! Multiple_cursors_after()
   exe 'NeoCompleteUnlock'
-  echo 'Enabled autocomplete'
 endfunction
 
 " Show current file directory in current window

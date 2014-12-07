@@ -58,7 +58,6 @@ NeoBundle 'trapd00r/neverland-vim-theme'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'shougo/unite.vim'
 
 "Integrations
 NeoBundle 'epeli/slimux'

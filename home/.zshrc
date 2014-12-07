@@ -116,6 +116,7 @@ export PATH=$HOME/npm/bin:$PATH
 export PATH=$M2:$PATH
 export RSENSE_HOME=/opt/rsense-0.3
 export PATH=$PATH:/opt/adt/sdk/tools/:/opt/adt/sdk/platform-tools/
+export PATH=$PATH:/opt/jdk1.8.0_25/bin/
 
 if [[ -z "$TMUX" ]]
 then

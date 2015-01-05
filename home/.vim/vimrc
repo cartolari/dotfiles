@@ -130,8 +130,8 @@ set nowrap
 set shiftround
 set fillchars+=stlnc:-
 set laststatus=2
-if !isdirectory('/tmp/vim') | silent execute '!rm -f /tmp/vim; mkdir /tmp/vim; chown bruno /tmp/vim' | endif
-set directory=/tmp/vim//
+if !isdirectory('~/tmp/vim') | silent execute '!rm -rf ~/tmp/vim; mkdir -p ~/tmp/vim' | endif
+set directory=~/tmp/vim//
 
 " CSApprox, for emulating gvim colors on the terminal
 if !has('gui_running') && exists(':CSApprox')
@@ -165,10 +165,6 @@ let g:netrw_liststyle = 3 " Tree view for netrw
 " Indent-Guides Plugin
 let g:indent_guides_guide_size = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'netrw']
-
-" Rsense
-let g:rsenseHome = $RSENSE_HOME
-let g:rsenseUseOmniFunc = 1
 
 " VimShell
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'

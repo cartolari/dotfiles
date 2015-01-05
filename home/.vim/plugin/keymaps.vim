@@ -4,6 +4,7 @@
 " Save current file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>
+
 " Toggle paste mode
 nnoremap <silent> <leader>z :set paste!<CR>
 " Toggle fold enable

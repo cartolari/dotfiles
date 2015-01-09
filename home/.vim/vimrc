@@ -76,14 +76,13 @@ NeoBundle 'wesq3/vim-windowswap'
 "Language specific
 NeoBundle 'ck3g/vim-change-hash-syntax'
 NeoBundle 'ingydotnet/yaml-vim'
+NeoBundle 'isnowfy/python-vim-instant-markdown'
 NeoBundle 'keithbsmiley/tmux.vim'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'isnowfy/python-vim-instant-markdown'
-
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rake'
 NeoBundle 'vim-ruby/vim-ruby'
 
 "Syntax and indetation
@@ -102,7 +101,6 @@ NeoBundle 'vim-scripts/JavaScript-Indent'
 "Shell
 NeoBundle 'oplatek/Conque-Shell'
 NeoBundle 'Shougo/vimshell.vim'
-
 
 call neobundle#end()
 filetype plugin indent on    " required

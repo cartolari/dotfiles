@@ -46,14 +46,14 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby command-not-found gem vagrant docker node npm bower)
+plugins=(git rails ruby command-not-found gem vagrant docker node bower)
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/bruno/npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jre1.7.0_60/bin:/opt/eb/eb/linux/python2.7/"
+export PATH="/home/bruno/.npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jre1.7.0_60/bin:/opt/eb/eb/linux/python2.7/"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -115,7 +115,7 @@ export M2=$M2_HOME:/bin
 export PATH=$HOME/npm/bin:$PATH
 export PATH=$M2:$PATH
 export RSENSE_HOME=/opt/rsense-0.3
-export PATH=$PATH:/opt/adt/sdk/tools/:/opt/adt/sdk/platform-tools/
+export PATH=$PATH:/opt/adt/tools
 export PATH=$PATH:/opt/jdk1.8.0_25/bin/
 
 if [[ -z "$TMUX" ]]

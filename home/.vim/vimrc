@@ -210,15 +210,6 @@ let g:tmuxcomplete#trigger = ''
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 
-" For better integration of vim-multiple-cursos and Neocomplete
-function! Multiple_cursors_before()
-  exe 'NeoCompleteLock'
-endfunction
-
-function! Multiple_cursors_after()
-  exe 'NeoCompleteUnlock'
-endfunction
-
 " Show current file directory in current window
 command! EditCurrentDir execute "edit " . expand('%:h')
 

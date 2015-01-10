@@ -55,7 +55,7 @@ NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'trapd00r/neverland-vim-theme'
 
 "File finders and browsers
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
 

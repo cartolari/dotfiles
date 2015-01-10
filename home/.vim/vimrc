@@ -16,14 +16,10 @@ NeoBundle 'tpope/vim-dispatch'
 "Commands and mappings
 NeoBundle 'andrewradev/linediff.vim'
 NeoBundle 'andrewradev/splitjoin.vim'
-NeoBundle 'bryanthankins/vim-aspnetide'
-NeoBundle 'cskeeters/vim-calutil'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'henrik/vim-indexed-search'
-NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kris89/vim-multiple-cursors'
-NeoBundle 'listmaps.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-eunuch'
@@ -31,10 +27,8 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'vim-scripts/bufonly.vim'
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'vim-scripts/starrange'
-NeoBundle 'vim-scripts/visincr'
 NeoBundle 'wolfy87/vim-enmasse'
 
 "Completions and snippets
@@ -50,19 +44,15 @@ NeoBundle 'wellle/tmux-complete.vim'
 
 "Colorschemes
 NeoBundle 'csapprox'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'trapd00r/neverland-vim-theme'
 
 "File finders and browsers
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdtree'
 
 "Integrations
 NeoBundle 'epeli/slimux'
 NeoBundle 'shutnik/jshint2.vim'
-NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-fugitive'
 
 "Interface
@@ -74,7 +64,6 @@ NeoBundle 'vim-scripts/ZoomWin'
 NeoBundle 'wesq3/vim-windowswap'
 
 "Language specific
-NeoBundle 'ck3g/vim-change-hash-syntax'
 NeoBundle 'ingydotnet/yaml-vim'
 NeoBundle 'isnowfy/python-vim-instant-markdown'
 NeoBundle 'keithbsmiley/tmux.vim'
@@ -82,7 +71,6 @@ NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rake'
 NeoBundle 'vim-ruby/vim-ruby'
 
 "Syntax and indetation
@@ -92,15 +80,10 @@ NeoBundle 'drslump/vim-syntax-js'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'gregsexton/MatchTag'
-NeoBundle 'groenewege/vim-less'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'vim-scripts/JavaScript-Indent'
-
-"Shell
-NeoBundle 'oplatek/Conque-Shell'
-NeoBundle 'Shougo/vimshell.vim'
 
 call neobundle#end()
 filetype plugin indent on    " required
@@ -163,10 +146,6 @@ let g:netrw_liststyle = 3 " Tree view for netrw
 " Indent-Guides Plugin
 let g:indent_guides_guide_size = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'netrw']
-
-" VimShell
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_prompt =  '$ '
 
 " set a dictionary for vim dictionary completion
 set dictionary=/usr/share/dict/words

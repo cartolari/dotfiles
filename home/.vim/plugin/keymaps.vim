@@ -34,12 +34,6 @@ vmap <silent> <leader>c :TComment<CR>
 nmap <silent> <leader>b :TCommentBlock<CR>
 vmap <silent> <leader>b :TCommentBlock<CR>
 
-" Move through vim buffers
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
-
 " Get current direcory in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Save as sudo

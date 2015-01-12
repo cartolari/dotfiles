@@ -49,6 +49,7 @@ NeoBundle 'trapd00r/neverland-vim-theme'
 "File finders and browsers
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'rking/ag.vim'
 
 "Integrations
 NeoBundle 'epeli/slimux'

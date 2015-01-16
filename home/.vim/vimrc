@@ -28,7 +28,6 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'vim-scripts/starrange'
 NeoBundle 'wolfy87/vim-enmasse'
 

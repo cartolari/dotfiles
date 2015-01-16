@@ -40,9 +40,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 cnoremap w!! %!sudo tee > /dev/null %
 
 " Clear highlighted searchs
-nnoremap <silent> <C-f> :<C-u>nohlsearch<CR>
-" Generates ctags file
-nnoremap <silent> <F6> :!ctags -R<CR>
+nnoremap <silent> <leader>h :<C-u>set hlsearch!<CR>
 
 "Remap arrow keys to easily resize windows
 noremap <silent> <Right> :vertical res +3<CR>

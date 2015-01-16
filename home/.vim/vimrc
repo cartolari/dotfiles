@@ -22,6 +22,7 @@ NeoBundle 'henrik/vim-qargs'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kris89/vim-multiple-cursors'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-projectionist'
@@ -210,5 +211,5 @@ let g:airline#extensions#tabline#enabled = 1
 " Show current file directory in current window
 command! EditCurrentDir execute "edit " . expand('%:h')
 
-" AutoCwd patterns
-let g:autocwd_patternwd_pairs = [ ['*', '%:p:h'] ]
+" Rspec
+let g:rspec_command = "SlimuxShellRun bundle exec spring rspec {spec}"

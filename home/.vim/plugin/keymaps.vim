@@ -72,7 +72,12 @@ vmap <C-Down> ]egv
 " Slimux (for sending text from vim to a tmux pane)
 nmap <silent> <Leader>l :SlimuxREPLSendLine<CR>
 vmap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
-nmap <silent> <Leader>k :SlimuxSendKeysLast<CR>
+
+" Rspec
+map <Leader>sc :call RunCurrentSpecFile()<CR>
+map <Leader>sn :call RunNearestSpec()<CR>
+map <Leader>sl :call RunLastSpec()<CR>
+map <Leader>sa :call RunAllSpecs()<CR>
 
 " Set ultisnips triggers
 let g:UltiSnipsExpandTrigger="<Tab>"

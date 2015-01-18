@@ -16,7 +16,6 @@ NeoBundle 'tpope/vim-dispatch'
 "Commands and mappings
 NeoBundle 'andrewradev/linediff.vim'
 NeoBundle 'andrewradev/splitjoin.vim'
-NeoBundle 'godlygeek/tabular'
 NeoBundle 'henrik/vim-indexed-search'
 NeoBundle 'henrik/vim-qargs'
 NeoBundle 'kana/vim-textobj-user'

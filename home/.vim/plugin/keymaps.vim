@@ -48,18 +48,8 @@ noremap <silent> <Left> :vertical res -3<CR>
 noremap <silent> <Up> :res +3<CR>
 noremap <silent> <Down> :res -3<CR>
 
-" Changes the old ruby hash syntax :a => :b
-" to the newer a: :b
-nmap <silent>ch :.ChangeHashSyntax<CR>
-
 " Toggle current folding
 nnoremap <Space> za
-
-" Tabular
-nmap <silent> <Leader>t= :Tabularize /=<CR>
-vmap <silent> <Leader>t= :Tabularize /=<CR>
-nmap <silent> <Leader>t: :Tabularize /:\zs<CR>
-vmap <silent> <Leader>t: :Tabularize /:\zs<CR>
 
 " Move lines or chunks of lines up and down
 " Bubble single lines

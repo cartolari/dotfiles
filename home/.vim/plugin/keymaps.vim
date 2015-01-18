@@ -56,10 +56,10 @@ nnoremap <silent> <Leader>l :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
 
 " Rspec
-map <Leader>sc :call RunCurrentSpecFile()<CR>
-map <Leader>sn :call RunNearestSpec()<CR>
-map <Leader>sl :call RunLastSpec()<CR>
-map <Leader>sa :call RunAllSpecs()<CR>
+nnoremap <Leader>rf :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <Leader>rl :call RunLastSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
 
 " Set ultisnips triggers
 let g:UltiSnipsExpandTrigger="<Tab>"

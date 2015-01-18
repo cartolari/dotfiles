@@ -65,6 +65,7 @@ nnoremap <Leader>ra :call RunAllSpecs()<CR>
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsListSnippets="<C-k>"
 
 " Vim multiple cursors
 let g:multi_cursor_use_default_mapping=0

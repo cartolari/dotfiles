@@ -3,92 +3,75 @@ filetype off
 let mapleader = ","
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call plug#begin('~/.vim/bundle')
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-"Async actions
-NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make', 'windows': 'mingw32-make -f make_mingw32.mak'}}
-NeoBundle 'tpope/vim-dispatch'
-
 "Commands and mappings
-NeoBundle 'andrewradev/linediff.vim'
-NeoBundle 'andrewradev/splitjoin.vim'
-NeoBundle 'henrik/vim-indexed-search'
-NeoBundle 'henrik/vim-qargs'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'thoughtbot/vim-rspec'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'vim-scripts/starrange'
-NeoBundle 'wolfy87/vim-enmasse'
+Plug 'andrewradev/splitjoin.vim', {'for': [
+      \ 'ruby', 'eruby', 'coffee', 'python',
+      \ 'javascript', 'html', 'xml', 'css',
+      \ 'scss', 'less', 'yaml', 'vim' ]}
+Plug 'henrik/vim-indexed-search'
+Plug 'kana/vim-textobj-user'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/syntastic'
+Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-scripts/starrange'
+Plug 'wolfy87/vim-enmasse'
 
 "Completions and snippets
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install', 'windows': 'npm install'}}
-NeoBundle 'nosami/omnisharp'
-NeoBundle 'raimondi/delimitmate'
-NeoBundle 'rstacruz/sparkup'
-NeoBundle 'shougo/neocomplete.vim'
-NeoBundle 'sirver/ultisnips'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'wellle/tmux-complete.vim'
+Plug 'honza/vim-snippets'
+Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
+Plug 'raimondi/delimitmate'
+Plug 'rstacruz/sparkup', {'for': 'html'}
+Plug 'shougo/neocomplete.vim'
+Plug 'sirver/ultisnips'
+Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
+Plug 'wellle/tmux-complete.vim'
 
 "Colorschemes
-NeoBundle 'csapprox'
-NeoBundle 'trapd00r/neverland-vim-theme'
+Plug 'csapprox'
+Plug 'trapd00r/neverland-vim-theme'
 
 "File finders and browsers
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'rking/ag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'rking/ag.vim', {'on': ['Ag']}
 
 "Integrations
-NeoBundle 'epeli/slimux'
-NeoBundle 'shutnik/jshint2.vim'
-NeoBundle 'tpope/vim-fugitive'
+Plug 'epeli/slimux'
+Plug 'tpope/vim-fugitive'
 
 "Interface
-NeoBundle 'bling/vim-airline'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'vim-scripts/TaskList.vim'
-NeoBundle 'vim-scripts/ZoomWin'
-NeoBundle 'wesq3/vim-windowswap'
+Plug 'bling/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
 
 "Language specific
-NeoBundle 'ingydotnet/yaml-vim'
-NeoBundle 'isnowfy/python-vim-instant-markdown'
-NeoBundle 'keithbsmiley/tmux.vim'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'vim-ruby/vim-ruby'
+Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
+Plug 'isnowfy/python-vim-instant-markdown', {'on': 'Instantmd'}
+Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'othree/html5.vim', {'for': 'html'}
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
 
 "Syntax and indetation
-NeoBundle 'AnsiEsc.vim'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'drslump/vim-syntax-js'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'ekalinin/Dockerfile.vim'
-NeoBundle 'gregsexton/MatchTag'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'vim-scripts/JavaScript-Indent'
+Plug 'AnsiEsc.vim', {'on': 'AnsiEsc'}
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'drslump/vim-syntax-js', {'for': ['javascript', 'html', 'haml']}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
+Plug 'Valloric/MatchTagAlways', {'for': 'html'}
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+Plug 'vim-scripts/JavaScript-Indent', {'for': ['javascript', 'html', 'haml']}
 
-call neobundle#end()
+" call neobundle#end()
+call plug#end()
 filetype plugin indent on    " required
-NeoBundleCheck
 
 syntax on
 

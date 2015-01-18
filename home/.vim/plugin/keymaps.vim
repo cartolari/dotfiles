@@ -10,6 +10,9 @@ nnoremap <silent> <leader>z :set paste!<CR>
 " Toggle fold enable
 nnoremap <leader>f :set foldenable!<CR>
 
+" Toggle NERDTree
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
 " Exit insert mode
 inoremap jk <Esc>
 

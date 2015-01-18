@@ -26,14 +26,6 @@ nnoremap <leader>q :q<CR>
 " Indent current paragraph
 nnoremap <Leader>a =ip
 
-" Tcomment
-" Comment Line
-nmap <silent> <leader>c :TComment<CR>
-vmap <silent> <leader>c :TComment<CR>
-" Comment Block
-nmap <silent> <leader>b :TCommentBlock<CR>
-vmap <silent> <leader>b :TCommentBlock<CR>
-
 " Get current direcory in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Save as sudo

@@ -52,8 +52,8 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Slimux (for sending text from vim to a tmux pane)
-nmap <silent> <Leader>l :SlimuxREPLSendLine<CR>
-vmap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
+nnoremap <silent> <Leader>l :SlimuxREPLSendLine<CR>
+vnoremap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
 
 " Rspec
 map <Leader>sc :call RunCurrentSpecFile()<CR>

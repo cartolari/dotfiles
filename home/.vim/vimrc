@@ -148,6 +148,7 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+  autocmd BufWrite * :FixWhitespace
 augroup END
 
 let g:netrw_liststyle = 3 " Tree view for netrw

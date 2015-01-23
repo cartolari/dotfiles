@@ -25,8 +25,8 @@ Plug 'wolfy87/vim-enmasse'
 
 "Completions and snippets
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
-Plug 'raimondi/delimitmate'
 Plug 'rstacruz/sparkup', {'for': 'html'}
 Plug 'shougo/neocomplete.vim'
 Plug 'sirver/ultisnips'

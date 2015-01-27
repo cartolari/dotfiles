@@ -53,7 +53,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 "Language specific
 Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
-Plug 'isnowfy/python-vim-instant-markdown', {'on': 'Instantmd'}
+Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install -g instant-markdown-d'}
 Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'othree/html5.vim', {'for': 'html'}

@@ -14,3 +14,11 @@ alias apt-remove="sudo apt-get remove"
 alias apt-purge="sudo apt-get purge"
 alias apt-upgrade="sudo apt-get upgrade"
 alias apt-dist-upgrade="sudo apt-get dist-upgrade"
+
+# Docker
+alias fig="echo 'Use docker-compose'"
+alias dup="docker-compose up -d"
+alias drun="docker-compose run"
+alias druns="docker-compose run --service-ports"
+alias dremove='docker rm -f $(docker ps -aq)'
+alias dps="docker-compose ps"

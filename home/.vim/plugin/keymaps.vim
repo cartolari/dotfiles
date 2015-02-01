@@ -34,6 +34,13 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Save as sudo
 cnoremap w!! %!sudo tee > /dev/null %
 
+" Fix common typos in command mode
+command! -bang Q q<bang>
+command! -bang Qa q<bang>
+command! -bang W w<bang>
+command! -bang WQ q<bang>
+command! -bang Wq q<bang>
+
 " Clear highlighted searchs
 nnoremap <silent> <leader>h :<C-u>set hlsearch!<CR>
 

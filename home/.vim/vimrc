@@ -1,81 +1,11 @@
 set nocompatible
-filetype off
 let mapleader = ","
 
-if has('vim_starting')
-  call plug#begin('~/.vim/bundle')
-endif
-
-"Commands and mappings
-Plug 'andrewradev/splitjoin.vim', {'for': [
-      \ 'ruby', 'eruby', 'coffee', 'python',
-      \ 'javascript', 'html', 'xml', 'css',
-      \ 'scss', 'less', 'yaml', 'vim' ]}
-Plug 'henrik/vim-indexed-search'
-Plug 'kana/vim-textobj-user'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/syntastic'
-Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-scripts/starrange'
-Plug 'wolfy87/vim-enmasse'
-
-"Completions and snippets
-Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
-Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
-Plug 'rstacruz/sparkup', {'for': 'html'}
-Plug 'ervandew/supertab'
-Plug 'sirver/ultisnips'
-Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
-
-"Colorschemes
-Plug 'csapprox'
-Plug 'trapd00r/neverland-vim-theme'
-Plug 'amdt/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
-
-"File finders and browsers
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'rking/ag.vim', {'on': ['Ag']}
-
-"Integrations
-Plug 'epeli/slimux'
-Plug 'tpope/vim-fugitive'
-
-"Interface
-Plug 'bling/vim-airline'
-Plug 'christoomey/vim-tmux-navigator'
-
-"Language specific
-Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
-Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install -g instant-markdown-d'}
-Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
-Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
-Plug 'othree/html5.vim', {'for': 'html'}
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
-
-"Syntax and indetation
-Plug 'AnsiEsc.vim', {'on': 'AnsiEsc'}
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'drslump/vim-syntax-js', {'for': ['javascript', 'html', 'haml']}
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
-Plug 'Valloric/MatchTagAlways', {'for': 'html'}
-Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-Plug 'vim-scripts/JavaScript-Indent', {'for': ['javascript', 'html', 'haml']}
-
-" call neobundle#end()
-call plug#end()
-filetype plugin indent on    " required
-
-syntax on
+source ~/.vim/bundles.vim
 
 " Vim options
+filetype plugin indent on
+syntax on
 set number
 set relativenumber
 set ignorecase
@@ -99,6 +29,10 @@ set laststatus=2
 if !isdirectory('~/tmp/vim') | silent execute '!rm -rf ~/tmp/vim; mkdir -p ~/tmp/vim' | endif
 set directory=~/tmp/vim//
 set encoding=utf-8
+set dictionary=/usr/share/dict/words
+set foldmethod=syntax
+set foldlevel=3
+colorscheme neverland
 
 " CSApprox, for emulating gvim colors on the terminal
 if !has('gui_running') && exists(':CSApprox')
@@ -119,7 +53,6 @@ augroup NERDTreeCustomCommands
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 augroup end
 
-" Extracted from Thougbot https://github.com/thoughtbot/dotfiles
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.
@@ -140,20 +73,22 @@ augroup vimrcEx
   autocmd FileType gitcommit setlocal spell
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+  " Remove any trailing whitespace before saving
   autocmd BufWrite * :FixWhitespace
+  " Automatically closes Fugitive.vim buffers when leaving them
+  autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
-" set a dictionary for vim dictionary completion
-set dictionary=/usr/share/dict/words
+" SuperTab
+let g:SuperTabDefaultCompletionType = 'context'
 
-" vim theme
-colorscheme neverland
-
-" Automatically closes Fugitive.vim buffers when leaving them
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
-set foldmethod=syntax
-set foldlevel=3
+augroup SuperTab
+  autocmd!
+  autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \ endif
+augroup end
 
 " CtrlP
 let g:ctrlp_max_files = 100000
@@ -174,6 +109,7 @@ endif
 " Vim AirLine
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_enable_syntastic = 1
 
 " Show current file directory in current window
 command! EditCurrentDir execute "edit " . expand('%:h')
@@ -189,13 +125,3 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
-
-" vim-airline
-let g:airline_enable_syntastic = 1
-
-" Supertab
-let g:SuperTabDefaultCompletionType = 'context'
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-p>") |
-  \ endif

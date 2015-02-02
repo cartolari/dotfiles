@@ -42,8 +42,9 @@ bindkey "^Y" accept-and-hold
 bindkey "^[OA" up-line-or-search
 bindkey "^[OB" down-line-or-search
 
-export EDITOR=vim
+export EDITOR=nvim
 export PATH=$PATH:/opt/adt/tools
+
 
 if [[ -z "$TMUX" ]]
 then

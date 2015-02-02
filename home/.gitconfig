@@ -2,15 +2,15 @@
 	name = cartolari
 	email = bruno.cartolari@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	co = checkout
 	st = status
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 [merge]
 	defaultToUpstream = true
-	tool = vimdiff
+	tool = nvimdiff
 [push]
 	default = simple
 [pull]

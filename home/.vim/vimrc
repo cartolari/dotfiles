@@ -28,10 +28,9 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
 Plug 'rstacruz/sparkup', {'for': 'html'}
-Plug 'shougo/neocomplete.vim'
+Plug 'ervandew/supertab'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
-Plug 'wellle/tmux-complete.vim'
 
 "Colorschemes
 Plug 'csapprox'
@@ -178,9 +177,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-"Tmux complete
-let g:tmuxcomplete#trigger = ''
-
 " Vim AirLine
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -202,3 +198,10 @@ let g:syntastic_check_on_open = 1
 
 " vim-airline
 let g:airline_enable_syntastic = 1
+
+" Supertab
+let g:SuperTabDefaultCompletionType = 'context'
+autocmd FileType *
+  \ if &omnifunc != '' |
+  \   call SuperTabChain(&omnifunc, "<c-p>") |
+  \ endif

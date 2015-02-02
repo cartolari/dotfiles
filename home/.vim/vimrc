@@ -143,12 +143,6 @@ augroup vimrcEx
   autocmd BufWrite * :FixWhitespace
 augroup END
 
-let g:netrw_liststyle = 3 " Tree view for netrw
-
-" Indent-Guides Plugin
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'netrw']
-
 " set a dictionary for vim dictionary completion
 set dictionary=/usr/share/dict/words
 

@@ -17,7 +17,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/starrange'
-Plug 'wolfy87/vim-enmasse'
+Plug 'wolfy87/vim-enmasse', {'on': ['EnMasse', 'EnMasseVersion']}
 
 "Completions and snippets
 Plug 'honza/vim-snippets'

@@ -39,6 +39,7 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " Fix common typos in command mode
 command! -bang Q q<bang>
+command! -bang QA q<bang>
 command! -bang Qa q<bang>
 command! -bang W w<bang>
 command! -bang WQ q<bang>
@@ -69,10 +70,10 @@ nnoremap <silent> <Leader>l :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
 
 " Rspec
-nnoremap <Leader>rf :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <Leader>rl :call RunLastSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
+nnoremap <silent> <Leader>rf :call RunCurrentSpecFile()<CR>
+nnoremap <silent> <Leader>rn :call RunNearestSpec()<CR>
+nnoremap <silent> <Leader>rl :call RunLastSpec()<CR>
+nnoremap <silent> <Leader>ra :call RunAllSpecs()<CR>
 
 " Set ultisnips triggers
 let g:UltiSnipsExpandTrigger="<Tab>"

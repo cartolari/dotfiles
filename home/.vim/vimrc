@@ -45,14 +45,6 @@ endif
 
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
 
-"Nerd tree
-augroup NERDTreeCustomCommands
-  autocmd!
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-augroup end
-
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.

@@ -35,7 +35,6 @@ Plug 'amdt/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
 
 "File finders and browsers
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim', {'on': ['Ag']}
 
 "Integrations

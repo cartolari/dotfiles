@@ -24,6 +24,8 @@ alias druns="docker-compose run --service-ports"
 alias dremove='docker rm -f $(docker ps -aq)'
 alias dps="docker-compose ps"
 alias dlogs="docker-compose logs"
+alias drunb="docker-compose run web bash"
+alias drunsb="docker-compose run --service-ports web bash"
 
 #ssh
 alias s="ssh"

@@ -103,9 +103,6 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_enable_syntastic = 1
 
-" Show current file directory in current window
-command! EditCurrentDir execute "edit " . expand('%:h')
-
 " Rspec
 let g:rspec_command = "SlimuxShellRun bundle exec spring rspec {spec}"
 
@@ -117,3 +114,6 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 1
+
+" Netrw
+let g:netrw_localrmdir='rm -r'

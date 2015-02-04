@@ -29,6 +29,9 @@ nnoremap <leader>q :q<CR>
 " Indent current paragraph
 nnoremap <Leader>a =ip
 
+"Netrw
+nnoremap - :Explore<CR>
+
 " Get current direcory in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Save as sudo

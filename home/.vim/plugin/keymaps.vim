@@ -24,7 +24,10 @@ autocmd FileType * if &buftype ==? "" || &buftype ==? "acwrite" |nnoremap <buffe
 nnoremap <leader>q :q<CR>
 
 " Indent current paragraph
-nnoremap <Leader>a =ip
+nnoremap <leader>a =ip
+
+" Edit vimrc
+nnoremap <leader>e :edit $MYVIMRC<CR>
 
 "Netrw
 nnoremap - :Explore<CR>

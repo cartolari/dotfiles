@@ -45,6 +45,7 @@ bindkey "^[OB" down-line-or-search
 export EDITOR=nvim
 export PATH=$PATH:/opt/adt/tools
 
+export ANDROID_HOME=/opt/adt
 
 if [[ -z "$TMUX" ]]
 then

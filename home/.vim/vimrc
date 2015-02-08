@@ -117,3 +117,6 @@ let g:syntastic_check_on_open = 1
 
 " Netrw
 let g:netrw_localrmdir='rm -r'
+
+" Vim instant markdown
+let g:instant_markdown_autostart = 0

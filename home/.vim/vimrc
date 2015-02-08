@@ -2,6 +2,7 @@ set nocompatible
 let mapleader = ","
 
 source ~/.vim/bundles.vim
+source ~/.vim/keymaps.vim
 
 " Vim options
 filetype plugin indent on

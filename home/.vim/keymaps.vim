@@ -13,8 +13,6 @@ nnoremap <leader>f :set foldenable!<CR>
 " Exit insert mode
 inoremap jk <Esc>
 
-nnoremap ; :
-
 " Apply macros with Q
 nnoremap Q @q
 vnoremap Q :norm @q<cr>

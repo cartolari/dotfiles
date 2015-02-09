@@ -2,6 +2,7 @@ alias ack='ack-grep'
 alias cls='printf "\033c"'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias tmux='TERM=screen-256color-bce tmux'
+alias vi='nvim'
 alias vim='nvim'
 
 # Apt
@@ -26,5 +27,8 @@ alias dlogs="docker-compose logs"
 alias drunb="docker-compose run web bash"
 alias drunsb="docker-compose run --service-ports web bash"
 
-#ssh
+# ssh
 alias s="ssh"
+
+# Git
+alias gcln="git clone"

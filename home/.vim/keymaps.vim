@@ -39,11 +39,11 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " Fix common typos in command mode
 command! -bang Q q<bang>
-command! -bang QA q<bang>
-command! -bang Qa q<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
 command! -bang W w<bang>
-command! -bang WQ q<bang>
-command! -bang Wq q<bang>
+command! -bang WQ wq<bang>
+command! -bang Wq wq<bang>
 
 " Clear highlighted searchs
 nnoremap <silent> <leader>h :<C-u>set hlsearch!<CR>

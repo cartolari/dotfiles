@@ -46,12 +46,15 @@ Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 
 "Language specific
+Plug 'guns/vim-sexp', {'for': ['clojure', 'lisp', 'scheme']}
 Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
-Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install -g instant-markdown-d'}
 Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
 Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
 Plug 'othree/html5.vim', {'for': 'html'}
+Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install -g instant-markdown-d'}
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['clojure', 'lisp', 'scheme']}
 Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
 
 "Syntax and indetation

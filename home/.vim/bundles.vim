@@ -8,7 +8,7 @@ Plug 'andrewradev/splitjoin.vim', {'for': [
       \ 'javascript', 'html', 'xml', 'css',
       \ 'scss', 'less', 'yaml', 'vim' ]}
 Plug 'henrik/vim-indexed-search'
-Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
@@ -38,7 +38,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim', {'on': ['Ag']}
 
 "Integrations
-Plug 'epeli/slimux'
+Plug 'epeli/slimux', {'on': ['SlimuxREPLSendLine', 'SlimuxREPLSendSelection',
+      \ 'SlimuxREPLConfigure', 'SlimuxShellPrompt', 'SlimuxShellLast',
+      \ 'SlimuxShellRun', 'SlimuxShellConfigure']}
 Plug 'tpope/vim-fugitive'
 
 "Interface
@@ -53,7 +55,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install -g instant-markdown-d'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails', {'for': ['ruby', 'eruby', 'yaml', 'haml', 'javascript', 'coffee', 'sass', 'scss']}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': ['clojure', 'lisp', 'scheme']}
 Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
 

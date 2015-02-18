@@ -7,6 +7,7 @@ source ~/.vim/keymaps.vim
 " Vim options
 filetype plugin indent on
 syntax on
+set encoding=utf-8
 set number
 set relativenumber
 set ignorecase
@@ -27,9 +28,8 @@ set nowrap
 set shiftround
 set fillchars+=stlnc:-
 set laststatus=2
-if !isdirectory('~/tmp/vim') | silent execute '!rm -rf ~/tmp/vim; mkdir -p ~/tmp/vim' | endif
-set directory=~/tmp/vim//
-set encoding=utf-8
+set nobackup
+set noswapfile
 set dictionary=/usr/share/dict/words
 set foldmethod=syntax
 set foldlevel=3

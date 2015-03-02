@@ -10,7 +10,7 @@ Plug 'andrewradev/splitjoin.vim', {'for': [
 Plug 'henrik/vim-indexed-search'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake', {'dir': '~/code/neomake/'}
 Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'

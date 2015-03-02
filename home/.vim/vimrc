@@ -85,6 +85,16 @@ augroup SuperTab
     \ endif
 augroup end
 
+augroup Neomake
+  autocmd!
+  autocmd BufRead * Neomake
+  autocmd BufWritePost * Neomake
+augroup end
+
+let g:neomake_make_modified = 1
+" let g:neomake_verbose = 3
+let g:neomake_verbose = 0
+
 " CtrlP
 let g:ctrlp_max_files = 100000
 let g:ctrlp_working_path_mode = 0
@@ -102,21 +112,11 @@ if executable('ag')
 endif
 
 " Vim AirLine
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_enable_syntastic = 1
 
 " Rspec
 let g:rspec_command = "SlimuxShellRun bundle exec spring rspec {spec}"
-
-" Syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_open = 1
 
 " Netrw
 let g:netrw_localrmdir='rm -r'

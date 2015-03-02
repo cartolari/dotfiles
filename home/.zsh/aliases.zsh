@@ -1,5 +1,7 @@
 alias ack='ack-grep'
 alias cls='printf "\033c"'
+alias clear='echo Use Ctrl-l to clear the screen'
+alias cls='echo Use Ctrl-l to clear the screen'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias tmux='TERM=screen-256color-bce tmux'
 alias vi='nvim'

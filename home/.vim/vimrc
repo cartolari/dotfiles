@@ -71,7 +71,7 @@ augroup vimrcEx
   " Automatically closes Fugitive.vim buffers when leaving them
   autocmd BufReadPost fugitive://* set bufhidden=delete
   " Resize splits when the window is resized
-  au VimResized * :wincmd =
+  autocmd VimResized * :wincmd =
 augroup END
 
 " SuperTab

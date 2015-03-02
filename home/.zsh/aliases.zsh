@@ -39,3 +39,13 @@ alias s='ssh'
 
 # Git
 alias gcln='git clone'
+
+# Vagrant
+alias v='vagrant'
+alias vdestroy='vagrant destroy'
+alias vhalt='vagrant halt'
+alias vprovision='vagrant provision'
+alias vreload='vagrant reload'
+alias vssh='vagrant ssh'
+alias vst='vagrant status'
+alias vup='vagrant up'

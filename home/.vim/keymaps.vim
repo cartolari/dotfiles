@@ -58,7 +58,7 @@ noremap <silent> <Down> :res -3<CR>
 nnoremap <Space> za
 
 " Indent entire file without moving the cursor
-nnoremap == migg=G`i`
+nnoremap == migg=G`i
 
 " Move lines or chunks of lines up and down
 " Bubble single lines

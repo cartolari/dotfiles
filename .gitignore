@@ -45,3 +45,6 @@ npm-debug.log
 # Netrw history
 .netrwhist
 home/.vim/autoload/plug.vim.old
+
+# Vim tmp files
+home/.vim/tmp/

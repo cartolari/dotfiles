@@ -7,6 +7,7 @@ Plug 'andrewradev/splitjoin.vim', {'for': [
       \ 'ruby', 'eruby', 'coffee', 'python',
       \ 'javascript', 'html', 'xml', 'css',
       \ 'scss', 'less', 'yaml', 'vim' ]}
+Plug 'andrewradev/switch.vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'

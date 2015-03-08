@@ -96,8 +96,12 @@ augroup Neomake
 augroup end
 
 let g:neomake_make_modified = 1
-" let g:neomake_verbose = 3
 let g:neomake_verbose = 0
+let g:neomake_haml_haml_lint_maker = {
+  \ 'exe': 'haml-lint',
+  \ 'errorformat': '%f:%l [%t] %m'
+  \ }
+let g:neomake_haml_enabled_makers = ['haml_lint']
 
 " CtrlP
 let g:ctrlp_max_files = 100000

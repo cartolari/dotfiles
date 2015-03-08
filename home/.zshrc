@@ -17,7 +17,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/home/bruno/.npm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/java/jre1.7.0_60/bin:/opt/eb/eb/linux/python2.7/"
 source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
 chruby ruby-2.1.5
 
 # Disable software control flow

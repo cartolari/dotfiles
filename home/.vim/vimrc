@@ -77,6 +77,10 @@ augroup vimrcEx
   autocmd VimResized * :wincmd =
 augroup END
 
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --smart-case
+end
+
 " SuperTab
 let g:SuperTabDefaultCompletionType = 'context'
 

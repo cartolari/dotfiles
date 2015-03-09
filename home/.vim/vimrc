@@ -119,10 +119,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Vim AirLine
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
 " Rspec
 let g:rspec_command = "SlimuxShellRun bundle exec spring rspec {spec}"
 

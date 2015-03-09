@@ -45,7 +45,6 @@ Plug 'epeli/slimux', {'on': ['SlimuxREPLSendLine', 'SlimuxREPLSendSelection',
 Plug 'tpope/vim-fugitive'
 
 "Interface
-Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 
 "Language specific

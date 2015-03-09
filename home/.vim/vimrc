@@ -26,7 +26,6 @@ set wildmode=full
 set mouse=a
 set nowrap
 set shiftround
-set fillchars+=stlnc:-
 set laststatus=2
 set nobackup
 set noswapfile

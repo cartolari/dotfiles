@@ -105,7 +105,6 @@ let g:netrw_localrmdir='rm -r'
 let g:instant_markdown_autostart = 0
 
 " Lightline
-let g:bufferline_echo = 0
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -123,3 +122,6 @@ let g:lightline = {
   \ 'separator': { 'left': '', 'right': '' },
   \ 'subseparator': { 'left': '', 'right': '' }
   \ }
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1

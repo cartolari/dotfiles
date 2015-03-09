@@ -86,3 +86,6 @@ let g:UltiSnipsListSnippets="<C-k>"
 
 " Uses <C-p> as fzf trigger
 nnoremap <silent> <C-p> :FZF<CR>
+
+" Make
+nnoremap <silent> <leader>m :Neomake

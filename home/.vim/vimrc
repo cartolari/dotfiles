@@ -88,13 +88,6 @@ augroup SuperTab
     \ endif
 augroup end
 
-augroup Neomake
-  autocmd!
-  autocmd BufRead * Neomake
-  autocmd BufWritePost * Neomake
-augroup end
-
-let g:neomake_make_modified = 1
 let g:neomake_verbose = 0
 let g:neomake_haml_haml_lint_maker = {
   \ 'exe': 'haml-lint',

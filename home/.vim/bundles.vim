@@ -45,9 +45,9 @@ Plug 'epeli/slimux', {'on': ['SlimuxREPLSendLine', 'SlimuxREPLSendSelection',
 Plug 'tpope/vim-fugitive'
 
 "Interface
-Plug 'bling/vim-bufferline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
+Plug 'techlivezheng/vim-plugin-minibufexpl'
 
 "Language specific
 Plug 'guns/vim-sexp', {'for': ['clojure', 'lisp', 'scheme']}

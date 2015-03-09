@@ -88,4 +88,4 @@ let g:UltiSnipsListSnippets="<C-k>"
 nnoremap <silent> <C-p> :FZF<CR>
 
 " Make
-nnoremap <silent> <leader>m :Neomake
+nnoremap <silent> <leader>m :Neomake<CR>

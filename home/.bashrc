@@ -124,3 +124,4 @@ export JAVA_HOME=/usr/local/java/jre1.7.0_60
 export PATH=$HOME/npm/bin:$PATH
 export PATH=$PATH:/usr/local/java/jre1.7.0_60/bin
 # export TERM="xterm-256color"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

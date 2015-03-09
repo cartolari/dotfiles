@@ -32,3 +32,5 @@ if [[ -z "$TMUX" ]]
 then
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 fi
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

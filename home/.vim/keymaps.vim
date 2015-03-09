@@ -83,3 +83,6 @@ let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-k>"
+
+" Uses <C-p> as fzf trigger
+nnoremap <silent> <C-p> :FZF<CR>

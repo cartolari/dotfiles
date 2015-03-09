@@ -35,7 +35,7 @@ Plug 'trapd00r/neverland-vim-theme'
 Plug 'amdt/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
 
 "File finders and browsers
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'rking/ag.vim', {'on': ['Ag']}
 
 "Integrations

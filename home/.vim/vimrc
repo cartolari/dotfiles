@@ -36,6 +36,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set dictionary=/usr/share/dict/words
 set foldmethod=syntax
 set foldlevel=3
+set history=1000
 colorscheme neverland
 
 " CSApprox, for emulating gvim colors on the terminal

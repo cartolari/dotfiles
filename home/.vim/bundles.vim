@@ -45,6 +45,7 @@ Plug 'epeli/slimux', {'on': ['SlimuxREPLSendLine', 'SlimuxREPLSendSelection',
 Plug 'tpope/vim-fugitive'
 
 "Interface
+Plug 'konfekt/fastfold'
 Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'

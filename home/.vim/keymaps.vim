@@ -89,3 +89,6 @@ nnoremap <silent> <C-p> :FZF<CR>
 
 " Make
 nnoremap <silent> <leader>m :Neomake<CR>
+
+" Start external command with !
+nnoremap ! :!

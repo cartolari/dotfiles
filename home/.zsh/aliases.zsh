@@ -6,6 +6,7 @@ alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias tmux='TERM=screen-256color-bce tmux'
 alias vi='nvim'
 alias vim='nvim'
+alias server='python -m SimpleHTTPServer'
 
 # Apt
 alias apt-install='sudo apt-get install'

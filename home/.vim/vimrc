@@ -130,3 +130,12 @@ let g:lightline = {
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
+
+" Switch
+autocmd FileType ruby let b:switch_custom_definitions =
+  \ [
+  \   {
+  \     'validates_\(\w\+\)_of\s\+\(:\w\+\)': 'validates \2, \1: true',
+  \     'validates\s\+:\(\w\+\),\s\+\(\w\+\):\s\+true':     'validates_\2_of :\1',
+  \   },
+  \ ]

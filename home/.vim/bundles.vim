@@ -11,7 +11,7 @@ Plug 'andrewradev/switch.vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'
-Plug 'benekastah/neomake', {'dir': '~/code/neomake/'}
+Plug 'benekastah/neomake'
 Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'

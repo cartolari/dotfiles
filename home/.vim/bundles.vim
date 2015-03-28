@@ -25,9 +25,10 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
 Plug 'rstacruz/sparkup', {'for': 'html'}
-Plug 'ervandew/supertab'
+Plug 'cartolari/vim-clevertab'
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
+Plug 'wellle/tmux-complete.vim'
 
 "Colorschemes
 Plug 'csapprox'

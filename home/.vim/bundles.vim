@@ -12,7 +12,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'benekastah/neomake'
-Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
+Plug 'janko-m/vim-test'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -25,7 +25,7 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
 Plug 'rstacruz/sparkup', {'for': 'html'}
-Plug 'cartolari/vim-clevertab'
+Plug 'cartolari/vim-clevertab', {'dir': '~/code/vim-clevertab/'}
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
 Plug 'wellle/tmux-complete.vim'
@@ -40,9 +40,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'rking/ag.vim', {'on': ['Ag']}
 
 "Integrations
-Plug 'epeli/slimux', {'on': ['SlimuxREPLSendLine', 'SlimuxREPLSendSelection',
-      \ 'SlimuxREPLConfigure', 'SlimuxShellPrompt', 'SlimuxShellLast',
-      \ 'SlimuxShellRun', 'SlimuxShellConfigure']}
+Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-fugitive'
 
 "Interface

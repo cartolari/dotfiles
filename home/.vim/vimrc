@@ -141,3 +141,9 @@ function! CleverTabCustom()
 endfunction
 autocmd BufEnter * call CleverTabCustom()
 
+" Vim test
+let g:test#strategy = "vtr"
+augroup VimTest
+  autocmd!
+  autocmd FileType javascript,coffee let g:test#runners['Javascript'] = ['Teaspoon']
+augroup end

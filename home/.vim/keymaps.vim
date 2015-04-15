@@ -72,11 +72,12 @@ vmap <C-Down> ]egv
 nnoremap <silent> <Leader>l :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
 
-" Rspec
-nnoremap <silent> <Leader>rf :call RunCurrentSpecFile()<CR>
-nnoremap <silent> <Leader>rn :call RunNearestSpec()<CR>
-nnoremap <silent> <Leader>rl :call RunLastSpec()<CR>
-nnoremap <silent> <Leader>ra :call RunAllSpecs()<CR>
+" Run tests from Vim
+noremap <silent> <leader>rn :TestNearest<CR>
+noremap <silent> <leader>rf :TestFile<CR>
+noremap <silent> <leader>ra :TestSuite<CR>
+noremap <silent> <leader>rl :TestLast<CR>
+noremap <silent> <leader>rg :TestVisit<CR>
 
 " Set ultisnips triggers
 let g:UltiSnipsExpandTrigger="<Tab>"

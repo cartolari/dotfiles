@@ -8,11 +8,11 @@ Plug 'andrewradev/splitjoin.vim', {'for': [
       \ 'javascript', 'html', 'xml', 'css',
       \ 'scss', 'less', 'yaml', 'vim' ]}
 Plug 'andrewradev/switch.vim'
+Plug 'benekastah/neomake'
 Plug 'henrik/vim-indexed-search'
+Plug 'janko-m/vim-test'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'
-Plug 'benekastah/neomake'
-Plug 'janko-m/vim-test'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -21,11 +21,11 @@ Plug 'vim-scripts/starrange'
 Plug 'wolfy87/vim-enmasse', {'on': ['EnMasse', 'EnMasseVersion']}
 
 "Completions and snippets
+Plug 'cartolari/vim-clevertab', {'dir': '~/code/vim-clevertab/'}
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
 Plug 'rstacruz/sparkup', {'for': 'html'}
-Plug 'cartolari/vim-clevertab', {'dir': '~/code/vim-clevertab/'}
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
 Plug 'wellle/tmux-complete.vim'
@@ -44,10 +44,10 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'tpope/vim-fugitive'
 
 "Interface
-Plug 'konfekt/fastfold'
 Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
+Plug 'konfekt/fastfold'
 
 "Language specific
 Plug 'guns/vim-sexp', {'for': ['clojure', 'lisp', 'scheme']}

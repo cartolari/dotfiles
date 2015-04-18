@@ -1,0 +1,30 @@
+snippet class "class <class_name> ... end" b
+class ${1:`!p snip.rv=classify(snip.basename)`}
+	def initialize${2:(${3:args})}`!p instance_assigns(t[2], snip)`
+	end
+end
+endsnippet
+
+snippet defi "def initialize(args) ... end" b
+def initialize${2:(${3:args})}`!p instance_assigns(t[2], snip)`
+end
+endsnippet
+
+global !p
+from re import sub
+def classify(file_without_extension):
+	titleized_file = file_without_extension.title()
+	valid_class_name = sub(r'[^a-zA-Z0-9]', '', titleized_file)
+	return valid_class_name
+
+def instance_assigns(args, snip):
+	splitted = [arg.strip('() ') for arg in args.split(',')]
+	lines = ["@%s = %s" % (arg, arg) for arg in splitted]
+	snip >> 2
+	for line in lines:
+		snip += line
+endglobal
+
+snippet bp
+binding.pry
+endsnippet

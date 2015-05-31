@@ -34,3 +34,5 @@ then
 fi
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export TERM=xterm-256color

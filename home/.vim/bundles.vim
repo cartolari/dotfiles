@@ -37,7 +37,6 @@ Plug 'amdt/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
 
 "File finders and browsers
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-Plug 'rking/ag.vim', {'on': ['Ag']}
 
 "Integrations
 Plug 'christoomey/vim-tmux-runner'

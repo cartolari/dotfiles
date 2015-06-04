@@ -36,3 +36,4 @@ export FZF_DEFAULT_COMMAND='ag -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export TERM=xterm-256color
+export NVIM_TUI_ENABLE_TRUE_COLOR=1

@@ -89,9 +89,6 @@ let g:neomake_haml_haml_lint_maker = {
   \ }
 let g:neomake_haml_enabled_makers = ['haml_lint']
 
-" Rspec
-let g:rspec_command = "SlimuxShellRun bundle exec spring rspec {spec}"
-
 " Netrw
 let g:netrw_localrmdir='rm -r'
 

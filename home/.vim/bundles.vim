@@ -52,6 +52,7 @@ Plug 'konfekt/fastfold'
 Plug 'guns/vim-sexp', {'for': ['clojure', 'lisp', 'scheme']}
 Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
 Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
+Plug 'mxw/vim-jsx'
 Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install -g instant-markdown-d'}

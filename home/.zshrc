@@ -25,6 +25,7 @@ stty -ixon
 export EDITOR=nvim
 export PATH=$PATH:/opt/adt/tools
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/opt/maven/bin
 
 export ANDROID_HOME=/opt/adt
 

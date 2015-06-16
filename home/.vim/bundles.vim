@@ -9,6 +9,7 @@ Plug 'andrewradev/splitjoin.vim', {'for': [
       \ 'scss', 'less', 'yaml', 'vim' ]}
 Plug 'andrewradev/switch.vim'
 Plug 'benekastah/neomake'
+Plug 'embear/vim-localvimrc'
 Plug 'henrik/vim-indexed-search'
 Plug 'janko-m/vim-test'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}

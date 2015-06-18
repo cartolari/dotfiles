@@ -26,7 +26,7 @@ Plug 'cartolari/vim-clevertab', {'dir': '~/code/vim-clevertab/'}
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
-Plug 'rstacruz/sparkup', {'for': 'html'}
+Plug 'rstacruz/sparkup', {'for': ['html', 'xml']}
 Plug 'sirver/ultisnips'
 Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
 Plug 'wellle/tmux-complete.vim'
@@ -68,7 +68,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'drslump/vim-syntax-js', {'for': ['javascript', 'html', 'haml']}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
-Plug 'Valloric/MatchTagAlways', {'for': 'html'}
+Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml']}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'vim-scripts/JavaScript-Indent', {'for': ['javascript', 'html', 'haml']}
 

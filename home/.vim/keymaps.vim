@@ -90,3 +90,7 @@ nnoremap <silent> <leader>m :Neomake<CR>
 
 " Start external command with !
 nnoremap ! :!
+
+" Invert ; and :
+nnoremap ; :
+nnoremap : ;

@@ -82,8 +82,10 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-k>"
 
-" Uses <C-p> as fzf trigger
-nnoremap <silent> <C-p> :FZF<CR>
+" Uses <leader>t as fzf trigger
+nnoremap <silent> <leader>t :FZF<CR>
+" Uses <leader>T as fzf mru trigger
+nnoremap <silent> <leader>T :FZFMru<CR>
 
 " Make
 nnoremap <silent> <leader>m :Neomake<CR>

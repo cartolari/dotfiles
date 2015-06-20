@@ -96,3 +96,5 @@ nnoremap ! :!
 " Invert ; and :
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;

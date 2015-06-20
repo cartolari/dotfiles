@@ -37,6 +37,7 @@ alias s='ssh'
 
 # Git
 alias gcln='git clone'
+alias gdc='git diff --cached'
 
 # Vagrant
 alias v='vagrant'

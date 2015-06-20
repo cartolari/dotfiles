@@ -140,10 +140,6 @@ autocmd BufEnter * call CleverTabCustom()
 
 " Vim test
 let g:test#strategy = "vtr"
-augroup VimTest
-  autocmd!
-  autocmd FileType javascript,coffee let g:test#runners['Javascript'] = ['Teaspoon']
-augroup end
 
 let g:localvimrc_persistent = 1
 let g:localvimrc_sandbox = 0

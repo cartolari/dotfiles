@@ -7,6 +7,7 @@
 [alias]
 	co = checkout
 	st = status
+	ctags = !.git/hooks/ctags
 [diff]
 	tool = nvimdiff
 [merge]
@@ -20,3 +21,5 @@
 	enabled = true
 [branch]
 	autosetuprebase = always
+[init]
+	templatedir = /home/bruno/.git_template

@@ -45,9 +45,6 @@ command! -bang W w<bang>
 command! -bang WQ wq<bang>
 command! -bang Wq wq<bang>
 
-" Clear highlighted searchs
-nnoremap <silent> <leader>h :<C-u>set hlsearch!<CR>
-
 "Remap arrow keys to easily resize windows
 noremap <silent> <Right> :vertical res +3<CR>
 noremap <silent> <Left> :vertical res -3<CR>

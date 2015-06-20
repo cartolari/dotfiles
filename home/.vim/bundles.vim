@@ -28,6 +28,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
 Plug 'rstacruz/sparkup', {'for': ['html', 'xml']}
 Plug 'sirver/ultisnips'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
 Plug 'wellle/tmux-complete.vim'
 

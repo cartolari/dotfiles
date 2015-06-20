@@ -42,6 +42,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 
 "Integrations
 Plug 'christoomey/vim-tmux-runner'
+Plug 'kassio/neoterm'
 Plug 'tpope/vim-fugitive'
 
 "Interface

@@ -139,7 +139,7 @@ endfunction
 autocmd BufEnter * call CleverTabCustom()
 
 " Vim test
-let g:test#strategy = "vtr"
+let g:test#strategy = 'neoterm'
 
 let g:localvimrc_persistent = 1
 let g:localvimrc_sandbox = 0
@@ -162,3 +162,6 @@ command! FZFMru call fzf#run({
       \ 'options': '+m',
       \ 'down': len(<sid>buflist()) + 2
       \ })
+
+" Neoterm
+let g:neoterm_position = 'vertical'

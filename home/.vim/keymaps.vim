@@ -98,3 +98,8 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+augroup NeoTerm
+  autocmd!
+  autocmd BufEnter * if &buftype==?'terminal' | nnoremap <buffer> <silent> <leader>q :Tclose<CR> | endif
+augroup end

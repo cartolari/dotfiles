@@ -37,6 +37,7 @@ set dictionary=/usr/share/dict/words
 set foldmethod=syntax
 set nofoldenable
 set history=1000
+set scrolloff=3 " Leave some ground while scrolling
 colorscheme neverland
 
 " CSApprox, for emulating gvim colors on the terminal

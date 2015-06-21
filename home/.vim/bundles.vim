@@ -53,6 +53,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'konfekt/fastfold'
 
 "Language specific
+Plug 'ecomba/vim-ruby-refactoring'
 Plug 'guns/vim-sexp', {'for': ['clojure', 'lisp', 'scheme']}
 Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
 Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}

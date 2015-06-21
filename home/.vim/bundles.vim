@@ -50,6 +50,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ap/vim-buftabline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
+Plug 'konfekt/fastfold'
 
 "Language specific
 Plug 'guns/vim-sexp', {'for': ['clojure', 'lisp', 'scheme']}

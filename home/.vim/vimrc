@@ -34,7 +34,7 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set dictionary=/usr/share/dict/words
-set foldmethod=manual
+set foldmethod=syntax
 set nofoldenable
 set history=1000
 set scrolloff=3 " Leave some ground while scrolling

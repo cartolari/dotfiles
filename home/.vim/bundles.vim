@@ -14,6 +14,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'janko-m/vim-test'
 Plug 'kana/vim-textobj-user', {'for': 'ruby'}
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tommcdo/vim-exchange'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'

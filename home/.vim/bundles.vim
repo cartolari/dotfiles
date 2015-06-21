@@ -35,6 +35,7 @@ Plug 'wellle/tmux-complete.vim'
 "Colorschemes
 Plug 'csapprox'
 Plug 'trapd00r/neverland-vim-theme'
+Plug 'reedes/vim-colors-pencil'
 Plug 'cartolari/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
 
 "File finders and browsers

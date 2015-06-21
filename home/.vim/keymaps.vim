@@ -101,3 +101,10 @@ augroup NeoTerm
   autocmd!
   autocmd BufEnter * if &buftype==?'terminal' | nnoremap <buffer> <silent> <leader>q :Tclose<CR> | endif
 augroup end
+
+" CtrlSF (search)
+nmap <leader>f <Plug>CtrlSFPrompt
+vmap <leader>f <Plug>CtrlSFVwordPath
+vmap <leader>F <Plug>CtrlSFVwordExec
+nmap <leader>n <Plug>CtrlSFCwordPath
+nmap <leader>p <Plug>CtrlSFPwordPath

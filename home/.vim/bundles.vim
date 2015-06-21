@@ -20,7 +20,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/starrange'
-Plug 'wolfy87/vim-enmasse', {'on': ['EnMasse', 'EnMasseVersion']}
 
 "Completions and snippets
 Plug 'cartolari/vim-clevertab', {'dir': '~/code/vim-clevertab/'}
@@ -40,6 +39,7 @@ Plug 'cartolari/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
 
 "File finders and browsers
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
+Plug 'dyng/ctrlsf.vim'
 
 "Integrations
 Plug 'christoomey/vim-tmux-runner'

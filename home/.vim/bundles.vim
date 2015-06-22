@@ -70,6 +70,10 @@ Plug 'tpope/vim-unimpaired'
   Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 " }}}
 
+" CSS {{{
+  Plug 'gorodinskiy/vim-coloresque'
+" }}}
+
 " Dockerfile {{{
   Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
 " }}}

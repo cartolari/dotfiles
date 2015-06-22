@@ -172,3 +172,7 @@ let g:neoterm_position = 'vertical'
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_leading_space = 2
 let g:ctrlsf_regex_pattern = 1
+
+" Disable standar tComment mappings
+let g:tcommentMapLeader1 = ''
+let g:tcommentMapLeader2 = ''

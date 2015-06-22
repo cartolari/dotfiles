@@ -9,11 +9,11 @@ endif
   Plug 'tpope/vim-repeat'
 " }}}
 
-" Colorschemes {{{
-Plug 'cartolari/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
-Plug 'vim-scripts/csapprox'
-Plug 'trapd00r/neverland-vim-theme'
-Plug 'reedes/vim-colors-pencil'
+" Color Schemes {{{
+  Plug 'cartolari/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
+  Plug 'vim-scripts/csapprox'
+  Plug 'trapd00r/neverland-vim-theme'
+  Plug 'reedes/vim-colors-pencil'
 " }}}
 
 " Completions and Snippets {{{
@@ -32,20 +32,20 @@ Plug 'reedes/vim-colors-pencil'
 " }}}
 
 " General Programming {{{
-Plug 'andrewradev/splitjoin.vim', {'for': [
-      \ 'ruby', 'eruby', 'coffee', 'python',
-      \ 'javascript', 'html', 'xml', 'css',
-      \ 'scss', 'less', 'yaml', 'vim' ]}
-Plug 'andrewradev/switch.vim'
-Plug 'benekastah/neomake'
-Plug 'embear/vim-localvimrc'
-Plug 'janko-m/vim-test'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tommcdo/vim-exchange'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
+  Plug 'andrewradev/splitjoin.vim', {'for': [
+        \ 'ruby', 'eruby', 'coffee', 'python',
+        \ 'javascript', 'html', 'xml', 'css',
+        \ 'scss', 'less', 'yaml', 'vim' ]}
+  Plug 'andrewradev/switch.vim'
+  Plug 'benekastah/neomake'
+  Plug 'embear/vim-localvimrc'
+  Plug 'janko-m/vim-test'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'tommcdo/vim-exchange'
+  Plug 'tomtom/tcomment_vim'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
 " }}}
 
 " Integrations {{{

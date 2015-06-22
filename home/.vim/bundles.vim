@@ -25,9 +25,9 @@ Plug 'reedes/vim-colors-pencil'
 " }}}
 
 " File and Search {{{
-  Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
   Plug 'dyng/ctrlsf.vim'
   Plug 'henrik/vim-indexed-search'
+  Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
   Plug 'vim-scripts/starrange'
 " }}}
 

@@ -1,10 +1,15 @@
+" vim: set foldlevel=0 foldmethod=marker:
+
 set nocompatible
 let mapleader = ","
 
+" Vimscripts {{{
 source ~/.vim/bundles.vim
 source ~/.vim/keymaps.vim
+runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
+" }}}
 
-" Vim options
+" Vim options {{{
 filetype plugin indent on
 syntax on
 set encoding=utf-8
@@ -40,18 +45,41 @@ set history=1000
 set scrolloff=3 " Leave some ground while scrolling
 set bg=dark
 colorscheme neverland
+" }}}
 
-" CSApprox, for emulating gvim colors on the terminal
+" CSApprox, for emulating gvim colors on the terminal {{{
 if !has('gui_running') && exists(':CSApprox')
   CSApprox
 endif
 
 if &term =~ '^\(xterm\|screen\)$' && $COLORTERM == 'gnome-terminal'
+  " Number of terminal colors
   set t_Co=256
 endif
+" }}}
 
-runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
+augroup markdown " {{{
+  autocmd!
 
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  " Enable spellchecking for Markdown
+  autocmd FileType markdown setlocal spell
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+augroup END " }}}
+
+augroup git " {{{
+  autocmd!
+
+  " Automatically wrap at 72 characters and spell check git commit messages
+  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal spell
+  " Automatically closes Fugitive.vim buffers when leaving them
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END " }}}
+
+" General auto commands {{{
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.
@@ -61,43 +89,39 @@ augroup vimrcEx
         \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
         \ exe "normal g`\"" |
         \ endif
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  " Enable spellchecking for Markdown
-  autocmd FileType markdown setlocal spell
-  " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-  " Automatically wrap at 72 characters and spell check git commit messages
-  autocmd FileType gitcommit setlocal textwidth=72
-  autocmd FileType gitcommit setlocal spell
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
   " Remove any trailing whitespace before saving
   autocmd BufWrite * :FixWhitespace
-  " Automatically closes Fugitive.vim buffers when leaving them
-  autocmd BufReadPost fugitive://* set bufhidden=delete
   " Resize splits when the window is resized
   autocmd VimResized * :wincmd =
 augroup END
+" }}}
 
+" Ag as grep {{{
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --smart-case
 end
+" }}}
 
+" Neomake {{{
 let g:neomake_verbose = 0
 let g:neomake_haml_haml_lint_maker = {
   \ 'exe': 'haml-lint',
   \ 'errorformat': '%f:%l [%t] %m'
   \ }
 let g:neomake_haml_enabled_makers = ['haml_lint']
+" }}}
 
-" Netrw
+" Netrw {{{
 let g:netrw_localrmdir='rm -r'
+" }}}
 
-" Vim instant markdown
+" Vim instant markdown {{{
 let g:instant_markdown_autostart = 0
+" }}}
 
-" Lightline
+" Lightline {{{
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
@@ -118,8 +142,9 @@ let g:lightline = {
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
+" }}}
 
-" Switch
+" Switch {{{
 autocmd FileType ruby let b:switch_custom_definitions =
   \ [
   \   {
@@ -127,7 +152,9 @@ autocmd FileType ruby let b:switch_custom_definitions =
   \     'validates\s\+:\(\w\+\),\s\+\(\w\+\):\s\+true':     'validates_\2_of :\1',
   \   },
   \ ]
+" }}}
 
+" CleverTab {{{
 function! CleverTabCustom()
   inoremap <silent><tab> <c-r>=CleverTab#Complete('start')<cr>
                         \<c-r>=CleverTab#Complete('tab')<cr>
@@ -139,13 +166,19 @@ function! CleverTabCustom()
   inoremap <silent><s-tab> <c-r>=CleverTab#Complete('prev')<cr>
 endfunction
 autocmd BufEnter * call CleverTabCustom()
+" }}}
 
-" Vim test
+" Vim test {{{
 let g:test#strategy = 'neoterm'
+" }}}
 
+" Localvimrc  {{{
 let g:localvimrc_persistent = 1
 let g:localvimrc_sandbox = 0
+" }}}
 
+" FZF {{{
+" Return a list with all open buffers
 function! s:buflist()
   redir => ls
   silent ls
@@ -157,22 +190,26 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-" FZF
+" Command to list MRU files
 command! FZFMru call fzf#run({
       \ 'source': reverse(<sid>buflist()),
       \ 'sink': function('<sid>bufopen'),
       \ 'options': '+m',
       \ 'down': len(<sid>buflist()) + 2
       \ })
+" }}}
 
-" Neoterm
+" Neoterm {{{
 let g:neoterm_position = 'vertical'
+" }}}
 
-" CtrlSF
+" CtrlSF {{{
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_leading_space = 2
 let g:ctrlsf_regex_pattern = 1
+" }}}
 
-" Disable standar tComment mappings
+" Disable standar tComment mappings {{{
 let g:tcommentMapLeader1 = ''
 let g:tcommentMapLeader2 = ''
+" }}}

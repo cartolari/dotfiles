@@ -33,7 +33,7 @@ nnoremap - :Explore<CR>
 " Get current direcory in command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Save as sudo
-cnoremap w!! %!sudo tee > /dev/null %
+cnoremap w!! w !sudo tee > /dev/null %
 
 " Fix common typos in command mode
 command! -bang Q q<bang>

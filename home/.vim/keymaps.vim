@@ -108,3 +108,6 @@ vmap <leader>f <Plug>CtrlSFVwordPath
 vmap <leader>F <Plug>CtrlSFVwordExec
 nmap <leader>n <Plug>CtrlSFCwordPath
 nmap <leader>p <Plug>CtrlSFPwordPath
+
+" Yank Ring
+nnoremap <silent> <Leader>yr :YRGetElem<CR>

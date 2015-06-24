@@ -47,6 +47,7 @@ endif
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+  Plug 'vim-scripts/YankRing.vim'
 " }}}
 
 " Integrations {{{

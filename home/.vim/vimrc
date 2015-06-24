@@ -213,3 +213,7 @@ let g:ctrlsf_regex_pattern = 1
 let g:tcommentMapLeader1 = ''
 let g:tcommentMapLeader2 = ''
 " }}}
+
+" Yank Ring {{{
+let g:yankring_dot_repeat_yank = 1
+" }}}

@@ -13,6 +13,7 @@ endif
   Plug 'cartolari/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
   Plug 'vim-scripts/csapprox'
   Plug 'trapd00r/neverland-vim-theme'
+  Plug 'sjl/badwolf'
   Plug 'reedes/vim-colors-pencil'
 " }}}
 

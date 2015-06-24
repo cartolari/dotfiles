@@ -44,7 +44,7 @@ set nofoldenable
 set history=1000
 set scrolloff=3 " Leave some ground while scrolling
 set bg=dark
-colorscheme neverland
+colorscheme badwolf
 " }}}
 
 " CSApprox, for emulating gvim colors on the terminal {{{
@@ -142,6 +142,7 @@ let g:lightline = {
 let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
+let g:lightline.colorscheme = 'Tomorrow_Night'
 " }}}
 
 " Switch {{{

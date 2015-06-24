@@ -217,4 +217,5 @@ let g:tcommentMapLeader2 = ''
 
 " Yank Ring {{{
 let g:yankring_dot_repeat_yank = 1
+let g:yankring_clipboard_monitor = 0
 " }}}

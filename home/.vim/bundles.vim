@@ -39,6 +39,7 @@ endif
   Plug 'andrewradev/switch.vim'
   Plug 'benekastah/neomake'
   Plug 'embear/vim-localvimrc'
+  Plug 'mbbill/undotree'
   Plug 'janko-m/vim-test'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tommcdo/vim-exchange'

@@ -1,4 +1,4 @@
-" vim: set foldlevel=0 foldmethod=marker spell:
+" vim: set foldlevel=0 foldmethod=marker:
 
 if has('vim_starting')
   call plug#begin('~/.vim/bundle')

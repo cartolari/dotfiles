@@ -113,7 +113,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
       \ "mode": "passive",
       \ "active_filetypes": [],
-      \ "passive_filetypes":  }
+      \ "passive_filetypes": [] }
 
 let g:syntastic_error_symbol='✗'
 let g:syntastic_style_error_symbol = '✗'
@@ -222,7 +222,7 @@ let g:ctrlsf_leading_space = 2
 let g:ctrlsf_regex_pattern = 1
 " }}}
 
-" Disable standar tComment mappings {{{
+" Disable standard tComment mappings {{{
 let g:tcommentMapLeader1 = ''
 let g:tcommentMapLeader2 = ''
 " }}}

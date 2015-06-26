@@ -40,6 +40,7 @@ endif
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
+  Plug 'majutsushi/tagbar'
   Plug 'mbbill/undotree'
   Plug 'scrooloose/syntastic'
   Plug 'terryma/vim-multiple-cursors'

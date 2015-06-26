@@ -37,11 +37,11 @@ endif
         \ 'javascript', 'html', 'xml', 'css',
         \ 'scss', 'less', 'yaml', 'vim' ]}
   Plug 'andrewradev/switch.vim'
-  Plug 'benekastah/neomake'
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'mbbill/undotree'
+  Plug 'scrooloose/syntastic'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tommcdo/vim-exchange'
   Plug 'tomtom/tcomment_vim'

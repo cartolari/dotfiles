@@ -86,7 +86,7 @@ nnoremap <silent> <leader>t :FZF<CR>
 nnoremap <silent> <leader>T :FZFMru<CR>
 
 " Make
-nnoremap <silent> <leader>m :Neomake<CR>
+nnoremap <silent> <leader>m :SyntasticCheck<CR>
 
 " Start external command with !
 nnoremap ! :!

@@ -89,12 +89,14 @@ augroup vimrcEx
         \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
         \ exe "normal g`\"" |
         \ endif
-  " Allow stylesheets to autocomplete hyphenated words
-  autocmd FileType css,scss,sass setlocal iskeyword+=-
+  " Allow stylesheets and html to autocomplete hyphenated words
+  autocmd FileType html,css,scss,sass setlocal iskeyword+=-
   " Remove any trailing whitespace before saving
   autocmd BufWrite * :FixWhitespace
   " Resize splits when the window is resized
   autocmd VimResized * :wincmd =
+  " Treat ? as part of names in Ruby
+  autocmd FileType ruby setlocal iskeyword+=?
 augroup END
 " }}}
 

@@ -83,7 +83,6 @@ endif
 " }}}
 
 " HTML {{{
-  Plug 'amirh/HTML-AutoCloseTag'
   Plug 'othree/html5.vim', {'for': 'html'}
   Plug 'rstacruz/sparkup', {'for': ['html', 'xml']}
   Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml']}

@@ -123,7 +123,6 @@ endif
 " }}}
 
 " UI {{{
-  Plug 'ap/vim-buftabline'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'itchyny/lightline.vim'
   Plug 'konfekt/fastfold'

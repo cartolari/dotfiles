@@ -201,15 +201,31 @@ function! s:buflist()
   return split(ls, '\n')
 endfunction
 
+" Handles a MRU search in FZF
 function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+  " Exit if no file was picked
+  if len(a:e) < 2 | return | endif
+
+  " Fzf sends two lines the first with the key combination used to pick
+  " a file and the second with the matched line
+  let [key, buffer_line] = a:e[0:1]
+  " Extract the buffer number from the matched line
+  let buffer_number = matchstr(buffer_line, '^[ 0-9]*')
+  " Pick the appropriate command based on the key combination used
+  let cmd = get({
+        \ 'ctrl-x': 'sbuffer',
+        \ 'ctrl-v': 'vertical sbuffer',
+        \ 'ctrl-t': 'tabnew | buffer '
+        \ }, key, 'buffer')
+  " Run the picked command with the matched buffer
+  execute cmd . buffer_number
 endfunction
 
 " Command to list MRU files
 command! FZFMru call fzf#run({
       \ 'source': reverse(<sid>buflist()),
-      \ 'sink': function('<sid>bufopen'),
-      \ 'options': '+m',
+      \ 'sink*': function('<sid>bufopen'),
+      \ 'options': '--expect=ctrl-t,ctrl-v,ctrl-x',
       \ 'down': len(<sid>buflist()) + 2
       \ })
 " }}}

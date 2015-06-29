@@ -184,7 +184,7 @@ autocmd BufEnter * call CleverTabCustom()
 " }}}
 
 " Vim test {{{
-let g:test#strategy = 'neoterm'
+let g:test#strategy = 'vtr'
 " }}}
 
 " Localvimrc  {{{

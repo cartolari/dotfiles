@@ -102,6 +102,7 @@ endif
 " Ruby {{{
   Plug 'ecomba/vim-ruby-refactoring'
   Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
+  Plug 'sunaku/vim-ruby-minitest'
   Plug 'tpope/vim-rails', {'for': ['ruby', 'eruby', 'yaml', 'haml', 'javascript', 'coffee', 'sass', 'scss']}
   Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
 " }}}

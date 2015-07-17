@@ -16,7 +16,9 @@ nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
 " Inserts one break before and one break after the current line
-autocmd FileType * if &buftype ==? "" || &buftype ==? "acwrite" |nnoremap <buffer> <CR><CR> <S-o><Esc>jo<Esc>ki| endif
+if has('nvim')
+  autocmd FileType * if &l:modifiable | nnoremap <buffer> <M-Enter> <S-o><Esc>jo<Esc>ki| endif
+endif
 
 " Quit current file
 nnoremap <leader>q :q<CR>

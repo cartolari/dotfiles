@@ -28,3 +28,18 @@ endglobal
 snippet bp
 binding.pry
 endsnippet
+
+snippet mtc
+class ${1:`!p snip.rv=classify(snip.basename)`} < MiniTest::Test
+	$2
+end
+endsnippet
+snippet mtm
+def test_${1:something_expected_outcome}
+	$2
+end
+endsnippet
+
+snippet gem
+gem '${1:gem_name}', '~> ${2:version}'
+endsnippet

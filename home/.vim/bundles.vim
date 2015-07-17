@@ -49,6 +49,8 @@ endif
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-projectionist'
+  Plug 'vim-scripts/LargeFile'
   Plug 'vim-scripts/YankRing.vim'
 " }}}
 

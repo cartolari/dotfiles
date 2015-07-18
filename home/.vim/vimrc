@@ -47,6 +47,11 @@ set bg=dark
 colorscheme badwolf
 " }}}
 
+" Highlight {{{
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+call matchadd('OverLength', '\%81v', 100)
+" }}}
+
 " CSApprox, for emulating gvim colors on the terminal {{{
 if !has('gui_running') && exists(':CSApprox')
   CSApprox

@@ -46,10 +46,10 @@ command! -bang WQ wq<bang>
 command! -bang Wq wq<bang>
 
 "Remap arrow keys to easily resize windows
-noremap <silent> <Right> :vertical res +3<CR>
-noremap <silent> <Left> :vertical res -3<CR>
-noremap <silent> <Up> :res +3<CR>
-noremap <silent> <Down> :res -3<CR>
+nnoremap <silent> <Right> :vertical res +3<CR>
+nnoremap <silent> <Left> :vertical res -3<CR>
+nnoremap <silent> <Up> :res +3<CR>
+nnoremap <silent> <Down> :res -3<CR>
 
 " Toggle current folding
 nnoremap <Space> za

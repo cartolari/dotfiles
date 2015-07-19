@@ -41,7 +41,7 @@ endif
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
-  Plug 'mbbill/undotree'
+  Plug 'simnalamburt/vim-mundo', {'frozen': 1}
   Plug 'scrooloose/syntastic'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tommcdo/vim-exchange'

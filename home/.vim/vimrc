@@ -279,3 +279,7 @@ let g:tcommentMapLeader2 = ''
 let g:yankring_dot_repeat_yank = 1
 let g:yankring_clipboard_monitor = 0
 " }}}
+
+" Gundo {{{
+let g:gundo_prefer_python3 = 1
+" }}}

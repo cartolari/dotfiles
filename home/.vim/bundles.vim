@@ -37,11 +37,11 @@ endif
         \ 'javascript', 'html', 'xml', 'css',
         \ 'scss', 'less', 'yaml', 'vim' ]}
   Plug 'andrewradev/switch.vim'
+  Plug 'cartolari/gundo.vim'
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
-  Plug 'simnalamburt/vim-mundo', {'frozen': 1}
   Plug 'scrooloose/syntastic'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tommcdo/vim-exchange'

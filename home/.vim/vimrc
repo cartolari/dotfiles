@@ -298,9 +298,12 @@ function MapTab()
   inoremap <silent><s-tab> <c-r>=BackOrTab()<cr>
 endfunction
 
-let g:acp_behaviorSnipmateLength = 1
-let g:acp_behaviorKeywordLength = 1
+hi AcpHighlight ctermfg=15 ctermbg=236 guifg=#f8f6f2 guibg=#35322d
+let g:acp_colorForward = 'AcpHighlight'
+let g:acp_colorReverse = 'AcpHighlight'
 
+let g:acp_behaviorKeywordLength = 1
+let g:acp_behaviorSnipmateLength = 1
 let g:acp_behaviorUserDefinedFunction = 'AggregateCompletion'
 let g:acp_behaviorUserDefinedMeets = 'acp#meetsForKeyword'
 let g:acp_completeOption = '.'

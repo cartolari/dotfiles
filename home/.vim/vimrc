@@ -45,6 +45,7 @@ set history=1000
 set scrolloff=3 " Leave some ground while scrolling
 set bg=dark
 set shortmess+=c " Quiet completions
+set splitright
 colorscheme badwolf
 " }}}
 

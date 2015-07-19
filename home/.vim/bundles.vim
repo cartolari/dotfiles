@@ -7,6 +7,7 @@ endif
 " Libs {{{
   Plug 'kana/vim-textobj-user'
   Plug 'tpope/vim-repeat'
+  Plug 'vim-scripts/l9'
 " }}}
 
 " Color Schemes {{{
@@ -18,9 +19,12 @@ endif
 " }}}
 
 " Completions and Snippets {{{
+  Plug 'dirkwallenstein/vim-autocomplpop', {'dir': '~/code/vim-autocomplpop/'}
+  Plug 'dirkwallenstein/vim-localcomplete'
   Plug 'git@github.com:cartolari/vim-clevertab.git', {'dir': '~/code/vim-clevertab/'}
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'kassio/better_tags_completion.vim'
   Plug 'sirver/ultisnips'
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
 " }}}

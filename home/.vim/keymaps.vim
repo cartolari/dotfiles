@@ -82,6 +82,12 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-k>"
 
+" Tab
+augroup Tab
+  autocmd!
+  autocmd BufEnter * call MapTab()
+augroup END
+
 " Uses <leader>t as fzf trigger
 nnoremap <silent> <leader>t :FZF<CR>
 " Uses <leader>T as fzf mru trigger

@@ -313,7 +313,6 @@ let g:acp_previousItemMapping = ['<C-p>', '<C-p>']
 let g:acp_reverseMappingInReverseMenu = 1
 
 let g:localcomplete#OriginNoteAllBuffers = '[B]'
-let g:fuzzywordcompletion_disable_keybinding = 1
 
 highlight Pmenu ctermfg=15 ctermbg=236 guifg=#f8f6f2 guibg=#35322d
 
@@ -332,7 +331,6 @@ function! AggregateCompletion(start, base)
   endif
 
   " Words in all buffers
-  " let from_local_complete = FuzzyWordCompletion(a:start, a:base)
   let from_local_complete = localcomplete#allBufferMatches(a:start, a:base)
 
   " Words in tmux

@@ -65,10 +65,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-" Slimux (for sending text from vim to a tmux pane)
-nnoremap <silent> <Leader>l :SlimuxREPLSendLine<CR>
-vnoremap <silent> <Leader>l :SlimuxREPLSendSelection<CR>
-
 " Run tests from Vim
 noremap <silent> <leader>rn :TestNearest<CR>
 noremap <silent> <leader>rf :TestFile<CR>
@@ -82,10 +78,34 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-k>"
 
-" Tab
+" Deoplete
+function ExpandSnippetOrTab()
+  call UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res == 0
+    return "\<Tab>"
+  else
+    return ""
+  endif
+endfunction
+
+function NextOrExpandSnippet()
+  return pumvisible() ? "\<C-n>" : ExpandSnippetOrTab()
+endfunction
+
+function BackOrTab()
+  return pumvisible() ? "\<C-p>" : "\<Tab>"
+endfunction
+
+function! CompletionMappings()
+  inoremap <silent><Tab> <c-r>=NextOrExpandSnippet()<cr>
+  inoremap <silent><S-Tab> <c-r>=BackOrTab()<cr>
+  inoremap <expr><C-y> deoplete#mappings#close_popup()
+  inoremap <expr><C-e> deoplete#mappings#cancel_popup()
+endfunction
+
 augroup Tab
   autocmd!
-  autocmd BufEnter * call MapTab()
+  autocmd BufEnter * call CompletionMappings()
 augroup END
 
 " Uses <leader>t as fzf trigger

@@ -11,3 +11,4 @@ home/.vim/autoload/plug.vim.old
 
 # Vim tmp files
 home/.vim/tmp/
+__pycache__

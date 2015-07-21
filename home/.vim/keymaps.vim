@@ -79,7 +79,7 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-k>"
 
 " Deoplete
-function ExpandSnippetOrTab()
+function! ExpandSnippetOrTab()
   call UltiSnips#ExpandSnippetOrJump()
   if g:ulti_expand_or_jump_res == 0
     return "\<Tab>"
@@ -88,11 +88,11 @@ function ExpandSnippetOrTab()
   endif
 endfunction
 
-function NextOrExpandSnippet()
+function! NextOrExpandSnippet()
   return pumvisible() ? "\<C-n>" : ExpandSnippetOrTab()
 endfunction
 
-function BackOrTab()
+function! BackOrTab()
   return pumvisible() ? "\<C-p>" : "\<Tab>"
 endfunction
 

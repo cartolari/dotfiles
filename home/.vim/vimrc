@@ -53,13 +53,13 @@ colorscheme badwolf
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
 " Marks the 81st column of lines wider than 80 characters
-function! ShowOverLength()
+function! OverLengthShow()
   if !exists('b:over_length_match')
     let b:over_length_match = matchadd('OverLength', '\v%81v\ze(.+)', 100)
   endif
 endfunction
 
-function! HideOverLength()
+function! OverlengthHide()
   if exists('b:over_length_match')
     call matchdelete(b:over_length_match)
     unlet b:over_length_match
@@ -68,11 +68,11 @@ endfunction
 
 augroup Highlight
   autocmd!
-  autocmd BufEnter * call ShowOverLength()
+  autocmd BufEnter * call OverLengthShow()
 augroup END
 
-command HideOverLength call HideOverLength()
-command ShowOverLength call ShowOverLength()
+command! OverLengthHide call OverlengthHide()
+command! OverLengthShow call OverLengthShow()
 " }}}
 
 " CSApprox, for emulating gvim colors on the terminal {{{

@@ -124,6 +124,7 @@ endif
 " Syntax and Indentation {{{
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'michaeljsmith/vim-indent-object'
 " }}}
 
 " UI {{{

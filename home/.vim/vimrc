@@ -105,7 +105,8 @@ augroup git " {{{
   autocmd FileType gitcommit setlocal spell
   " Automatically closes Fugitive.vim buffers when leaving them
   autocmd BufReadPost fugitive://* set bufhidden=delete
-augroup END " }}}
+augroup END
+" }}}
 
 " General auto commands {{{
 augroup vimrcEx
@@ -271,9 +272,89 @@ let g:yankring_clipboard_monitor = 0
 let g:UltiSnipsUsePythonVersion = 3
 " }}}
 
-" Deoplete {{{
+" Tab Completion {{{
+
+execute 'py3file ' . expand('<sfile>:p:h') . '/python/completion.py'
+
+let g:aggregate_completions = {
+      \  'buffers': {
+      \    'mark': '[B]',
+      \    'function': 'BufferComplete'
+      \  },
+      \  'tmux': {
+      \    'mark': '[TMUX]',
+      \    'function': 'tmuxcomplete#complete'
+      \  },
+      \  'UltiSnips': {
+      \    'mark': '[US]',
+      \    'function': 'UltiSnipsComplete'
+      \  },
+      \  'Tags': {
+      \    'mark': '[T]',
+      \    'function': 'TagComplete'
+      \  },
+      \  'Syntax': {
+      \    'mark': '[S]',
+      \    'function': 'syntaxcomplete#Complete'
+      \  }
+      \}
+
+function! BufferComplete(start, base)
+  return py3eval('unique_words()')
+endfunction
+
+function! UltiSnipsComplete(start, base)
+  return map(items(UltiSnips#SnippetsInCurrentScope()),
+        \ "{ 'word': v:val[0], 'menu': '[US] ' . v:val[1] }")
+endfunction
+
+function TagComplete(start, base)
+  return map(taglist('.*'),
+        \ "{'word': v:val.name, 'kind': v:val.kind, 'menu': '[T]'}")
+endfunction
+
+function! CompletionStart()
+  " locate the start of the word
+  let line = getline('.')
+  let start = col('.') - 1
+  while start > 0 && line[start - 1] =~ '\w'
+    let start -= 1
+  endwhile
+  return start
+endfunction
+
+augroup CompleteFuncs
+  autocmd Filetype *
+        \	if &omnifunc == '' | setlocal omnifunc=syntaxcomplete#Complete | endif
+  autocmd Filetype * setlocal completefunc=AggregateComplete
+augroup end
+
+" Joins a lot of completions source in one, and displays them altogether
+function! AggregateComplete(start, base)
+  if a:start | return CompletionStart() | endif
+
+  let all_completions = []
+  for [completion, params] in items(g:aggregate_completions)
+    let CompleteFunction = function(params.function)
+
+    let completions = map(CompleteFunction(a:start, ''),
+          \ 'MakeCompletionItem(v:val, params)')
+
+    call extend(all_completions, completions)
+  endfor
+
+  return py3eval(printf('complete_local("%s", vim.eval("l:all_completions"))', a:base))
+endfunction
+
+function MakeCompletionItem(word, options)
+  if (type(a:word) == type({})) | return a:word | endif
+  return {
+        \  'word': a:word,
+        \  'menu': a:options.mark
+        \ }
+endfunction
+
 let g:tmuxcomplete#trigger = ''
-let g:deoplete#enable_at_startup = 1
 " }}}
 
 " Gundo {{{

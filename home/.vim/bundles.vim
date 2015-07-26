@@ -22,9 +22,9 @@ endif
   Plug 'git@github.com:cartolari/vim-clevertab.git', {'dir': '~/code/vim-clevertab/'}
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'shougo/deoplete.nvim'
   Plug 'sirver/ultisnips'
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
+  Plug 'wellle/tmux-complete.vim'
 " }}}
 
 " File and Search {{{
@@ -112,7 +112,6 @@ endif
 
 " Tmux {{{
   Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
-  Plug 'wellle/tmux-complete.vim'
 " }}}
 
 " Yaml {{{

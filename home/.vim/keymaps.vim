@@ -78,34 +78,21 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-k>"
 
-" Deoplete
-function! ExpandSnippetOrTab()
-  call UltiSnips#ExpandSnippetOrJump()
-  if g:ulti_expand_or_jump_res == 0
-    return "\<Tab>"
-  else
-    return ""
-  endif
-endfunction
-
-function! NextOrExpandSnippet()
-  return pumvisible() ? "\<C-n>" : ExpandSnippetOrTab()
-endfunction
-
-function! BackOrTab()
-  return pumvisible() ? "\<C-p>" : "\<Tab>"
-endfunction
-
-function! CompletionMappings()
-  inoremap <silent><Tab> <c-r>=NextOrExpandSnippet()<cr>
-  inoremap <silent><S-Tab> <c-r>=BackOrTab()<cr>
-  inoremap <expr><C-y> deoplete#mappings#close_popup()
-  inoremap <expr><C-e> deoplete#mappings#cancel_popup()
+" Tab Completion
+function! CleverTabCustom()
+  inoremap <silent><tab> <c-r>=CleverTab#Complete('start')<cr>
+                        \<c-r>=CleverTab#Complete('tab')<cr>
+                        \<c-r>=CleverTab#Complete('ultisnips')<cr>
+                        \<c-r>=CleverTab#Complete('omni')<cr>
+                        \<c-r>=CleverTab#Complete('user')<cr>
+                        \<c-r>=CleverTab#Complete('keyword')<cr>
+                        \<c-r>=CleverTab#Complete('stop')<cr>
+  inoremap <silent><s-tab> <c-r>=CleverTab#Complete('prev')<cr>
 endfunction
 
 augroup Tab
   autocmd!
-  autocmd BufEnter * call CompletionMappings()
+  autocmd BufEnter * call CleverTabCustom()
 augroup END
 
 " Uses <leader>t as fzf trigger

@@ -326,7 +326,7 @@ endfunction
 augroup CompleteFuncs
   autocmd Filetype *
         \	if &omnifunc == '' | setlocal omnifunc=syntaxcomplete#Complete | endif
-  autocmd Filetype * setlocal completefunc=AggregateComplete
+  autocmd BufEnter * setlocal completefunc=AggregateComplete
 augroup end
 
 " Joins a lot of completions source in one, and displays them altogether

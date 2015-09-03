@@ -32,6 +32,7 @@ alias drunb='docker-compose run --rm web bash'
 alias drunsb='docker-compose run --rm --service-ports web bash'
 alias start_dns='source ~/start_dns.sh'
 alias docker-clean='docker ps -qa --filter status=exited | xargs docker rm'
+alias docker-clean-images='docker images -q --filter="dangling=true" | xargs docker rmi'
 
 # ssh
 alias s='ssh'

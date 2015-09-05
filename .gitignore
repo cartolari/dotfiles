@@ -2,6 +2,8 @@
 *.swp
 *.swo
 
+# Emacs temp files
+*~
 # Vim Bundles
 /home/.vim/bundle
 
@@ -12,3 +14,18 @@ home/.vim/autoload/plug.vim.old
 # Vim tmp files
 home/.vim/tmp/
 __pycache__
+
+# Emacs
+home/.emacs.d/.mc-lists.el
+home/.emacs.d/ac-comphist.dat
+home/.emacs.d/auto-save-list/
+home/.emacs.d/elpa
+home/.emacs.d/eshell/
+home/.emacs.d/games
+home/.emacs.d/history
+home/.emacs.d/ido.last
+home/.emacs.d/projectile-bookmarks.eld
+home/.emacs.d/recentf
+home/.emacs.d/session.*
+home/.emacs.d/tramp
+home/.emacs.d/url/

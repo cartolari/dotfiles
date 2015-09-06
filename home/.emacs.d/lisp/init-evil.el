@@ -13,12 +13,14 @@
 (require 'evil-matchit)
 (require 'evil-leader)
 (require 'evil-surround)
+(require 'evil-visualstar)
 
 (evil-commentary-mode 1)
 (global-evil-jumper-mode 1)
+(global-evil-leader-mode)
 (global-evil-matchit-mode 1)
 (global-evil-surround-mode 1)
-(global-evil-leader-mode)
+(global-evil-visualstar-mode t)
 
 (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)

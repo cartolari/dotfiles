@@ -31,6 +31,7 @@
 (require 'init-helm)
 (require 'init-ruby)
 (require 'init-yaml)
+(require 'init-yasnippet)
 
 (require-package 'ace-window)
 (require-package 'ag)

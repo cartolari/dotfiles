@@ -14,6 +14,7 @@
 (require-package 'diminish)
 (require-package 'key-chord)
 (require-package 'planet-theme)
+(require-package 'material-theme)
 
 (require 'key-chord)
 
@@ -56,7 +57,7 @@
           (function (lambda ()
                       (setq evil-shift-width python-indent))))
 
-(load-theme 'planet t)
+(load-theme 'material t)
 
 ;; Emacs options
 (setq gc-cons-threshold 20000000)

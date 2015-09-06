@@ -5,6 +5,7 @@
 
 ;;; Code:
 (require-package 'anzu)
+(require-package 'phi-search)
 
 (require 'anzu)
 

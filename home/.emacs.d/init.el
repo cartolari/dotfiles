@@ -25,6 +25,7 @@
 (require 'init-company)
 (require 'init-evil)
 (require 'init-flycheck)
+(require 'init-multiple-cursors)
 (require 'init-powerline)
 (require 'init-projectile)
 
@@ -39,7 +40,6 @@
 (require-package 'cssh)
 (require-package 'expand-region)
 (require-package 'magit)
-(require-package 'multiple-cursors)
 (require-package 'readline-complete)
 
 (add-hook 'emacs-lisp-mode-hook

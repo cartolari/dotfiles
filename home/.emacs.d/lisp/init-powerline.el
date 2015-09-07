@@ -16,6 +16,33 @@
   "Custom face for text"
   :group 'powerline)
 
+(defface powerline-flycheck-error '((t (:foreground "#F07C6D" :weight bold)))
+  "Face for flycheck errors in modeline"
+  :group 'powerline)
+
+(defface powerline-flycheck-warning '((t (:foreground "#D9B24F" :weight bold)))
+  "Face for flycheck errors in modeline"
+  :group 'powerline)
+
+(defface powerline-flycheck-info '((t (:foreground "#76B7ED" :weight bold)))
+  "Face for flycheck errors in modeline"
+  :group 'powerline)
+
+(defun powerline-flycheck-error-count ()
+  "Number of errors for the current flycheck buffer."
+  (or (cdr (assoc 'error (flycheck-count-errors flycheck-current-errors)))
+      0))
+
+(defun powerline-flycheck-warning-count ()
+  "Number of warnings for the current flycheck buffer."
+  (or (cdr (assoc 'warning (flycheck-count-errors flycheck-current-errors)))
+      0))
+
+(defun powerline-flycheck-info-count ()
+  "Number of infos for the current flycheck buffer."
+  (or (cdr (assoc 'info (flycheck-count-errors flycheck-current-errors)))
+      0))
+
 ;;; TODO: remove require anzu from here
 (require 'anzu)
 (defun my/anzu-update-func (here total)
@@ -63,8 +90,32 @@
                                      (powerline-raw " " face1)
                                      (funcall separator-left face1 mode-line)
 
+                                     ;; (powerline-raw " FLYCHECK " 'powerline-flycheck-error 'l)
+                                     ;; FLYCHECK start
+                                     (powerline-raw (format " • %d" (powerline-flycheck-error-count))
+                                                    'powerline-flycheck-error)
+                                     (powerline-raw (format " • %d" (powerline-flycheck-warning-count))
+                                                    'powerline-flycheck-warning)
+                                     (powerline-raw (format " • %d" (powerline-flycheck-info-count))
+                                                    'powerline-flycheck-info)
+
+                                     (powerline-raw " " mode-line)
+
+                                     (funcall separator-right mode-line face1)
+                                     (powerline-raw " " face1)
+                                     (powerline-raw " EMPTY 1 " face1)
+                                     (powerline-raw " " face1)
+                                     ;; FLYCHECK end
+
+                                     (funcall separator-left face1 mode-line)
+
                                      (powerline-minor-modes mode-line 'l)
-                                     (powerline-narrow mode-line 'l)
+                                     (powerline-raw " " mode-line)
+                                     (funcall separator-right mode-line face1)
+                                     (powerline-raw " EMPTY 2 " face1)
+                                     (funcall separator-left face1 mode-line)
+
+                                     (powerline-raw " EMPTY ENTRY " mode-line 'l)
                                      (powerline-raw " " mode-line)
                                      (funcall separator-right mode-line face1)
 
@@ -85,12 +136,20 @@
                              (powerline-fill face2 (powerline-width rhs))
                              (powerline-render rhs)))))))
 
-(set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10")
+(defun set-mode-line-font ()
+  "Update mode-line font.
+Needs investigation on why it's needed to setup as an
+hook otherwise the settings didn't get applied"
+  (set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10"))
+
 (powerline-spacemacs-imitation-theme)
 (setq powerline-default-separator 'wave)
 (setq powerline-default-separator-dir '(right . left))
 (setq powerline-height 25)
 
 (add-hook 'after-init-hook 'powerline-reset)
+(add-hook 'after-init-hook 'set-mode-line-font)
+(powerline-reset)
+;; (revert-buffer)
 (provide 'init-powerline)
 ;;; init-powerline.el ends here

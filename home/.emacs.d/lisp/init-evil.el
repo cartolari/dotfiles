@@ -25,7 +25,6 @@
 (require 'evil-visualstar)
 
 (evil-commentary-mode 1)
-(evil-exchange-install)
 (global-evil-jumper-mode 1)
 (global-evil-leader-mode)
 (global-evil-matchit-mode 1)
@@ -44,8 +43,12 @@
 (key-chord-define evil-normal-state-map ",s" 'save-buffer)
 
 (key-chord-define evil-normal-state-map ",t" 'helm-projectile-find-file)
+
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
 (key-chord-define evil-normal-state-map ",q" 'delete-window)
+
+(key-chord-define evil-visual-state-map "cx" 'evil-exchange)
 
 (add-hook 'prog-mode-hook 'evil-local-mode)
 (add-hook 'yaml-mode-hook 'evil-local-mode)

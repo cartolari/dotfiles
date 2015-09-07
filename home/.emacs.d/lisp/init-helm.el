@@ -5,9 +5,11 @@
 
 ;;; Code:
 (require-package 'helm)
+(require-package 'helm-ag)
 (require-package 'helm-projectile)
 
 (require 'helm)
+(require 'helm-ag)
 (require 'helm-projectile)
 
 (helm-mode 1)

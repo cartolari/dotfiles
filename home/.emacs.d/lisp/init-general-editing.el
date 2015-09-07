@@ -6,6 +6,7 @@
 ;;; Code:
 
 (require-package 'aggressive-indent)
+(require-package 'expand-region)
 (require-package 'guide-key)
 (require-package 'highlight-escape-sequences)
 (require-package 'linum-relative)

@@ -38,7 +38,6 @@
 (require-package 'ag)
 (require-package 'avy)
 (require-package 'cssh)
-(require-package 'expand-region)
 (require-package 'magit)
 (require-package 'readline-complete)
 

@@ -25,6 +25,7 @@ home/.emacs.d/games
 home/.emacs.d/history
 home/.emacs.d/ido.last
 home/.emacs.d/projectile-bookmarks.eld
+home/.emacs.d/projectile.cache
 home/.emacs.d/recentf
 home/.emacs.d/session.*
 home/.emacs.d/tramp

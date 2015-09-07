@@ -29,6 +29,7 @@
 
 (require 'init-projectile)
 
+(require 'init-haml)
 (require 'init-helm)
 (require 'init-ruby)
 (require 'init-yaml)

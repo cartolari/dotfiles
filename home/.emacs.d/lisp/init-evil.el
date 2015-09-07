@@ -2,6 +2,7 @@
 (require-package 'evil-anzu)
 (require-package 'evil-commentary)
 (require-package 'evil-exchange)
+(require-package 'evil-exchange)
 (require-package 'evil-jumper)
 (require-package 'evil-leader)
 (require-package 'evil-matchit)
@@ -9,13 +10,15 @@
 (require-package 'evil-visualstar)
 
 (require 'evil-commentary)
+(require 'evil-exchange)
 (require 'evil-jumper)
-(require 'evil-matchit)
 (require 'evil-leader)
+(require 'evil-matchit)
 (require 'evil-surround)
 (require 'evil-visualstar)
 
 (evil-commentary-mode 1)
+(evil-exchange-install)
 (global-evil-jumper-mode 1)
 (global-evil-leader-mode)
 (global-evil-matchit-mode 1)
@@ -42,6 +45,7 @@
 (add-hook 'snippet-mode 'evil-local-mode)
 
 (global-set-key (kbd "C-z") 'evil-local-mode)
+(setq evil-exchange-key (kbd "gx"))
 
 (diminish 'evil-commentary-mode)
 

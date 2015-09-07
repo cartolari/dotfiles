@@ -13,7 +13,6 @@
 
 (require-package 'diminish)
 (require-package 'key-chord)
-(require-package 'planet-theme)
 (require-package 'material-theme)
 
 (require 'key-chord)
@@ -27,6 +26,7 @@
 (require 'init-flycheck)
 (require 'init-multiple-cursors)
 (require 'init-powerline)
+
 (require 'init-projectile)
 
 (require 'init-helm)

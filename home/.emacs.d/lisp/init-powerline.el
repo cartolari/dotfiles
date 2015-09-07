@@ -45,7 +45,7 @@
                           (lhs (list (powerline-raw "%*" face3 'l)
                                      (powerline-raw " " face3)
                                      (funcall separator-left face3 mode-line)
-                                     
+
                                      (when powerline-display-buffer-size
                                        (powerline-buffer-size nil 'l))
                                      (when powerline-display-mule-info
@@ -54,26 +54,23 @@
                                      (when (and (boundp 'which-func-mode) which-func-mode)
                                        (powerline-raw which-func-format nil 'l))
                                      (powerline-raw " ")
-                                     (funcall separator-left mode-line face1)
-                                     
+                                     (funcall separator-right mode-line face1)
+
                                      (when (boundp 'erc-modified-channels-object)
                                        (powerline-raw erc-modified-channels-object face1 'l))
                                      (powerline-major-mode face1 'l)
                                      (powerline-process face1)
                                      (powerline-raw " " face1)
-                                     (funcall separator-right face1 mode-line)
-                                     
+                                     (funcall separator-left face1 mode-line)
+
                                      (powerline-minor-modes mode-line 'l)
                                      (powerline-narrow mode-line 'l)
                                      (powerline-raw " " mode-line)
-                                     (funcall separator-left mode-line face1)
-                                     
+                                     (funcall separator-right mode-line face1)
+
                                      (powerline-vc face1 'r)
                                      (powerline-raw " " face1)
-                                     (funcall separator-right face1 face2)
-                                     
-                                     (when (bound-and-true-p nyan-mode)
-                                       (powerline-raw (list (nyan-create)) face2 'l))))
+                                     (funcall separator-left face1 face2)))
                           (rhs (list (powerline-raw global-mode-string face2 'r)
                                      (funcall separator-right face2 face1)
                                      (unless window-system
@@ -88,9 +85,12 @@
                              (powerline-fill face2 (powerline-width rhs))
                              (powerline-render rhs)))))))
 
-(setq powerline-default-separator 'wave)
-(setq powerline-height 20)
+(set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10")
 (powerline-spacemacs-imitation-theme)
+(setq powerline-default-separator 'wave)
+(setq powerline-default-separator-dir '(right . left))
+(setq powerline-height 25)
 
+(add-hook 'after-init-hook 'powerline-reset)
 (provide 'init-powerline)
 ;;; init-powerline.el ends here

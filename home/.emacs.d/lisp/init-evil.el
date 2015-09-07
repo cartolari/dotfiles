@@ -1,3 +1,10 @@
+;;; init-evil.el -- Evil mode setup
+
+;;; Commentary:
+;;; Some customization, mainly for letting evil mode to be more like vim.
+
+;;; Code:
+
 (require-package 'evil)
 (require-package 'evil-anzu)
 (require-package 'evil-commentary)
@@ -50,3 +57,4 @@
 (diminish 'evil-commentary-mode)
 
 (provide 'init-evil)
+;;; init-evil.el ends here

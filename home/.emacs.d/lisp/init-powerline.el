@@ -161,7 +161,5 @@ hook otherwise the settings didn't get applied"
 
 (add-hook 'after-init-hook 'powerline-reset)
 (add-hook 'after-init-hook 'set-mode-line-font)
-(powerline-reset)
-(revert-buffer)
 (provide 'init-powerline)
 ;;; init-powerline.el ends here

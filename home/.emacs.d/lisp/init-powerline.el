@@ -43,6 +43,17 @@
   (or (cdr (assoc 'info (flycheck-count-errors flycheck-current-errors)))
       0))
 
+(defun powerline-evil-state ()
+  "Current evil-mode state if any."
+  (if 'evil-local-mode
+      (cond ((evil-insert-state-p) "<I>")
+            ((evil-visual-state-p) "<V>")
+            ((evil-replace-state-p) "<R>")
+            ((evil-emacs-state-p) "<E>")
+            ((evil-motion-state-p) "<M>")
+            ((evil-operator-state-p) "<O>")
+            ((evil-normal-state-p) "<N>"))))
+
 ;;; TODO: remove require anzu from here
 (require 'anzu)
 (defun my/anzu-update-func (here total)
@@ -71,6 +82,7 @@
                                                            (cdr powerline-default-separator-dir))))
                           (lhs (list (powerline-raw "%*" face3 'l)
                                      (powerline-raw " " face3)
+                                     (powerline-raw (powerline-evil-state) face3)
                                      (funcall separator-left face3 mode-line)
 
                                      (when powerline-display-buffer-size
@@ -150,6 +162,6 @@ hook otherwise the settings didn't get applied"
 (add-hook 'after-init-hook 'powerline-reset)
 (add-hook 'after-init-hook 'set-mode-line-font)
 (powerline-reset)
-;; (revert-buffer)
+(revert-buffer)
 (provide 'init-powerline)
 ;;; init-powerline.el ends here

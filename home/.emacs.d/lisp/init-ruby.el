@@ -1,3 +1,10 @@
+;;; init-ruby.el -- ruby language specific setup
+
+;;; Commentary:
+;;; ruby setup
+
+;;; Code:
+
 (require-package 'chruby)
 (require-package 'inf-ruby)
 (require-package 'rinari)
@@ -57,3 +64,4 @@
 (diminish 'ruby-end-mode)
 
 (provide 'init-ruby)
+;;; init-ruby.el ends here

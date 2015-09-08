@@ -22,6 +22,7 @@
 (require 'ruby-refactor)
 
 (global-rinari-mode 1)
+(chruby-use "2.1.5")
 
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . enh-ruby-mode))

@@ -12,6 +12,7 @@
 (require 'init-elpa)
 
 (require-package 'diminish)
+(require-package 'flyspell-popup)
 (require-package 'key-chord)
 (require-package 'material-theme)
 

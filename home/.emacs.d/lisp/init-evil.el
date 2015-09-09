@@ -56,6 +56,7 @@
 
 (global-set-key (kbd "C-z") 'evil-local-mode)
 (setq evil-exchange-key (kbd "gx"))
+(setq evil-shift-width 2)
 
 (diminish 'evil-commentary-mode)
 

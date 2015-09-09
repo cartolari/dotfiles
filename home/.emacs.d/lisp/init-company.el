@@ -21,6 +21,7 @@
 
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case t)
+(setq company-idle-delay 0.25)
 (set-variable 'ycmd-server-command '("python" "/home/bruno/code/ycmd/ycmd"))
 
 (diminish 'company-mode)

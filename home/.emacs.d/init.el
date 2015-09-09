@@ -18,9 +18,10 @@
 
 (require 'key-chord)
 
+(require 'flyspell)
+(require 'init-display)
 (require 'init-general-editing)
 (require 'init-isearch)
-(require 'init-display)
 
 (require 'init-company)
 (require 'init-evil)

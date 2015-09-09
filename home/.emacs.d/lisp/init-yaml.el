@@ -8,8 +8,8 @@
 
 (require 'yaml-mode)
 
-(provide 'init-yaml)
+(add-hook 'yaml-mode-hook (lambda () (setq evil-shift-width yaml-indent-offset)))
 
-(add-hook 'yaml-mode-hook (lambda () (electric-indent-local-mode -1)))
+(provide 'init-yaml)
 
 ;;; init-yaml.el ends here

@@ -125,7 +125,7 @@ point reaches the beginning or end of the buffer, stop there."
 (setq-default show-trailing-whitespace t)
 (setq-default tab-width 2)
 
-(diminish 'outline-minor-mode " ☰ ")
+(diminish 'outline-minor-mode " ☰")
 (diminish 'undo-tree-mode)
 (diminish 'guide-key-mode)
 

@@ -13,7 +13,7 @@
 (setq projectile-completion-system 'helm
       projectile-switch-project-action 'helm-projectile)
 
-(diminish 'projectile-mode " ℗ ")
+(diminish 'projectile-mode " Ⓟ")
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

@@ -28,7 +28,7 @@ See URL https://github.com/brigade/haml-lint"
 
 (add-to-list 'flycheck-checkers 'haml-lint)
 
-(diminish 'flycheck-mode " © ")
+(diminish 'flycheck-mode " Ⓒ")
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here

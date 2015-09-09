@@ -69,4 +69,5 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(diminish 'flyspell-mode " Ⓢ")
 ;;; init.el ends here

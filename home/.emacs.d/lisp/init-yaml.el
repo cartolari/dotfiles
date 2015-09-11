@@ -9,6 +9,8 @@
 (require 'yaml-mode)
 
 (add-hook 'yaml-mode-hook (lambda () (setq evil-shift-width yaml-indent-offset)))
+(add-hook 'yaml-mode-hook (lambda () (setq outline-regexp " *")))
+(add-hook 'yaml-mode-hook 'outline-minor-mode)
 
 (provide 'init-yaml)
 

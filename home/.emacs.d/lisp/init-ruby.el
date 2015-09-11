@@ -42,9 +42,6 @@
           (function (lambda ()
                       (setq evil-shift-width ruby-indent-level))))
 
-(add-to-list 'auto-mode-alist
-             '("\\.rake$" . ruby-mode))
-
 (setq flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby")
 (setq flycheck-ruby-rubocop-executable "~/rubocop.sh")
 

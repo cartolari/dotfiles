@@ -49,14 +49,14 @@
   (interactive)
   (compile (format "cd %s; docker-compose run --rm web bundle exec rspec %s"
                    (projectile-project-root)
-                   (file-relative-name (buffer-file-name) (get-closest-gemfile-root))
+                   (file-relative-name (buffer-file-name) (projectile-project-root))
                    ) t))
 
 (defun rspec-compile-on-line ()
   (interactive)
   (compile (format "cd %s; docker-compose run --rm web bundle exec rspec %s -l %s"
                    (projectile-project-root)
-                   (file-relative-name (buffer-file-name) (get-closest-gemfile-root))
+                   (file-relative-name (buffer-file-name) (projectile-project-root))
                    (line-number-at-pos)
                    ) t))
 

@@ -12,6 +12,7 @@
 (require-package 'linum-relative)
 (require-package 'rainbow-delimiters)
 (require-package 'undo-tree)
+(require-package 'whitespace-cleanup-mode)
 
 (require 'aggressive-indent)
 (require 'guide-key)
@@ -87,8 +88,8 @@ point reaches the beginning or end of the buffer, stop there."
     :background nil
     :inherit '(hl-line default)))
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
 ;; (aggressive-indent-global-mode 1)
 (column-number-mode)

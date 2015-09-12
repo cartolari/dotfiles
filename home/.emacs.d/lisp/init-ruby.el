@@ -31,6 +31,21 @@
 (add-to-list 'auto-mode-alist '("\\.ru$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
 
+(defadvice ruby-indent-line (after unindent-closing-paren activate)
+  (let ((column (current-column))
+        indent offset)
+    (save-excursion
+      (back-to-indentation)
+      (let ((state (syntax-ppss)))
+        (setq offset (- column (current-column)))
+        (when (and (eq (char-after) ?\))
+                   (not (zerop (car state))))
+          (goto-char (cadr state))
+          (setq indent (current-indentation)))))
+    (when indent
+      (indent-line-to indent)
+      (when (> offset 0) (forward-char offset)))))
+
 (add-hook 'enh-ruby-mode-hook
           '(lambda ()
              (outline-minor-mode)
@@ -44,6 +59,7 @@
 
 (setq flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby")
 (setq flycheck-ruby-rubocop-executable "~/rubocop.sh")
+(setq enh-ruby-deep-indent-paren nil)
 
 (defun rspec-compile-file ()
   (interactive)
@@ -60,7 +76,7 @@
                    (line-number-at-pos)
                    ) t))
 
-(add-hook 'ruby-mode-hook
+(add-hook 'enh-ruby-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c r f") 'rspec-compile-file)
             (local-set-key (kbd "C-c r n") 'rspec-compile-on-line)

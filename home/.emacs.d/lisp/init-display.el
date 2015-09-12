@@ -4,6 +4,8 @@
 ;;; customize emacs display
 
 ;;; Code:
+(require-package 'fill-column-indicator)
+
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -22,6 +24,8 @@
 (set-frame-font  "Source Code Pro for Powerline-12")
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+(add-hook 'prog-mode-hook 'fci-mode)
 
 (provide 'init-display)
 ;;; init-display.el ends here

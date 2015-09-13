@@ -4,6 +4,8 @@
 ;;; my customizations and plugins
 
 ;;; Code:
+(setq gc-cons-threshold 30000000)
+
 (add-to-list 'load-path
              (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'custom-theme-load-path

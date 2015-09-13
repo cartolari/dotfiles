@@ -10,6 +10,7 @@
              (expand-file-name "themes" user-emacs-directory))
 
 (require 'init-elpa)
+(require 'init-byte-compilation)
 
 (require-package 'diminish)
 (require-package 'flyspell-popup)

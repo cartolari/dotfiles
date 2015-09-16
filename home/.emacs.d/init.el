@@ -45,6 +45,7 @@
 (require-package 'ag)
 (require-package 'avy)
 (require-package 'cssh)
+(require-package 'dockerfile-mode)
 (require-package 'magit)
 (require-package 'readline-complete)
 

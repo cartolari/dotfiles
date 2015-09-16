@@ -153,8 +153,9 @@ point reaches the beginning or end of the buffer, stop there."
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
-(add-hook 'shell-mode-hook (lambda ()
-                             (setq show-trailing-whitespace nil)))
+
+(add-hook 'shell-mode-hook (lambda () (setq show-trailing-whitespace nil)))
+(add-hook 'term-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (setq-default tab-width 2)
 
 (diminish 'outline-minor-mode " ☰")

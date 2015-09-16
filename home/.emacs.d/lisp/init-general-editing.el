@@ -7,6 +7,7 @@
 
 (require-package 'aggressive-indent)
 (require-package 'expand-region)
+(require-package 'framemove)
 (require-package 'guide-key)
 (require-package 'highlight-escape-sequences)
 (require-package 'linum-relative)
@@ -15,6 +16,7 @@
 (require-package 'whitespace-cleanup-mode)
 
 (require 'aggressive-indent)
+(require 'framemove)
 (require 'guide-key)
 (require 'highlight-escape-sequences)
 (require 'linum-relative)
@@ -76,7 +78,6 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "<C-return>") 'outline-toggle-children)
 (global-set-key (kbd "C-:") 'avy-goto-char)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "M-P") 'ace-window)
 (global-set-key (kbd "M-g l") 'avy-goto-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-0)
 
@@ -126,6 +127,10 @@ point reaches the beginning or end of the buffer, stop there."
 (linum-relative-on)
 (savehist-mode 1)
 (show-paren-mode 1)
+
+;; Window and frame movements shortcuts
+(windmove-default-keybindings 'meta)
+(setq framemove-hook-into-windmove t)
 
 ;; Highlight escape sequences
 (put 'hes-escape-backslash-face 'face-alias 'font-lock-builtin-face)

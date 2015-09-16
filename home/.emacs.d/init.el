@@ -41,7 +41,6 @@
 (require 'init-yaml)
 (require 'init-yasnippet)
 
-(require-package 'ace-window)
 (require-package 'ag)
 (require-package 'avy)
 (require-package 'cssh)

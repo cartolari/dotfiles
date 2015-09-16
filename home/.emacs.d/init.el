@@ -34,6 +34,7 @@
 
 (require 'init-projectile)
 
+(require 'init-coffee)
 (require 'init-css)
 (require 'init-haml)
 (require 'init-helm)

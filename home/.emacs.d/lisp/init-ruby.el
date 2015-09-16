@@ -6,7 +6,6 @@
 ;;; Code:
 
 (require-package 'chruby)
-(require-package 'enh-ruby-mode)
 (require-package 'inf-ruby)
 (require-package 'rinari)
 (require-package 'robe)
@@ -24,13 +23,6 @@
 (global-rinari-mode 1)
 (chruby-use "2.1.5")
 
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.rake$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.ru$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
-
 (defadvice ruby-indent-line (after unindent-closing-paren activate)
   (let ((column (current-column))
         indent offset)
@@ -46,20 +38,19 @@
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
 
-(add-hook 'enh-ruby-mode-hook
+(add-hook 'ruby-mode-hook
           '(lambda ()
              (outline-minor-mode)
              (subword-mode)
              (setq outline-regexp
                    " *\\(def \\|class\\|module\\|describe \\|it \\)")))
 
-(add-hook 'enh-ruby-mode-hook
+(add-hook 'ruby-mode-hook
           (function (lambda ()
                       (setq evil-shift-width ruby-indent-level))))
 
 (setq flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby")
 (setq flycheck-ruby-rubocop-executable "~/rubocop.sh")
-(setq enh-ruby-deep-indent-paren nil)
 
 (defun rspec-compile-file ()
   (interactive)
@@ -76,7 +67,7 @@
                    (line-number-at-pos)
                    ) t))
 
-(add-hook 'enh-ruby-mode-hook
+(add-hook 'ruby-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c r f") 'rspec-compile-file)
             (local-set-key (kbd "C-c r n") 'rspec-compile-on-line)

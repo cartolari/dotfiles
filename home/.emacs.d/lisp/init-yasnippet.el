@@ -12,7 +12,6 @@
       '("~/.emacs.d/snippets" "~/code/yasnippet-snippets"))
 
 (yas-global-mode 1)
-(define-key yas-keymap (kbd "DEL") 'yas-skip-and-clear-or-delete-char)
 
 (diminish 'yas-minor-mode)
 

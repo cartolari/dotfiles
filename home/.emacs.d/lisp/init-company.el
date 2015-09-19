@@ -13,8 +13,9 @@
 (define-key company-active-map (kbd "\C-n") 'company-select-next)
 (define-key company-active-map (kbd "\C-p") 'company-select-previous)
 (global-set-key (kbd "M-/") 'hippie-expand)
-(add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
+(add-hook 'company-completion-cancelled-hook (lambda (arg) (fci-mode 1)))
 (add-hook 'company-completion-finished-hook (lambda (arg) (fci-mode 1)))
+(add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
 
 (setq company-dabbrev-downcase nil)
 (setq company-dabbrev-ignore-case t)

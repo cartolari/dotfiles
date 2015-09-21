@@ -49,8 +49,12 @@
         (if (check-expansion)
             (company-complete-common)
           (indent-for-tab-command)))))
+(defun map-company-yasnippet-tab ()
+  "Map tab to company, yasnippet or indent."
+  (local-set-key (kbd "<tab>") 'tab-indent-or-complete))
 
-(global-set-key (kbd "<tab>") 'tab-indent-or-complete)
+(add-hook 'prog-mode-hook 'map-company-yasnippet-tab)
+
 (define-key company-active-map [tab] 'company-select-next)
 (define-key company-active-map [backtab] 'company-select-previous)
 (define-key company-active-map (kbd "<tab>") 'company-select-next)

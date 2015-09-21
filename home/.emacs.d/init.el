@@ -39,6 +39,8 @@
 (require 'init-haml)
 (require 'init-helm)
 (require 'init-java)
+(require 'init-javascript)
+(require 'init-markdown)
 (require 'init-ruby)
 (require 'init-yaml)
 (require 'init-yasnippet)

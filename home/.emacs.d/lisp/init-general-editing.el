@@ -161,6 +161,7 @@ point reaches the beginning or end of the buffer, stop there."
 (diminish 'outline-minor-mode " ☰")
 (diminish 'undo-tree-mode)
 (diminish 'guide-key-mode)
+(diminish 'whitespace-cleanup-mode "Ⓦ")
 
 (provide 'init-general-editing)
 ;;; init-general-editing.el ends here

@@ -7,7 +7,6 @@
 
 (require-package 'chruby)
 (require-package 'inf-ruby)
-(require-package 'rinari)
 (require-package 'robe)
 (require-package 'rspec-mode)
 (require-package 'ruby-end)
@@ -20,10 +19,10 @@
 (require 'ruby-end)
 (require 'ruby-refactor)
 
-(global-rinari-mode 1)
 (chruby-use "2.1.5")
 
 (defadvice ruby-indent-line (after unindent-closing-paren activate)
+  "Indentation for ruby multiple line ruby methods after a opening parenthesis."
   (let ((column (current-column))
         indent offset)
     (save-excursion
@@ -73,7 +72,6 @@
             (local-set-key (kbd "C-c r n") 'rspec-compile-on-line)
             ))
 
-(diminish 'rinari-minor-mode)
 (diminish 'ruby-end-mode)
 
 (provide 'init-ruby)

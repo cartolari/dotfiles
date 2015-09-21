@@ -23,6 +23,7 @@
 (require 'outline)
 (require 'rainbow-delimiters)
 (require 'undo-tree)
+(require 'whitespace-cleanup-mode)
 
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
@@ -161,7 +162,7 @@ point reaches the beginning or end of the buffer, stop there."
 (diminish 'outline-minor-mode " ☰")
 (diminish 'undo-tree-mode)
 (diminish 'guide-key-mode)
-(diminish 'whitespace-cleanup-mode "Ⓦ")
+(diminish 'whitespace-cleanup-mode " Ⓦ")
 
 (provide 'init-general-editing)
 ;;; init-general-editing.el ends here

@@ -33,6 +33,7 @@ alias drunsb='docker-compose run --rm --service-ports web bash'
 alias start_dns='source ~/start_dns.sh'
 alias docker-clean='docker ps -qa --filter status=exited | xargs docker rm'
 alias docker-clean-images='docker images -q --filter="dangling=true" | xargs docker rmi'
+alias docker-clean-volumes='docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes'
 
 # ssh
 alias s='ssh'

@@ -21,27 +21,18 @@
   :group 'powerline)
 
 (defface powerline-flycheck-warning '((t (:foreground "#D9B24F" :weight bold)))
-  "Face for flycheck errors in modeline"
-  :group 'powerline)
+         "Face for flycheck errors in modeline"
+         :group 'powerline)
 
 (defface powerline-flycheck-info '((t (:foreground "#76B7ED" :weight bold)))
-  "Face for flycheck errors in modeline"
-  :group 'powerline)
+         "Face for flycheck errors in modeline"
+         :group 'powerline)
 
-(defun powerline-flycheck-error-count ()
-  "Number of errors for the current flycheck buffer."
-  (or (cdr (assoc 'error (flycheck-count-errors flycheck-current-errors)))
-      0))
-
-(defun powerline-flycheck-warning-count ()
-  "Number of warnings for the current flycheck buffer."
-  (or (cdr (assoc 'warning (flycheck-count-errors flycheck-current-errors)))
-      0))
-
-(defun powerline-flycheck-info-count ()
-  "Number of infos for the current flycheck buffer."
-  (or (cdr (assoc 'info (flycheck-count-errors flycheck-current-errors)))
-      0))
+(defun powerline-flycheck-errors (error-type)
+  "Number of ERROR-TYPE errors for the current Flycheck buffer."
+  (let ((item-count (cdr (assoc error-type (flycheck-count-errors
+                                            flycheck-current-errors)))))
+    (format " • %d" (or item-count 0))))
 
 (defun powerline-evil-state ()
   "Current evil-mode state if any."
@@ -104,11 +95,11 @@
                         (funcall separator-left face1 mode-line)
 
                         ;; FLYCHECK start
-                        (powerline-raw (format " • %d" (powerline-flycheck-error-count))
+                        (powerline-raw (powerline-flycheck-errors 'error)
                                        'powerline-flycheck-error)
-                        (powerline-raw (format " • %d" (powerline-flycheck-warning-count))
+                        (powerline-raw (powerline-flycheck-errors 'warning)
                                        'powerline-flycheck-warning)
-                        (powerline-raw (format " • %d" (powerline-flycheck-info-count))
+                        (powerline-raw (powerline-flycheck-errors 'info)
                                        'powerline-flycheck-info)
 
                         (powerline-raw " " mode-line)
@@ -141,8 +132,8 @@ Needs investigation on why it's needed to setup as an
 hook otherwise the settings didn't get applied"
   (set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10"))
 
-;; Remove the Git string from the vc-mode-line
 (defadvice vc-mode-line (after strip-backend () activate)
+  "Remove the Git string from the 'vc-mode-line'."
   (when (stringp vc-mode)
     (let ((noback (replace-regexp-in-string
                    (format "^ %s" (vc-backend buffer-file-name))

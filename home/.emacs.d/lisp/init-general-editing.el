@@ -1,15 +1,18 @@
 ;;; init-general-editing.el --- General bindings
 
 ;;; Commentary:
-;;; Bindings that are useful in multiple or all
+;;; Bindings that are useful in multiple or all modes
 
 ;;; Code:
 
+(require-package 'ace-window)
 (require-package 'aggressive-indent)
+(require-package 'exec-path-from-shell)
 (require-package 'expand-region)
 (require-package 'framemove)
 (require-package 'guide-key)
 (require-package 'highlight-escape-sequences)
+(require-package 'keyfreq)
 (require-package 'linum-relative)
 (require-package 'rainbow-delimiters)
 (require-package 'undo-tree)
@@ -18,12 +21,15 @@
 (require 'aggressive-indent)
 (require 'framemove)
 (require 'guide-key)
+(require 'hideshow)
 (require 'highlight-escape-sequences)
+(require 'keyfreq)
 (require 'linum-relative)
-(require 'outline)
 (require 'rainbow-delimiters)
 (require 'undo-tree)
 (require 'whitespace-cleanup-mode)
+
+(exec-path-from-shell-initialize)
 
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
@@ -72,6 +78,7 @@ point reaches the beginning or end of the buffer, stop there."
           (delete-file filename)
           (message "Deleted file %s" filename)
           (kill-buffer))))))
+
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root.
 
@@ -84,15 +91,33 @@ buffer is not visiting a file."
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+(defun display-ansi-colors ()
+  "Display ANSI escape sequences in a buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files."
+  (interactive)
+  (let* ((list (buffer-list))
+         (buffer (car list)))
+    (while buffer
+      (when (and (buffer-file-name buffer)
+                 (not (buffer-modified-p buffer)))
+        (set-buffer buffer)
+        (revert-buffer t t t))
+      (setq list (cdr list))
+      (setq buffer (car list))))
+  (message "Refreshed open files"))
+
 ;; remap C-a to `smarter-move-beginning-of-line'
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)
 
-(global-set-key (kbd "<C-return>") 'outline-toggle-children)
-(global-set-key (kbd "C-:") 'avy-goto-char)
+(global-set-key (kbd "<C-return>") 'hs-toggle-hiding)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "M-g l") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-0)
+(global-set-key (kbd "M-P") 'ace-window)
 
 (with-eval-after-load 'linum
   (set-face-background 'linum nil)
@@ -102,48 +127,47 @@ buffer is not visiting a file."
   ;; truncate current line to four digits
   (defun linum-relative (line-number)
     (let* ((diff1 (abs (- line-number linum-relative-last-pos)))
-            (diff (if (minusp diff1)
-                    diff1
-                    (+ diff1 linum-relative-plusp-offset)))
-            (current-p (= diff linum-relative-plusp-offset))
-            (current-symbol (if (and linum-relative-current-symbol current-p)
-                              (if (string= "" linum-relative-current-symbol)
-                                (number-to-string (% line-number 1000))
-                                linum-relative-current-symbol)
-                              (number-to-string diff)))
-            (face (if current-p 'linum-relative-current-face 'linum)))
+           (diff (if (minusp diff1)
+                     diff1
+                   (+ diff1 linum-relative-plusp-offset)))
+           (current-p (= diff linum-relative-plusp-offset))
+           (current-symbol (if (and linum-relative-current-symbol current-p)
+                               (if (string= "" linum-relative-current-symbol)
+                                   (number-to-string (% line-number 1000))
+                                 linum-relative-current-symbol)
+                             (number-to-string diff)))
+           (face (if current-p 'linum-relative-current-face 'linum)))
       (propertize (format linum-relative-format current-symbol) 'face face)))
 
 
   (setq
-    linum-relative-current-symbol ""
-    linum-relative-format "%3s "
-    linum-delay t)
+   linum-relative-current-symbol ""
+   linum-relative-format "%3s "
+   linum-delay t)
 
   (set-face-attribute 'linum-relative-current-face nil
-    :weight 'extra-bold
-    :foreground nil
-    :background nil
-    :inherit '(hl-line default)))
+                      :weight 'extra-bold
+                      :foreground nil
+                      :background nil
+                      :inherit '(hl-line default)))
 
+(add-hook 'prog-mode-hook 'hs-minor-mode)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
 
-;; (aggressive-indent-global-mode 1)
 (column-number-mode)
 (delete-selection-mode 1)
 (electric-pair-mode 1)
+(global-auto-revert-mode)
 (global-linum-mode 1)
 (guide-key-mode 1)
 (hes-mode 1)
 (key-chord-mode 1)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
 (linum-relative-on)
 (savehist-mode 1)
 (show-paren-mode 1)
-
-;; Window and frame movements shortcuts
-(windmove-default-keybindings 'meta)
-(setq framemove-hook-into-windmove t)
 
 ;; Highlight escape sequences
 (put 'hes-escape-backslash-face 'face-alias 'font-lock-builtin-face)
@@ -171,7 +195,7 @@ buffer is not visiting a file."
 (add-hook 'term-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (setq-default tab-width 2)
 
-(diminish 'outline-minor-mode " ☰")
+(diminish 'hs-minor-mode " ☰")
 (diminish 'undo-tree-mode)
 (diminish 'guide-key-mode)
 (diminish 'whitespace-cleanup-mode " Ⓦ")

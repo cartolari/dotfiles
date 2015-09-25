@@ -13,6 +13,10 @@
 (global-eclim-mode 1)
 (company-emacs-eclim-setup)
 
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 2
+                                  tab-width 2)))
+
 (setq eclim-eclipse-dirs "/opt/eclipse")
 (setq eclim-executable "/opt/eclipse/eclim")
 (setq eclimd-default-workspace "~/eclipse_workspace")

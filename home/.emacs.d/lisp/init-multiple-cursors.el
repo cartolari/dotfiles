@@ -8,6 +8,7 @@
 (require-package 'region-bindings-mode)
 
 (require 'region-bindings-mode)
+(require 'mc-cycle-cursors)
 
 (region-bindings-mode-enable)
 
@@ -42,8 +43,8 @@
           'evil-multiple-cursors/back-to-previous-state)
 
 (define-key region-bindings-mode-map (kbd "C->") 'mc/mark-next-like-this)
-(define-key region-bindings-mode-map (kbd "C-c C->") 'mc/skip-next-like-this)
-(define-key region-bindings-mode-map (kbd "C-c C->") 'mc/unmark-next-like-this)
+(define-key region-bindings-mode-map (kbd "C-<") 'mc/mark-previous-like-this)
+(define-key region-bindings-mode-map (kbd "C-c C->") 'mc/skip-to-next-like-this)
 
 (provide 'init-multiple-cursors)
 ;;; init-multiple-cursors.el ends here

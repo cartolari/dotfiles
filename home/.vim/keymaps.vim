@@ -17,7 +17,7 @@ vnoremap Q :norm @q<cr>
 
 " Inserts one break before and one break after the current line
 if has('nvim')
-  autocmd FileType * if &l:modifiable | nnoremap <buffer> <M-Enter> <S-o><Esc>jo<Esc>ki| endif
+  autocmd FileType * if &l:modifiable | nnoremap <buffer> <M-Enter> O<Esc>jo<Esc>ki| endif
 endif
 
 " Quit current file
@@ -111,11 +111,6 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-
-augroup NeoTerm
-  autocmd!
-  autocmd BufEnter * if &buftype==?'terminal' | nnoremap <buffer> <silent> <leader>q :Tclose<CR> | endif
-augroup end
 
 " CtrlSF (search)
 nmap <leader>f <Plug>CtrlSFPrompt

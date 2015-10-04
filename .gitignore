@@ -13,6 +13,7 @@ home/.vim/autoload/plug.vim.old
 
 # Vim tmp files
 home/.vim/tmp/
+home/.vim/spell/
 __pycache__
 
 # Emacs

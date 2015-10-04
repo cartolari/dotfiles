@@ -248,10 +248,6 @@ command! FZFMru call fzf#run({
       \ })
 " }}}
 
-" Neoterm {{{
-let g:neoterm_position = 'vertical'
-" }}}
-
 " CtrlSF {{{
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_leading_space = 2

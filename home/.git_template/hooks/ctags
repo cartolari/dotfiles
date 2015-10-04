@@ -1,15 +1,31 @@
 #!/bin/bash
 
-set -e
+set -xeuo pipefail
+IFS=$'\n\t'
+
+_GIT_DIR="$(git rev-parse --git-dir)"
+
+_CTAGS_TEMP_FILE="$_GIT_DIR/$$.tags"
+_CTAGS_TARGET_FILE="$_GIT_DIR/tags"
+
+export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+export GTAGSLABEL=ctags
+_GTAGS_TARGET_DIR="$(git rev-parse --show-toplevel)"
+_GTAGS_TEMP_DIR="$_GIT_DIR/$$_GTAGS"
 
 function cleanUp() {
-  rm -f "$dir/$$.tags"
-  rm -f "$dir/$$.TAGS"
+  rm -f "$_CTAGS_TEMP_FILE"
+  rm -rf "$_GTAGS_TEMP_DIR"
 }
 
-dir="$(git rev-parse --git-dir)"
 trap cleanUp EXIT
-git ls-files | ctags --tag-relative -L - -f"$dir/$$.tags"
-git ls-files | ctags -e --tag-relative -L - -f"$dir/$$.TAGS"
-mv "$dir/$$.tags" "$dir/tags" # ctags standard file
-mv "$dir/$$.TAGS" "$dir/TAGS" # Emacs tags file
+
+# ctags
+ctags --tag-relative -f "$_CTAGS_TEMP_FILE"
+mv "$_CTAGS_TEMP_FILE" "$_CTAGS_TARGET_FILE"
+
+# ggtags
+mkdir "$_GTAGS_TEMP_DIR"
+gtags "$_GTAGS_TEMP_DIR"
+mv "$_GTAGS_TEMP_DIR"/* "$_GTAGS_TARGET_DIR"
+rm -rf "$_GTAGS_TEMP_DIR"

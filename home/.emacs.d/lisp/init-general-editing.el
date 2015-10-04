@@ -117,7 +117,7 @@ buffer is not visiting a file."
 
 (global-set-key (kbd "<C-return>") 'hs-toggle-hiding)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "M-P") 'ace-window)
+(global-set-key (kbd "M-o") 'ace-window)
 
 (with-eval-after-load 'linum
   (set-face-background 'linum nil)

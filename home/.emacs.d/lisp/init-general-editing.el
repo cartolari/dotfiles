@@ -191,6 +191,7 @@ buffer is not visiting a file."
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
 
+(add-hook 'comint-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (add-hook 'shell-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (add-hook 'term-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (setq-default tab-width 2)

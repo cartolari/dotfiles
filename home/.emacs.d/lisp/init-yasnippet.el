@@ -4,7 +4,7 @@
 ;;; yasnippet and custom snippets
 
 ;;; Code:
-(require-package 'yasnippet)
+(use-package yasnippet)
 
 (require 'yasnippet)
 

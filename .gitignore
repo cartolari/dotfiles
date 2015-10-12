@@ -31,3 +31,4 @@ home/.emacs.d/recentf
 home/.emacs.d/session.*
 home/.emacs.d/tramp
 home/.emacs.d/url/
+home/.emacs.d/smex-items

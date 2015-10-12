@@ -4,26 +4,22 @@
 ;;; setup web development related stuff
 
 ;;; Code:
-(require-package 'emmet-mode)
-(require-package 'rainbow-mode)
-(require-package 'scss-mode)
-(require-package 'web-mode)
-
-(require 'emmet-mode)
-(require 'rainbow-mode)
-(require 'scss-mode)
-(require 'web-mode)
-
-(add-hook 'css-mode-hook 'rainbow-mode)
-(add-hook 'scss-mode-hook 'rainbow-mode)
-
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(use-package emmet-mode
+  :commands (emmet-mode)
+  :diminish emmet-mode
+  :init
+  (add-hook 'css-mode-hook  'emmet-mode)
+  (add-hook 'sgml-mode-hook 'emmet-mode))
+(use-package rainbow-mode
+  :commands (rainbow-mode)
+  :diminish rainbow-mode
+  :init
+  (add-hook 'css-mode-hook 'rainbow-mode)
+  (add-hook 'scss-mode-hook 'rainbow-mode))
+(use-package scss-mode
+  :mode ("\\.scss\\'" . scss-mode))
 
 (setq-default css-indent-offset 2)
-
-(diminish 'emmet-mode)
-(diminish 'rainbow-mode " 🌈")
 
 (provide 'init-web)
 ;;; init-web.el ends here

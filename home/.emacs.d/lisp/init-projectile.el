@@ -4,25 +4,29 @@
 ;;; load projectile and customizations
 
 ;;; Code:
-(require-package 'projectile)
+(use-package projectile
+  :config
+  (projectile-global-mode 1)
+  (define-key projectile-mode-map (kbd "C-c p R") 'my/projectile-regenerate-tags)
+  ;; fuzzy find in current project with ,t
+  (key-seq-define evil-normal-state-map ",t" 'projectile-find-in-current-or-all-projects)
+  :diminish projectile-mode)
 
-(require 'projectile)
+(defun my/projectile-regenerate-tags ()
+  "Regenerate projectile tags using git ctags."
+  (interactive)
+  (progn
+    (start-process-shell-command
+     "tags" nil (format "cd %s; git ctags"
+                        (projectile-project-root)))
+    (message "Generating tags file")))
 
-(projectile-global-mode 1)
-
-(setq projectile-completion-system 'helm
-      projectile-switch-project-action 'helm-projectile)
-
-(define-key projectile-mode-map
-  (kbd "C-c p R") (lambda ()
-                    (interactive)
-                    (progn
-                      (start-process-shell-command
-                       "tags" nil (format "cd %s; git ctags"
-                                          (projectile-project-root)))
-                      (message "Generating tags file"))))
-
-(diminish 'projectile-mode " Ⓟ")
+(defun projectile-find-in-current-or-all-projects ()
+  "Find a file in current (if any) or all projectile projects."
+  (interactive)
+  (if (projectile-project-p)
+      (projectile-find-file)
+    (projectile-find-file-in-known-projects)))
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

@@ -1,4 +1,4 @@
-;;; init.el --- cartolari emacs setup
+;; init.el --- cartolari emacs setup
 
 ;;; Commentary:
 ;;; my customizations and plugins
@@ -9,18 +9,29 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
-;; (package-initialize)
-(require 'init-elpa)
-(require 'init-byte-compilation)
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/"))
 
-(require-package 'ag)
-(require-package 'cssh)
-(require-package 'diminish)
-(require-package 'dockerfile-mode)
-(require-package 'key-chord)
-(require-package 'readline-complete)
+(package-initialize)
 
-(require 'key-chord)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(setq use-package-always-ensure t)
+(require 'use-package)
+
+(use-package ag
+  :commands (ag))
+(use-package cssh
+  :commands (cssh-term-remote-open))
+(use-package dockerfile-mode
+  :mode ("Dockerfile" . dockerfile-mode))
+(use-package key-seq
+  :config
+  (key-chord-mode 1)
+  (setq key-chord-two-keys-delay 0.3))
 
 (require 'init-display)
 (require 'init-general-editing)
@@ -37,7 +48,8 @@
 (require 'init-coffee)
 (require 'init-elisp)
 (require 'init-haml)
-(require 'init-helm)
+;; (require 'init-helm)
+(require 'init-ido)
 (require 'init-java)
 (require 'init-javascript)
 (require 'init-markdown)
@@ -58,5 +70,4 @@
       (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
-
-;;; init.el ends here
+;; ;;; init.el ends here

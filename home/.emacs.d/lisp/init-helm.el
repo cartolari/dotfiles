@@ -4,23 +4,17 @@
 ;;; configs and integrations for helm
 
 ;;; Code:
-(require-package 'helm)
-(require-package 'helm-ag)
-(require-package 'helm-projectile)
-
-(require 'helm)
-(require 'helm-ag)
-(require 'helm-projectile)
-
-(helm-mode 1)
-(helm-projectile-on)
-
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
-(setq helm-M-x-fuzzy-match t)
-
-(diminish 'helm-mode)
+(use-package helm
+  :bind (("M-x" . helm-M-x)
+         ("M-y" . helm-show-kill-ring))
+  :config
+  (helm-mode 1)
+  (setq helm-M-x-fuzzy-match t)
+  :diminish helm-mode)
+(use-package helm-projectile
+  :defer t
+  :init
+  (add-hook 'projectile-mode-hook #'helm-projectile-on))
 
 (provide 'init-helm)
 ;;; init-helm.el ends here

@@ -4,9 +4,8 @@
 ;;; install haml-mode
 
 ;;; Code:
-(require-package 'haml-mode)
-
-(require 'haml-mode)
+(use-package haml-mode
+  :mode ("\\.haml\\'" . haml-mode))
 
 (provide 'init-haml)
 ;;; init-haml.el ends here

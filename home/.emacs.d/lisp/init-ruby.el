@@ -4,23 +4,34 @@
 ;;; ruby setup
 
 ;;; Code:
-(require-package 'chruby)
-(require-package 'inf-ruby)
-(require-package 'projectile-rails)
-(require-package 'robe)
-(require-package 'rspec-mode)
-(require-package 'ruby-end)
-(require-package 'ruby-hash-syntax)
-(require-package 'ruby-refactor)
-(require-package 'splitjoin)
-
-(require 'chruby)
-(require 'compile)
-(require 'robe)
-(require 'ruby-end)
-(require 'ruby-refactor)
-
-(chruby-use "2.1.5")
+(use-package inf-ruby
+  :commands (inf-ruby inf-ruby-mode))
+(use-package projectile-rails
+  :commands (projectile-rails-on)
+  :init
+  (add-hook 'projectile-mode-hook 'projectile-rails-on))
+(use-package robe
+  :commands (robe-mode))
+(use-package rspec-mode
+  :commands (rspec-mode))
+(use-package ruby-end
+  :defer t
+  :diminish ruby-end-mode
+  :init
+  (add-hook 'ruby-mode-hook #'ruby-end-mode))
+(use-package ruby-hash-syntax
+  :commands (ruby-toggle-hash-syntax))
+(use-package ruby-refactor
+  :commands (ruby-refactor-mode)
+  :diminish ruby-refactor-mode
+  :init
+  (add-hook 'ruby-mode-hook #'ruby-refactor-mode))
+(use-package splitjoin
+  :commands (splitjoin)
+  :config
+  (bind-keys :map evil-normal-state-map
+             ("gS" . 'splitjoin)
+             ("gJ" . 'splitjoin)))
 
 (defadvice ruby-indent-line (after unindent-closing-paren activate)
   "Indentation for ruby multiple line ruby methods after a opening parenthesis."
@@ -77,15 +88,6 @@
                ,(rx (or "}" "]" "end"))        ; Block end
                ,(rx (or "#" "=begin"))         ; Comment start
                ruby-forward-sexp nil))
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
-
-(add-hook 'ruby-mode-hook (lambda () (ruby-refactor-mode 1)))
-
-(define-key evil-normal-state-map (kbd "gS") 'splitjoin)
-(define-key evil-normal-state-map (kbd "gJ") 'splitjoin)
-
-(diminish 'ruby-end-mode)
-(diminish 'ruby-refactor-mode)
 
 (provide 'init-ruby)
 ;;; init-ruby.el ends here

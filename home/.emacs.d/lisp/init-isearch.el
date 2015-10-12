@@ -4,19 +4,15 @@
 ;;; use anzu instead of isearch
 
 ;;; Code:
-(require-package 'anzu)
-(require-package 'phi-search)
-
-(require 'anzu)
-
-(global-anzu-mode 1)
-
-(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
-(global-set-key (kbd "M-%") 'anzu-query-replace)
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-
-(diminish 'anzu-mode)
+(use-package anzu
+             :bind (("C-M-%" . anzu-query-replace-regexp)
+                    ("M-%" . anzu-query-replace)
+                    ("C-s" . isearch-forward-regexp)
+                    ("C-r" . isearch-backward-regexp))
+             :defer t
+             :diminish anzu-mode
+             :init
+             (global-anzu-mode 1))
 
 (provide 'init-isearch)
 ;;; init-isearch.el ends here

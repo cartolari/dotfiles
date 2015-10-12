@@ -4,7 +4,7 @@
 ;;; load yaml mode
 
 ;;; Code:
-(require-package 'yaml-mode)
+(use-package yaml-mode)
 
 (require 'outline)
 (require 'yaml-mode)

@@ -4,16 +4,19 @@
 ;;; customize emacs display
 
 ;;; Code:
-(require-package 'fill-column-indicator)
-(require-package 'material-theme)
+(use-package fill-column-indicator
+             :commands (fci-mode)
+             :init
+             (add-hook 'prog-mode-hook 'fci-mode))
+(use-package material-theme
+             :defer t
+             :init
+             (load-theme 'material t))
 
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
-(setq indicate-buffer-boundaries
-      '((t . right) (bottom . right)))
-(setq indicate-empty-lines t)
 (setq scroll-margin 3)
 (setq scroll-step 1)
 (setq-default scroll-preserver-screen-position t)
@@ -25,10 +28,6 @@
 (set-face-attribute 'default nil :font "Source Code Pro for Powerline-12")
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(add-hook 'prog-mode-hook 'fci-mode)
-
-(load-theme 'material t)
 
 (provide 'init-display)
 ;;; init-display.el ends here

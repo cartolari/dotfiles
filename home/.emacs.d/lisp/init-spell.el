@@ -4,14 +4,15 @@
 ;;; flyspell setup for emacs
 
 ;;; Code:
-(require-package 'flyspell-popup)
+(use-package flyspell-popup
+  :commands (flyspell-popup-correct))
 
-(require 'flyspell)
-
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(add-hook 'text-mode-hook 'flyspell-mode)
-
-(diminish 'flyspell-mode " Ⓢ")
+(use-package flyspell
+  :ensure nil
+  :diminish " Ⓢ"
+  :init
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  (add-hook 'text-mode-hook 'flyspell-mode))
 
 (provide 'init-spell)
 ;;; init-spell.el ends here

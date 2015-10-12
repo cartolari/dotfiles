@@ -4,32 +4,54 @@
 ;;; Bindings that are useful in multiple or all modes
 
 ;;; Code:
-
-(require-package 'ace-window)
-(require-package 'aggressive-indent)
-(require-package 'exec-path-from-shell)
-(require-package 'expand-region)
-(require-package 'framemove)
-(require-package 'guide-key)
-(require-package 'highlight-escape-sequences)
-(require-package 'keyfreq)
-(require-package 'linum-relative)
-(require-package 'rainbow-delimiters)
-(require-package 'undo-tree)
-(require-package 'whitespace-cleanup-mode)
-
-(require 'aggressive-indent)
-(require 'framemove)
-(require 'guide-key)
-(require 'hideshow)
-(require 'highlight-escape-sequences)
-(require 'keyfreq)
-(require 'linum-relative)
-(require 'rainbow-delimiters)
-(require 'undo-tree)
-(require 'whitespace-cleanup-mode)
-
-(exec-path-from-shell-initialize)
+(use-package ace-window
+  :bind ("M-o" . ace-window))
+(use-package aggressive-indent)
+(use-package exec-path-from-shell
+  :defer t
+  :init
+  (add-hook 'after-init-hook 'exec-path-from-shell-initialize))
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+(use-package guide-key
+  :defer t
+  :init
+  (add-hook 'after-init-hook #'guide-key-mode)
+  :diminish guide-key-mode)
+(use-package hideshow
+  :defer t
+  :bind ("<C-return>" . hs-toggle-hiding)
+  :diminish (hs-minor-mode . " ☰")
+  :init
+  (autoload 'hs-minor-mode "hideshow" nil t)
+  (add-hook 'prog-mode-hook 'hs-minor-mode))
+(use-package highlight-escape-sequences
+  :defer t
+  :config
+  (put 'hes-escape-backslash-face 'face-alias 'font-lock-builtin-face)
+  (put 'hes-escape-sequence-face 'face-alias 'font-lock-builtin-face)
+  :init
+  (add-hook 'after-init-hook #'hes-mode))
+(use-package keyfreq
+  :defer t
+  :init
+  (keyfreq-mode 1))
+(use-package rainbow-delimiters
+  :defer t
+  :init
+  (autoload 'rainbow-delimiters-mode "rainbow-delimiters" nil t)
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+(use-package undo-tree
+  :defer t
+  :diminish undo-tree-mode
+  :init
+  (global-undo-tree-mode))
+(use-package whitespace-cleanup-mode
+  :defer t
+  :diminish (whitespace-cleanup-mode . " Ⓦ")
+  :init
+  (autoload 'whitespace-cleanup-mode "whitespace-cleanup-mode" nil t)
+  (add-hook 'prog-mode-hook 'whitespace-cleanup-mode))
 
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
@@ -115,63 +137,14 @@ buffer is not visiting a file."
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)
 
-(global-set-key (kbd "<C-return>") 'hs-toggle-hiding)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "M-o") 'ace-window)
-
-(with-eval-after-load 'linum
-  (set-face-background 'linum nil)
-
-  (require 'linum-relative)
-
-  ;; truncate current line to four digits
-  (defun linum-relative (line-number)
-    (let* ((diff1 (abs (- line-number linum-relative-last-pos)))
-           (diff (if (minusp diff1)
-                     diff1
-                   (+ diff1 linum-relative-plusp-offset)))
-           (current-p (= diff linum-relative-plusp-offset))
-           (current-symbol (if (and linum-relative-current-symbol current-p)
-                               (if (string= "" linum-relative-current-symbol)
-                                   (number-to-string (% line-number 1000))
-                                 linum-relative-current-symbol)
-                             (number-to-string diff)))
-           (face (if current-p 'linum-relative-current-face 'linum)))
-      (propertize (format linum-relative-format current-symbol) 'face face)))
-
-
-  (setq
-   linum-relative-current-symbol ""
-   linum-relative-format "%3s "
-   linum-delay t)
-
-  (set-face-attribute 'linum-relative-current-face nil
-                      :weight 'extra-bold
-                      :foreground nil
-                      :background nil
-                      :inherit '(hl-line default)))
-
-(add-hook 'prog-mode-hook 'hs-minor-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
-
 (column-number-mode)
 (delete-selection-mode 1)
 (electric-pair-mode 1)
 (global-auto-revert-mode)
 (global-linum-mode 1)
-(guide-key-mode 1)
-(hes-mode 1)
-(key-chord-mode 1)
-(keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
-(linum-relative-on)
 (savehist-mode 1)
 (show-paren-mode 1)
-
-;; Highlight escape sequences
-(put 'hes-escape-backslash-face 'face-alias 'font-lock-builtin-face)
-(put 'hes-escape-sequence-face 'face-alias 'font-lock-builtin-face)
 
 (set-default 'truncate-lines t)
 (setq auto-save-file-name-transforms
@@ -182,7 +155,6 @@ buffer is not visiting a file."
 (setq disabled-command-function nil) ;; Enabled disabled commands
 (setq font-lock-maximum-decoration 3)
 (setq guide-key/guide-key-sequence t)
-(setq key-chord-two-keys-delay 0.5)
 (setq savehist-additional-variables
       '(kill-ring search-ring regexp-search-ring))
 (setq truncate-partial-width-windows nil)
@@ -195,11 +167,6 @@ buffer is not visiting a file."
 (add-hook 'shell-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (add-hook 'term-mode-hook (lambda () (setq show-trailing-whitespace nil)))
 (setq-default tab-width 2)
-
-(diminish 'hs-minor-mode " ☰")
-(diminish 'undo-tree-mode)
-(diminish 'guide-key-mode)
-(diminish 'whitespace-cleanup-mode " Ⓦ")
 
 (provide 'init-general-editing)
 ;;; init-general-editing.el ends here

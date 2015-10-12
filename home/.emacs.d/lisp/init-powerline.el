@@ -4,13 +4,11 @@
 ;;; Try to mimic Spacemacs modeline
 
 ;;; Code:
-(require-package 'powerline)
-
-(require 'powerline)
+(use-package powerline)
 
 (defface powerline-custom1 '((t (:background "#EEAD0E" :foreground "black" :weight bold)))
-  "Custom face for bright sections"
-  :group 'powerline)
+         "Custom face for bright sections"
+         :group 'powerline)
 
 (defface powerline-custom2 '((t (:foreground "#EEAD0E" :weight bold)))
   "Custom face for text"

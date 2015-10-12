@@ -4,11 +4,11 @@
 ;;; ggtags setup for emacs
 
 ;;; Code:
-(require-package 'ggtags)
-(require-package 'helm-gtags)
-
-(add-hook 'prog-mode-hook 'ggtags-mode)
-(define-key evil-normal-state-map (kbd "C-]") 'ggtags-find-tag-dwim)
+(use-package ggtags
+  :config
+  (bind-key "C-]" 'ggtags-find-tag-dwim evil-normal-state-map )
+  :init
+  (add-hook 'prog-mode-hook 'ggtags-mode))
 
 (provide 'init-tags)
 ;;; init-tags.el ends here

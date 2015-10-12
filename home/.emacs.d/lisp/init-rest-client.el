@@ -4,10 +4,11 @@
 ;;; Rest client emacs plugin
 
 ;;; Code:
-(require-package 'restclient)
-(require-package 'company-restclient)
-
-(add-to-list 'company-backends 'company-restclient)
+(use-package restclient
+  :config
+  (add-to-list 'company-backends 'company-restclient)
+  (use-package company-restclient)
+  :mode ("\\.http\\'" . restclient-mode))
 
 (provide 'init-rest-client)
 ;;; init-rest-client.el ends here

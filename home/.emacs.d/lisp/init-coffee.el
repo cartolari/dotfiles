@@ -4,7 +4,8 @@
 ;;; Coffee and related stuff
 
 ;;; Code:
-(require-package 'coffee-mode)
+(use-package coffee-mode
+  :mode ("\\.coffee\\'" . coffee-mode))
 
 (provide 'init-coffee)
 ;;; init-coffee.el ends here

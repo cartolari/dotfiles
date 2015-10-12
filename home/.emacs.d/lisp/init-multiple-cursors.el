@@ -4,13 +4,20 @@
 ;;; custom multiple cursors setup, mainly to work with evil mode
 
 ;;; Code:
-(require-package 'multiple-cursors)
-(require-package 'region-bindings-mode)
-
-(require 'region-bindings-mode)
-(require 'mc-cycle-cursors)
-
-(region-bindings-mode-enable)
+(use-package multiple-cursors
+  :config
+  (require 'mc-cycle-cursors)
+  (use-package phi-search)
+  (add-hook 'multiple-cursors-mode-enabled-hook
+            'evil-multiple-cursors/switch-to-emacs-state)
+  (add-hook 'multiple-cursors-mode-disabled-hook
+            'evil-multiple-cursors/back-to-previous-state))
+(use-package region-bindings-mode
+  :config
+  (region-bindings-mode-enable)
+  (bind-key "C->" 'mc/mark-next-like-this region-bindings-mode-map)
+  (bind-key "C-<" 'mc/mark-previous-like-this region-bindings-mode-map)
+  (bind-key "C-c C->" 'mc/skip-to-next-like-this region-bindings-mode-map))
 
 ;; =============================================================
 ;; Multiple cursors evil compat (use emacs mode during mc)
@@ -36,15 +43,6 @@
   (when evil-multiple-cursors/evil-prev-state
     (evil-normal-state)
     (setq evil-multiple-cursors/evil-prev-state nil)))
-
-(add-hook 'multiple-cursors-mode-enabled-hook
-          'evil-multiple-cursors/switch-to-emacs-state)
-(add-hook 'multiple-cursors-mode-disabled-hook
-          'evil-multiple-cursors/back-to-previous-state)
-
-(define-key region-bindings-mode-map (kbd "C->") 'mc/mark-next-like-this)
-(define-key region-bindings-mode-map (kbd "C-<") 'mc/mark-previous-like-this)
-(define-key region-bindings-mode-map (kbd "C-c C->") 'mc/skip-to-next-like-this)
 
 (provide 'init-multiple-cursors)
 ;;; init-multiple-cursors.el ends here

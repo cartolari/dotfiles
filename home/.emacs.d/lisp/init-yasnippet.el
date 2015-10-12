@@ -9,7 +9,9 @@
 (require 'yasnippet)
 
 (setq yas-snippet-dirs
-      '("~/.emacs.d/snippets" "~/code/yasnippet-snippets"))
+      '("~/code/snipmate_to_yas/tmp"
+        "~/.emacs.d/snippets"
+        "~/code/yasnippet-snippets"))
 
 ;; Add yasnippet support for all company backends
 ;; https://github.com/syl20bnr/spacemacs/pull/179

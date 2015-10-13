@@ -7,8 +7,6 @@
 (use-package ido
   :defer t
   :ensure nil
-  :config
-  (ido-mode 1)
   :init
   (setq ido-enable-flex-matching t
         ido-everywhere t

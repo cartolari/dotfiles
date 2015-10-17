@@ -8,6 +8,7 @@
   :bind ("C-z" . evil-local-mode)
   :config
   (setq-default evil-shift-width 2)
+  (setq evil-move-beyond-eol t)
   ;; Swap ; and : in evil mode
   (bind-keys :map evil-normal-state-map
              (":" . evil-repeat-find-char)
@@ -21,7 +22,7 @@
   (key-seq-define evil-normal-state-map ",q" 'delete-window)
   ;; indent entire file with ==
   (key-seq-define evil-normal-state-map "=="
-                  (lambda (indent-region (point-min) (point-max))))
+                  (lambda () (indent-region (point-min) (point-max))))
   ;; save file with ,s
   (key-seq-define evil-insert-state-map ",s" (lambda ()
                                                (interactive)

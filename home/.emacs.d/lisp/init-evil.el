@@ -23,7 +23,8 @@
   (key-seq-define evil-normal-state-map "=="
                   (lambda (indent-region (point-min) (point-max))))
   ;; save file with ,s
-  (key-seq-define evil-insert-state-map ",s" (lambda (interactive)
+  (key-seq-define evil-insert-state-map ",s" (lambda ()
+                                               (interactive)
                                                (progn
                                                  (evil-normal-state)
                                                  (save-buffer))))

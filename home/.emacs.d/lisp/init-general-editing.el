@@ -6,7 +6,6 @@
 ;;; Code:
 (use-package ace-window
   :bind ("M-o" . ace-window))
-(use-package aggressive-indent)
 (use-package exec-path-from-shell
   :defer t
   :init

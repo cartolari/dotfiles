@@ -45,13 +45,13 @@
 
 (require 'init-projectile)
 
+(require 'init-clojure)
 (require 'init-coffee)
-(require 'init-elisp)
 (require 'init-haml)
-;; (require 'init-helm)
 (require 'init-ido)
 (require 'init-java)
 (require 'init-javascript)
+(require 'init-lisp)
 (require 'init-markdown)
 (require 'init-rest-client)
 (require 'init-ruby)
@@ -63,6 +63,7 @@
 (require 'init-web)
 (require 'init-yaml)
 (require 'init-yasnippet)
+;; (require 'init-helm)
 
 ;; Emacs options
 (setq gc-cons-threshold 20000000)

@@ -57,10 +57,6 @@
 
 (add-hook 'prog-mode-hook 'map-company-yasnippet-tab)
 
-(define-key company-active-map [tab] 'company-select-next)
-(define-key company-active-map [backtab] 'company-select-previous)
-(define-key company-active-map (kbd "<tab>") 'company-select-next)
-(define-key company-active-map (kbd "<backtab>") 'company-select-previous)
 
 (yas-global-mode 1)
 

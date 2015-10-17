@@ -5,6 +5,7 @@
 
 ;;; Code:
 (use-package ggtags
+  :commands (ggtags-mode)
   :config
   (bind-key "C-]" 'ggtags-find-tag-dwim evil-normal-state-map)
   :diminish ggtags-mode

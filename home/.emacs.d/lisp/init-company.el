@@ -31,11 +31,13 @@
 (use-package company-ycmd
   :defer t
   :config
-  (company-ycmd-setup)
-  (setq ycmd--log-enabled t)
   :diminish ycmd-mode
   :init
-  (add-hook 'after-init-hook #'global-ycmd-mode)
+  (add-hook 'after-init-hook (lambda ()
+                               (progn
+                                 (global-ycmd-mode)
+                                 (company-ycmd-setup)
+                                 (setq ycmd--log-enabled t))))
   (setq ycmd-server-command '("python2" "/home/bruno/code/ycmd/ycmd")))
 (use-package readline-complete)
 

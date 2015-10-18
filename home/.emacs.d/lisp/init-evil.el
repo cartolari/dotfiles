@@ -20,9 +20,13 @@
   ;; ,q to close the current window in evil-mode
   (key-seq-define evil-normal-state-map ",q" 'delete-window)
   ;; indent entire file with ==
-  (key-seq-define evil-normal-state-map "==" 'indent-file)
+  (key-seq-define evil-normal-state-map "=="
+                  (lambda (indent-region (point-min) (point-max))))
   ;; save file with ,s
-  (key-seq-define evil-insert-state-map ",s" 'evil-save-buffer-and-goto-normal-state)
+  (key-seq-define evil-insert-state-map ",s" (lambda (interactive)
+                                               (progn
+                                                 (evil-normal-state)
+                                                 (save-buffer))))
   (key-seq-define evil-normal-state-map ",s" 'save-buffer)
   :init
   (add-hook 'prog-mode-hook 'evil-local-mode)
@@ -38,14 +42,12 @@
   (setq evil-exchange-key (kbd "gx"))
   :init
   (autoload 'evil-exchange "evil-exchange" nil t)
-  (key-seq-define evil-visual-state-map "cx" 'evil-exchange)
-  :defer t)
+  (key-seq-define evil-visual-state-map "cx" 'evil-exchange))
 (use-package evil-indent-textobject)
 (use-package evil-jumper
   :config
   (global-evil-jumper-mode 1))
 (use-package evil-matchit
-  :defer t
   :config
   (global-evil-matchit-mode 1))
 (use-package evil-surround
@@ -54,18 +56,6 @@
 (use-package evil-visualstar
   :config
   (global-evil-visualstar-mode t))
-
-(defun evil-save-buffer-and-goto-normal-state ()
-  "Save an evil mode buffer and get back to evil-normal-state."
-  (interactive)
-  (progn
-    (evil-normal-state)
-    (save-buffer)))
-
-(defun indent-file ()
-  "Indent the entire file."
-  (interactive)
-  (indent-region (point-min) (point-max)))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

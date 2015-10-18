@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source /usr/local/share/chruby/chruby.sh
+[[ -f /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
+[[ -f /usr/share/chruby/chruby.sh ]] && source /usr/share/chruby/chruby.sh
 chruby 2.1.5
 if [ $# -eq 1 -a x"$1" = x--version ]; then
   rubocop "$@" 2>&1 | \

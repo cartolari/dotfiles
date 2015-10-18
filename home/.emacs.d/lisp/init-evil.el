@@ -20,9 +20,11 @@
   (key-seq-define evil-insert-state-map "jk" 'evil-normal-state)
   ;; ,q to close the current window in evil-mode
   (key-seq-define evil-normal-state-map ",q" 'delete-window)
-  ;; indent entire file with ==
-  (key-seq-define evil-normal-state-map "=="
-                  (lambda () (indent-region (point-min) (point-max))))
+  ;; indent entire
+  (key-seq-define evil-normal-state-map "==" (lambda ()
+                                               (interactive)
+                                               (indent-region
+                                                (point-min) (point-max))))
   ;; save file with ,s
   (key-seq-define evil-insert-state-map ",s" (lambda ()
                                                (interactive)

@@ -13,6 +13,8 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 (use-package guide-key
+  :config
+  (setq guide-key/idle-delay 0.5)
   :defer t
   :init
   (add-hook 'after-init-hook #'guide-key-mode)

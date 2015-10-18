@@ -14,7 +14,8 @@
   :bind ("C-=" . er/expand-region))
 (use-package guide-key
   :config
-  (setq guide-key/idle-delay 0.5)
+  (setq guide-key/idle-delay 0.3)
+  (setq echo-keystrokes 0.3)
   :defer t
   :init
   (add-hook 'after-init-hook #'guide-key-mode)

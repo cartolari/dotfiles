@@ -54,6 +54,10 @@
 (use-package evil-matchit
   :config
   (global-evil-matchit-mode 1))
+(use-package evil-rsi
+  :config
+  (evil-rsi-mode)
+  :diminish evil-rsi-mode)
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1))

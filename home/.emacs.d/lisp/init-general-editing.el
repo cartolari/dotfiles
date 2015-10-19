@@ -6,6 +6,11 @@
 ;;; Code:
 (use-package ace-window
   :bind ("M-o" . ace-window))
+(use-package browse-kill-ring
+  :commands (browse-kill-ring)
+  :bind ("M-y" . browse-kill-ring))
+(use-package discover-my-major
+  :commands (discover-my-major discover-my-mode))
 (use-package exec-path-from-shell
   :defer t
   :init

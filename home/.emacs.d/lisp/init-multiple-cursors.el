@@ -17,7 +17,8 @@
   (region-bindings-mode-enable)
   (bind-key "C->" 'mc/mark-next-like-this region-bindings-mode-map)
   (bind-key "C-<" 'mc/mark-previous-like-this region-bindings-mode-map)
-  (bind-key "C-c C->" 'mc/skip-to-next-like-this region-bindings-mode-map))
+  (bind-key "C-c C->" 'mc/skip-to-next-like-this region-bindings-mode-map)
+  :diminish region-bindings-mode)
 
 ;; =============================================================
 ;; Multiple cursors evil compat (use emacs mode during mc)

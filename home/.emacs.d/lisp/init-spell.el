@@ -9,7 +9,7 @@
 
 (use-package flyspell
   :ensure nil
-  :diminish " Ⓢ"
+  :diminish flyspell-mode
   :init
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   (add-hook 'text-mode-hook 'flyspell-mode))

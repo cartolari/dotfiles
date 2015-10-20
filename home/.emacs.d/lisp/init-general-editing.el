@@ -28,7 +28,7 @@
 (use-package hideshow
   :defer t
   :bind ("<C-return>" . hs-toggle-hiding)
-  :diminish (hs-minor-mode . " ☰")
+  :diminish hs-minor-mode
   :init
   (autoload 'hs-minor-mode "hideshow" nil t)
   (add-hook 'prog-mode-hook 'hs-minor-mode))

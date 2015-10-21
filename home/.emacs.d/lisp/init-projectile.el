@@ -8,8 +8,7 @@
   :config
   (projectile-global-mode 1)
   (define-key projectile-mode-map (kbd "C-c p R") 'my/projectile-regenerate-tags)
-  ;; fuzzy find in current project with ,t
-  (key-seq-define evil-normal-state-map ",t" 'projectile-find-in-current-or-all-projects)
+  (key-seq-define evil-normal-state-map ",t" 'projectile-swith-project-or-find-file)
   :diminish projectile-mode)
 
 (defun my/projectile-regenerate-tags ()
@@ -21,12 +20,12 @@
                         (projectile-project-root)))
     (message "Generating tags file")))
 
-(defun projectile-find-in-current-or-all-projects ()
+(defun projectile-swith-project-or-find-file ()
   "Find a file in current (if any) or all projectile projects."
   (interactive)
   (if (projectile-project-p)
-      (projectile-find-file)
-    (projectile-find-file-in-known-projects)))
+      (projectile-find-file-in-known-projects)
+    (projectile-switch-project)))
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

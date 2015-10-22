@@ -8,6 +8,7 @@
   :commands (inf-ruby inf-ruby-mode))
 (use-package projectile-rails
   :commands (projectile-rails-on)
+  :diminish projectile-rails-mode
   :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 (use-package robe

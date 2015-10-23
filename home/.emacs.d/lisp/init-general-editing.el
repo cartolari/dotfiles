@@ -6,17 +6,22 @@
 ;;; Code:
 (use-package ace-window
   :bind ("M-o" . ace-window))
+
 (use-package browse-kill-ring
   :commands (browse-kill-ring)
   :bind ("M-y" . browse-kill-ring))
+
 (use-package discover-my-major
   :commands (discover-my-major discover-my-mode))
+
 (use-package exec-path-from-shell
   :defer t
   :init
   (add-hook 'after-init-hook 'exec-path-from-shell-initialize))
+
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
+
 (use-package guide-key
   :config
   (setq guide-key/idle-delay 0.3)
@@ -25,6 +30,7 @@
   :init
   (add-hook 'after-init-hook #'guide-key-mode)
   :diminish guide-key-mode)
+
 (use-package hideshow
   :defer t
   :bind ("<C-return>" . hs-toggle-hiding)
@@ -32,6 +38,7 @@
   :init
   (autoload 'hs-minor-mode "hideshow" nil t)
   (add-hook 'prog-mode-hook 'hs-minor-mode))
+
 (use-package highlight-escape-sequences
   :defer t
   :config
@@ -39,15 +46,18 @@
   (put 'hes-escape-sequence-face 'face-alias 'font-lock-builtin-face)
   :init
   (add-hook 'after-init-hook #'hes-mode))
+
 (use-package keyfreq
   :defer t
   :init
   (keyfreq-mode 1))
+
 (use-package rainbow-delimiters
   :defer t
   :init
   (autoload 'rainbow-delimiters-mode "rainbow-delimiters" nil t)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
 (use-package undo-tree
   :config
   (setq undo-tree-history-directory-alist `((".*" . ,temporary-file-directory)))
@@ -55,6 +65,7 @@
   :diminish undo-tree-mode
   :init
   (global-undo-tree-mode))
+
 (use-package whitespace-cleanup-mode
   :defer t
   :diminish (whitespace-cleanup-mode . " Ⓦ")

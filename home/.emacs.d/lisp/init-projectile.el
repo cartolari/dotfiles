@@ -24,8 +24,8 @@
   "Find a file in current (if any) or all projectile projects."
   (interactive)
   (if (projectile-project-p)
-      (projectile-find-file-in-known-projects)
-    (projectile-switch-project)))
+      (helm-projectile-find-file)
+    (helm-projectile-switch-project)))
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

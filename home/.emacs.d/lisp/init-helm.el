@@ -34,6 +34,8 @@
   :diminish helm-mode
   :demand t)
 
+(use-package helm-ag)
+
 (use-package helm-projectile
   :defer t
   :init

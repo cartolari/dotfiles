@@ -18,7 +18,6 @@
   (setq helm-display-function                 'pop-to-buffer
         helm-mode-fuzzy-match                 t
         helm-completion-in-region-fuzzy-match t
-        helm-move-to-line-cycle-in-source     t
         helm-ff-search-library-in-sexp        t
         helm-scroll-amount                    8
         helm-ff-file-name-history-use-recentf t

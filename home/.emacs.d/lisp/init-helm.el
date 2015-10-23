@@ -31,8 +31,7 @@
         helm-imenu-fuzzy-match                t
         helm-apropos-fuzzy-match              t
         helm-lisp-fuzzy-completion            t)
-  :diminish helm-mode
-  :demand t)
+  :diminish helm-mode)
 
 (use-package helm-ag)
 

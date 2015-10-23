@@ -51,7 +51,6 @@
 (require 'init-clojure)
 (require 'init-coffee)
 (require 'init-haml)
-;; (require 'init-ido)
 (require 'init-helm)
 (require 'init-java)
 (require 'init-javascript)

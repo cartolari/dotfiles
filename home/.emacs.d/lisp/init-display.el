@@ -5,13 +5,13 @@
 
 ;;; Code:
 (use-package fill-column-indicator
-             :commands (fci-mode)
-             :init
-             (add-hook 'prog-mode-hook 'fci-mode))
+  :commands (fci-mode)
+  :init
+  (add-hook 'prog-mode-hook 'fci-mode))
 (use-package material-theme
-             :defer t
-             :init
-             (load-theme 'material t))
+  :defer t
+  :init
+  (load-theme 'material t))
 
 (menu-bar-mode -1)
 (scroll-bar-mode -1)

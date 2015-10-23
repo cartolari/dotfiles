@@ -49,7 +49,9 @@
   (autoload 'rainbow-delimiters-mode "rainbow-delimiters" nil t)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 (use-package undo-tree
-  :defer t
+  :config
+  (setq undo-tree-history-directory-alist `((".*" . ,temporary-file-directory)))
+  (setq undo-tree-auto-save-history t)
   :diminish undo-tree-mode
   :init
   (global-undo-tree-mode))

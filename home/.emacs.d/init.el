@@ -30,6 +30,7 @@
   :commands (cssh-term-remote-open))
 (use-package dockerfile-mode
   :mode ("Dockerfile" . dockerfile-mode))
+(use-package hydra)
 (use-package key-seq
   :config
   (key-chord-mode 1)

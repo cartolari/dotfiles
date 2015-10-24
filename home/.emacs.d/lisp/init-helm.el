@@ -12,7 +12,8 @@
 
 (use-package helm
   :bind (("M-x" . helm-M-x)
-         ("M-y" . helm-show-kill-ring))
+         ("M-y" . helm-show-kill-ring)
+         ("C-x b" . helm-mini))
   :config
   (helm-mode 1)
   (setq helm-display-function                 'pop-to-buffer

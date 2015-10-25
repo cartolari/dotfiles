@@ -7,10 +7,6 @@
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
-(use-package browse-kill-ring
-  :commands (browse-kill-ring)
-  :bind ("M-y" . browse-kill-ring))
-
 (use-package discover-my-major
   :commands (discover-my-major discover-my-mode))
 
@@ -23,54 +19,54 @@
   :bind ("C-=" . er/expand-region))
 
 (use-package guide-key
+  :commands (guide-key-mode)
   :config
-  (setq guide-key/idle-delay 0.3)
   (setq echo-keystrokes 0.3)
-  :defer t
+  (setq guide-key/guide-key-sequence t)
+  (setq guide-key/idle-delay 0.3)
   :init
-  (add-hook 'after-init-hook #'guide-key-mode)
+  (add-hook 'after-init-hook 'guide-key-mode)
   :diminish guide-key-mode)
 
 (use-package hideshow
-  :defer t
+  :commands (hs-minor-mode)
   :bind ("<C-return>" . hs-toggle-hiding)
   :diminish hs-minor-mode
   :init
-  (autoload 'hs-minor-mode "hideshow" nil t)
   (add-hook 'prog-mode-hook 'hs-minor-mode))
 
 (use-package highlight-escape-sequences
-  :defer t
+  :commands (hes-mode)
   :config
   (put 'hes-escape-backslash-face 'face-alias 'font-lock-builtin-face)
   (put 'hes-escape-sequence-face 'face-alias 'font-lock-builtin-face)
   :init
-  (add-hook 'after-init-hook #'hes-mode))
+  (add-hook 'after-init-hook 'hes-mode))
 
 (use-package keyfreq
-  :defer t
+  :commands (keyfreq-mode)
   :init
-  (keyfreq-mode 1))
+  (add-hook 'after-init-hook 'keyfreq-mode))
 
 (use-package rainbow-delimiters
-  :defer t
+  :commands (rainbow-delimiters-mode)
   :init
   (autoload 'rainbow-delimiters-mode "rainbow-delimiters" nil t)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package undo-tree
+  :commands (global-undo-tree-mode)
   :config
   (setq undo-tree-history-directory-alist `((".*" . ,temporary-file-directory)))
   (setq undo-tree-auto-save-history t)
   :diminish undo-tree-mode
   :init
-  (global-undo-tree-mode))
+  (add-hook 'after-init-hook 'global-undo-tree-mode))
 
 (use-package whitespace-cleanup-mode
-  :defer t
-  :diminish (whitespace-cleanup-mode . " Ⓦ")
+  :commands (whitespace-cleanup-mode)
+  :diminish (whitespace-cleanup-mode . "Ⓦ")
   :init
-  (autoload 'whitespace-cleanup-mode "whitespace-cleanup-mode" nil t)
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode))
 
 (defun rename-file-and-buffer ()
@@ -130,14 +126,18 @@ buffer is not visiting a file."
       (setq buffer (car list))))
   (message "Refreshed open files"))
 
-(column-number-mode)
-(delete-selection-mode 1)
-(electric-pair-mode 1)
-(global-auto-revert-mode)
-(global-linum-mode 1)
-(keyfreq-autosave-mode 1)
-(savehist-mode 1)
-(show-paren-mode 1)
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (progn
+     (column-number-mode)
+     (delete-selection-mode 1)
+     (electric-pair-mode 1)
+     (global-auto-revert-mode)
+     (global-linum-mode 1)
+     (keyfreq-autosave-mode 1)
+     (savehist-mode 1)
+     (show-paren-mode 1))))
 
 (set-default 'truncate-lines t)
 (setq auto-save-file-name-transforms
@@ -146,7 +146,6 @@ buffer is not visiting a file."
       `((".*" . ,temporary-file-directory)))
 (setq create-lockfiles nil)
 (setq disabled-command-function nil)
-(setq guide-key/guide-key-sequence t)
 (setq savehist-additional-variables
       '(kill-ring search-ring regexp-search-ring))
 (setq truncate-partial-width-windows nil)

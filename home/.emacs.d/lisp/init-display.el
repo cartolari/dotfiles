@@ -8,8 +8,8 @@
   :commands (fci-mode)
   :init
   (add-hook 'prog-mode-hook 'fci-mode))
+
 (use-package material-theme
-  :defer t
   :init
   (load-theme 'material t))
 

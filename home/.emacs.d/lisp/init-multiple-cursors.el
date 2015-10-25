@@ -5,20 +5,26 @@
 
 ;;; Code:
 (use-package multiple-cursors
+  :defer 1
   :config
   (require 'mc-cycle-cursors)
-  (use-package phi-search)
   (add-hook 'multiple-cursors-mode-enabled-hook
             'evil-multiple-cursors/switch-to-emacs-state)
   (add-hook 'multiple-cursors-mode-disabled-hook
             'evil-multiple-cursors/back-to-previous-state))
+
 (use-package region-bindings-mode
+  :commands (region-bindings-mode-enable)
   :config
-  (region-bindings-mode-enable)
   (bind-key "C->" 'mc/mark-next-like-this region-bindings-mode-map)
   (bind-key "C-<" 'mc/mark-previous-like-this region-bindings-mode-map)
   (bind-key "C-c C->" 'mc/skip-to-next-like-this region-bindings-mode-map)
-  :diminish region-bindings-mode)
+  :diminish region-bindings-mode
+  :init
+  (add-hook 'after-init-hook 'region-bindings-mode-enable))
+
+(use-package phi-search
+  :commands (phi-search phi-search-backward))
 
 ;; =============================================================
 ;; Multiple cursors evil compat (use emacs mode during mc)

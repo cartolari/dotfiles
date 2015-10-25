@@ -13,11 +13,9 @@
   :mode ("\\.md\\'" . gfm-mode))
 
 (use-package instant-markdown
-  :defer t
+  :commands (instant-markdown-mode)
   :ensure nil
-  :init
-  (autoload 'instant-markdown-mode "instant-markdown" nil t))
-
+  :load-path (lambda () (expand-file-name "site-lisp" user-emacs-directory)))
 
 (provide 'init-markdown)
 ;;; init-markdown.el ends here

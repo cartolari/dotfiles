@@ -7,7 +7,6 @@
 (setq gc-cons-threshold 30000000)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -33,8 +32,9 @@
 (use-package hydra)
 (use-package key-seq
   :config
-  (key-chord-mode 1)
-  (setq key-chord-two-keys-delay 0.3))
+  (setq key-chord-two-keys-delay 0.3)
+  :init
+  (add-hook 'after-init-hook (lambda () (key-chord-mode 1))))
 
 (require 'init-display)
 (require 'init-general-editing)

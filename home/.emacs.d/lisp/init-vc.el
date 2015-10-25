@@ -4,7 +4,8 @@
 ;;; git setup
 
 ;;; Code:
-(use-package git-timemachine)
+(use-package git-timemachine
+  :commands (git-timemachine))
 (use-package gitattributes-mode)
 (use-package gitconfig-mode)
 (use-package gitignore-mode)

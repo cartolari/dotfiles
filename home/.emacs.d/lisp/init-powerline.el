@@ -1,12 +1,13 @@
 ;;; init-powerline.el -- Powerline configuration
 
 ;;; Commentary:
-;;; Try to mimic Spacemacs modeline
+;;; Simplified mode line setup that focuses on providing only the most useful
+;;; information
 
 ;;; Code:
 (use-package eyebrowse
+  :commands (eyebrowse-mode)
   :config
-  (eyebrowse-mode)
   (setq eyebrowse-new-workspace t)
   (bind-key "s-w" (defhydra hydra-eyebrowse ()
                     "eyebrowse"
@@ -21,39 +22,48 @@
                     ("l" eyebrowse-last-window-config "last")
                     ("q" nil "quit"))
             eyebrowse-mode-map)
-  :diminish eyebrowse-mode)
+  :diminish eyebrowse-mode
+  :init
+  (add-hook 'after-init-hook 'eyebrowse-mode))
 
 (use-package window-numbering
-  :config (window-numbering-mode))
+  :commands (window-numbering-mode)
+  :config
+  (defun window-numbering-install-mode-line (&optional ignored))
+  :init
+  (add-hook 'after-init-hook 'window-numbering-mode))
 
 (use-package spaceline
-  :config
-  (require 'spaceline-config)
-  (spaceline-spacemacs-theme)
-  (setq anzu-cons-mode-line-p nil)
-  (setq anzu-mode-line-update-function
-        (lambda (here total)
-          (propertize (format "<%d/%d>" here total)
-                      'face (spaceline-highlight-face-default))))
-  (setq powerline-default-separator 'wave)
-  (setq powerline-height 25)
-  (setq spaceline-window-numbers-unicode t)
-  (setq spaceline-workspace-numbers-unicode t)
-  (set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10")
-  (set-face-attribute (spaceline-highlight-face-default) nil :weight 'bold)
-  (spaceline-install
-   '(((anzu workspace-number window-number evil-state) :face highlight-face :separator " | ")
-     (buffer-modified buffer-size buffer-id remote-host)
-     major-mode
-     ((flycheck-error flycheck-warning flycheck-info) :when active)
-     (((minor-modes :separator " ") process) :when active)
-     (version-control :when active))
-
-   `(selection-info
-     ((buffer-encoding-abbrev point-position line-column) :separator " | ")
-     (global :when active)
-     buffer-position
-     hud)))
+  :init
+  (add-hook
+   'after-init-hook
+   (lambda ()
+     (progn
+       (require 'spaceline-segments)
+       (setq anzu-cons-mode-line-p nil)
+       (setq anzu-mode-line-update-function
+             (lambda (here total)
+               (propertize (format "<%d/%d>" here total)
+                           'face (spaceline-highlight-face-default))))
+       (setq powerline-default-separator 'wave)
+       (setq powerline-height 25)
+       (setq spaceline-window-numbers-unicode t)
+       (setq spaceline-workspace-numbers-unicode t)
+       (set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10")
+       (set-face-attribute (spaceline-highlight-face-default) nil :weight 'bold)
+       (spaceline-install
+        '(((anzu workspace-number window-number evil-state) :face highlight-face :separator " | ")
+          (buffer-modified buffer-size buffer-id remote-host)
+          major-mode
+          ((flycheck-error flycheck-warning flycheck-info) :when active)
+          (((minor-modes :separator " ") process) :when active)
+          (version-control :when active))
+        `(selection-info
+          ((buffer-encoding-abbrev point-position line-column) :separator " | ")
+          (global :when active)
+          buffer-position
+          hud))
+       (setq mode-line-format (default-value 'mode-line-format))))))
 
 (defadvice vc-mode-line (after strip-backend () activate)
   "Remove the Git string from the 'vc-mode-line'."

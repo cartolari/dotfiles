@@ -5,6 +5,7 @@
 
 ;;; Code:
 (use-package flycheck
+  :commands (global-flycheck-mode)
   :config
   (flycheck-def-config-file-var flycheck-haml-lintrc haml-lint ".haml-lint.yml" :safe #'stringp)
   (flycheck-define-checker haml-lint
@@ -26,7 +27,7 @@ See URL https://github.com/brigade/haml-lint"
                     ("q" nil "quit"))
             flycheck-mode-map)
   :init
-  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (add-hook 'after-init-hook 'global-flycheck-mode)
   :diminish flycheck-mode)
 
 (provide 'init-flycheck)

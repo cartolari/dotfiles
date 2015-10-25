@@ -7,7 +7,8 @@
 (use-package ggtags
   :commands (ggtags-mode)
   :config
-  (bind-key "C-]" 'ggtags-find-tag-dwim evil-normal-state-map)
+  (with-eval-after-load 'evil
+    (bind-key "C-]" 'ggtags-find-tag-dwim evil-normal-state-map))
   (setq ggtags-mode-line-project-name nil)
   :diminish ggtags-mode
   :init

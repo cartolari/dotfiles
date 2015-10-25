@@ -5,10 +5,12 @@
 
 ;;; Code:
 (use-package shackle
+  :commands (shackle-mode)
   :config
   (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.30)))
-  (shackle-mode)
-  :diminish shackle-mode)
+  :diminish shackle-mode
+  :init
+  (add-hook 'after-init-hook 'shackle-mode))
 
 (use-package helm
   :bind (("M-x" . helm-M-x)
@@ -34,12 +36,16 @@
         helm-lisp-fuzzy-completion            t)
   :diminish helm-mode)
 
-(use-package helm-ag)
+(use-package helm-ag
+  :commands (helm-ag
+             helm-do-ag
+             helm-ag-project-root
+             helm-do-ag-project-root))
 
 (use-package helm-projectile
-  :defer t
+  :commands (helm-projectile-on)
   :init
-  (add-hook 'projectile-mode-hook #'helm-projectile-on)
+  (add-hook 'projectile-mode-hook 'helm-projectile-on)
   (setq projectile-completion-system 'helm))
 
 (provide 'init-helm)

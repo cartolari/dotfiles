@@ -5,11 +5,15 @@
 
 ;;; Code:
 (use-package projectile
+  :commands (projectile-global-mode)
   :config
   (projectile-global-mode 1)
   (define-key projectile-mode-map (kbd "C-c p R") 'my/projectile-regenerate-tags)
-  (key-seq-define evil-normal-state-map ",t" 'helm-projectile)
-  :diminish projectile-mode)
+  (with-eval-after-load 'evil
+    (key-seq-define evil-normal-state-map ",t" 'helm-projectile))
+  :diminish projectile-mode
+  :init
+  (add-hook 'after-init-hook 'projectile-global-mode))
 
 (defun my/projectile-regenerate-tags ()
   "Regenerate projectile tags using git ctags."

@@ -34,3 +34,4 @@ home/.emacs.d/smex-items
 home/.emacs.d/tramp
 home/.emacs.d/url/
 home/.emacs.d/cider-history
+home/.emacs.d/**/*.elc

@@ -8,6 +8,8 @@
   :commands (inf-ruby inf-ruby-mode))
 (use-package projectile-rails
   :commands (projectile-rails-on)
+  :config
+  (define-key projectile-rails-mode-map (kbd "s-r") 'hydra-projectile-rails/body)
   :diminish projectile-rails-mode
   :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))

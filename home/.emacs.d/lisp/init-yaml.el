@@ -19,5 +19,9 @@
   (with-eval-after-load 'company
     '(add-to-list 'company-dabbrev-code-modes 'yaml-mode)))
 
+(use-package ansible-doc
+  :commands (ansible-doc ansible-doc-mode)
+  :diminish ansible-doc-mode)
+
 (provide 'init-yaml)
 ;;; init-yaml.el ends here

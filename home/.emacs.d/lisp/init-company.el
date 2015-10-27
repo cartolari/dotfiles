@@ -49,8 +49,6 @@
                              '(company-ycmd :with company-yasnippet)))))
   (setq ycmd-server-command '("python2" "/home/bruno/code/ycmd/ycmd")))
 
-(use-package readline-complete)
-
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 (defun company-mode/backend-with-yas (backend)

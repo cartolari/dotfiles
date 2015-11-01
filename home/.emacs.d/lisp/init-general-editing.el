@@ -152,11 +152,12 @@ buffer is not visiting a file."
 (setq-default display-buffer-reuse-frames t)
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
-(setq-default show-trailing-whitespace t)
 
-(add-hook 'comint-mode-hook (lambda () (setq show-trailing-whitespace nil)))
-(add-hook 'shell-mode-hook (lambda () (setq show-trailing-whitespace nil)))
-(add-hook 'term-mode-hook (lambda () (setq show-trailing-whitespace nil)))
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail tab-mark))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 (setq-default tab-width 2)
 
 (provide 'init-general-editing)

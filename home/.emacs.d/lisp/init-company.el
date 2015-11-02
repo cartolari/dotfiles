@@ -7,6 +7,7 @@
 (use-package company
   :commands (global-company-mode)
   :config
+  (require 'dabbrev)
   (bind-keys :map company-active-map
              ("TAB" . company-select-next)
              ([tab] . company-select-next)
@@ -17,6 +18,12 @@
   (add-hook 'company-completion-cancelled-hook (lambda (arg) (fci-mode 1)))
   (add-hook 'company-completion-finished-hook (lambda (arg) (fci-mode 1)))
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (add-hook 'completion-at-point-functions 'my/dabbrev-capf nil t)))
+  (add-hook 'yaml-mode-hook
+            (lambda ()
+              (add-hook 'completion-at-point-functions 'my/dabbrev-capf nil t)))
   (setq company-dabbrev-downcase nil
         company-dabbrev-ignore-case t
         company-idle-delay 0.25
@@ -37,17 +44,10 @@
   :init
   (global-set-key (kbd "C-'") 'company-try-hard))
 
-(use-package company-ycmd
-  :commands (global-ycmd-mode)
-  :diminish ycmd-mode
+(use-package company-flx
+  :commands (company-flx-mode)
   :init
-  (add-hook 'global-company-mode-hook
-            (lambda ()
-              (progn
-                (global-ycmd-mode)
-                (add-to-list 'company-backends
-                             '(company-ycmd :with company-yasnippet)))))
-  (setq ycmd-server-command '("python2" "/home/bruno/code/ycmd/ycmd")))
+  (add-hook 'global-company-mode-hook 'company-flx-mode))
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 
@@ -86,6 +86,23 @@
   (bind-keys :map global-map
              ((local-set-key [tab] 'tab-indent-or-complete)
               (local-set-key (kbd "TAB") 'tab-indent-or-complete))))
+
+(defun my/dabbrev-find-all (abbrev)
+  "Return a list of expansions matched by ABBREV."
+  (let ((dabbrev-check-other-buffers t)
+        (dabbrev-check-all-buffers nil))
+    (dabbrev--reset-global-variables)
+    (save-excursion
+      (goto-char (point-min))
+      (dabbrev--find-all-expansions abbrev t))))
+
+(defun my/dabbrev-capf ()
+  "Dabbrev 'complete-at-point-functions' implementation."
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (list
+     (car bounds)
+     (cdr bounds)
+     (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1)))))
 
 (provide 'init-company)
 ;;; init-company.el ends here

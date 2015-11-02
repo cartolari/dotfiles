@@ -153,10 +153,13 @@ buffer is not visiting a file."
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
-(setq whitespace-style '(face lines-tail tab-mark))
-(add-hook 'prog-mode-hook 'whitespace-mode)
+(use-package whitespace
+  :config
+  (setq whitespace-line-column 80) ;; limit line length
+  (setq whitespace-style '(face lines-tail tab-mark trailing))
+  (add-hook 'prog-mode-hook 'whitespace-mode)
+  :diminish whitespace-mode
+  :ensure nil)
 
 (setq-default tab-width 2)
 

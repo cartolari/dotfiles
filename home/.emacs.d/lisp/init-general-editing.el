@@ -156,7 +156,7 @@ buffer is not visiting a file."
 (use-package whitespace
   :config
   (setq whitespace-line-column 80) ;; limit line length
-  (setq whitespace-style '(face lines-tail tab-mark trailing))
+  (setq whitespace-style '(face tab-mark trailing))
   (add-hook 'prog-mode-hook 'whitespace-mode)
   :diminish whitespace-mode
   :ensure nil)

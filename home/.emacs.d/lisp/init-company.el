@@ -20,10 +20,10 @@
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
   (add-hook 'prog-mode-hook
             (lambda ()
-              (add-hook 'completion-at-point-functions 'my/dabbrev-capf nil t)))
+              (add-hook 'completion-at-point-functions 'my/dabbrev-capf t t)))
   (add-hook 'yaml-mode-hook
             (lambda ()
-              (add-hook 'completion-at-point-functions 'my/dabbrev-capf nil t)))
+              (add-hook 'completion-at-point-functions 'my/dabbrev-capf t t)))
   (setq company-dabbrev-downcase nil
         company-dabbrev-ignore-case t
         company-idle-delay 0.25

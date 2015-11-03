@@ -24,6 +24,7 @@
   (add-hook 'yaml-mode-hook
             (lambda ()
               (add-hook 'completion-at-point-functions 'my/dabbrev-capf t t)))
+  (add-hook 'company-transformers 'remove-thing-at-point-transform)
   (setq company-dabbrev-downcase nil
         company-dabbrev-ignore-case t
         company-idle-delay 0.25
@@ -102,6 +103,12 @@
      (cdr bounds)
      (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1))
      :exclusive 'no)))
+
+
+(defun remove-thing-at-point-transform (candidates)
+  "Remove 'thing-at-point' from CANDIDATES."
+  (cl-remove-if (lambda (item) (string= item (thing-at-point 'symbol)))
+                candidates))
 
 (provide 'init-company)
 ;;; init-company.el ends here

@@ -100,7 +100,8 @@
     (list
      (car bounds)
      (cdr bounds)
-     (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1)))))
+     (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1))
+     :exclusive 'no)))
 
 (provide 'init-company)
 ;;; init-company.el ends here

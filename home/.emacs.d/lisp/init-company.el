@@ -92,9 +92,7 @@
   (let ((dabbrev-check-other-buffers t)
         (dabbrev-check-all-buffers nil))
     (dabbrev--reset-global-variables)
-    (save-excursion
-      (goto-char (point-min))
-      (dabbrev--find-all-expansions abbrev t))))
+    (dabbrev--find-all-expansions abbrev t)))
 
 (defun my/dabbrev-capf ()
   "Dabbrev 'complete-at-point-functions' implementation."

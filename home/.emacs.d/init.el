@@ -36,6 +36,12 @@
   :init
   (add-hook 'after-init-hook (lambda () (key-chord-mode 1))))
 
+(defmacro add-hook-for-modes (hook modes &optional arg)
+  "Add HOOK for each mode in MODES.
+Optionally generates a lambda with an arg called arg if ARG is t"
+  `(dolist (mode '(,@modes))
+     (add-hook mode (lambda ,(if arg '(arg)) (,@hook)))))
+
 (require 'init-display)
 (require 'init-general-editing)
 (require 'init-isearch)

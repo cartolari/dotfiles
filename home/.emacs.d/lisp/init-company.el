@@ -92,8 +92,9 @@
   "Return a list of expansions matched by ABBREV."
   (let ((dabbrev-check-other-buffers t)
         (dabbrev-check-all-buffers nil))
-    (dabbrev--reset-global-variables)
-    (dabbrev--find-all-expansions abbrev t)))
+    (flet ((message (&rest args)))
+      (dabbrev--reset-global-variables)
+      (dabbrev--find-all-expansions abbrev t))))
 
 (defun my/dabbrev-capf ()
   "Dabbrev 'complete-at-point-functions' implementation."

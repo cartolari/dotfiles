@@ -15,20 +15,20 @@
              ("<backtab>" . company-select-previous)
              ("C-n" . company-select-next)
              ("C-p" . company-select-previous))
-  (add-hook 'company-completion-cancelled-hook (lambda (arg) (fci-mode 1)))
-  (add-hook 'company-completion-finished-hook (lambda (arg) (fci-mode 1)))
+  (add-hook-for-modes
+   (fci-mode 1)
+   (company-completion-cancelled-hook company-completion-finished-hook)
+   t)
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (add-hook 'completion-at-point-functions 'my/dabbrev-capf t t)))
-  (add-hook 'yaml-mode-hook
-            (lambda ()
-              (add-hook 'completion-at-point-functions 'my/dabbrev-capf t t)))
-  (add-hook 'company-transformers 'remove-thing-at-point-transform)
+  (add-hook-for-modes
+   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)
+   (prog-mode-hook yaml-mode-hook))
+  (add-to-list 'company-transformers 'remove-thing-at-point-transform)
   (setq company-dabbrev-downcase nil
         company-dabbrev-ignore-case t
-        company-idle-delay 0.25
-        company-minimum-prefix-length 0)
+        company-idle-delay 0.1
+        company-minimum-prefix-length 0
+        dabbrev-abbrev-skip-leading-regexp ":")
   (setq company-backends
         (mapcar 'company-mode/backend-with-yas company-backends))
   :diminish company-mode
@@ -104,11 +104,11 @@
      (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1))
      :exclusive 'no)))
 
-
 (defun remove-thing-at-point-transform (candidates)
   "Remove 'thing-at-point' from CANDIDATES."
-  (cl-remove-if (lambda (item) (string= item (thing-at-point 'symbol)))
-                candidates))
+  (let ((current-symbol (thing-at-point 'symbol)))
+    (cl-remove current-symbol candidates
+               :test 'string=)))
 
 (provide 'init-company)
 ;;; init-company.el ends here

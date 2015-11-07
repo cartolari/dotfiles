@@ -1,7 +1,6 @@
 --exclude=*.hg*
 --exclude=*.git*
 
---exclude=.volumes
 --exclude=*.log
 --exclude=*.min.css
 --exclude=*.min.js
@@ -15,10 +14,16 @@
 --exclude=*log*
 --exclude=*node_modules*
 --exclude=*public_html*
+--exclude=*spec*
+--exclude=*test*
 --exclude=*tmp*
+--exclude=.volumes
 --exclude=GPATH
 --exclude=GRTAGS
 --exclude=GTAGS
 --exclude=TAGS
+--exclude=coverage/*
+--exclude=db/migrate/*
 --exclude=tags
+
 --recurse=yes

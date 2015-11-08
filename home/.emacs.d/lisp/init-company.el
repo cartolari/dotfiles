@@ -21,7 +21,7 @@
    t)
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
   (add-hook-for-modes
-   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)
+   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf t)
    (prog-mode-hook yaml-mode-hook))
   (add-to-list 'company-transformers 'remove-thing-at-point-transform)
   (setq company-dabbrev-downcase nil

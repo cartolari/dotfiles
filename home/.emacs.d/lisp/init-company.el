@@ -16,13 +16,13 @@
              ("C-n" . company-select-next)
              ("C-p" . company-select-previous))
   (add-hook-for-modes
-   (fci-mode 1)
    (company-completion-cancelled-hook company-completion-finished-hook)
+   (fci-mode 1)
    t)
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
   (add-hook-for-modes
-   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf t)
-   (prog-mode-hook yaml-mode-hook))
+   (prog-mode-hook yaml-mode-hook)
+   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf t))
   (add-to-list 'company-transformers 'remove-thing-at-point-transform)
   (setq company-dabbrev-downcase nil
         company-dabbrev-ignore-case t

@@ -4,6 +4,7 @@ alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias vi='nvim'
 alias vim='nvim'
 alias server='python -m SimpleHTTPServer'
+alias h='homesick'
 
 # Apt
 alias apt-install='sudo apt-get install'

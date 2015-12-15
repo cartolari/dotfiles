@@ -4,14 +4,6 @@
 ;;; configs and integrations for helm
 
 ;;; Code:
-(use-package shackle
-  :commands (shackle-mode)
-  :config
-  (setq shackle-rules '(("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.30)))
-  :diminish shackle-mode
-  :init
-  (add-hook 'after-init-hook 'shackle-mode))
-
 (use-package helm
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
@@ -34,6 +26,11 @@
         helm-imenu-fuzzy-match                t
         helm-apropos-fuzzy-match              t
         helm-lisp-fuzzy-completion            t)
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos "*helm" (* not-newline) "*" eos)
+                 (display-buffer-in-side-window)
+                 (inhibit-same-window . t)
+                 (window-height . 0.3)))
   :diminish helm-mode)
 
 (use-package helm-ag

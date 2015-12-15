@@ -22,7 +22,6 @@
                     ("l" eyebrowse-last-window-config "last")
                     ("q" nil "quit"))
             eyebrowse-mode-map)
-  :diminish eyebrowse-mode
   :init
   (add-hook 'after-init-hook 'eyebrowse-mode))
 

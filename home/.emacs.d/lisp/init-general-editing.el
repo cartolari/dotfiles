@@ -30,7 +30,7 @@
 
 (use-package hideshow
   :commands (hs-minor-mode)
-  :bind ("<C-return>" . hs-toggle-hiding)
+  :bind ("C-c RET" . hs-toggle-hiding)
   :diminish hs-minor-mode
   :init
   (add-hook 'prog-mode-hook 'hs-minor-mode))

@@ -4,9 +4,6 @@
 ;;; flyspell setup for emacs
 
 ;;; Code:
-(use-package flyspell-popup
-  :commands (flyspell-popup-correct))
-
 (use-package flyspell
   :ensure nil
   :diminish flyspell-mode

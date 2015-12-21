@@ -79,4 +79,5 @@ Optionally generates a lambda with an arg called arg if ARG is t"
       (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
-;; ;;; init.el ends here
+
+;;; init.el ends here

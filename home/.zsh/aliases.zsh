@@ -16,6 +16,7 @@ alias apt-remove='sudo apt-get remove'
 alias apt-purge='sudo apt-get purge'
 alias apt-upgrade='sudo apt-get upgrade'
 alias apt-dist-upgrade='sudo apt-get dist-upgrade'
+alias apt-clear-kernels='dpkg -l linux-* | awk "/^ii/{ print \$2}" | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e [0-9] | grep -E "(image|headers)" | xargs sudo apt-get -y purge'
 
 # Docker
 alias d='docker'

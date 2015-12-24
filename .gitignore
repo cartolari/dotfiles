@@ -17,10 +17,12 @@ home/.vim/spell/
 __pycache__
 
 # Emacs
+home/.emacs.d/**/*.elc
 home/.emacs.d/.mc-lists.el
 home/.emacs.d/ac-comphist.dat
 home/.emacs.d/auto-save-list/
 home/.emacs.d/cache
+home/.emacs.d/cider-history
 home/.emacs.d/custom.el
 home/.emacs.d/elpa
 home/.emacs.d/eshell/
@@ -35,5 +37,3 @@ home/.emacs.d/session.*
 home/.emacs.d/smex-items
 home/.emacs.d/tramp
 home/.emacs.d/url/
-home/.emacs.d/cider-history
-home/.emacs.d/**/*.elc

@@ -69,6 +69,11 @@
   :init
   (add-hook 'prog-mode-hook 'whitespace-cleanup-mode))
 
+(use-package saveplace
+  :config
+  (setq-default save-place t)
+  :ensure nil)
+
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
   (interactive)

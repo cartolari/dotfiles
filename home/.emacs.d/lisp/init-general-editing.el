@@ -57,7 +57,8 @@
 (use-package undo-tree
   :commands (global-undo-tree-mode)
   :config
-  (setq undo-tree-history-directory-alist `((".*" . ,temporary-file-directory)))
+  (setq undo-tree-history-directory-alist
+        `((".*" . ,(expand-file-name "cache/undo"  user-emacs-directory))))
   (setq undo-tree-auto-save-history t)
   :diminish undo-tree-mode
   :init

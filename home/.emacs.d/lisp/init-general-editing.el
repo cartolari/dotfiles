@@ -28,13 +28,6 @@
   (add-hook 'after-init-hook 'guide-key-mode)
   :diminish guide-key-mode)
 
-(use-package hideshow
-  :commands (hs-minor-mode)
-  :bind ("C-c RET" . hs-toggle-hiding)
-  :diminish hs-minor-mode
-  :init
-  (add-hook 'prog-mode-hook 'hs-minor-mode))
-
 (use-package highlight-escape-sequences
   :commands (hes-mode)
   :config

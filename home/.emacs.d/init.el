@@ -4,7 +4,8 @@
 ;;; my customizations and plugins
 
 ;;; Code:
-(setq gc-cons-threshold 30000000)
+(setq gc-cons-threshold (* 40 1024 1024))
+(setq gc-cons-percentage 20)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
@@ -74,7 +75,6 @@ Optionally generates a lambda with an arg called arg if ARG is t"
 (require 'init-yasnippet)
 
 ;; Emacs options
-(setq gc-cons-threshold 20000000)
 (setq custom-file
       (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)

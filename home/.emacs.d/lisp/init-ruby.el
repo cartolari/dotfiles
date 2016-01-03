@@ -78,19 +78,7 @@
 (add-hook 'ruby-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c r f") 'rspec-compile-file)
-            (local-set-key (kbd "C-c r n") 'rspec-compile-on-line)
-            ))
-
-(add-hook 'ruby-mode-hook 'hs-minor-mode)
-(add-to-list 'hs-special-modes-alist
-             `(ruby-mode
-               ,(rx (or "[" "{"
-                        "class" "module" "def" "do"
-                        "begin" "ensure" "rescue"
-                        "case" "if" "unless")) ; Block start
-               ,(rx (or "}" "]" "end"))        ; Block end
-               ,(rx (or "#" "=begin"))         ; Comment start
-               ruby-forward-sexp nil))
+            (local-set-key (kbd "C-c r n") 'rspec-compile-on-line)))
 
 (provide 'init-ruby)
 ;;; init-ruby.el ends here

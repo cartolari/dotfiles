@@ -105,11 +105,16 @@
      (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1))
      :exclusive 'no)))
 
+(defun my/yasnippet-candidate-p (candidate)
+  (not (null (get-text-property 0 'yas-template candidate))))
+
 (defun remove-thing-at-point-transform (candidates)
   "Remove 'thing-at-point' from CANDIDATES."
   (let ((current-symbol (thing-at-point 'symbol)))
     (cl-remove current-symbol candidates
-               :test 'string=)))
+               :test (lambda (ignore candidate)
+                       (and (not (my/yasnippet-candidate-p candidate))
+                            (string= candidate current-symbol))))))
 
 (provide 'init-company)
 ;;; init-company.el ends here

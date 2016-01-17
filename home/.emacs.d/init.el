@@ -47,7 +47,7 @@ Optionally generates a lambda with an arg called arg if ARG is t"
 (require 'init-general-editing)
 (require 'init-isearch)
 
-(require 'init-company)
+(require 'init-completion)
 (require 'init-evil)
 (require 'init-flycheck)
 (require 'init-multiple-cursors)

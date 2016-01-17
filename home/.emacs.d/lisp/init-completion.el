@@ -1,7 +1,7 @@
-;;; init-company.el -- Company mode setup
+;;; init-completion.el -- Code completion setup
 
 ;;; Commentary:
-;;; company setup
+;;; completion setup
 
 ;;; Code:
 (use-package company
@@ -116,5 +116,5 @@
                        (and (not (my/yasnippet-candidate-p candidate))
                             (string= candidate current-symbol))))))
 
-(provide 'init-company)
-;;; init-company.el ends here
+(provide 'init-completion)
+;;; init-completion.el ends here

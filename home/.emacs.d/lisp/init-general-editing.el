@@ -7,6 +7,15 @@
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
+(use-package autorevert
+  :commands (global-auto-revert-mode)
+  :config
+  (setq auto-revert-interval 1)
+  :diminish auto-revert-mode
+  :ensure nil
+  :init
+  (add-hook 'after-init-hook 'global-auto-revert-mode))
+
 (use-package discover-my-major
   :commands (discover-my-major discover-my-mode))
 
@@ -127,7 +136,6 @@
      (column-number-mode)
      (delete-selection-mode 1)
      (electric-pair-mode 1)
-     (global-auto-revert-mode)
      (keyfreq-autosave-mode 1)
      (savehist-mode 1)
      (show-paren-mode 1))))

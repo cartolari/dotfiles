@@ -106,6 +106,7 @@
      :exclusive 'no)))
 
 (defun my/yasnippet-candidate-p (candidate)
+  "Check if a company mode CANDIDATE came from company-yasnippet backend."
   (not (null (get-text-property 0 'yas-template candidate))))
 
 (defun remove-thing-at-point-transform (candidates)

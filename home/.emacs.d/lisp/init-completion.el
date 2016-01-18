@@ -57,35 +57,6 @@
     (append (if (consp backend) backend (list backend))
             '(:with company-yasnippet))))
 
-(defun check-expansion ()
-  (save-excursion
-    (if (looking-at "\\_>") t
-      (backward-char 1)
-      (if (looking-at "\\.") t
-        (backward-char 1)
-        (if (looking-at "->") t nil)))))
-
-(defun do-yas-expand ()
-  "Expand a YAS snippet."
-  (let ((yas-fallback-behavior 'return-nil))
-    (yas-expand)))
-
-(defun tab-indent-or-complete ()
-  (interactive)
-  (if (minibufferp)
-      (minibuffer-complete)
-    (if (or (not yas/minor-mode)
-            (null (do-yas-expand)))
-        (if (check-expansion)
-            (company-complete-common)
-          (indent-for-tab-command)))))
-
-(defun map-company-yasnippet-tab ()
-  "Map tab to company, yasnippet or indent."
-  (bind-keys :map global-map
-             ((local-set-key [tab] 'tab-indent-or-complete)
-              (local-set-key (kbd "TAB") 'tab-indent-or-complete))))
-
 (defun my/dabbrev-find-all (abbrev)
   "Return a list of expansions matched by ABBREV."
   (let ((dabbrev-check-other-buffers t)

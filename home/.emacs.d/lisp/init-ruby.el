@@ -56,6 +56,10 @@
           (function (lambda ()
                       (setq evil-shift-width ruby-indent-level))))
 
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?: "'")))
+
 (setq flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby")
 (setq flycheck-ruby-rubocop-executable "~/rubocop.sh")
 (setq ruby-insert-encoding-magic-comment nil)

@@ -4,6 +4,8 @@
 ;;; custom multiple cursors setup, mainly to work with evil mode
 
 ;;; Code:
+(require 'use-package)
+
 (use-package multiple-cursors
   :defer 1
   :config

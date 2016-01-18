@@ -4,6 +4,8 @@
 ;;; ggtags setup for emacs
 
 ;;; Code:
+(require 'use-package)
+
 (use-package ggtags
   :commands (ggtags-mode)
   :config

@@ -4,6 +4,8 @@
 ;;; Bindings that are useful in multiple or all modes
 
 ;;; Code:
+(require 'use-package)
+
 (use-package ace-window
   :bind ("M-o" . ace-window))
 

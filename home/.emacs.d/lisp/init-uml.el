@@ -3,6 +3,8 @@
 ;;; Commentary:
 ;;; edit and preview plant uml files inside Emacs
 ;;; Code:
+(require 'use-package)
+
 (use-package puml-mode
   :mode (("\\.puml\\'" . puml-mode)
          ("\\.plantuml\\'" . puml-mode)))

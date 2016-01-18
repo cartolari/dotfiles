@@ -5,6 +5,8 @@
 ;;; information
 
 ;;; Code:
+(require 'use-package)
+
 (use-package eyebrowse
   :commands (eyebrowse-mode)
   :config

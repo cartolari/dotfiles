@@ -4,6 +4,8 @@
 ;;; Rest client emacs plugin
 
 ;;; Code:
+(require 'use-package)
+
 (use-package restclient
   :config
   (add-to-list 'company-backends 'company-restclient)

@@ -4,6 +4,8 @@
 ;;; shell mode setup
 
 ;;; Code:
+(require 'use-package)
+
 (setq-default sh-basic-offset 2)
 (setq-default sh-indentation 2)
 (add-hook 'sh-mode-hook

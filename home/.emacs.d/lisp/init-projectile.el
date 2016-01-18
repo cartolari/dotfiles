@@ -4,6 +4,8 @@
 ;;; load projectile and customizations
 
 ;;; Code:
+(require 'use-package)
+
 (use-package projectile
   :commands (projectile-global-mode)
   :config

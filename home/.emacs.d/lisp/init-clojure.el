@@ -4,6 +4,8 @@
 ;;; setup cider and clojure-mode
 
 ;;; Code:
+(require 'use-package)
+
 (use-package clojure-mode
   :mode ("\\.clj\\'" . clojure-mode))
 

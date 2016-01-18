@@ -4,6 +4,8 @@
 ;;; use markdown package to add markdown to Emacs
 
 ;;; Code:
+(require 'use-package)
+
 (use-package markdown-mode
   :init
   (autoload 'instant-markdown-mode "instant-markdown")

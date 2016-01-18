@@ -4,6 +4,8 @@
 ;;; load yaml mode
 
 ;;; Code:
+(require 'use-package)
+
 (use-package outline
   :commands (outline-mode outline-minor-mode)
   :diminish (outline-minor-mode . "☰"))

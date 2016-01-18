@@ -4,6 +4,8 @@
 ;;; Java and eclim setup
 
 ;;; Code:
+(require 'use-package)
+
 (use-package emacs-eclim
   :commands (global-eclim-mode)
   :config

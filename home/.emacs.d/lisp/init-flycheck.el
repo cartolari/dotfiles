@@ -4,6 +4,8 @@
 ;;; Load Flycheck and define custom checkers
 
 ;;; Code:
+(require 'use-package)
+
 (use-package flycheck
   :commands (global-flycheck-mode)
   :config

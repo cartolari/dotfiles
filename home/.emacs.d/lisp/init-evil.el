@@ -4,6 +4,8 @@
 ;;; Some customization, mainly for letting evil mode to be more like vim.
 
 ;;; Code:
+(require 'use-package)
+
 (use-package evil
   :bind ("C-z" . evil-local-mode)
   :config

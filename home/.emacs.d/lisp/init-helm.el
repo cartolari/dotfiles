@@ -4,6 +4,8 @@
 ;;; configs and integrations for helm
 
 ;;; Code:
+(require 'use-package)
+
 (use-package helm
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)

@@ -4,6 +4,8 @@
 ;;; use anzu instead of isearch
 
 ;;; Code:
+(require 'use-package)
+
 (use-package anzu
              :bind (("C-M-%" . anzu-query-replace-regexp)
                     ("M-%" . anzu-query-replace)

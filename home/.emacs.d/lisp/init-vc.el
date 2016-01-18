@@ -4,6 +4,8 @@
 ;;; git setup
 
 ;;; Code:
+(require 'use-package)
+
 (use-package git-timemachine
   :commands (git-timemachine))
 (use-package gitattributes-mode)

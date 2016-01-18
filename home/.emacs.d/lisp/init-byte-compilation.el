@@ -4,6 +4,8 @@
 ;;; Provides automatic byte compilation on save and on load for Emacs Lisp files
 
 ;;; Code:
+(require 'use-package)
+
 (require-package 'auto-compile)
 
 (require 'auto-compile)

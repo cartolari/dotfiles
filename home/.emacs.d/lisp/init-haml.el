@@ -4,6 +4,8 @@
 ;;; install haml-mode
 
 ;;; Code:
+(require 'use-package)
+
 (use-package haml-mode
   :mode ("\\.haml\\'" . haml-mode))
 

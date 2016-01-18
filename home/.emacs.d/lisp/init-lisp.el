@@ -3,6 +3,8 @@
 ;;; Commentary:
 ;;; Lisp editing setup for Emacs
 ;;; Code:
+(require 'use-package)
+
 (use-package aggressive-indent
   :commands (aggressive-indent-mode)
   :init

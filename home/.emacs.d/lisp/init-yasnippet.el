@@ -4,6 +4,8 @@
 ;;; yasnippet and custom snippets
 
 ;;; Code:
+(require 'use-package)
+
 (use-package yasnippet
   :commands (yas-global-mode)
   :init

@@ -4,6 +4,8 @@
 ;;; ruby setup
 
 ;;; Code:
+(require 'use-package)
+
 (use-package inf-ruby
   :commands (inf-ruby inf-ruby-mode))
 (use-package projectile-rails

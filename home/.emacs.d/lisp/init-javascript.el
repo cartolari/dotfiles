@@ -4,6 +4,8 @@
 ;;; js2 mode setup and related stuff
 
 ;;; Code:
+(require 'use-package)
+
 (use-package js2-mode
   :config
   (setq js-indent-level 2)

@@ -4,6 +4,8 @@
 ;;; customize emacs display
 
 ;;; Code:
+(require 'use-package)
+
 (use-package fill-column-indicator
   :commands (fci-mode)
   :init

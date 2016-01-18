@@ -4,6 +4,8 @@
 ;;; completion setup
 
 ;;; Code:
+(require 'use-package)
+
 (use-package company
   :commands (global-company-mode)
   :config

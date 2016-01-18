@@ -4,6 +4,8 @@
 ;;; setup web development related stuff
 
 ;;; Code:
+(require 'use-package)
+
 (use-package emmet-mode
   :commands (emmet-mode)
   :diminish emmet-mode

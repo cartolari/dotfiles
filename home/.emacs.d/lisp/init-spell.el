@@ -4,6 +4,8 @@
 ;;; flyspell setup for emacs
 
 ;;; Code:
+(require 'use-package)
+
 (use-package flyspell
   :ensure nil
   :diminish flyspell-mode

@@ -24,9 +24,7 @@
    (prog-mode-hook yaml-mode-hook)
    (add-to-list 'completion-at-point-functions 'my/dabbrev-capf t))
   (add-to-list 'company-transformers 'remove-thing-at-point-transform)
-  (setq company-dabbrev-downcase nil
-        company-dabbrev-ignore-case t
-        company-idle-delay 0.1
+  (setq company-idle-delay 0.1
         company-minimum-prefix-length 0
         dabbrev-abbrev-skip-leading-regexp ":")
   (setq company-backends

@@ -28,6 +28,7 @@
   (add-to-list 'company-transformers 'remove-thing-at-point-transform)
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 0
+        company-show-numbers t
         dabbrev-abbrev-skip-leading-regexp ":")
   (add-to-list 'company-backends 'company-ispell t)
   (setq company-backends

@@ -36,6 +36,11 @@
              helm-ag-project-root
              helm-do-ag-project-root))
 
+(use-package helm-descbinds
+  :commands (helm-descbinds-mode)
+  :init
+  (add-hook 'after-init-hook 'helm-descbinds-mode))
+
 (use-package helm-flx
   :commands (helm-flx-mode)
   :init

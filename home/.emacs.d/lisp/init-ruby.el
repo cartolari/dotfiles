@@ -8,6 +8,7 @@
 
 (use-package inf-ruby
   :commands (inf-ruby inf-ruby-mode))
+
 (use-package projectile-rails
   :commands (projectile-rails-on)
   :config
@@ -15,22 +16,28 @@
   :diminish projectile-rails-mode
   :init
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
+
 (use-package robe
   :commands (robe-mode))
+
 (use-package rspec-mode
   :commands (rspec-mode))
+
 (use-package ruby-end
   :defer t
   :diminish ruby-end-mode
   :init
   (add-hook 'ruby-mode-hook #'ruby-end-mode))
+
 (use-package ruby-hash-syntax
   :commands (ruby-toggle-hash-syntax))
+
 (use-package ruby-refactor
   :commands (ruby-refactor-mode)
   :diminish ruby-refactor-mode
   :init
   (add-hook 'ruby-mode-hook #'ruby-refactor-mode))
+
 (use-package splitjoin
   :commands (splitjoin)
   :config

@@ -28,6 +28,31 @@ See URL https://github.com/brigade/haml-lint"
                     ("p" flycheck-previous-error "previous")
                     ("q" nil "quit"))
             flycheck-mode-map)
+  (define-fringe-bitmap 'circle-fringe-indicator
+    (vector #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00011100
+            #b00111110
+            #b00111110
+            #b00111110
+            #b00011100
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000))
+
+  (dolist (error-level '(error warning info))
+    (flycheck-define-error-level error-level
+      :overlay-category (intern (format "flycheck-%s-overlay" error-level))
+      :fringe-bitmap 'circle-fringe-indicator
+      :fringe-face (intern (format "flycheck-fringe-%s" error-level))))
+
   :init
   (add-hook 'after-init-hook 'global-flycheck-mode)
   :diminish flycheck-mode)

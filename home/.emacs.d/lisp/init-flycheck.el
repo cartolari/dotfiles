@@ -48,10 +48,16 @@ See URL https://github.com/brigade/haml-lint"
             #b00000000))
 
   (dolist (error-level '(error warning info))
-    (flycheck-define-error-level error-level
-      :overlay-category (intern (format "flycheck-%s-overlay" error-level))
-      :fringe-bitmap 'circle-fringe-indicator
-      :fringe-face (intern (format "flycheck-fringe-%s" error-level))))
+    (progn
+      (flycheck-define-error-level error-level
+        :overlay-category (intern (format "flycheck-%s-overlay" error-level))
+        :fringe-bitmap 'circle-fringe-indicator
+        :fringe-face (intern (format "flycheck-fringe-%s" error-level)))
+      (let ((face-name (intern (format "flycheck-%s" error-level))))
+        (set-face-attribute
+         face-name nil
+         :underline
+         (plist-put (face-attribute 'flycheck-error :underline) :style 'line)))))
 
   :init
   (add-hook 'after-init-hook 'global-flycheck-mode)

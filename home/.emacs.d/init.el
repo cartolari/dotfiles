@@ -4,8 +4,8 @@
 ;;; my customizations and plugins
 
 ;;; Code:
-(setq gc-cons-threshold (* 40 1024 1024))
-(setq gc-cons-percentage 20)
+(setq gc-cons-threshold (* 800000 15))
+(setq gc-cons-percentage 0.1)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 

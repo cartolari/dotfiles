@@ -47,7 +47,8 @@
 
 (use-package ruby-mode
   :config
-  (evil-define-key 'insert ruby-mode-map "#" 'ruby-tools-interpolate)
+  (with-eval-after-load 'evil
+    (evil-define-key 'insert ruby-mode-map "#" 'ruby-tools-interpolate))
   (setq ruby-align-chained-calls nil
         ruby-align-to-stmt-keywords nil
         ruby-deep-indent-paren nil

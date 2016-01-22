@@ -12,22 +12,11 @@
          ("C-x b" . helm-mini))
   :config
   (helm-mode 1)
-  (setq helm-display-function                 'pop-to-buffer
-        helm-mode-fuzzy-match                 t
-        helm-completion-in-region-fuzzy-match t
-        helm-ff-search-library-in-sexp        t
-        helm-scroll-amount                    8
-        helm-ff-file-name-history-use-recentf t
-        helm-recentf-fuzzy-match              t
-        helm-buffers-fuzzy-matching           t
-        helm-recentf-fuzzy-match              t
-        helm-buffers-fuzzy-matching           t
-        helm-locate-fuzzy-match               t
-        helm-M-x-fuzzy-match                  t
-        helm-semantic-fuzzy-match             t
-        helm-imenu-fuzzy-match                t
-        helm-apropos-fuzzy-match              t
-        helm-lisp-fuzzy-completion            t)
+  (setq helm-display-function                 'pop-to-buffer)
+  (defun my-helm-make-source (f &rest args)
+    (nconc args '(:fuzzy-match t))
+    (apply f args))
+  (advice-add 'helm-make-source :around 'my-helm-make-source)
   (add-to-list 'display-buffer-alist
                `(,(rx bos "*helm" (* not-newline) "*" eos)
                  (display-buffer-in-side-window)

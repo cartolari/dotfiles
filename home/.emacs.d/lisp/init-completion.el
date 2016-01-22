@@ -29,6 +29,7 @@
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 0
         dabbrev-abbrev-skip-leading-regexp ":")
+  (add-to-list 'company-backends 'company-ispell t)
   (setq company-backends
         (mapcar 'company-mode/backend-with-yas company-backends))
   :diminish company-mode

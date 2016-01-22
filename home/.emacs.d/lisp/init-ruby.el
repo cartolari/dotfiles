@@ -62,6 +62,10 @@
           (lambda ()
             (modify-syntax-entry ?: "'")))
 
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)))
+
 (setq flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby")
 (setq flycheck-ruby-rubocop-executable "~/rubocop.sh")
 (setq ruby-insert-encoding-magic-comment nil)

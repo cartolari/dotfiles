@@ -69,11 +69,14 @@
 
 (defun my/dabbrev-capf ()
   "Dabbrev 'complete-at-point-functions' implementation."
-  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+  (let ((bounds (bounds-of-thing-at-point 'symbol))
+        (completing (substring (thing-at-point 'symbol t) 0 1)))
     (list
      (car bounds)
      (cdr bounds)
-     (my/dabbrev-find-all (substring (thing-at-point 'symbol t) 0 1))
+     (append
+      (my/dabbrev-find-all completing)
+      (all-completions completing ggtags-completion-table))
      :exclusive 'no)))
 
 (defun my/yasnippet-candidate-p (candidate)

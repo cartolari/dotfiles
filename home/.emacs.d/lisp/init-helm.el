@@ -9,7 +9,12 @@
 (use-package helm
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
-         ("C-x b" . helm-mini))
+         ("C-x b" . helm-mini)
+         ("C-x C-b" . helm-buffers-list)
+         ("C-x C-f" . helm-find-files)
+         ("C-h f" . helm-apropos)
+         ("C-h r" . helm-info-emacs)
+         ("C-h C-l" . helm-locate-library))
   :config
   (helm-mode 1)
   (setq helm-display-function                 'pop-to-buffer)

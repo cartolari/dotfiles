@@ -45,43 +45,58 @@
              ("gS" . 'splitjoin)
              ("gJ" . 'splitjoin)))
 
-(setq ruby-align-chained-calls nil
-      ruby-align-to-stmt-keywords nil
-      ruby-deep-indent-paren nil
-      ruby-deep-indent-paren-style nil
-      ruby-use-smie nil)
+(use-package ruby-mode
+  :config
+  (evil-define-key 'insert ruby-mode-map "#" 'ruby-tools-interpolate)
+  (setq ruby-align-chained-calls nil
+        ruby-align-to-stmt-keywords nil
+        ruby-deep-indent-paren nil
+        ruby-deep-indent-paren-style nil
+        ruby-use-smie nil
+        ruby-insert-encoding-magic-comment nil
+        flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby"
+        flycheck-ruby-rubocop-executable "~/rubocop.sh")
 
-(defadvice ruby-indent-line (after unindent-closing-paren activate)
-  "Indentation for ruby multiple line methods after a opening parenthesis."
-  (let ((column (current-column))
-        indent offset)
-    (save-excursion
-      (back-to-indentation)
-      (let ((state (syntax-ppss)))
-        (setq offset (- column (current-column)))
-        (when (and (eq (char-after) ?\))
-                   (not (zerop (car state))))
-          (goto-char (cadr state))
-          (setq indent (current-indentation)))))
-    (when indent
-      (indent-line-to indent)
-      (when (> offset 0) (forward-char offset)))))
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)
+              (modify-syntax-entry ?: "'")))
 
-(add-hook 'ruby-mode-hook
-          (function (lambda ()
-                      (setq evil-shift-width ruby-indent-level))))
+  (defun ruby-tools-looking-around (back at)
+    "Check if looking backwards at BACK and forward at AT."
+    (and (looking-at-p at) (looking-back back)))
+  (defun ruby-tools-interpolate ()
+    "Interpolate with #{} in some places."
+    (interactive)
+    (if (and mark-active (equal (point) (region-end)))
+        (exchange-point-and-mark))
+    (insert "#")
+    (when (or (ruby-tools-looking-around "\"[^\"\n]*" "[^\"\n]*\"")
+              (ruby-tools-looking-around "`[^`\n]*"   "[^`\n]*`")
+              (ruby-tools-looking-around "%([^(\n]*"  "[^)\n]*)"))
+      (cond (mark-active (goto-char (region-beginning))
+                         (insert "{")
+                         (goto-char (region-end))
+                         (insert "}"))
+            (t (insert "{}")
+               (forward-char -1)))))
 
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (modify-syntax-entry ?: "'")))
-
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)))
-
-(setq flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby")
-(setq flycheck-ruby-rubocop-executable "~/rubocop.sh")
-(setq ruby-insert-encoding-magic-comment nil)
+  (defadvice ruby-indent-line (after unindent-closing-paren activate)
+    "Indentation for ruby multiple line methods after a opening parenthesis."
+    (let ((column (current-column))
+          indent offset)
+      (save-excursion
+        (back-to-indentation)
+        (let ((state (syntax-ppss)))
+          (setq offset (- column (current-column)))
+          (when (and (eq (char-after) ?\))
+                     (not (zerop (car state))))
+            (goto-char (cadr state))
+            (setq indent (current-indentation)))))
+      (when indent
+        (indent-line-to indent)
+        (when (> offset 0) (forward-char offset)))))
+  :ensure nil)
 
 (defun rspec-compile-file ()
   (interactive)

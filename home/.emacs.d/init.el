@@ -70,6 +70,7 @@ Optionally generates a lambda with an arg called arg if ARG is t"
 (require 'init-tags)
 (require 'init-uml)
 (require 'init-vc)
+(require 'init-vim)
 (require 'init-web)
 (require 'init-yaml)
 (require 'init-yasnippet)

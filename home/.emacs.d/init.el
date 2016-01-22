@@ -66,6 +66,7 @@ Optionally generates a lambda with an arg called arg if ARG is t"
 (require 'init-rest-client)
 (require 'init-ruby)
 (require 'init-sh)
+(require 'init-shell)
 (require 'init-spell)
 (require 'init-tags)
 (require 'init-uml)

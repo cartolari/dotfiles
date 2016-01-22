@@ -17,7 +17,8 @@
          ("C-h C-l" . helm-locate-library))
   :config
   (helm-mode 1)
-  (setq helm-display-function                 'pop-to-buffer)
+  (bind-keys :map minibuffer-local-map ("C-C C-l" . helm-minibuffer-history))
+  (setq helm-display-function 'pop-to-buffer)
   (defun my-helm-make-source (f &rest args)
     (nconc args '(:fuzzy-match t))
     (apply f args))

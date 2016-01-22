@@ -40,6 +40,11 @@
   :init
   (add-hook 'after-init-hook 'helm-fuzzier-mode))
 
+(use-package helm-gtags
+  :commands (helm-gtags-mode)
+  :init
+  (add-hook 'after-init-hook 'helm-gtags-mode))
+
 (use-package helm-projectile
   :commands (helm-projectile-on)
   :init

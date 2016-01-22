@@ -30,6 +30,16 @@
              helm-ag-project-root
              helm-do-ag-project-root))
 
+(use-package helm-flx
+  :commands (helm-flx-mode)
+  :init
+  (add-hook 'after-init-hook 'helm-flx-mode))
+
+(use-package helm-fuzzier
+  :commands (helm-fuzzier-mode)
+  :init
+  (add-hook 'after-init-hook 'helm-fuzzier-mode))
+
 (use-package helm-projectile
   :commands (helm-projectile-on)
   :init

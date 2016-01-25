@@ -36,6 +36,10 @@
   (setq key-chord-two-keys-delay 0.3)
   :init
   (add-hook 'after-init-hook (lambda () (key-chord-mode 1))))
+(use-package unkillable-scratch
+  :commands (unkillable-scratch)
+  :init
+  (add-hook 'after-init-hook 'unkillable-scratch))
 
 (defmacro add-hook-for-modes (modes hook &optional arg)
   "For each mode in MODES add HOOK to each.

@@ -47,6 +47,15 @@ Optionally generates a lambda with an arg called arg if ARG is t"
   `(dolist (mode '(,@modes))
      (add-hook mode (lambda ,(if arg '(arg)) (,@hook)))))
 
+(defun my-minibuffer-setup-hook ()
+  (setq gc-cons-threshold most-positive-fixnum))
+
+(defun my-minibuffer-exit-hook ()
+  (setq gc-cons-threshold * 800000 15))
+
+(add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
+(add-hook 'minibuffer-exit-hook 'my-minibuffer-exit-hook)
+
 (require 'init-display)
 (require 'init-general-editing)
 (require 'init-isearch)

@@ -36,6 +36,15 @@
              helm-ag-project-root
              helm-do-ag-project-root))
 
+(use-package helm-dash
+  :commands (helm-dash helm-dash-at-point)
+  :config
+  (setq helm-dash-common-docsets (helm-dash-installed-docsets)
+        helm-dash-browser-func 'eww)
+  :init
+  (with-eval-after-load 'evil
+    (bind-keys :map evil-normal-state-map ("K" . helm-dash-at-point))))
+
 (use-package helm-descbinds
   :commands (helm-descbinds-mode)
   :init

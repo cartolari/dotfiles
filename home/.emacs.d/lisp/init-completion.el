@@ -50,7 +50,10 @@
 (use-package company-flx
   :commands (company-flx-mode)
   :init
-  (add-hook 'global-company-mode-hook 'company-flx-mode))
+  (add-hook 'global-company-mode-hook 'company-flx-mode)
+  (add-hook-for-modes 'company-completion-started-hook 'disable-gc t)
+  (add-hook-for-modes 'company-completion-finished-hook 'enable-gc t)
+  (add-hook-for-modes 'company-completion-cancelled-hook 'enable-gc t))
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 

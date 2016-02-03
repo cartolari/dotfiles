@@ -6,95 +6,62 @@
 ;;; Code:
 (require 'use-package)
 
-(use-package company
-  :commands (global-company-mode)
+(use-package auto-complete
   :config
-  (require 'dabbrev)
-  (bind-keys :map company-active-map
-             ("TAB" . company-select-next)
-             ([tab] . company-select-next)
-             ([backtab] . company-select-previous)
-             ("<backtab>" . company-select-previous)
-             ("C-n" . company-select-next)
-             ("C-p" . company-select-previous))
-  (add-hook-for-modes
-   (company-completion-cancelled-hook company-completion-finished-hook)
-   (fci-mode 1)
-   t)
-  (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
-  (add-hook-for-modes
-   (prog-mode-hook yaml-mode-hook)
-   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf t))
-  (add-to-list 'company-transformers 'remove-thing-at-point-transform)
-  (setq company-idle-delay 0.1
-        company-minimum-prefix-length 0
-        company-show-numbers t
-        dabbrev-abbrev-skip-leading-regexp ":")
-  (add-to-list 'company-backends 'company-ispell t)
-  (setq company-backends
-        (mapcar 'company-mode/backend-with-yas company-backends))
-  :diminish company-mode
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+  (ac-config-default)
+  (setq ac-auto-show-menu t
+        ac-auto-start t
+        ac-candidate-limit 100
+        ac-delay 0
+        ac-ignore-case t
+        ac-quick-help-delay 0
+        ac-use-menu-map t)
+  (ac-flyspell-workaround)
+  (ac-linum-workaround)
+  (bind-keys :map ac-menu-map
+             ("TAB" . ac-next)
+             ([tab] . ac-next)
+             ("<backtab>" . ac-previous)
+             ([backtab] . ac-previous)
+             ("C-n" . ac-next)
+             ("C-p" . ac-previous))
+  (defun sanityinc/fci-enabled-p () (symbol-value 'fci-mode))
+  (defvar sanityinc/fci-mode-suppressed nil)
+  (make-variable-buffer-local 'sanityinc/fci-mode-suppressed)
+  (defadvice popup-create (before suppress-fci-mode activate)
+    "Suspend fci-mode while popups are visible"
+    (let ((fci-enabled (sanityinc/fci-enabled-p)))
+      (when fci-enabled
+        (setq sanityinc/fci-mode-suppressed fci-enabled)
+        (turn-off-fci-mode))))
+  (defadvice popup-delete (after restore-fci-mode activate)
+    "Restore fci-mode when all popups have closed"
+    (when (and sanityinc/fci-mode-suppressed
+               (null popup-instances))
+      (setq sanityinc/fci-mode-suppressed nil)
+      (turn-on-fci-mode)))
+
+  (set-default 'ac-sources
+               '(ac-source-imenu
+                 ac-source-dictionary
+                 ac-source-words-in-buffer
+                 ac-source-words-in-same-mode-buffers
+                 ac-source-words-in-all-buffer
+                 ac-source-yasnippet
+                 ac-source-gtags
+                 ac-source-filename))
+  (add-to-list 'completion-styles 'initials t)
   :init
-  (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-auto-complete-mode))
 
-(use-package company-quickhelp
-  :commands (company-quickhelp-mode)
+(use-package ac-capf
+  :commands (ac-capf-setup)
   :init
-  (add-hook 'global-company-mode-hook 'company-quickhelp-mode))
+  (add-hook 'prog-mode-hook 'ac-capf-setup)
+  (add-hook 'eshell-mode-hook 'ac-capf-setup))
 
-(use-package company-try-hard
-  :commands (company-try-hard)
-  :init
-  (global-set-key (kbd "C-'") 'company-try-hard))
-
-(use-package company-flx
-  :commands (company-flx-mode)
-  :init
-  (add-hook 'global-company-mode-hook 'company-flx-mode)
-  (add-hook-for-modes 'company-completion-started-hook 'disable-gc t)
-  (add-hook-for-modes 'company-completion-finished-hook 'enable-gc t)
-  (add-hook-for-modes 'company-completion-cancelled-hook 'enable-gc t))
-
-(global-set-key (kbd "M-/") 'hippie-expand)
-
-(defun company-mode/backend-with-yas (backend)
-  "Joins a company-mode BACKEND with the YASnippet company-yasnippet backend."
-  (if (and (listp backend) (member 'company-yasnippet backend))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
-
-(defun my/dabbrev-find-all (abbrev)
-  "Return a list of expansions matched by ABBREV."
-  (let ((dabbrev-check-other-buffers t)
-        (dabbrev-check-all-buffers nil))
-    (flet ((message (&rest args)))
-      (dabbrev--reset-global-variables)
-      (dabbrev--find-all-expansions abbrev t))))
-
-(defun my/dabbrev-capf ()
-  "Dabbrev 'complete-at-point-functions' implementation."
-  (let ((bounds (bounds-of-thing-at-point 'symbol))
-        (completing (substring (thing-at-point 'symbol t) 0 1)))
-    (list
-     (car bounds)
-     (cdr bounds)
-     (append
-      (my/dabbrev-find-all completing)
-      (all-completions completing ggtags-completion-table))
-     :exclusive 'no)))
-
-(defun my/yasnippet-candidate-p (candidate)
-  "Check if a company mode CANDIDATE came from company-yasnippet backend."
-  (not (null (get-text-property 0 'yas-template candidate))))
-
-(defun remove-thing-at-point-transform (candidates)
-  "Remove 'thing-at-point' from CANDIDATES."
-  (let ((current-symbol (thing-at-point 'symbol)))
-    (cl-remove current-symbol candidates
-               :test (lambda (ignore candidate)
-                       (and (not (my/yasnippet-candidate-p candidate))
-                            (string= candidate current-symbol))))))
+;; (global-set-key (kbd "M-/") 'hippie-expand)
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

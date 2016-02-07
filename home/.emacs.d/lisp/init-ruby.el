@@ -60,6 +60,7 @@
 
   (add-hook 'ruby-mode-hook
             (lambda ()
+              (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)
               (modify-syntax-entry ?: "'")))
 
   (defun ruby-tools-looking-around (back at)

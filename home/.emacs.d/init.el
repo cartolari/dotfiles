@@ -4,8 +4,8 @@
 ;;; my customizations and plugins
 
 ;;; Code:
-(setq gc-cons-threshold (* 800000 15))
-(setq gc-cons-percentage 0.1)
+(setq gc-cons-threshold (* 800000 20))
+(setq gc-cons-percentage 0.2)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
@@ -46,15 +46,6 @@
 Optionally generates a lambda with an arg called arg if ARG is t"
   `(dolist (mode '(,@modes))
      (add-hook mode (lambda ,(if arg '(arg)) (,@hook)))))
-
-(defun disable-gc ()
-  (setq gc-cons-threshold most-positive-fixnum))
-
-(defun enable-gc ()
-  (setq gc-cons-threshold * 800000 15))
-
-(add-hook 'minibuffer-setup-hook 'disable-gc)
-(add-hook 'minibuffer-exit-hook 'enable-gc)
 
 (require 'init-display)
 (require 'init-general-editing)

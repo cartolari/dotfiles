@@ -21,7 +21,7 @@ function cleanUp() {
 trap cleanUp EXIT
 
 # ctags
-ctags --tag-relative -f "$_CTAGS_TEMP_FILE"
+ctags --tag-relative --fields=+l -f "$_CTAGS_TEMP_FILE"
 mv "$_CTAGS_TEMP_FILE" "$_CTAGS_TARGET_FILE"
 
 # ggtags

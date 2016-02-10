@@ -2,7 +2,7 @@
 
 [[ -f /usr/local/share/chruby/chruby.sh ]] && source /usr/local/share/chruby/chruby.sh
 [[ -f /usr/share/chruby/chruby.sh ]] && source /usr/share/chruby/chruby.sh
-chruby 2.1.5
+chruby 2.3.0
 if [ $# -eq 1 -a x"$1" = x--version ]; then
   rubocop "$@" 2>&1 | \
     sed '/warning: parser\/current is loading parser\/ruby[0-9]*, which recognizes/d;

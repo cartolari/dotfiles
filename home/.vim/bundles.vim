@@ -25,6 +25,7 @@ endif
   Plug 'sirver/ultisnips'
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
   Plug 'wellle/tmux-complete.vim'
+  Plug 'valloric/youcompleteme', {'do': 'yes \| ./install.py --tern-completer --clang-completer'}
 " }}}
 
 " File and Search {{{

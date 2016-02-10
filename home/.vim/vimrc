@@ -351,6 +351,9 @@ function MakeCompletionItem(word, options)
 endfunction
 
 let g:tmuxcomplete#trigger = ''
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 " }}}
 
 " Gundo {{{

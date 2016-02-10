@@ -54,14 +54,9 @@
         ruby-deep-indent-paren nil
         ruby-deep-indent-paren-style nil
         ruby-use-smie nil
-        ruby-insert-encoding-magic-comment nil
-        flycheck-ruby-executable "/opt/rubies/ruby-2.1.5/bin/ruby"
-        flycheck-ruby-rubocop-executable "~/rubocop.sh")
+        ruby-insert-encoding-magic-comment nil)
 
-  (add-hook 'ruby-mode-hook
-            (lambda ()
-              (add-to-list 'completion-at-point-functions 'my/dabbrev-capf)
-              (modify-syntax-entry ?: "'")))
+  (add-hook 'ruby-mode-hook (lambda () (modify-syntax-entry ?: "'")))
 
   (defun ruby-tools-looking-around (back at)
     "Check if looking backwards at BACK and forward at AT."

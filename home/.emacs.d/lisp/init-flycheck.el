@@ -58,7 +58,8 @@ See URL https://github.com/brigade/haml-lint"
          face-name nil
          :underline
          (plist-put (face-attribute 'flycheck-error :underline) :style 'line)))))
-
+  (setq flycheck-ruby-executable "/home/bruno/.rubies/ruby-2.3.0/bin/ruby"
+        flycheck-ruby-rubocop-executable "~/rubocop.sh")
   :init
   (add-hook 'after-init-hook 'global-flycheck-mode)
   :diminish flycheck-mode)

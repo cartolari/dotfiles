@@ -22,10 +22,6 @@
    (fci-mode 1)
    t)
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
-  (add-hook-for-modes
-   (prog-mode-hook yaml-mode-hook)
-   (add-to-list 'completion-at-point-functions 'my/dabbrev-capf t))
-  (add-to-list 'company-transformers 'remove-thing-at-point-transform)
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 0
         company-show-numbers t
@@ -47,13 +43,27 @@
   :init
   (global-set-key (kbd "C-'") 'company-try-hard))
 
+(use-package company-ycmd
+  :commands (global-ycmd-mode)
+  :init
+  (setq ycmd-default-tags-file-name ".git/tags"
+        ycmd-server-command '("python" "/home/bruno/.vim/bundle/youcompleteme/third_party/ycmd/ycmd")
+        ycmd-tag-files 'auto)
+  (add-hook-for-modes
+   (prog-mode-hook yaml-mode-hook)
+   (unless (string-match "lisp" (symbol-name major-mode))
+     (make-local-variable 'company-backends)
+     (add-to-list 'company-backends
+                  (company-mode/backend-with-yas 'company-ycmd))))
+  (add-hook 'after-init-hook 'global-ycmd-mode)
+  :load-path "/home/bruno/code/emacs-ycmd")
+
 (use-package company-flx
   :commands (company-flx-mode)
+  :config
+  (setq company-flx-limit 50)
   :init
-  (add-hook 'global-company-mode-hook 'company-flx-mode)
-  (add-hook-for-modes 'company-completion-started-hook 'disable-gc t)
-  (add-hook-for-modes 'company-completion-finished-hook 'enable-gc t)
-  (add-hook-for-modes 'company-completion-cancelled-hook 'enable-gc t))
+  (add-hook 'global-company-mode-hook 'company-flx-mode))
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 
@@ -63,38 +73,6 @@
       backend
     (append (if (consp backend) backend (list backend))
             '(:with company-yasnippet))))
-
-(defun my/dabbrev-find-all (abbrev)
-  "Return a list of expansions matched by ABBREV."
-  (let ((dabbrev-check-other-buffers t)
-        (dabbrev-check-all-buffers nil))
-    (flet ((message (&rest args)))
-      (dabbrev--reset-global-variables)
-      (dabbrev--find-all-expansions abbrev t))))
-
-(defun my/dabbrev-capf ()
-  "Dabbrev 'complete-at-point-functions' implementation."
-  (let ((bounds (bounds-of-thing-at-point 'symbol))
-        (completing (substring (thing-at-point 'symbol t) 0 1)))
-    (list
-     (car bounds)
-     (cdr bounds)
-     (append
-      (my/dabbrev-find-all completing)
-      (all-completions completing ggtags-completion-table))
-     :exclusive 'no)))
-
-(defun my/yasnippet-candidate-p (candidate)
-  "Check if a company mode CANDIDATE came from company-yasnippet backend."
-  (not (null (get-text-property 0 'yas-template candidate))))
-
-(defun remove-thing-at-point-transform (candidates)
-  "Remove 'thing-at-point' from CANDIDATES."
-  (let ((current-symbol (thing-at-point 'symbol)))
-    (cl-remove current-symbol candidates
-               :test (lambda (ignore candidate)
-                       (and (not (my/yasnippet-candidate-p candidate))
-                            (string= candidate current-symbol))))))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

@@ -45,6 +45,7 @@
 
 (use-package company-ycmd
   :commands (global-ycmd-mode)
+  :diminish ycmd-mode
   :init
   (setq ycmd-default-tags-file-name ".git/tags"
         ycmd-server-command '("python" "/home/bruno/.vim/bundle/youcompleteme/third_party/ycmd/ycmd")

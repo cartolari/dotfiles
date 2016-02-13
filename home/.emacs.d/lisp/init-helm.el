@@ -75,6 +75,10 @@
 
 (use-package helm-projectile
   :commands (helm-projectile-on)
+  :config
+  (defun helm-projectile-on ()
+    "Override 'helm-projectile-on' to not show message when turned on."
+    (helm-projectile-toggle 1))
   :init
   (add-hook 'projectile-mode-hook 'helm-projectile-on)
   (setq projectile-completion-system 'helm))

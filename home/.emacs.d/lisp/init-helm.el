@@ -33,9 +33,18 @@
         helm-lisp-fuzzy-completion t)
   (add-to-list 'display-buffer-alist
                `(,(rx bos "*helm" (* not-newline) "*" eos)
-                 (display-buffer-in-side-window)
-                 (inhibit-same-window . t)
-                 (window-height . 0.3)))
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (reusable-frames . visible)
+                 (side            . bottom)
+                 (window-height   . 0.3)))
+  (add-to-list 'display-buffer-alist
+               `(,(rx bos "*swiper*" eos)
+                 (display-buffer-reuse-window
+                  display-buffer-in-side-window)
+                 (reusable-frames . visible)
+                 (side            . bottom)
+                 (window-height   . 0.25)))
   :diminish helm-mode)
 
 (use-package helm-ag
@@ -82,6 +91,28 @@
   :init
   (add-hook 'projectile-mode-hook 'helm-projectile-on)
   (setq projectile-completion-system 'helm))
+
+(use-package swiper-helm
+  :bind (("C-s" . my/isearch-forward)
+         ("C-r " . my/isearch-backward))
+  :config
+  (setq swiper-helm-display-function 'display-buffer)
+  (defun my/isearch-forward (&optional regexp-p no-recursive-edit)
+    (interactive "P\np")
+    (cond ((equal current-prefix-arg nil)
+           (if (minibufferp)
+               (isearch-forward)
+             (swiper-helm)))
+          ((equal current-prefix-arg '(4)) (isearch-forward-regexp))
+          (t (isearch-forward))))
+  (defun my/isearch-backward (&optional regexp-p no-recursive-edit)
+    (interactive "P\np")
+    (cond ((equal current-prefix-arg nil)
+           (if (minibufferp)
+               (isearch-backward)
+             (swiper-helm)))
+          ((equal current-prefix-arg '(4)) (isearch-backward-regexp))
+          (t (isearch-backward)))))
 
 (provide 'init-helm)
 ;;; init-helm.el ends here

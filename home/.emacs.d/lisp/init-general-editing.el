@@ -24,7 +24,7 @@
   :commands (discover-my-major discover-my-mode))
 
 (use-package exec-path-from-shell
-  :defer t
+  :commands (exec-path-from-shell-initialize)
   :init
   (add-hook 'after-init-hook 'exec-path-from-shell-initialize))
 

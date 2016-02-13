@@ -8,6 +8,8 @@
 
 (use-package yasnippet
   :commands (yas-global-mode)
+  :config
+  (setq yas-verbosity 2)
   :init
   (add-hook 'after-init-hook 'yas-global-mode)
   :diminish yas-minor-mode)

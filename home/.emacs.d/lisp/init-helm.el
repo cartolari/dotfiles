@@ -72,11 +72,6 @@
   :init
   (add-hook 'after-init-hook 'helm-flx-mode))
 
-(use-package helm-fuzzier
-  :commands (helm-fuzzier-mode)
-  :init
-  (add-hook 'after-init-hook 'helm-fuzzier-mode))
-
 (use-package helm-gtags
   :commands (helm-gtags-mode)
   :init

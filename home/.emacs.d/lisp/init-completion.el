@@ -6,6 +6,13 @@
 ;;; Code:
 (require 'use-package)
 
+(defun company-mode/backend-with-yas (backend)
+  "Joins a company-mode BACKEND with the YASnippet company-yasnippet backend."
+  (if (and (listp backend) (member 'company-yasnippet backend))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+
 (use-package company
   :commands (global-company-mode)
   :config
@@ -67,13 +74,6 @@
   (add-hook 'global-company-mode-hook 'company-flx-mode))
 
 (global-set-key (kbd "M-/") 'hippie-expand)
-
-(defun company-mode/backend-with-yas (backend)
-  "Joins a company-mode BACKEND with the YASnippet company-yasnippet backend."
-  (if (and (listp backend) (member 'company-yasnippet backend))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

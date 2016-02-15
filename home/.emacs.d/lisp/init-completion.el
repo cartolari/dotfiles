@@ -63,8 +63,7 @@
      (make-local-variable 'company-backends)
      (add-to-list 'company-backends
                   (company-mode/backend-with-yas 'company-ycmd))))
-  (add-hook 'after-init-hook 'global-ycmd-mode)
-  :load-path "/home/bruno/code/emacs-ycmd")
+  (add-hook 'after-init-hook 'global-ycmd-mode))
 
 (use-package company-flx
   :commands (company-flx-mode)

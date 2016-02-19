@@ -29,6 +29,7 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/opt/maven/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/bruno/go/bin
+export PATH=$PATH:/home/bruno/bin
 
 export ANDROID_HOME=/opt/adt
 export GOPATH=~/go

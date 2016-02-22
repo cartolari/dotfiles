@@ -29,7 +29,9 @@
    (fci-mode 1)
    t)
   (add-hook 'company-completion-started-hook (lambda (arg) (fci-mode 0)))
-  (setq company-idle-delay 0.1
+  (setq company-dabbrev-downcase nil
+        company-dabbrev-ignore-case nil
+        company-idle-delay 0.1
         company-minimum-prefix-length 0
         company-show-numbers t
         dabbrev-abbrev-skip-leading-regexp ":")

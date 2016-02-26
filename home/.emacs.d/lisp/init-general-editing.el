@@ -54,6 +54,11 @@
   :init
   (add-hook 'after-init-hook 'keyfreq-mode))
 
+(use-package paredit-everywhere
+  :commands (paredit-everywhere-mode)
+  :init
+  (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
+
 (use-package rainbow-delimiters
   :commands (rainbow-delimiters-mode)
   :init

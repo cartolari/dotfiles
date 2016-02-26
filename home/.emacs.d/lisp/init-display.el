@@ -19,6 +19,12 @@
   :init
   (load-theme 'spacemacs-dark t))
 
+(use-package auto-highlight-symbol
+  :commands (auto-highlight-symbol-mode)
+  :config
+  (setq ahs-idle-interval 1.0)
+  :init
+  (add-hook 'prog-mode-hook 'auto-highlight-symbol-mode))
 
 (use-package linum
   :commands (global-linum-mode)

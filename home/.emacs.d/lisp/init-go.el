@@ -10,6 +10,7 @@
   :mode "\\.go\\'"
   :config
   (setq gofmt-command "goimports")
+  (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
   (add-hook 'before-save-hook 'gofmt-before-save))
 
 (use-package go-eldoc

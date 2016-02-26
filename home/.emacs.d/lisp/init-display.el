@@ -11,9 +11,14 @@
   :init
   (add-hook 'prog-mode-hook 'fci-mode))
 
-(use-package material-theme
+;; (use-package material-theme
+;;   :init
+;;   (load-theme 'material t))
+
+(use-package spacemacs-theme
   :init
-  (load-theme 'material t))
+  (load-theme 'spacemacs-dark t))
+
 
 (use-package linum
   :commands (global-linum-mode)

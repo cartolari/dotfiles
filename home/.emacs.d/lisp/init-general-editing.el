@@ -56,6 +56,7 @@
 
 (use-package paredit-everywhere
   :commands (paredit-everywhere-mode)
+  :diminish paredit-everywhere-mode
   :init
   (add-hook 'prog-mode-hook 'paredit-everywhere-mode))
 

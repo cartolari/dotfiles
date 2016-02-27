@@ -144,6 +144,11 @@
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face tab-mark trailing))
   (add-hook 'prog-mode-hook 'whitespace-mode)
+  (setq whitespace-display-mappings
+        '((space-mark 32 [183] [46])
+          (space-mark 160 [164] [95])
+          (newline-mark 10 [36 10])
+          (tab-mark 9 [9654 9] [92 9])))
   :diminish whitespace-mode
   :ensure nil)
 

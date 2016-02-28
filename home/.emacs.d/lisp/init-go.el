@@ -13,6 +13,9 @@
   (evil-define-key 'normal go-mode-map "gd" 'godef-jump)
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+(use-package go-direx
+  :commands (go-direx-pop-to-buffer go-direx-switch-to-buffer))
+
 (use-package go-eldoc
   :commands (go-eldoc-setup)
   :init

@@ -23,6 +23,7 @@
   :commands (auto-highlight-symbol-mode)
   :config
   (setq ahs-idle-interval 1.0)
+  :diminish auto-highlight-symbol-mode
   :init
   (add-hook 'prog-mode-hook 'auto-highlight-symbol-mode))
 

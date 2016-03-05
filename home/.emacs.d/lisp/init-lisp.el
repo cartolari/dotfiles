@@ -40,4 +40,3 @@
 
 (provide 'init-lisp)
 ;;; init-lisp.el ends here
-;; fuzzy find in current project with ,t

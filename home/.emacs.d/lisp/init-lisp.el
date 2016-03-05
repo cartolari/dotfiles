@@ -20,6 +20,7 @@
   (add-hook 'clojure-mode-hook 'paredit-mode)
   (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
   (add-hook 'lisp-mode-hook 'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook 'paredit-mode)
   :diminish paredit-mode)
 
 (add-hook 'emacs-lisp-mode-hook (lambda() (setq mode-name "Elisp")))

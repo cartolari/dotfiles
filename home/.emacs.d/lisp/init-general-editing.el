@@ -54,6 +54,11 @@
   :init
   (add-hook 'after-init-hook 'keyfreq-mode))
 
+(use-package operate-on-number
+  :commands (apply-operation-to-number-at-point operate-on-number-at-point)
+  :bind (("C-c +" . apply-operation-to-number-at-point)
+         ("C-c -" . apply-operation-to-number-at-point)))
+
 (use-package paredit-everywhere
   :commands (paredit-everywhere-mode)
   :diminish paredit-everywhere-mode

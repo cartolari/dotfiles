@@ -35,7 +35,7 @@
                (current-buffer))
       (error (message "Invalid expression")
              (insert (current-kill 0)))))
-  (add-hook 'emacs-lisp-mode-hook (lambda() (setq mode-name "Elisp")))
+  (define-key lisp-interaction-mode-map (kbd "C-c C-e") 'eval-and-replace)
   (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-and-replace))
 
 (provide 'init-lisp)

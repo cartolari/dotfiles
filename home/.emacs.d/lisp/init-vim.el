@@ -7,6 +7,7 @@
 (require 'use-package)
 
 (use-package vimrc-mode
+  :diminish ""
   :mode (".vim\\(rc\\)?$" . vimrc-mode))
 
 (provide 'init-vim)

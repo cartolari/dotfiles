@@ -4,6 +4,8 @@ if has('vim_starting')
   call plug#begin('~/.vim/bundle')
 endif
 
+Plug 'ryanoasis/vim-devicons'
+
 " Libs {{{
   Plug 'kana/vim-textobj-user'
   Plug 'tpope/vim-repeat'

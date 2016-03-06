@@ -39,7 +39,9 @@
 (use-package gitignore-mode)
 
 (use-package magit
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :ensure nil
+  :load-path "/home/bruno/code/magit/lisp")
 
 (provide 'init-vc)
 ;;; init-vc.el ends here

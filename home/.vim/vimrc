@@ -359,3 +359,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 " Gundo {{{
 let g:gundo_prefer_python3 = 1
 " }}}
+
+let g:airline_powerline_fonts = 1
+
+set guifont=Sauce\ Code\ Pro\ For\ Powerline:12

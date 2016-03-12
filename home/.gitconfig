@@ -23,3 +23,6 @@
 	autosetuprebase = always
 [init]
 	templatedir = /home/bruno/.git_template
+[grep]
+	patternType = perl
+	lineNumber = true

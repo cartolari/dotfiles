@@ -33,6 +33,47 @@
                                                (progn
                                                  (evil-normal-state)
                                                  (save-buffer))))
+
+  (defun replace-symbol-at-point (replacement)
+    "Replace `thing-at-point' with `REPLACEMENT'."
+    (interactive)
+    (with-symbol-and-bounds
+     (when bounds
+       (delete-region (car bounds) (cdr bounds))
+       (insert replacement))))
+
+  (defun transform-symbol-at-point (fn)
+    "Apply `FN' to `thing-at-point' and replace it in the current buffer."
+    (interactive)
+    (with-symbol-and-bounds
+     (replace-symbol-at-point (funcall fn text))))
+
+  (defun snake-case-at-point ()
+    "Make `thing-at-point' to be snake cased."
+    (interactive)
+    (transform-symbol-at-point 's-snake-case))
+
+  (defun lower-camel-case-at-point ()
+    "Make `thing-at-point' to be camel cased with the first letter lower cased."
+    (interactive)
+    (transform-symbol-at-point 's-lower-camel-case))
+
+  (defun upper-camel-case-at-point ()
+    "Make `thing-at-point' to be camel cased with the first letter upper cased."
+    (interactive)
+    (transform-symbol-at-point 's-upper-camel-case))
+
+  (defun upper-snake-case-at-point ()
+    "Make `thing-at-point' to be snake and upper cased."
+    (interactive)
+    (transform-symbol-at-point (lambda (str)
+                                 (s-upcase (s-snake-case str)))))
+
+  (global-set-key (kbd "C-c c s") 'snake-case-at-point)
+  (global-set-key (kbd "C-c c u") 'upper-camel-case-at-point)
+  (global-set-key (kbd "C-c c l") 'lower-camel-case-at-point)
+  (global-set-key (kbd "C-c c c") 'upper-snake-case-at-point)
+
   (key-seq-define evil-normal-state-map ",s" 'save-buffer)
   :init
   (add-hook 'prog-mode-hook 'evil-local-mode)

@@ -47,6 +47,11 @@ Optionally generates a lambda with an arg called arg if ARG is t"
   `(dolist (mode '(,@modes))
      (add-hook mode (lambda ,(if arg '(arg)) (,@hook)))))
 
+(defmacro with-symbol-and-bounds (body)
+  `(let* ((bounds (bounds-of-thing-at-point 'symbol))
+          (text   (buffer-substring-no-properties (car bounds) (cdr bounds))))
+     ,body))
+
 (require 'init-display)
 (require 'init-general-editing)
 (require 'init-isearch)

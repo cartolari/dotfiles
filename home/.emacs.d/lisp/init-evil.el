@@ -11,28 +11,17 @@
   :config
   (setq-default evil-shift-width 2)
   (setq evil-move-beyond-eol t)
-  ;; Swap ; and : in evil mode
-  (bind-keys :map evil-normal-state-map
-             (":" . evil-repeat-find-char)
-             (";" . evil-ex))
-  (bind-keys :map evil-visual-state-map
-             (":" . evil-repeat-find-char)
-             (";" . evil-ex))
-  ;; jk to exit insert mode in evil-mode
-  (key-seq-define evil-insert-state-map "jk" 'evil-normal-state)
-  ;; ,q to close the current window in evil-mode
-  (key-seq-define evil-normal-state-map ",q" 'delete-window)
-  ;; indent entire
-  (key-seq-define evil-normal-state-map "==" (lambda ()
-                                               (interactive)
-                                               (indent-region
-                                                (point-min) (point-max))))
-  ;; save file with ,s
-  (key-seq-define evil-insert-state-map ",s" (lambda ()
-                                               (interactive)
-                                               (progn
-                                                 (evil-normal-state)
-                                                 (save-buffer))))
+
+  (defun indent-current-buffer ()
+    "Indent the `current-buffer'."
+    (interactive)
+    (indent-region (point-min) (point-max)))
+
+  (defun evil-save-and-normal-state ()
+    "Save the `current-buffer' and change to `evil-normal-state'"
+    (interactive)
+    (evil-normal-state)
+    (save-buffer))
 
   (defun replace-symbol-at-point (replacement)
     "Replace `thing-at-point' with `REPLACEMENT'."
@@ -69,12 +58,23 @@
     (transform-symbol-at-point (lambda (str)
                                  (s-upcase (s-snake-case str)))))
 
+  (bind-keys :map evil-normal-state-map
+             (":" . evil-repeat-find-char)
+             (";" . evil-ex))
+  (bind-keys :map evil-visual-state-map
+             (":" . evil-repeat-find-char)
+             (";" . evil-ex))
+
   (global-set-key (kbd "C-c c s") 'snake-case-at-point)
   (global-set-key (kbd "C-c c u") 'upper-camel-case-at-point)
   (global-set-key (kbd "C-c c l") 'lower-camel-case-at-point)
   (global-set-key (kbd "C-c c c") 'upper-snake-case-at-point)
 
+  (key-seq-define evil-insert-state-map ",s" 'evil-save-and-normal-state)
+  (key-seq-define evil-insert-state-map "jk" 'evil-normal-state)
+  (key-seq-define evil-normal-state-map ",q" 'delete-window)
   (key-seq-define evil-normal-state-map ",s" 'save-buffer)
+  (key-seq-define evil-normal-state-map "==" 'indent-current-buffer)
   :init
   (add-hook 'prog-mode-hook 'evil-local-mode)
   (add-hook 'find-file-hook 'evil-local-mode))

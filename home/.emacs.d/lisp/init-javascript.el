@@ -8,7 +8,14 @@
 
 (use-package js2-mode
   :config
-  (setq js-indent-level 2)
+  (setq js-indent-level 2
+        js2-global-externs '("module" "require" "setTimeout" "clearTimeout"
+                             "setInterval" "clearInterval" "location"
+                             "__dirname" "console" "JSON")
+        js2-idle-timer-delay 0.1
+        js2-concat-multiline-strings 'eol
+        js2-mode-show-strict-warnings nil
+        js2-mode-show-parse-errors nil)
   :mode ("\\.js\\'" . js2-mode)
   :init
   (add-hook 'js2-mode-hook #'tern-mode)

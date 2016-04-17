@@ -5,6 +5,8 @@ alias vi='nvim'
 alias vim='nvim'
 alias server='python -m SimpleHTTPServer'
 alias h='homesick'
+alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
+alias folders-size='du -hs * 2> /dev/null | sort -hr'
 
 # Apt
 alias apt-install='sudo apt-get install'

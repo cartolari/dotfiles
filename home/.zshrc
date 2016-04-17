@@ -8,7 +8,15 @@ COMPLETION_WAITING_DOTS="true"
 
 ZSH_CUSTOM=~/.zsh
 
-plugins=(command-not-found git vagrant docker autojump colored-man docker-compose)
+plugins=(
+  autojump
+  colored-man
+  command-not-found
+  docker
+  docker-compose
+  git
+  vagrant
+)
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh

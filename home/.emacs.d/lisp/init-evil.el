@@ -105,12 +105,6 @@
   (with-eval-after-load 'evil
     (require 'evil-indent-textobject)))
 
-(use-package evil-jumper
-  :commands (global-evil-jumper-mode)
-  :init
-  (with-eval-after-load 'evil
-    (global-evil-jumper-mode)))
-
 (use-package evil-matchit
   :commands (global-evil-matchit-mode)
   :init

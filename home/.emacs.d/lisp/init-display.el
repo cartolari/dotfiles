@@ -23,6 +23,8 @@
   :commands (auto-highlight-symbol-mode)
   :config
   (setq ahs-idle-interval 1.0)
+  (define-key auto-highlight-symbol-mode-map (kbd "M-<left>") nil)
+  (define-key auto-highlight-symbol-mode-map (kbd "M-<right>") nil)
   :diminish auto-highlight-symbol-mode
   :init
   (add-hook 'prog-mode-hook 'auto-highlight-symbol-mode))

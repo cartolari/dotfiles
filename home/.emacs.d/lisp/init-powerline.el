@@ -11,7 +11,7 @@
   :commands (eyebrowse-mode)
   :config
   (setq eyebrowse-new-workspace t)
-  (bind-key "s-w" (defhydra hydra-eyebrowse ()
+  (bind-key "C-c w" (defhydra hydra-eyebrowse ()
                     "eyebrowse"
                     ("n" eyebrowse-next-window-config "next")
                     ("N" (lambda ()
@@ -24,6 +24,8 @@
                     ("l" eyebrowse-last-window-config "last")
                     ("q" nil "quit"))
             eyebrowse-mode-map)
+  (global-set-key (kbd "M-<left>") 'eyebrowse-prev-window-config)
+  (global-set-key (kbd "M-<right>") 'eyebrowse-next-window-config)
   :init
   (add-hook 'after-init-hook 'eyebrowse-mode))
 

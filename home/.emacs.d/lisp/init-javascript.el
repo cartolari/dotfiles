@@ -26,6 +26,7 @@
   :commands (tern-mode)
   :config
   (use-package company-tern)
+  (define-key tern-mode-keymap (kbd "C-c C-r") nil)
   (add-to-list 'company-backends 'company-tern))
 
 (use-package js2-refactor

@@ -66,7 +66,7 @@
           (global :when active)
           buffer-position
           hud))
-       (setq mode-line-format (default-value 'mode-line-format))))))
+       (setq-default mode-line-format '("%e" (:eval (spaceline-ml-main))))))))
 
 (defadvice vc-mode-line (after strip-backend () activate)
   "Remove the Git string from the 'vc-mode-line'."

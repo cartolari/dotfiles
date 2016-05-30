@@ -44,5 +44,8 @@
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   :mode "\\.json'")
 
+(use-package web-beautify
+  :commands (web-beautify-css web-beautify-html web-beautify-js))
+
 (provide 'init-javascript)
 ;;; init-javascript.el ends here

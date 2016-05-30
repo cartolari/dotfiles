@@ -18,16 +18,8 @@
         js2-mode-show-parse-errors nil)
   :mode ("\\.js\\'" . js2-mode)
   :init
-  (add-hook 'js2-mode-hook #'tern-mode)
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
   :interpreter ("node" . js2-mode))
-
-(use-package tern
-  :commands (tern-mode)
-  :config
-  (use-package company-tern)
-  (define-key tern-mode-keymap (kbd "C-c C-r") nil)
-  (add-to-list 'company-backends 'company-tern))
 
 (use-package js2-refactor
   :config

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: strict-mode
+# key: strict
+# --
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'

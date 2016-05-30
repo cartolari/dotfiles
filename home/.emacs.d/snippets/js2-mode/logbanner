@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: logbanner
+# key: logbanner
+# --
+console.log(new Array(${1:80}).join('*'));
+console.log($0);
+console.log(new Array($1).join('*'));

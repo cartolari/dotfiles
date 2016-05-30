@@ -12,17 +12,17 @@
   :config
   (setq eyebrowse-new-workspace t)
   (bind-key "C-c w" (defhydra hydra-eyebrowse ()
-                    "eyebrowse"
-                    ("n" eyebrowse-next-window-config "next")
-                    ("N" (lambda ()
-                           (interactive)
-                           (eyebrowse-switch-to-window-config
-                            (+ 1 (eyebrowse--get 'current-slot))))
-                     "new")
-                    ("p" eyebrowse-prev-window-config "previous")
-                    ("c" eyebrowse-close-window-config "close")
-                    ("l" eyebrowse-last-window-config "last")
-                    ("q" nil "quit"))
+                      "eyebrowse"
+                      ("n" eyebrowse-next-window-config "next")
+                      ("N" (lambda ()
+                             (interactive)
+                             (eyebrowse-switch-to-window-config
+                              (+ 1 (eyebrowse--get 'current-slot))))
+                       "new")
+                      ("p" eyebrowse-prev-window-config "previous")
+                      ("c" eyebrowse-close-window-config "close")
+                      ("l" eyebrowse-last-window-config "last")
+                      ("q" nil "quit"))
             eyebrowse-mode-map)
   (global-set-key (kbd "M-<left>") 'eyebrowse-prev-window-config)
   (global-set-key (kbd "M-<right>") 'eyebrowse-next-window-config)

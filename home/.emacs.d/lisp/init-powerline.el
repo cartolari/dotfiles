@@ -38,11 +38,15 @@
 
 (use-package spaceline
   :init
+  (eval-when-compile
+    (progn
+      (require 'anzu)
+      (require 'powerline)
+      (require 'spaceline-segments)))
   (add-hook
    'after-init-hook
    (lambda ()
      (progn
-       (require 'spaceline-segments)
        (setq anzu-cons-mode-line-p nil)
        (setq anzu-mode-line-update-function
              (lambda (here total)

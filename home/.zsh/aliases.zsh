@@ -7,6 +7,7 @@ alias server='python -m SimpleHTTPServer'
 alias h='homesick'
 alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
 alias file-sizes='du -hs * 2> /dev/null | sort -hr'
+alias sudo='nocorrect sudo '
 
 # Apt
 alias apt-install='sudo apt-get install'

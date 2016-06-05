@@ -6,7 +6,8 @@ alias vim='nvim'
 alias server='python -m SimpleHTTPServer'
 alias h='homesick'
 alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
-alias file-sizes='du -hs * 2> /dev/null | sort -hr'
+alias file-sizes='find -maxdepth 1 -exec du -hs {} \; | sort -hr'
+
 alias sudo='nocorrect sudo '
 
 # Apt

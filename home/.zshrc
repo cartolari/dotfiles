@@ -35,6 +35,7 @@ stty -ixon
 export EDITOR=nvim
 export PATH=$PATH:/home/bruno/bin
 export PATH=$PATH:/home/bruno/scripts
+if [ -e /home/bruno/.nix-profile/etc/profile.d/nix.sh ]; then . /home/bruno/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export GOPATH=~/go
 

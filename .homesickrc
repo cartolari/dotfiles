@@ -1,0 +1,6 @@
+# vi: set ft=ruby :
+# -*- mode: ruby -*-
+
+system 'sudo ./setup.sh'
+
+exit $?.exitstatus

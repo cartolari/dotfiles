@@ -18,6 +18,7 @@ plugins=(
   git
   vagrant
 )
+source /home/bruno/.nix-profile/etc/profile.d/autojump.sh
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh

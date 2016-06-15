@@ -23,7 +23,9 @@ $(loginctl show-user 1000 | grep Linger=yes) || loginctl enable-linger bruno
 
 shell=$(awk -F: '$1 == "bruno"{ print $7  }' < /etc/passwd)
 zsh=/home/bruno/.nix-profile/bin/zsh
-[[ "$shell" != "$zsh" ]] || chsh --shell "$zsh" bruno
+[[ -f "$zsh" ]] && grep $zsh /etc/shells || echo "$zsh" >> /etc/shells
+
+[[ "$shell" != "$zsh" ]] || usermod -s "$zsh" bruno
 
 ensure_link '/home/bruno/.nix-profile/share/fonts' '/home/bruno/.fonts'
 ensure_link '/home/bruno/.nix-profile/bin' '/home/bruno/bin'

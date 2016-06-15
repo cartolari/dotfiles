@@ -5,12 +5,13 @@ IFS=$'\n\t'
 
 ensure_link() {
   if [ -e "$2" ]; then
-    if [ "$(readlink $2)" != "$1" ]; then
-      rm -r "$2"
-      ln -s "$1" "$2"
-
+    if [ "$(readlink $2)" == "$1" ]; then
       return
     fi
+
+    echo "Readlink is different"
+    rm -r "$2"
+    ln -s "$1" "$2"
 
     return
   fi

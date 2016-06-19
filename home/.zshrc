@@ -10,7 +10,7 @@ ZSH_CUSTOM=~/.zsh
 
 plugins=(
   autojump
-  colored-man
+  colored-man-pages
   command-not-found
   docker
   docker-compose

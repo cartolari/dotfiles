@@ -10,6 +10,7 @@ ZSH_CUSTOM=~/.zsh
 
 plugins=(
   autojump
+  aws
   colored-man-pages
   command-not-found
   docker

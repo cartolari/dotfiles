@@ -22,6 +22,8 @@ plugins=(
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+source ~/.azure-completion.zsh
+
 # User configuration
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=$PATH:/home/bruno/.npm/bin

@@ -14,10 +14,8 @@
   (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
   :mode ("\\.md\\'" . gfm-mode))
 
-(use-package instant-markdown
-  :commands (instant-markdown-mode)
-  :ensure nil
-  :load-path (lambda () (expand-file-name "site-lisp" user-emacs-directory)))
+(use-package vmd-mode
+  :commands (vmd-mode))
 
 (provide 'init-markdown)
 ;;; init-markdown.el ends here

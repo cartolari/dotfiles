@@ -4,76 +4,77 @@
 # # set -x
 # IFS=$'\n\t'
 
+# pip install pygments
+# pygments (ccat)
+
 packages=(
-# android-sdk
-# android-studio
 # bash-concurrent
-# bfg repo cleaner
 # churn # rubygems
 # eslint
 # haml-lint
-# https://github.com/zsh-users/zsh-completions
 # jsctags
-# jshint
 # jsonlint
-# pygments (ccat)
 # python2.7-aws-shell
 # rubocop
-# ruby-install
-# shellcheck
 # ternjs
 # webdev icon fonts
-
-atom
+android-sdk
+# android-studio
+atom-editor-beta-bin
 autojump
+aws-cli
 bash
 bash-completion
+bfg
 chromium
 chruby
 ctags # Preferably from ctags.io
 curl
 dnsmasq
 docker-compose
-emacs-25.0.93
+# emacs-git
 firefox
 git
-global-6.5.4
+global
 go
 homesick
 htop
-idea-community-2016.1.1
 imagemagick
+intellij-idea-community-edition
+jdk8-openjdk
 jq
-letsencrypt-0.5.0
+letsencrypt-cli
 mercurial
 moreutils
 neovim
 nix-zsh-completions
-nodejs-6.1.0
-openjdk # java
+nodejs
+npm
 powerline-fonts
 pv
 python
-python3
-python3.5-awscli
+python2
 ruby
+ruby-install
+shellcheck
 silver-searcher
 sqlite
-sublimetext3
+sublime-text-dev
 sysdig
 tig
-tmux # compiled from source
+tmux-git
 tree
 unzip
 vagrant
 vim
 virtualbox
 wget
-wireshark-gtk
+wireshark-qt
 xclip
 zeal
 zip
 zsh
+zsh-completions
 )
 
 nix_install () {
@@ -90,6 +91,14 @@ nix_install () {
   nix-env --install --prebuilt-only "$package"
 }
 
+pacaur_install () {
+  package=$1
+  echo "Installing $package"
+  set +e
+  pacaur -S --needed --noconfirm --noedit "$package"
+  set -e
+}
+
 for package in "${packages[@]}"; do
-  nix_install $package
+  pacaur_install $package
 done

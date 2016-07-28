@@ -1,10 +1,10 @@
 unsetopt nomatch
 
-export UPDATE_ZSH_DAYS=7
 ZSH_THEME="agnoster"
 DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
+export UPDATE_ZSH_DAYS=7
 
 ZSH_CUSTOM=~/.zsh
 
@@ -17,8 +17,8 @@ plugins=(
   docker-compose
   git
   vagrant
+  zsh-completions
 )
-source /home/bruno/.nix-profile/etc/profile.d/autojump.sh
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -33,12 +33,12 @@ export PATH=$PATH:/home/bruno/.local/bin
 # Disable software control flow
 stty -ixon
 
+export GOPATH=~/go
 export EDITOR=nvim
 export PATH=$PATH:/home/bruno/bin
 export PATH=$PATH:/home/bruno/scripts
+export PATH=$PATH:$GOPATH/bin
 if [ -e /home/bruno/.nix-profile/etc/profile.d/nix.sh ]; then . /home/bruno/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export GOPATH=~/go
 
 if [[ -z "$TMUX" ]]
 then
@@ -52,3 +52,7 @@ export FZF_DEFAULT_COMMAND='ag -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+eval $(keychain --quiet --eval --noask --agents ssh)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

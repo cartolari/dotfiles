@@ -23,6 +23,11 @@
 (use-package discover-my-major
   :commands (discover-my-major discover-my-mode))
 
+(use-package dumb-jump
+  :commands (dumb-jump-mode)
+  :init
+  (add-hook 'prog-mode-hook 'dumb-jump-mode))
+
 (use-package exec-path-from-shell
   :commands (exec-path-from-shell-initialize)
   :init

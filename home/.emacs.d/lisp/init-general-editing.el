@@ -150,6 +150,11 @@
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 
+(use-package winner-mode
+  :ensure nil
+  :init
+  (add-hook 'after-init-hook 'winner-mode))
+
 (use-package whitespace
   :config
   (setq whitespace-line-column 80) ;; limit line length

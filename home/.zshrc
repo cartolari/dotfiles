@@ -32,11 +32,11 @@ export PATH=$PATH:/home/bruno/.local/bin
 # Disable software control flow
 stty -ixon
 
+export GOPATH=~/go
 export EDITOR=nvim
 export PATH=$PATH:/home/bruno/bin
 export PATH=$PATH:/home/bruno/scripts
-
-export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
 
 if [[ -z "$TMUX" ]]
 then

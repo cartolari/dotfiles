@@ -13,6 +13,13 @@
   (define-key projectile-mode-map (kbd "C-c p R") 'my/projectile-regenerate-tags)
   (with-eval-after-load 'evil
     (key-seq-define evil-normal-state-map ",t" 'helm-projectile))
+  (setq projectile-switch-project-action 'projectile-commander)
+  (def-projectile-commander-method ?s
+    "Open a *shell* buffer for the project."
+    (projectile-run-shell))
+  (def-projectile-commander-method ?d
+    "Open project root in dired."
+    (projectile-dired))
   :diminish projectile-mode
   :init
   (add-hook 'after-init-hook 'projectile-global-mode))

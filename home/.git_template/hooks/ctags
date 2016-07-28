@@ -8,7 +8,12 @@ _GIT_DIR="$(git rev-parse --git-dir)"
 _CTAGS_TEMP_FILE="$_GIT_DIR/$$.tags"
 _CTAGS_TARGET_FILE="$_GIT_DIR/tags"
 
-export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+if [ -f /usr/share/gtags/gtags.conf ]; then
+  export GTAGSCONF=/usr/share/gtags/gtags.conf
+elif [ -f /usr/local/share/gtags/gtags.conf ]; then
+  export GTAGSCONF=/usr/local/share/gtags/gtags.conf
+fi
+
 export GTAGSLABEL=ctags
 _GTAGS_TARGET_DIR="$(git rev-parse --show-toplevel)"
 _GTAGS_TEMP_DIR="$_GIT_DIR/$$_GTAGS"

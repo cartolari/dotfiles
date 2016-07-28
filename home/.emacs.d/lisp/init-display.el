@@ -41,7 +41,7 @@
     (let* ((diff (abs (- line-number linum-last-pos)))
            (current-line-p (zerop diff))
            (number (if current-line-p (line-number-at-pos) diff)))
-      (propertize (format "%3d" number)
+      (propertize (format " %4d" number)
                   'face
                   (if current-line-p 'highlight
                     'linum))))

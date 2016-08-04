@@ -39,7 +39,7 @@ neovim
 nodejs
 npm
 postgresql-libs
-powerline-fonts
+powerline-fonts-git
 pv
 pygmentize
 pygmentize

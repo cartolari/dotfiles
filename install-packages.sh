@@ -18,6 +18,7 @@ bash-completion
 bfg
 chromium
 chruby
+cmake
 curl
 dnsmasq
 docker-compose
@@ -35,6 +36,7 @@ jq
 letsencrypt-cli
 mercurial
 moreutils
+ncurses5-compat-libs
 neovim
 nodejs
 npm

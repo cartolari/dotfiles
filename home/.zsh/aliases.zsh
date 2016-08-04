@@ -37,9 +37,9 @@ alias dlogs='docker-compose logs'
 alias drunb='docker-compose run --rm web bash'
 alias drunsb='docker-compose run --rm --service-ports web bash'
 alias start_dns='source ~/start_dns.sh'
-alias docker-clean='docker ps -qa --filter status=exited | xargs docker rm'
-alias docker-clean-images='docker images -q --filter="dangling=true" | xargs docker rmi'
-alias docker-clean-volumes='docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker --rm martin/docker-cleanup-volumes'
+alias docker-clean='docker ps -qa --filter status=exited | xargs -r docker rm'
+alias docker-clean-images='docker images -q --filter="dangling=true" | xargs -r docker rmi'
+alias docker-clean-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
 
 # ssh
 alias s='ssh'

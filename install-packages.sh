@@ -21,7 +21,7 @@ chruby
 curl
 dnsmasq
 docker-compose
-emacs-git
+emacs
 firefox
 git
 global

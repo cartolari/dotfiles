@@ -8,7 +8,8 @@
 
 (use-package js2-mode
   :config
-  (setq js-indent-level 2
+  (setq js2-basic-offset 2
+        js-indent-level 2
         js2-global-externs '("module" "require" "setTimeout" "clearTimeout"
                              "setInterval" "clearInterval" "location"
                              "__dirname" "console" "JSON")

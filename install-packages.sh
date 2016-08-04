@@ -72,6 +72,7 @@ zsh-completions
 
 python_packages=(
 aws-shell
+neovim
 pgcli
 )
 

@@ -8,6 +8,8 @@ IFS=$'\n\t'
 arch_packages=(
 android-sdk
 android-studio
+aspell-en
+aspell-pt
 atom-editor-bin
 autojump
 aws-cli

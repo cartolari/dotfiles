@@ -20,6 +20,7 @@ chromium
 chruby
 cmake
 curl
+dbeaver
 dnsmasq
 docker-compose
 emacs

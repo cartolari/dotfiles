@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: logbanner
-# key: logbanner
+# name: debug
+# key: debug
 # --
 console.log(new Array(${1:80}).join('*'));
 console.log($0);

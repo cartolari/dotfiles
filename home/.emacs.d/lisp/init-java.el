@@ -6,7 +6,7 @@
 ;;; Code:
 (require 'use-package)
 
-(use-package emacs-eclim
+(use-package eclim
   :commands (global-eclim-mode)
   :config
   (global-eclim-mode 1)

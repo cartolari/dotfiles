@@ -8,10 +8,15 @@
 
 (use-package eshell
   :config
+  (add-hook 'eshell-mode-hook (lambda () (company-mode -1)))
   (add-hook 'eshell-mode-hook
-            #'(lambda ()
-                (substitute-key-definition
-                 'eshell-list-history 'helm-eshell-history eshell-mode-map)))
+            (lambda ()
+              (substitute-key-definition
+               'eshell-list-history 'helm-eshell-history eshell-mode-map)))
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (define-key eshell-mode-map
+                [remap eshell-pcomplete] 'helm-esh-pcomplete)))
   :ensure nil)
 
 (use-package shell

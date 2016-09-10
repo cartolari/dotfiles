@@ -149,6 +149,9 @@
 (setq-default display-buffer-reuse-frames t)
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
+(add-hook 'after-init-hook
+          (lambda () (add-to-list 'safe-local-variable-values
+                                  '(flycheck-emacs-lisp-load-path . inherit))))
 
 (use-package winner-mode
   :ensure nil

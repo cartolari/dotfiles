@@ -1,0 +1,5 @@
+# key: use-package
+# name: use-package
+# --
+(use-package $1
+  $0)

@@ -51,7 +51,9 @@
   :commands (helm-ag
              helm-do-ag
              helm-ag-project-root
-             helm-do-ag-project-root))
+             helm-do-ag-project-root)
+  :config
+  (setq helm-ag-base-command "ag --nocolor --nogroup --hidden"))
 
 (use-package helm-dash
   :commands (helm-dash helm-dash-at-point)

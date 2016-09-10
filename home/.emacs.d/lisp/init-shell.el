@@ -15,8 +15,8 @@
                'eshell-list-history 'helm-eshell-history eshell-mode-map)))
   (add-hook 'eshell-mode-hook
             (lambda ()
-              (define-key eshell-mode-map
-                [remap eshell-pcomplete] 'helm-esh-pcomplete)))
+              (substitute-key-definition
+               'eshell-pcomplete 'helm-esh-pcomplete eshell-mode-map)))
   :ensure nil)
 
 (use-package shell

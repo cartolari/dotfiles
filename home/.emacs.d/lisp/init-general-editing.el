@@ -36,15 +36,13 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
-(use-package guide-key
-  :commands (guide-key-mode)
+(use-package which-key
+  :commands (which-key-mode)
   :config
-  (setq echo-keystrokes 0.3)
-  (setq guide-key/guide-key-sequence t)
-  (setq guide-key/idle-delay 0.3)
+  (setq which-key-idle-delay 0.3)
+  :diminish which-key-mode
   :init
-  (add-hook 'after-init-hook 'guide-key-mode)
-  :diminish guide-key-mode)
+  (add-hook 'after-init-hook 'which-key-mode))
 
 (use-package highlight-escape-sequences
   :commands (hes-mode)

@@ -66,6 +66,7 @@ Optionally generates a lambda with an arg called arg if ARG is t"
 
 (require 'init-clojure)
 (require 'init-coffee)
+(require 'init-folding)
 (require 'init-go)
 (require 'init-haml)
 (require 'init-helm)

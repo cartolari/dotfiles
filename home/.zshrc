@@ -37,6 +37,7 @@ export EDITOR=nvim
 export PATH=$PATH:/home/bruno/bin
 export PATH=$PATH:/home/bruno/scripts
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/bruno/.gem/ruby/2.3.0/bin
 
 if [[ -z "$TMUX" ]]
 then

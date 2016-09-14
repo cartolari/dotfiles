@@ -72,6 +72,7 @@ zip
 zsh
 zsh-autosuggestions
 zsh-completions
+zsh-syntax-highlighting
 )
 
 python_packages=(

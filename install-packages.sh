@@ -16,6 +16,7 @@ aws-cli
 bash
 bash-completion
 bfg
+bind-tools
 chromium
 chruby
 cmake

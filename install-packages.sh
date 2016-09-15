@@ -38,6 +38,7 @@ jq
 letsencrypt-cli
 mercurial
 moreutils
+mycli
 ncurses5-compat-libs
 neovim
 nodejs

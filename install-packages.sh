@@ -103,3 +103,13 @@ done
 for package in "${python_packages[@]}"; do
   pip install --user "$package"
 done
+
+for service in systemd-units/**/*.service; do
+  unit_name=$(basename "$service")
+  source=$(realpath "$service")
+  target=/etc/systemd/system/$unit_name
+  if [ -h "$target" ] && [ "$(readlink -f "$target")" = "$source" ]; then
+    continue
+  fi
+  sudo ln -s "$source" "$target"
+done

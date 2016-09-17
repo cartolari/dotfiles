@@ -30,6 +30,7 @@ git
 global
 go
 homesick
+hosts-gen
 htop
 imagemagick
 intellij-idea-community-edition

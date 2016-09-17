@@ -165,7 +165,7 @@
         '((space-mark 32 [183] [46])
           (space-mark 160 [164] [95])
           (newline-mark 10 [36 10])
-          (tab-mark 9 [9654 9] [92 9])))
+          (tab-mark 9 [187 9] [92 9])))
   :diminish whitespace-mode
   :ensure nil)
 

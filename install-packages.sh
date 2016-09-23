@@ -24,6 +24,7 @@ curl
 dbeaver
 dnsmasq
 docker-compose
+doctl-bin
 emacs
 firefox
 git

@@ -16,6 +16,7 @@ plugins=(
   docker
   docker-compose
   git
+  terraform
   vagrant
 )
 

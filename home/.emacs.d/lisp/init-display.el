@@ -11,13 +11,11 @@
   :init
   (add-hook 'prog-mode-hook 'fci-mode))
 
-;; (use-package material-theme
-;;   :init
-;;   (load-theme 'material t))
-
-(use-package spacemacs-theme
+(use-package material-theme
   :init
-  (load-theme 'spacemacs-dark t))
+  (load-theme 'material t))
+
+(use-package spacemacs-theme)
 
 (use-package auto-highlight-symbol
   :commands (auto-highlight-symbol-mode)

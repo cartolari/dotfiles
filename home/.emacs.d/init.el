@@ -7,6 +7,12 @@
 (setq gc-cons-threshold (* 800000 20))
 (setq gc-cons-percentage 0.2)
 
+(defmacro measure-time (&rest body)
+  "Measure the time it takes to evaluate BODY."
+  `(let ((time (current-time)))
+     ,@body
+     (message "%.06f" (float-time (time-since time)))))
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'package)
@@ -80,6 +86,7 @@ Optionally generates a lambda with an arg called arg if ARG is t"
 (require 'init-shell)
 (require 'init-spell)
 (require 'init-tags)
+(require 'init-terraform)
 (require 'init-uml)
 (require 'init-vc)
 (require 'init-vim)

@@ -7,12 +7,6 @@
 (setq gc-cons-threshold (* 800000 20))
 (setq gc-cons-percentage 0.2)
 
-(defmacro measure-time (&rest body)
-  "Measure the time it takes to evaluate BODY."
-  `(let ((time (current-time)))
-     ,@body
-     (message "%.06f" (float-time (time-since time)))))
-
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'package)
@@ -47,16 +41,7 @@
   :init
   (add-hook 'after-init-hook 'unkillable-scratch))
 
-(defmacro add-hook-for-modes (modes hook &optional arg)
-  "For each mode in MODES add HOOK to each.
-Optionally generates a lambda with an arg called arg if ARG is t"
-  `(dolist (mode '(,@modes))
-     (add-hook mode (lambda ,(if arg '(arg)) (,@hook)))))
-
-(defmacro with-symbol-and-bounds (body)
-  `(let* ((bounds (bounds-of-thing-at-point 'symbol))
-          (text   (buffer-substring-no-properties (car bounds) (cdr bounds))))
-     ,body))
+(require 'init-macros)
 
 (require 'init-display)
 (require 'init-general-editing)

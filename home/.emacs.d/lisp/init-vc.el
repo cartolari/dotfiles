@@ -16,7 +16,11 @@
 (use-package gitignore-mode)
 
 (use-package magit
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . magit-status)
+  :config
+  (setq magit-repository-directories '(("~/code" . 3))
+        magit-display-buffer-function 'magit-display-buffer-fullcolumn-most-v1)
+  :demand t)
 
 (provide 'init-vc)
 ;;; init-vc.el ends here

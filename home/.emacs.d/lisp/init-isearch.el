@@ -1,10 +1,12 @@
-;;; init-isearch.el -- isearch setup
+;;; init-isearch.el -- Search setup
 
 ;;; Commentary:
-;;; use anzu instead of isearch
+;;; Setup plugins for using with Emacs and external search
 
 ;;; Code:
 (require 'use-package)
+
+(use-package ag)
 
 (use-package anzu
   :bind (("C-M-%" . anzu-query-replace-regexp)

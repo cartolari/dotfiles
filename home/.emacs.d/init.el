@@ -24,20 +24,9 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package ag
-  :commands (ag))
 (use-package dockerfile-mode
   :mode ("Dockerfile" . dockerfile-mode))
 (use-package hydra)
-(use-package key-seq
-  :config
-  (setq key-chord-two-keys-delay 0.3)
-  :init
-  (add-hook 'after-init-hook (lambda () (key-chord-mode 1))))
-(use-package unkillable-scratch
-  :commands (unkillable-scratch)
-  :init
-  (add-hook 'after-init-hook 'unkillable-scratch))
 
 (require 'init-macros)
 

@@ -52,6 +52,12 @@
   :init
   (add-hook 'after-init-hook 'hes-mode))
 
+(use-package key-seq
+  :config
+  (setq key-chord-two-keys-delay 0.3)
+  :init
+  (add-hook 'after-init-hook (lambda () (key-chord-mode 1))))
+
 (use-package keyfreq
   :commands (keyfreq-mode)
   :init
@@ -73,6 +79,11 @@
   :init
   (autoload 'rainbow-delimiters-mode "rainbow-delimiters" nil t)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
+(use-package unkillable-scratch
+  :commands (unkillable-scratch)
+  :init
+  (add-hook 'after-init-hook 'unkillable-scratch))
 
 (use-package undo-tree
   :commands (global-undo-tree-mode)

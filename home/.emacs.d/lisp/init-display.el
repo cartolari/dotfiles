@@ -64,7 +64,5 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(add-hook 'after-init-hook 'desktop-save-mode)
-
 (provide 'init-display)
 ;;; init-display.el ends here

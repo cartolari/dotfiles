@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: out
+# key: out
+# --
+output "$1" {
+  value = "$2"
+}$0

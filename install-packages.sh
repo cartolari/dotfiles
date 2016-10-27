@@ -49,7 +49,6 @@ postgresql-libs
 powerline-fonts-git
 pv
 pygmentize
-pygmentize
 python
 python-pip
 python2

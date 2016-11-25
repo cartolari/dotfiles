@@ -39,6 +39,7 @@ export PATH=$PATH:/home/bruno/bin
 export PATH=$PATH:/home/bruno/scripts
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/bruno/.gem/ruby/2.3.0/bin
+export PATH=$PATH:/usr/bin/core_perl
 
 if [[ -z "$TMUX" ]]
 then

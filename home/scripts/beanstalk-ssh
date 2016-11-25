@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+# pylint: disable=invalid-name
+
+from os import execvp
+from argparse import ArgumentParser
+
+import boto3
+
+parser = ArgumentParser(description='SSH in AWS ElasticBeanstalk instances')
+
+parser.add_argument(
+    '-e', '--environment', help='Beanstalk environment', required=True
+)
+parser.add_argument(
+    '-d',
+    '--docker',
+    help='Run docker exec in a ElasticBeanstalk single container environments',
+    action='store_true'
+)
+parser.add_argument(
+    '-k', '--ssh_key', help='The ssh key to authenticate', required=True
+)
+parser.add_argument(
+    '-p', '--profile', help='Shared credentials profile', required=True
+)
+parser.add_argument(
+    '-r',
+    '--region',
+    default='us-east-1',
+    help='AWS region containing the environment'
+)
+parser.add_argument(
+    '-u', '--ssh_user', default='ec2-user', help='SSH user'
+)
+
+args = parser.parse_args()
+
+session = boto3.Session(profile_name=args.profile, region_name=args.region)
+
+ec2 = session.client('ec2')
+beanstalk = session.client('elasticbeanstalk')
+environment_resources = beanstalk.describe_environment_resources(
+    EnvironmentName=args.environment
+)
+instance_id = environment_resources['EnvironmentResources']['Instances'][0]['Id']
+instance_info = ec2.describe_instances(InstanceIds=[instance_id])
+instance_ip = instance_info['Reservations'][0]['Instances'][0]['PublicIpAddress']
+
+ssh_command_args = [
+    '', '-i', args.ssh_key, '%s@%s' % (args.ssh_user, instance_ip)
+]
+
+if args.docker:
+    ssh_command_args += ['-t', 'sudo docker exec -ti $(sudo docker ps -q) bash']
+
+execvp('ssh', ssh_command_args)

@@ -104,6 +104,10 @@ endif
   Plug 'cartolari/JavaScript-Indent', {'for': ['javascript', 'html']}
 " }}}
 
+" PHP {{{
+  Plug 'joonty/vdebug'
+" }}}
+
 " Ruby {{{
   Plug 'ecomba/vim-ruby-refactoring'
   Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}

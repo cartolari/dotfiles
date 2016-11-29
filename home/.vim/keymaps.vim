@@ -98,9 +98,7 @@ augroup Tab
 augroup END
 
 " Uses <leader>t as fzf trigger
-nnoremap <silent> <leader>t :FZF<CR>
-" Uses <leader>T as fzf mru trigger
-nnoremap <silent> <leader>T :FZFMru<CR>
+nnoremap <silent> <leader>t :Denite buffer file_rec<CR>
 
 " Make
 nnoremap <silent> <leader>m :SyntasticCheck<CR>

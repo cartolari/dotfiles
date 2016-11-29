@@ -27,7 +27,9 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>a =ip
 
 " Edit vimrc
-nnoremap <leader>e :edit $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>eb :edit ~/.vim/bundles.vim<CR>
+nnoremap <leader>ek :edit ~/.vim/keymaps.vim<CR>
 
 "Netrw
 nnoremap - :Explore<CR>

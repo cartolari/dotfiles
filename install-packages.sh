@@ -31,6 +31,7 @@ firefox
 git
 global
 go
+gvim
 homesick
 hosts-gen
 htop
@@ -67,7 +68,6 @@ tree
 universal-ctags-git
 unzip
 vagrant
-vim
 virtualbox
 wget
 wireshark-qt

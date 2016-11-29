@@ -125,3 +125,5 @@ nnoremap <silent> <Leader>yr :YRGetElem<CR>
 " Visual * and # search
 vnoremap * :<C-u>call VSetSearch()<CR>/<CR>
 vnoremap # :<C-u>call VSetSearch()<CR>?<CR>
+
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>

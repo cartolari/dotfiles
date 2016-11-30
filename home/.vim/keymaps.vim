@@ -97,6 +97,16 @@ augroup Tab
   autocmd BufEnter * call CleverTabCustom()
 augroup END
 
+function ExpandSnippetOrCarriageReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
+  else
+    return "\<CR>"
+  endif
+endfunction
+inoremap <silent> <CR> <C-r>=ExpandSnippetOrCarriageReturn()<CR>
+
 " Uses <leader>t as fzf trigger
 nnoremap <silent> <leader>t :Denite buffer file_rec<CR>
 

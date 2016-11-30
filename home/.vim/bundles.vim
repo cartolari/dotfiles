@@ -41,7 +41,7 @@ endif
         \ 'javascript', 'html', 'xml', 'css',
         \ 'scss', 'less', 'yaml', 'vim' ]}
   Plug 'andrewradev/switch.vim'
-  Plug 'cartolari/gundo.vim'
+  Plug 'sjl/gundo.vim'
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'

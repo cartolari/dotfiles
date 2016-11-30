@@ -46,6 +46,7 @@ set scrolloff=3 " Leave some ground while scrolling
 set bg=dark
 set shortmess+=c " Quiet completions
 set splitright
+set updatetime=250
 colorscheme badwolf
 " }}}
 
@@ -386,4 +387,9 @@ augroup filetype_denite
   autocmd!
   autocmd FileType denite call s:denite_keymapping()
 augroup END
+" }}}
+
+" GitGutter {{{
+let g:gitgutter_async = 1
+let g:gitgutter_realtime = 1
 " }}}

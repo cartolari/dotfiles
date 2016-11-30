@@ -61,6 +61,7 @@ endif
 " }}}
 
 " Integrations {{{
+  Plug 'airblade/vim-gitgutter'
   Plug 'christoomey/vim-tmux-runner'
   Plug 'tpope/vim-fugitive'
 " }}}

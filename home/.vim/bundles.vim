@@ -52,6 +52,7 @@ endif
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-projectionist'
+  Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-scripts/LargeFile'

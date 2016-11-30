@@ -381,12 +381,9 @@ call denite#custom#var('file_rec', 'command',
       \ ['ag', '--follow', '--hidden', '--nocolor', '--ignore', '.git', '-g', ''])
 call denite#custom#map('insert', '<C-n>', 'move_to_next_line')
 call denite#custom#map('insert', '<C-p>', 'move_to_prev_line')
+call denite#custom#option('default', 'winheyght', 10)
 augroup filetype_denite
   autocmd!
   autocmd FileType denite call s:denite_keymapping()
 augroup END
-
-function! s:denite_keymapping()
-  noremap <buffer> <C-c><Esc>
-endfunction
 " }}}

@@ -75,16 +75,16 @@ noremap <silent> <leader>rl :TestLast<CR>
 noremap <silent> <leader>rg :TestVisit<CR>
 
 " Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<C-l>"
 
 " Tab Completion
 function! CleverTabCustom()
   inoremap <silent><tab> <c-r>=CleverTab#Complete('start')<cr>
-                        \<c-r>=CleverTab#Complete('tab')<cr>
                         \<c-r>=CleverTab#Complete('ultisnips')<cr>
+                        \<c-r>=CleverTab#Complete('tab')<cr>
                         \<c-r>=CleverTab#Complete('omni')<cr>
                         \<c-r>=CleverTab#Complete('user')<cr>
                         \<c-r>=CleverTab#Complete('keyword')<cr>

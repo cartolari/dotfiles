@@ -12,10 +12,10 @@ endif
 
 " Color Schemes {{{
   Plug 'cartolari/vim-niji', {'for': ['clojure', 'lisp', 'scheme']}
-  Plug 'vim-scripts/csapprox'
-  Plug 'trapd00r/neverland-vim-theme'
-  Plug 'sjl/badwolf'
   Plug 'reedes/vim-colors-pencil'
+  Plug 'sjl/badwolf'
+  Plug 'trapd00r/neverland-vim-theme'
+  Plug 'vim-scripts/csapprox'
 " }}}
 
 " Completions and Snippets {{{

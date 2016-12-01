@@ -97,13 +97,46 @@ augroup Tab
   autocmd BufEnter * call CleverTabCustom()
 augroup END
 
+function SnippetItem(index, text)
+  return '${' . a:index . ':' . a:text . '}'
+endf
+
+function GoSnippetExpansion(completed_item)
+  let item = a:completed_item
+  if get(item, 'kind', '') != 'f' || get(item, 'menu', '') == ''
+    return ''
+  endif
+  let arguments = get(matchlist(item.menu, 'func(\([^()]*\))\s\=(\=.*)\='), 1, '')
+  let argument_list = map(split(arguments, ', '), 'SnippetItem(v:key + 1, v:val)')
+  echom json_encode(argument_list)
+  return '(' . join(argument_list, ', ') . ')$0'
+endfunction
+
+function SnippetExpansion(filetype, completed_item)
+  if a:filetype ==# 'go'
+    return GoSnippetExpansion(a:completed_item)
+  endif
+
+  return ''
+endfunction
+
 function ExpandSnippetOrCarriageReturn()
   let snippet = UltiSnips#ExpandSnippetOrJump()
   if g:ulti_expand_or_jump_res > 0
     return snippet
-  else
-    return "\<CR>"
+  elseif pumvisible()
+    if exists('v:completed_item') && !empty('v:completed_item')
+      let g:last_completed_item = v:completed_item
+      let snippet = SnippetExpansion(&filetype, v:completed_item)
+      if snippet != ''
+        return UltiSnips#Anon(snippet)
+      endif
+    endif
+
+    return "\<C-y>"
   endif
+
+  return "\<CR>"
 endfunction
 inoremap <silent> <CR> <C-r>=ExpandSnippetOrCarriageReturn()<CR>
 

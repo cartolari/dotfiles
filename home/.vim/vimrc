@@ -164,6 +164,7 @@ let g:syntastic_haml_checkers = ['haml-lint']
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['✗ %d', '⚠ %d', '']
 highlight link ALEErrorSign errormsg
 highlight link ALEWarningSign question
 " }}}
@@ -177,19 +178,41 @@ let g:instant_markdown_autostart = 0
 " }}}
 
 " Lightline {{{
+function! LightlineFilename()
+  let filename = ""
+  if &readonly && &filetype != "help"
+    let filename .= " "
+  endif
+
+  let filename .= (expand('%:t') != '' ? expand('%:t') : '[No Name]')
+
+  if &modified && &filetype != "help"
+    let filename .= " +"
+  endif
+
+  return filename
+endfunction
+
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
+
 let g:lightline = {
   \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'ale', 'filename' ] ]
   \ },
   \ 'component': {
-  \   'readonly': '%{&readonly?"":""}',
-  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \   'filename': '%{LightlineFilename()}',
+  \   'fugitive': '%{LightlineFugitive()}',
+  \   'ale': '%{ALEGetStatusLine()}'
   \ },
   \ 'component_visible_condition': {
-  \   'readonly': '(&filetype!="help"&& &readonly)',
-  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
+  \   'ale': "ALEGetStatusLine() != ''"
   \ },
   \ 'separator': { 'left': '', 'right': '' },
   \ 'subseparator': { 'left': '', 'right': '' }

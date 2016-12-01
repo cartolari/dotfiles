@@ -141,7 +141,7 @@ endfunction
 inoremap <silent> <CR> <C-r>=ExpandSnippetOrCarriageReturn()<CR>
 
 " Uses <leader>t as fzf trigger
-nnoremap <silent> <leader>t :Denite buffer file_rec<CR>
+nnoremap <silent> <leader>t :FZF<CR>
 
 " Make
 nnoremap <silent> <leader>m :SyntasticCheck<CR>

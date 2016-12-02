@@ -54,6 +54,7 @@ pygmentize
 python
 python-pip
 python2
+ripgrep
 ruby
 ruby-install
 shellcheck

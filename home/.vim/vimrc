@@ -47,6 +47,7 @@ set bg=dark
 set shortmess+=c " Quiet completions
 set splitright
 set updatetime=250
+set colorcolumn=80
 colorscheme badwolf
 " }}}
 
@@ -66,11 +67,6 @@ function! HideOverLength()
     unlet b:over_length_match
   endif
 endfunction
-
-augroup Highlight
-  autocmd!
-  autocmd BufEnter * call ShowOverLength()
-augroup END
 
 command HideOverLength call HideOverLength()
 command ShowOverLength call ShowOverLength()

@@ -85,6 +85,7 @@ python_packages=(
 aws-shell
 neovim
 pgcli
+py-mini-racer
 )
 
 pacaur_install () {

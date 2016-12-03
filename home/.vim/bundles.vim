@@ -120,6 +120,10 @@ endif
   Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
 " }}}
 
+" Terraform {{{
+  Plug 'hashivim/vim-terraform'
+" }}}
+
 " Tmux {{{
   Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
 " }}}

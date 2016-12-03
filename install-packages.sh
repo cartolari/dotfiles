@@ -86,6 +86,7 @@ aws-shell
 neovim
 pgcli
 py-mini-racer
+vim-vint
 )
 
 pacaur_install () {

@@ -57,6 +57,7 @@ endif
   Plug 'vim-scripts/LargeFile'
   Plug 'vim-scripts/YankRing.vim'
   Plug 'w0rp/ale'
+  Plug 'tommcdo/vim-exchange'
 " }}}
 
 " Integrations {{{

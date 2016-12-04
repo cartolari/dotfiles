@@ -15,7 +15,6 @@ endif
   Plug 'reedes/vim-colors-pencil'
   Plug 'sjl/badwolf'
   Plug 'trapd00r/neverland-vim-theme'
-  Plug 'vim-scripts/csapprox'
 " }}}
 
 " Completions and Snippets {{{

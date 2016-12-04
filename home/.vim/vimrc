@@ -43,11 +43,14 @@ set foldmethod=syntax
 set nofoldenable
 set history=1000
 set scrolloff=3 " Leave some ground while scrolling
-set bg=dark
+set background=dark
 set shortmess+=c " Quiet completions
 set splitright
 set updatetime=250
 set colorcolumn=80
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colorscheme badwolf
 " }}}
 
@@ -70,17 +73,6 @@ endfunction
 
 command HideOverLength call HideOverLength()
 command ShowOverLength call ShowOverLength()
-" }}}
-
-" CSApprox, for emulating gvim colors on the terminal {{{
-if !has('gui_running') && exists(':CSApprox')
-  CSApprox
-endif
-
-if &term =~ '^\(xterm\|screen\)$' && $COLORTERM == 'gnome-terminal'
-  " Number of terminal colors
-  set t_Co=256
-endif
 " }}}
 
 augroup markdown " {{{
@@ -321,6 +313,10 @@ call denite#custom#source('file_rec', 'sorters', ['sorter_sublime_multiprocess']
 call denite#custom#map('insert', '<C-n>', 'move_to_next_line')
 call denite#custom#map('insert', '<C-p>', 'move_to_prev_line')
 call denite#custom#option('default', 'winheight', 10)
+
+hi link deniteMatched Underline
+hi link deniteMatchedChar DiffText
+
 augroup filetype_denite
   autocmd!
   autocmd FileType denite call s:denite_keymapping()

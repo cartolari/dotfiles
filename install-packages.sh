@@ -85,6 +85,7 @@ python_packages=(
 aws-shell
 neovim
 pgcli
+ptpython
 py-mini-racer
 vim-vint
 )

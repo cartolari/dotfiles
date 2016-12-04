@@ -13,13 +13,13 @@ class Filter(Base):
         self.name = 'sorter_sublime_multiprocess'
         self.description = \
             'sorter for fuzzy matching like sublime text based on lib_fts using multiprocessing'
-        self.pool = Pool(processes=cpu_count())
+        self.pool = Pool(processes=cpu_count() - 1)
 
     def filter(self, context):
         if len(context['input']) == 0:
             return context['candidates']
 
-        all_chunks = chunks(context['candidates'], cpu_count())
+        all_chunks = chunks(context['candidates'], cpu_count() - 1)
         all_chunks = self.pool.map(partial(score, context['input']), all_chunks)
         context['candidates'] = []
         for c in all_chunks:

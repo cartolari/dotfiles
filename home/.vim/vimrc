@@ -308,7 +308,7 @@ let g:vdebug_options = {
 " }}}
 
 " Denite {{{
-call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+call denite#custom#var('file_rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
 call denite#custom#source('file_rec', 'sorters', ['sorter_sublime_multiprocess'])
 call denite#custom#map('insert', '<C-n>', 'move_to_next_line')
 call denite#custom#map('insert', '<C-p>', 'move_to_prev_line')

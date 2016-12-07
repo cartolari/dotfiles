@@ -124,6 +124,10 @@ endif
   Plug 'hashivim/vim-terraform'
 " }}}
 
+" Typescript {{{
+  Plug 'leafgarland/typescript-vim'
+" }}}
+
 " Tmux {{{
   Plug 'keithbsmiley/tmux.vim', {'for': 'tmux'}
 " }}}

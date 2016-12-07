@@ -40,13 +40,14 @@ endif
         \ 'javascript', 'html', 'xml', 'css',
         \ 'scss', 'less', 'yaml', 'vim' ]}
   Plug 'andrewradev/switch.vim'
-  Plug 'sjl/gundo.vim'
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
   Plug 'scrooloose/syntastic'
+  Plug 'sjl/gundo.vim'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'tommcdo/vim-exchange'
   Plug 'tommcdo/vim-exchange'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-abolish'
@@ -57,7 +58,6 @@ endif
   Plug 'vim-scripts/LargeFile'
   Plug 'vim-scripts/YankRing.vim'
   Plug 'w0rp/ale'
-  Plug 'tommcdo/vim-exchange'
 " }}}
 
 " Integrations {{{
@@ -94,7 +94,7 @@ endif
 " HTML {{{
   Plug 'othree/html5.vim', {'for': 'html'}
   Plug 'rstacruz/sparkup', {'for': ['html', 'xml']}
-  Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml']}
+  Plug 'valloric/MatchTagAlways', {'for': ['html', 'xml']}
 " }}}
 
 " Markdown {{{
@@ -102,10 +102,10 @@ endif
 " }}}
 
 " JavaScript {{{
+  Plug 'cartolari/JavaScript-Indent', {'for': ['javascript', 'html']}
   Plug 'drslump/vim-syntax-js', {'for': ['javascript', 'html', 'haml']}
   Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
   Plug 'mxw/vim-jsx'
-  Plug 'cartolari/JavaScript-Indent', {'for': ['javascript', 'html']}
 " }}}
 
 " PHP {{{

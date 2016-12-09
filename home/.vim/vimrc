@@ -124,30 +124,6 @@ if executable('ag')
 end
 " }}}
 
-" Syntastic {{{
-let g:syntastic_aggregate_errors = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = {
-      \ "mode": "passive",
-      \ "active_filetypes": [],
-      \ "passive_filetypes": [] }
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_warning_symbol = '⚠'
-
-" Ruby
-let g:syntastic_ruby_rubocop_exec = '~/rubocop.sh'
-let g:syntastic_ruby_checkers = ['rubocop', 'mri', 'reek']
-
-" Haml
-let g:syntastic_haml_checkers = ['haml-lint']
-" }}}
-
 " Ale {{{
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'

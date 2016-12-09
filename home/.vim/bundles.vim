@@ -46,7 +46,6 @@ endif
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
-  Plug 'scrooloose/syntastic'
   Plug 'sjl/gundo.vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tommcdo/vim-exchange'

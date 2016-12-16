@@ -286,17 +286,12 @@ let g:vdebug_options = {
 " Denite {{{
 call denite#custom#var('file_rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
 call denite#custom#source('file_rec', 'sorters', ['sorter_sublime_multiprocess'])
-call denite#custom#map('insert', '<C-n>', 'move_to_next_line')
-call denite#custom#map('insert', '<C-p>', 'move_to_prev_line')
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#option('default', 'winheight', 10)
 
 hi link deniteMatched Underline
 hi link deniteMatchedChar DiffText
-
-augroup filetype_denite
-  autocmd!
-  autocmd FileType denite call s:denite_keymapping()
-augroup END
 " }}}
 
 " GitGutter {{{

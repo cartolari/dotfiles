@@ -54,6 +54,7 @@ pygmentize
 python
 python-pip
 python2
+python2-pip
 ripgrep
 ruby
 ruby-install

@@ -88,10 +88,6 @@ endif
   Plug 'gorodinskiy/vim-coloresque'
 " }}}
 
-" Dockerfile {{{
-  Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
-" }}}
-
 " HTML {{{
   Plug 'othree/html5.vim', {'for': 'html'}
   Plug 'rstacruz/sparkup', {'for': ['html', 'xml']}

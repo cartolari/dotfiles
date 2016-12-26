@@ -20,26 +20,25 @@ plugins=(
   vagrant
 )
 
-export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-source ~/.azure-completion.zsh
-
-# User configuration
+export GOPATH=~/go
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=$PATH:/home/bruno/.npm/bin
 export PATH=$PATH:/home/bruno/.local/bin
-
-# Disable software control flow
-stty -ixon
-
-export GOPATH=~/go
-export EDITOR=nvim
 export PATH=$PATH:/home/bruno/bin
 export PATH=$PATH:/home/bruno/scripts
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/bruno/.gem/ruby/2.3.0/bin
 export PATH=$PATH:/usr/bin/core_perl
+
+export ZSH=~/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+source ~/.azure-completion.zsh
+
+# Disable software control flow
+stty -ixon
+
+export EDITOR=nvim
 
 if [[ -z "$TMUX" ]]
 then

@@ -24,7 +24,7 @@ endif
   Plug 'sirver/ultisnips'
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
   Plug 'valloric/youcompleteme', {
-        \ 'do': './install.py --clang-completer --gocode-completer --tern-completer'
+        \ 'do': 'python3 install.py --clang-completer --gocode-completer --tern-completer'
         \ }
 " }}}
 

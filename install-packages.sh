@@ -123,3 +123,6 @@ for service in systemd-units/**/*.service; do
   fi
   sudo ln -s "$source" "$target"
 done
+
+sudo usermod -aG wireshark $USER
+sudo usermod -aG vboxusers $USER

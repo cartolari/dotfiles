@@ -72,7 +72,8 @@ tree
 universal-ctags-git
 unzip
 vagrant
-virtualbox
+virtualbox-bin
+virtualbox-ext-oracle
 wget
 wireshark-qt
 xclip

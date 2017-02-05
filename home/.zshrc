@@ -23,12 +23,12 @@ plugins=(
 
 export GOPATH=~/go
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PATH=$PATH:/home/bruno/.npm/bin
-export PATH=$PATH:/home/bruno/.local/bin
-export PATH=$PATH:/home/bruno/bin
-export PATH=$PATH:/home/bruno/scripts
+export PATH=$PATH:$HOME/.npm/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/home/bruno/.gem/ruby/2.3.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
 export PATH=$PATH:/usr/bin/core_perl
 
 # export ZSH=~/.oh-my-zsh

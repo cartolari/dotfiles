@@ -22,7 +22,7 @@
 [branch]
 	autosetuprebase = always
 [init]
-	templatedir = /home/bruno/.git_template
+	templatedir = ~/.git_template
 [grep]
 	patternType = perl
 	lineNumber = true

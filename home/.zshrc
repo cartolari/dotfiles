@@ -2,6 +2,7 @@ unsetopt nomatch
 
 export UPDATE_ZSH_DAYS=7
 ZSH_THEME="agnoster"
+DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"

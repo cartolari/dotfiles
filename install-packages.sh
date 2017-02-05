@@ -29,6 +29,7 @@ doctl-bin
 emacs
 firefox
 git
+git-lfs
 global
 go
 gvim

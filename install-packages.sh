@@ -47,6 +47,7 @@ ncurses5-compat-libs
 neovim
 nodejs
 npm
+oh-my-zsh
 postgresql-libs
 powerline-fonts-git
 pv

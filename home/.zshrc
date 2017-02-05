@@ -30,7 +30,8 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/bruno/.gem/ruby/2.3.0/bin
 export PATH=$PATH:/usr/bin/core_perl
 
-export ZSH=~/.oh-my-zsh
+# export ZSH=~/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 source ~/.azure-completion.zsh

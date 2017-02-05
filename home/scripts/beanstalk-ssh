@@ -48,7 +48,7 @@ instance_info = ec2.describe_instances(InstanceIds=[instance_id])
 instance_ip = instance_info['Reservations'][0]['Instances'][0]['PublicIpAddress']
 
 ssh_command_args = [
-    '', '-i', args.ssh_key, '%s@%s' % (args.ssh_user, instance_ip)
+    ' ', '-i', args.ssh_key, '%s@%s' % (args.ssh_user, instance_ip)
 ]
 
 if args.docker:

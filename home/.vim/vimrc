@@ -318,3 +318,7 @@ endfunction
 " Terraform {{{
 let g:terraform_fmt_on_save = 1
 " }}}
+
+" JSX {{{
+let g:jsx_ext_required = 0
+" }}}

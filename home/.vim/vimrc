@@ -319,6 +319,15 @@ endfunction
 let g:terraform_fmt_on_save = 1
 " }}}
 
-" JSX {{{
+" JS {{{
+augroup jsx " {{{
+  autocmd FileType javascript runtime! ftplugin/html/sparkup.html
+augroup end " }}}
+
 let g:jsx_ext_required = 0
+let g:user_emmet_settings = {
+      \ 'javascript': {
+      \    'attribute_name': { 'class': 'className', 'for': 'htmlFor' }
+      \ }
+      \ }
 " }}}

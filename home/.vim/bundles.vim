@@ -90,7 +90,7 @@ endif
 
 " HTML {{{
   Plug 'othree/html5.vim', {'for': 'html'}
-  Plug 'rstacruz/sparkup', {'for': ['html', 'xml']}
+  Plug 'mattn/emmet-vim'
   Plug 'valloric/MatchTagAlways', {'for': ['html', 'xml']}
 " }}}
 

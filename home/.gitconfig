@@ -3,7 +3,7 @@
 	email = bruno.cartolari@gmail.com
 [core]
 	editor = nvim
-	excludesfile = /home/bruno/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
 	co = checkout
 	st = status

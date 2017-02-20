@@ -88,6 +88,10 @@ endif
   Plug 'gorodinskiy/vim-coloresque'
 " }}}
 
+" Elm {{{
+  Plug 'ElmCast/elm-vim'
+" }}}
+
 " HTML {{{
   Plug 'othree/html5.vim', {'for': 'html'}
   Plug 'mattn/emmet-vim'

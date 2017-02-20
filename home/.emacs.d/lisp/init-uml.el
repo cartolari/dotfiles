@@ -5,7 +5,7 @@
 ;;; Code:
 (require 'use-package)
 
-(use-package puml-mode
+(use-package plantuml-mode
   :mode (("\\.puml\\'" . puml-mode)
          ("\\.plantuml\\'" . puml-mode)))
 

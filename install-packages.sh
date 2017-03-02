@@ -40,7 +40,6 @@ imagemagick
 intellij-idea-community-edition
 jdk8-openjdk
 jq
-letsencrypt-cli
 mercurial
 moreutils
 mycli

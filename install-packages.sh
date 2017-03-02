@@ -29,7 +29,7 @@ doctl-bin
 emacs
 firefox
 git
-git-lfs
+git-lfs-bin
 global
 go
 gvim
@@ -48,7 +48,7 @@ ncurses5-compat-libs
 neovim
 nodejs
 npm
-oh-my-zsh
+oh-my-zsh-git
 postgresql-libs
 powerline-fonts-git
 pv

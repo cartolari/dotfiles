@@ -180,6 +180,24 @@
   :diminish whitespace-mode
   :ensure nil)
 
+(defun my/add-two-spaces-when-between-matching-parens ()
+  "Add two spaces when a space is pressed between matching parens."
+  (when (and (eq ?\s
+                 last-command-event)
+             (let* ((here (point))
+                    (backthen (- (point) 2))
+                    (syntax-after (syntax-after here))
+                    (syntax-before (syntax-after backthen)))
+               (and (eq (syntax-class (string-to-syntax "(")) (syntax-class syntax-before))
+                    (eq (syntax-class (string-to-syntax ")")) (syntax-class syntax-after))
+                    (eq (cdr syntax-before) (char-after here))
+                    (eq (cdr syntax-after) (char-after backthen)))))
+    (self-insert-command 1)
+    (backward-char 1)))
+
+(add-hook 'post-self-insert-hook
+          'my/add-two-spaces-when-between-matching-parens)
+
 (setq-default tab-width 2)
 
 (provide 'init-general-editing)

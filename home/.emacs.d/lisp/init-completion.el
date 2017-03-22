@@ -57,7 +57,7 @@
   :diminish ycmd-mode
   :init
   (setq ycmd-default-tags-file-name ".git/tags"
-        ycmd-server-command '("python" "/home/bruno/.vim/bundle/youcompleteme/third_party/ycmd/ycmd")
+        ycmd-server-command '("python3" "/home/bruno/.vim/bundle/youcompleteme/third_party/ycmd/ycmd")
         ycmd-tag-files 'auto)
   (add-hook-for-modes
    (prog-mode-hook yaml-mode-hook)

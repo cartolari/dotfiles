@@ -124,6 +124,10 @@ endif
   Plug 'derekwyatt/vim-scala'
 " }}}
 
+" Stylus {{{
+  Plug 'wavded/vim-stylus'
+" }}}
+
 " Terraform {{{
   Plug 'hashivim/vim-terraform'
 " }}}

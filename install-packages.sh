@@ -76,6 +76,7 @@ virtualbox-ext-oracle
 wget
 wireshark-qt
 xclip
+yarn
 zeal
 zip
 zsh

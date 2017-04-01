@@ -124,5 +124,6 @@ for service in systemd-units/**/*.service; do
   sudo ln -s "$source" "$target"
 done
 
-sudo usermod -aG wireshark $USER
-sudo usermod -aG vboxusers $USER
+sudo usermod -aG docker "$USER"
+sudo usermod -aG vboxusers "$USER"
+sudo usermod -aG wireshark "$USER"

@@ -66,7 +66,7 @@ sysdig
 terraform-bin
 the_silver_searcher
 tig
-tmux-git
+tmux
 tree
 universal-ctags-git
 unzip

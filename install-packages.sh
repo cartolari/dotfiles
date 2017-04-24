@@ -111,7 +111,7 @@ for package in "${arch_packages[@]}"; do
 done
 
 for package in "${python_packages[@]}"; do
-  pip install --user "$package"
+  pip install --user --upgrade "$package"
 done
 
 for service in systemd-units/**/*.service; do

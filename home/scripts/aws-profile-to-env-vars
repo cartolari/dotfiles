@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+
+from argparse import ArgumentParser
+from configparser import ConfigParser
+from os import environ
+
+DEFAULT_AWS_FOLDER = environ['HOME'] + '/.aws'
+
+parser = ArgumentParser(description="""
+Generates read to execute shell code to export authentication variables based
+on a aws shared credentials and config file""")
+
+parser.add_argument(
+    '-s', '--shared_credentials_file', help='Shared credentials file', default=DEFAULT_AWS_FOLDER + '/credentials'
+)
+parser.add_argument(
+    '-c', '--shared_config_file', help='Shared config file', default=DEFAULT_AWS_FOLDER + '/config'
+)
+parser.add_argument(
+    '-p', '--profile', help='Profile name in shared credentails file', required=True
+)
+
+args = parser.parse_args()
+
+credentialsConfig = ConfigParser()
+credentialsConfig.read(args.shared_credentials_file)
+
+optionsConfig = ConfigParser()
+optionsConfig.read(args.shared_config_file)
+
+print("export AWS_ACCESS_KEY_ID=%s" % credentialsConfig.get(args.profile, 'aws_access_key_id'))
+print("export AWS_SECRET_ACCESS_KEY=%s" % credentialsConfig.get(args.profile, 'aws_secret_access_key'))
+print("export AWS_REGION=%s" % optionsConfig.get("profile %s" % args.profile, 'region'))

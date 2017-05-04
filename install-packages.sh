@@ -20,6 +20,7 @@ bfg
 bind-tools
 chromium
 chruby
+cloc
 cmake
 curl
 dbeaver

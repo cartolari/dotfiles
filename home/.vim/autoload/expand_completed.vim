@@ -5,6 +5,7 @@ let s:filetype_functions = {
       \ 'go': 'expand_completed#go_snippet',
       \ 'python': 'expand_completed#python_snippet',
       \ 'javascript': 'expand_completed#javascript_snippet',
+      \ 'javascript.jsx': 'expand_completed#javascript_snippet',
       \ 'typescript': 'expand_completed#typescript_snippet'
       \ }
 

@@ -271,6 +271,9 @@ let g:UltiSnipsUsePythonVersion = 3
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_python_binary_path = 'python3'
 let g:ycm_python_interpreter = 'python3'
+let g:ycm_semantic_triggers = {
+     \  'elm' : ['.'],
+     \ }
 " }}}
 
 " Gundo {{{

@@ -50,6 +50,7 @@ nodejs
 npm
 oh-my-zsh-git
 postgresql-libs
+powerline
 powerline-fonts-git
 pv
 pygmentize

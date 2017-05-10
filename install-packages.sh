@@ -129,3 +129,4 @@ done
 sudo usermod -aG docker "$USER"
 sudo usermod -aG vboxusers "$USER"
 sudo usermod -aG wireshark "$USER"
+sudo chsh "$USER" --shell /bin/zsh

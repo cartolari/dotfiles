@@ -58,12 +58,20 @@
     (transform-symbol-at-point (lambda (str)
                                  (s-upcase (s-snake-case str)))))
 
+  (defun insert-yas-snippet-and-exit-visual-mode ()
+    "Insert a yas snippet and exit evil visual mode"
+    (interactive)
+    (yas-insert-snippet)
+    (evil-normal-state))
+
   (bind-keys :map evil-normal-state-map
              (":" . evil-repeat-find-char)
              (";" . evil-ex))
   (bind-keys :map evil-visual-state-map
              (":" . evil-repeat-find-char)
-             (";" . evil-ex))
+             (";" . evil-ex)
+             ("<tab>" . insert-yas-snippet-and-exit-visual-mode)
+             ("TAB" . insert-yas-snippet-and-exit-visual-mode))
 
   (global-set-key (kbd "C-c c s") 'snake-case-at-point)
   (global-set-key (kbd "C-c c u") 'upper-camel-case-at-point)

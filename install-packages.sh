@@ -62,6 +62,8 @@ python2-pip
 ripgrep
 ruby
 ruby-install
+sbt
+scala
 shellcheck
 sqlite
 sublime-text-dev

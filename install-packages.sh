@@ -47,6 +47,7 @@ mycli
 ncurses5-compat-libs
 neovim
 nodejs
+noto-fonts
 npm
 oh-my-zsh-git
 postgresql-libs

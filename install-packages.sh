@@ -70,6 +70,7 @@ the_silver_searcher
 tig
 tmux
 tree
+ttf-ubuntu-font-family
 universal-ctags-git
 unzip
 vagrant

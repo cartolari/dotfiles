@@ -71,7 +71,7 @@ endif
 " Language Specific {{{
 
 " ASCII {{{
-  Plug 'AnsiEsc.vim', {'on': 'AnsiEsc'}
+  Plug 'vim-scripts/AnsiEsc.vim', {'on': 'AnsiEsc'}
 " }}}
 
 " Clojure {{{

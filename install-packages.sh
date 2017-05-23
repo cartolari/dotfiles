@@ -68,7 +68,7 @@ shellcheck
 sqlite
 sublime-text-dev
 sysdig
-terraform-bin
+terraform
 the_silver_searcher
 tig
 tmux

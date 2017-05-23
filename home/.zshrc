@@ -44,12 +44,13 @@ export EDITOR=nvim
 
 if [[ -z "$TMUX" ]]
 then
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  tmux attach-session -t default || tmux new-session -s default
 fi
 if [[ -n ${INSIDE_EMACS} ]]; then
   # This shell runs inside an Emacs *shell*/*term* buffer.
   unsetopt zle
 fi
+
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

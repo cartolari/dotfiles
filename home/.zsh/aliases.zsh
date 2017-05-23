@@ -6,7 +6,7 @@ alias vim='nvim'
 alias server='python3 -m http.server'
 alias h='homesick'
 alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
-alias file-sizes='find -maxdepth 1 -exec du -hs {} \; | sort -hr'
+alias file-sizes='sudo find -mindepth 1 -maxdepth 1 -exec du -hs {} \; | sort -hr'
 
 alias sudo='nocorrect sudo '
 

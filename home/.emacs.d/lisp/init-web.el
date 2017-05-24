@@ -23,6 +23,9 @@
 (use-package scss-mode
   :mode ("\\.scss\\'" . scss-mode))
 
+(use-package stylus-mode
+  :mode ("\\.scss\\'" . stylus-mode))
+
 (use-package web-mode
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))

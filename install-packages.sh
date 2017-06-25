@@ -6,8 +6,6 @@ set -euo pipefail
 IFS=$'\n\t'
 
 arch_packages=(
-android-sdk
-android-studio
 ansible
 aspell-en
 aspell-pt

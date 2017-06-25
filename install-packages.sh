@@ -80,7 +80,7 @@ vagrant
 virtualbox-bin
 virtualbox-ext-oracle
 wget
-wireshark-qt
+wireshark-gtk
 xclip
 yarn
 zeal

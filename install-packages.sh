@@ -7,6 +7,7 @@ IFS=$'\n\t'
 
 arch_packages=(
 ansible
+arc-gtk-theme
 aspell-en
 aspell-pt
 atom-editor-bin
@@ -29,7 +30,10 @@ firefox
 git
 git-lfs-bin
 global
+gnome-boxes
+gnome-clocks
 gnome-terminal-transparency
+gnome-weather
 go
 gpick
 gvim

@@ -29,6 +29,7 @@ firefox
 git
 git-lfs-bin
 global
+gnome-terminal-transparency
 go
 gpick
 gvim

@@ -106,6 +106,11 @@ endif
   Plug 'cartolari/JavaScript-Indent', {'for': ['javascript', 'html']}
   Plug 'marijnh/tern_for_vim', {'for': ['html', 'javascript'], 'do': 'npm install'}
   Plug 'mxw/vim-jsx'
+  Plug 'posva/vim-vue'
+" }}}
+
+""" Slim {{{
+  Plug 'slim-template/vim-slim'
 " }}}
 
 " PHP {{{

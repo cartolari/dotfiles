@@ -40,6 +40,7 @@ imagemagick
 intellij-idea-community-edition
 jdk8-openjdk
 jq
+libinput-gestures
 mercurial
 moreutils
 mycli

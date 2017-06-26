@@ -17,7 +17,6 @@ bash-completion
 bfg
 bind-tools
 chromium
-chruby
 cloc
 cmake
 curl
@@ -59,7 +58,6 @@ python2
 python2-pip
 ripgrep
 ruby
-ruby-install
 sbt
 scala
 shellcheck

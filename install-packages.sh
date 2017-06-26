@@ -30,6 +30,7 @@ git
 git-lfs-bin
 global
 go
+gpick
 gvim
 homesick
 hosts-gen

@@ -65,6 +65,7 @@ python2
 python2-pip
 ripgrep
 ruby
+s3cmd
 sbt
 scala
 shellcheck

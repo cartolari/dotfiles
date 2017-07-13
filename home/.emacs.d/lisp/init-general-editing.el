@@ -58,11 +58,6 @@
   :init
   (add-hook 'after-init-hook (lambda () (key-chord-mode 1))))
 
-(use-package keyfreq
-  :commands (keyfreq-mode)
-  :init
-  (add-hook 'after-init-hook 'keyfreq-mode))
-
 (use-package operate-on-number
   :commands (apply-operation-to-number-at-point operate-on-number-at-point)
   :bind (("C-c +" . apply-operation-to-number-at-point)

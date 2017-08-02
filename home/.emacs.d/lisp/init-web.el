@@ -27,6 +27,8 @@
   :mode ("\\.scss\\'" . stylus-mode))
 
 (use-package web-mode
+  :config
+  (setq-default web-mode-markup-indent-offset 2)
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))

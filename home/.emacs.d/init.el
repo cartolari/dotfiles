@@ -60,6 +60,7 @@
 (require 'init-spell)
 (require 'init-tags)
 (require 'init-terraform)
+(require 'init-typescript)
 (require 'init-uml)
 (require 'init-vc)
 (require 'init-vim)

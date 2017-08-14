@@ -192,6 +192,8 @@
 (add-hook 'post-self-insert-hook
           'my/add-two-spaces-when-between-matching-parens)
 
+(global-set-key (kbd "s-x") 'helm-M-x)
+
 (setq-default tab-width 2)
 
 (provide 'init-general-editing)

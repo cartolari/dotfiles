@@ -136,7 +136,6 @@
      (delete-selection-mode 1)
      (electric-pair-mode 1)
      (global-hl-line-mode)
-     (keyfreq-autosave-mode 1)
      (savehist-mode 1)
      (show-paren-mode 1))))
 

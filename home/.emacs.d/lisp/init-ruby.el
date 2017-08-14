@@ -38,6 +38,9 @@
   :init
   (add-hook 'ruby-mode-hook #'ruby-refactor-mode))
 
+(use-package slim-mode
+  :mode "\\.slim\\'")
+
 (use-package splitjoin
   :commands (splitjoin)
   :config

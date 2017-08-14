@@ -28,7 +28,10 @@
 
 (use-package web-mode
   :config
-  (setq-default web-mode-markup-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (with-eval-after-load 'evil
+    (evil-define-key 'insert web-mode-map (kbd "C-y ,") 'emmet-expand-line))
   :init
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))

@@ -139,6 +139,7 @@ endif
 
 " Typescript {{{
   Plug 'leafgarland/typescript-vim'
+  Plug 'Quramy/tsuquyomi'
 " }}}
 
 " Tmux {{{

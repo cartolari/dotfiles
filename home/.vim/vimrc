@@ -338,3 +338,7 @@ let g:user_emmet_settings = {
 " Elm {{{
 let g:elm_format_autosave = 1
 " }}}
+
+" TypeScript {{{
+let g:tsuquyomi_single_quote_import = 1
+" }}}

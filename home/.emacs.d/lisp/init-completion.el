@@ -67,6 +67,14 @@
                   (company-mode/backend-with-yas 'company-ycmd))))
   (add-hook 'after-init-hook 'global-ycmd-mode))
 
+(use-package flycheck-ycmd
+  :config
+  (flycheck-ycmd-setup)
+  ;; Make sure the flycheck cache sees the parse results
+  (add-hook 'ycmd-file-parse-result-hook 'flycheck-ycmd--cache-parse-results)
+  ;; Add the ycmd checker to the list of available checkers
+  (add-to-list 'flycheck-checkers 'ycmd))
+
 (use-package company-flx
   :commands (company-flx-mode)
   :config

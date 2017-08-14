@@ -24,7 +24,7 @@
   :mode ("\\.scss\\'" . scss-mode))
 
 (use-package stylus-mode
-  :mode ("\\.scss\\'" . stylus-mode))
+  :mode ("\\.styl\\'" . stylus-mode))
 
 (use-package web-mode
   :config

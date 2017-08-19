@@ -72,11 +72,11 @@
 
 (use-package flycheck-ycmd
   :config
-  (flycheck-ycmd-setup)
   ;; Make sure the flycheck cache sees the parse results
   (add-hook 'ycmd-file-parse-result-hook 'flycheck-ycmd--cache-parse-results)
   ;; Add the ycmd checker to the list of available checkers
-  (add-to-list 'flycheck-checkers 'ycmd))
+  (flycheck-add-next-checker 'typescript-tslint '(error . ycmd))
+  (add-to-list 'flycheck-checkers 'ycmd 'append))
 
 (use-package company-flx
   :commands (company-flx-mode)

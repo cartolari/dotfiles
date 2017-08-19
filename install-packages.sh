@@ -10,7 +10,6 @@ ansible
 arc-gtk-theme
 aspell-en
 aspell-pt
-atom-editor-bin
 autojump
 aws-cli
 bash
@@ -83,6 +82,7 @@ unzip
 vagrant
 virtualbox-bin
 virtualbox-ext-oracle
+visual-studio-code
 wget
 wireshark-gtk
 xclip

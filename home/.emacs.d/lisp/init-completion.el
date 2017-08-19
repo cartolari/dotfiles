@@ -53,6 +53,9 @@
   (global-set-key (kbd "C-'") 'company-try-hard))
 
 (use-package company-ycmd
+  :config
+  (require 'ycmd-eldoc)
+  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
   :commands (global-ycmd-mode)
   :diminish ycmd-mode
   :init

@@ -60,7 +60,7 @@
 (setq inhibit-startup-echo-area-message t)
 (setq initial-scratch-message ";; *scratch*")
 
-(set-face-attribute 'default nil :font "Source Code Pro for Powerline-12")
+(set-face-attribute 'default nil :font "Hack-13")
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 

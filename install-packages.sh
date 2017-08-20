@@ -16,6 +16,7 @@ bash
 bash-completion
 bfg
 bind-tools
+chrome-gnome-shell
 chromium
 chromium-widevine
 cloc

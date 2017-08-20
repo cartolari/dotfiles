@@ -19,6 +19,7 @@ bind-tools
 chromium
 cloc
 cmake
+copyq
 curl
 dbeaver
 dnsmasq

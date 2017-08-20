@@ -61,6 +61,7 @@ pygmentize
 python
 python-pip
 python2
+python2-boto
 python2-pip
 ripgrep
 ruby

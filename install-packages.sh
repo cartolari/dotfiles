@@ -17,6 +17,7 @@ bash-completion
 bfg
 bind-tools
 chromium
+chromium-widevine
 cloc
 cmake
 copyq

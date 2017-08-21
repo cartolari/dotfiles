@@ -50,6 +50,7 @@ cmake
 copyq
 curl
 dbeaver
+deja-dup
 dnsmasq
 docker-compose
 doctl-bin

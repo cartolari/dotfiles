@@ -111,8 +111,8 @@ pacaur_install () {
   package=$1
   echo "Installing $package"
   set +e
-  pacaur -Qs "^$package$" > /dev/null
-  if [[ $? -eq 0 ]]; then
+
+  if pacaur -Qs "^$package$" > /dev/null; then
     return
   fi
   set -e

@@ -14,6 +14,19 @@ if [ "$desired_mirrors" != "$enabled_mirrors" ]; then
   sudo rankmirrors -g -c "$desired_mirrors"
 fi
 
+ensure_gpg_key() {
+  local server=$1
+  local key_id=$2
+
+  gpg --list-keys "$key_id" > /dev/null || \
+    gpg --keyserver "$server" --recv-keys "$key_id"
+}
+
+# Dave Reisner, required for Cower a Pacaur dependency
+ensure_gpg_key hkp://pgp.mit.edu 1EB2638FF56C0C53
+# Thomas Dickey, required for ncurses5-compat-libs
+ensure_gpg_key hkp://pgp.mit.edu 702353E0F7E48EDB
+
 set -euo pipefail
 IFS=$'\n\t'
 

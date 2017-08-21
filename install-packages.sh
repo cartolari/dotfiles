@@ -11,6 +11,7 @@ arc-gtk-theme
 aspell-en
 aspell-pt
 autojump
+awless
 aws-cli
 bash
 bash-completion

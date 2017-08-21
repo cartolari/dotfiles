@@ -2,6 +2,18 @@
 
 # Install development packages in an Arch Linux based OS
 
+desired_mirrors=Brasil,United_States
+enabled_mirrors=$(
+grep Country < /etc/pacman.d/mirrorlist | \
+  grep -oP '\w+$' | \
+  sort -u | \
+  paste -sd,
+)
+
+if [ "$desired_mirrors" != "$enabled_mirrors" ]; then
+  sudo rankmirrors -g -c "$desired_mirrors"
+fi
+
 set -euo pipefail
 IFS=$'\n\t'
 

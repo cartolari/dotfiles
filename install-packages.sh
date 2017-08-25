@@ -61,6 +61,7 @@ git-lfs-bin
 global
 gnome-boxes
 gnome-clocks
+gnome-mpv
 gnome-terminal-transparency
 gnome-weather
 go

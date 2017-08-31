@@ -75,6 +75,7 @@ intellij-idea-community-edition
 jdk8-openjdk
 jq
 libinput-gestures
+meld
 moreutils
 ncurses5-compat-libs
 neovim

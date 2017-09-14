@@ -54,6 +54,7 @@ deja-dup
 dnsmasq
 docker-compose
 doctl-bin
+ebtables
 emacs
 firefox
 git
@@ -111,6 +112,7 @@ ttf-ubuntu-font-family
 universal-ctags-git
 unzip
 vagrant
+virt-manager
 virtualbox-bin
 virtualbox-ext-oracle
 visual-studio-code

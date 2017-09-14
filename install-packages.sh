@@ -47,7 +47,6 @@ chromium
 chromium-widevine
 cloc
 cmake
-copyq
 curl
 dbeaver
 deja-dup

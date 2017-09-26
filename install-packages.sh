@@ -113,7 +113,7 @@ unzip
 vagrant
 virt-manager
 virtualbox-bin
-virtualbox-dkms
+virtualbox-host-dkms
 virtualbox-ext-oracle
 visual-studio-code
 wget

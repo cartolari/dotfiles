@@ -10,5 +10,10 @@
   :config
   (add-hook 'terraform-mode-hook 'terraform-format-on-save-mode))
 
+(use-package company-terraform
+  :commands (company-terraform-init)
+  :init
+  (add-hook 'terraform-mode-hook 'company-terraform-init))
+
 (provide 'init-terraform)
 ;;; init-terraform.el ends here

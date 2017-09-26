@@ -2,7 +2,7 @@
 
 # Install development packages in an Arch Linux based OS
 
-desired_mirrors=Brasil,United_States
+desired_mirrors=United_States
 enabled_mirrors=$(
 grep Country < /etc/pacman.d/mirrorlist | \
   grep -oP '\w+$' | \

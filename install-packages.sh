@@ -51,7 +51,7 @@ curl
 dbeaver
 deja-dup
 dnsmasq
-docker-compose
+docker-compose-bin
 doctl-bin
 ebtables
 emacs

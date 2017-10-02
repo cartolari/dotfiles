@@ -112,7 +112,7 @@ universal-ctags-git
 unzip
 vagrant
 virt-manager
-virtualbox-bin
+virtualbox
 virtualbox-host-dkms
 virtualbox-ext-oracle
 visual-studio-code

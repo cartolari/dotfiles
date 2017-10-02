@@ -42,6 +42,7 @@
 
 (require 'init-projectile)
 
+(require 'init-ansible)
 (require 'init-clojure)
 (require 'init-coffee)
 (require 'init-folding)

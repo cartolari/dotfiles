@@ -71,7 +71,6 @@ homesick
 hosts-gen
 htop
 imagemagick
-intellij-idea-community-edition
 jdk8-openjdk
 jq
 libinput-gestures

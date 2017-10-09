@@ -82,6 +82,7 @@ neovim
 nodejs
 noto-fonts
 npm
+nylas-mail-lives-bin
 oh-my-zsh-git
 postgresql-libs
 powerline
@@ -113,8 +114,8 @@ unzip
 vagrant
 virt-manager
 virtualbox
-virtualbox-host-dkms
 virtualbox-ext-oracle
+virtualbox-host-dkms
 visual-studio-code
 wget
 wireshark-gtk

@@ -75,6 +75,7 @@ intellij-idea-community-edition
 jdk8-openjdk
 jq
 libinput-gestures
+mega-sync
 meld
 moreutils
 ncurses5-compat-libs

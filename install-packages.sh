@@ -113,6 +113,7 @@ universal-ctags-git
 unzip
 vagrant
 virt-manager
+virtio-win
 virtualbox
 virtualbox-ext-oracle
 virtualbox-host-dkms

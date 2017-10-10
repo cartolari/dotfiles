@@ -94,6 +94,7 @@ python-pip
 python2
 python2-boto
 python2-pip
+remmina
 ripgrep
 ruby
 s3cmd

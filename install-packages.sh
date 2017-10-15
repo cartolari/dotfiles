@@ -74,7 +74,8 @@ imagemagick
 jdk8-openjdk
 jq
 libinput-gestures
-mega-sync
+megasync
+nautilus-megasync
 meld
 moreutils
 ncurses5-compat-libs

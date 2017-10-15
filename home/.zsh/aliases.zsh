@@ -8,8 +8,6 @@ alias h='homesick'
 alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
 alias file-sizes='sudo find -mindepth 1 -maxdepth 1 -exec du -hs {} \; | sort -hr'
 
-alias sudo='nocorrect sudo '
-
 # Apt
 alias apt-install='sudo apt-get install'
 alias apt-update='sudo apt-get update'

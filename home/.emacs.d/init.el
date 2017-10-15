@@ -53,6 +53,7 @@
 (require 'init-javascript)
 (require 'init-lisp)
 (require 'init-markdown)
+(require 'init-misc)
 (require 'init-php)
 (require 'init-rest-client)
 (require 'init-ruby)

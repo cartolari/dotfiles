@@ -141,6 +141,10 @@ py-mini-racer
 vim-vint
 )
 
+npm_packages=(
+base16-builder
+)
+
 pacaur_install () {
   package=$1
   echo "Installing $package"
@@ -159,6 +163,12 @@ done
 
 for package in "${python_packages[@]}"; do
   pip install --user --upgrade "$package"
+done
+
+for package in "${npm_packages[@]}"; do
+  if ! npm --global list | grep -q "$package"; then
+    npm install --global "$package"
+  fi
 done
 
 for service in systemd-units/**/*.service; do

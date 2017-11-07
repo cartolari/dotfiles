@@ -37,18 +37,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
 bindsym Mod1+Shift+Tab exec --no-startup-id rofi -show window
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-exec --no-startup-id pasystray
 exec --no-startup-id ~/scripts/setup-displays
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-# bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
@@ -63,7 +52,6 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-# bindsm $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
@@ -74,7 +62,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -86,7 +73,6 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -98,8 +84,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+Shift+backslash split h;exec notify-send 'tile horizontally'
-bindsym $mod+minus split v;exec notify-send 'tile vertically'
+bindsym $mod+Shift+backslash split h;exec notify-send --timeout 1000 'tile horizontally'
+bindsym $mod+minus split v;exec notify-send --timeout 1000 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -274,19 +260,20 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton.conf
 exec --no-startup-id albert
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
 exec --no-startup-id blueman
+exec --no-startup-id clipit
 exec --no-startup-id enpass
-# exec_always --no-startup-id sbxkb
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton.conf
+exec --no-startup-id pamac-tray
+exec --no-startup-id redshift
 exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 5 -locker blurlock
+exec --no-startup-id xfce4-power-manager
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+
 
 # Color palette used for the terminal ( ~/.extend.Xresources file )
 # Colors are gathered based on the documentation:
@@ -344,88 +331,6 @@ set $i3_color14         #268BD2
 set $i3_color15         #000000
 set $i3_color16         #ffffff
 set $i3_color17         #0c0c0c
-
-exec --no-startup-id redshift
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# bar {
-# 	status_command i3status
-# 	position top
-#
-# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-# #	tray_output primary
-# #	tray_output eDP1
-#
-# 	bindsym button4 nop
-# 	bindsym button5 nop
-# 	font xft:Noto Sans 10.5
-# 	strip_workspace_numbers yes
-#
-# 	colors {
-# #       background $transparent
-#         background $i3_background
-#         statusline $i3_text
-#         separator  $i3_separator
-#
-# #                                  border  backgr. text
-#         focused_workspace   $i3_color1  $i3_color4  $i3_text
-#         active_workspace    $i3_color2  $i3_color3  $i3_color5
-#         inactive_workspace  $i3_color2  $i3_color3  $i3_color6
-#         urgent_workspace    $i3_color4  $i3_color5  $i3_color7
-#     }
-# }
-
-# bar {
-#   # status_command conky -c $HOME/.i3/conky/conkyrc
-#   status_command conky -c $HOME/Downloads/conkyrc
-#   position top
-#   font pango:open sans 11
-#   strip_workspace_numbers yes
-#   separator_symbol "■"
-#
-#   colors {
-#     background #F1F2F6
-#     statusline #788491
-#     separator #51c4d4
-#
-#     focused_workspace  #F1F2F6 #F1F2F6 #4FC0E8
-#     active_workspace   #F1F2F6 #F1F2F6 #4FC0E8
-#     inactive_workspace #F1F2F6 #F1F2F6 #C1D1E0
-#     urgent_workspace   #F1F2F6 #F1F2F6 #C1D1E0
-#   }
-# }
-
-# bar {
-# #    verbose yes
-#     status_command i3blocks
-#     i3bar_command i3bar -t
-#     position top
-#     font pango:Hack, FontAwesome 11
-#     strip_workspace_numbers yes
-#     separator_symbol "■"
-#     bindsym button4 nop
-#     bindsym button5 nop
-#     tray_output eDP1
-#     tray_output LVDS-0
-#     tray_padding 0
-#     height 30
-#     colors {
-#         statusline         $white
-#         background         $transparent
-#         separator          $transparent
-#
-# #                          BORDER       BACKGROUND   TEXT
-#         focused_workspace  $transparent $transparent $darkwhite
-#         inactive_workspace $transparent $transparent $white
-#         active_workspace   $transparent $transparent $white
-#         urgent_workspace   $darkred     $darkred     $transparent
-#         binding_mode       $darkred     $darkred     $transparent
-#     }
-# }
-
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border      backgr.     text        indic.      child_border

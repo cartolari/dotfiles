@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -x
+
+if grep -oP 'closed$' < /proc/acpi/button/lid/LID0/state; then
+  xrandr \
+    --output eDP-1 --off \
+    --output HDMI-1 --auto
+  exit
+fi
+
+if xrandr | grep 'HDMI-1 connected' > /dev/null; then
+  xrandr \
+    --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+    --output eDP-1 --mode 1920x1080 --pos 0x1080 --rotate normal
+  exit
+fi
+
+xrandr --auto
+
+~/.config/polybar/launch.sh
+

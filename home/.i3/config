@@ -28,9 +28,6 @@ bindsym $mod+Return exec lxterminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
-
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 

@@ -56,6 +56,7 @@ doctl-bin
 ebtables
 emacs
 firefox
+font-awesome
 git
 git-lfs-bin
 global

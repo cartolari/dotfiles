@@ -2,6 +2,9 @@
 
 set -x
 
+[ -z "$DISPLAY" ] && export DISPLAY=:0
+[ -z "$XAUTHORITY" ] && export XAUTHORITY=/home/bruno/.Xauthority
+
 if grep -oP 'closed$' < /proc/acpi/button/lid/LID0/state; then
   xrandr \
     --output eDP-1 --off \

@@ -110,7 +110,11 @@ endif
   Plug 'posva/vim-vue'
 " }}}
 
-""" Slim {{{
+" QML {{{
+  Plug 'peterhoeg/vim-qml'
+" }}}
+
+" Slim {{{
   Plug 'slim-template/vim-slim'
 " }}}
 

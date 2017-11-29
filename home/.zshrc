@@ -52,8 +52,7 @@ stty -ixon
 
 export EDITOR=nvim
 
-if [[ -z "$TMUX" ]]
-then
+if [[ -z "$TMUX" ]]; then
   tmux attach-session -t default || tmux new-session -s default
 fi
 if [[ -n ${INSIDE_EMACS} ]]; then

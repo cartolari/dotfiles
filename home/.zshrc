@@ -13,7 +13,6 @@ ZSH_CUSTOM=~/.zsh
 plugins=(
   autojump
   aws
-  colored-man-pages
   command-not-found
   docker
   docker-compose
@@ -21,6 +20,16 @@ plugins=(
   terraform
   vagrant
 )
+
+man() {
+  LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
 
 export GOPATH=~/go
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"

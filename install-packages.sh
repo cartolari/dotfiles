@@ -43,7 +43,7 @@ bash-completion
 bfg
 bind-tools
 chrome-gnome-shell
-chromium
+chromium-vaapi-bin
 chromium-widevine
 cloc
 cmake

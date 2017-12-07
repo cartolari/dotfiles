@@ -11,7 +11,7 @@ grep Country < /etc/pacman.d/mirrorlist | \
 )
 
 if [ "$desired_mirrors" != "$enabled_mirrors" ]; then
-  sudo rankmirrors -g -c "$desired_mirrors"
+  sudo rankmirrors -f 0 -c "$desired_mirrors"
 fi
 
 ensure_gpg_key() {

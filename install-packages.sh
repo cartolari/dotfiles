@@ -36,11 +36,9 @@ arc-gtk-theme
 aspell-en
 aspell-pt
 autojump
-awless
 aws-cli
 bash
 bash-completion
-bfg
 bind-tools
 chrome-gnome-shell
 chromium-vaapi-bin

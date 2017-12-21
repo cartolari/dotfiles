@@ -143,6 +143,7 @@ vim-vint
 
 npm_packages=(
 base16-builder
+typescript
 )
 
 pacaur_install () {

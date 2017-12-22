@@ -4,8 +4,11 @@ set nocompatible
 let g:mapleader = ','
 
 " Vimscripts {{{
-source ~/.vim/bundles.vim
-source ~/.vim/keymaps.vim
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath+=$XDG_CONFIG_HOME/vim
+
+source $XDG_CONFIG_HOME/vim/bundles.vim
+source $XDG_CONFIG_HOME/vim/keymaps.vim
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
 " }}}
 
@@ -34,7 +37,7 @@ set shiftround
 set laststatus=2
 set nobackup
 set noswapfile
-set undodir=~/.vim/tmp/undo//
+set undodir=$XDG_CACHE_HOME/vim/tmp/undo//
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
@@ -49,6 +52,7 @@ set splitright
 set updatetime=250
 set colorcolumn=80
 set termguicolors
+
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 colorscheme badwolf

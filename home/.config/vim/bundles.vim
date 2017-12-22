@@ -1,7 +1,7 @@
 " vim: set foldlevel=0 foldmethod=marker:
 
 if has('vim_starting')
-  call plug#begin('~/.vim/bundle')
+  call plug#begin($XDG_DATA_HOME . '/vim/bundle')
 endif
 
 " Libs {{{

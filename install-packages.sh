@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 # Install development packages in an Arch Linux based OS
+set -euo pipefail
+IFS=$'\n\t'
 
 desired_mirrors=United_States
 enabled_mirrors=$(
@@ -26,9 +28,6 @@ receive_gpg_key() {
 receive_gpg_key hkp://pgp.mit.edu 1EB2638FF56C0C53
 # Thomas Dickey, required for ncurses5-compat-libs
 receive_gpg_key hkp://pgp.mit.edu 702353E0F7E48EDB
-
-set -euo pipefail
-IFS=$'\n\t'
 
 arch_packages=(
 ansible

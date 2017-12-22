@@ -47,14 +47,12 @@ cloc
 cmake
 curl
 dbeaver
-deja-dup
 dnsmasq
 docker-compose-bin
 doctl-bin
 ebtables
 emacs
 firefox
-font-awesome
 git
 git-lfs-bin
 global
@@ -74,7 +72,6 @@ jdk8-openjdk
 jq
 libinput-gestures
 megasync
-nautilus-megasync
 meld
 moreutils
 ncurses5-compat-libs

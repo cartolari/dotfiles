@@ -5,12 +5,16 @@ let g:mapleader = ','
 " Vimscripts {{{
 " Ensure XDG locations exists
 
-let g:config_dir = $XDG_CONFIG_HOME . '/vim'
+let g:bundle_dir = $XDG_DATA_HOME . '/vim/bundle'
 let g:cache_dir = $XDG_CACHE_HOME . '/vim'
+let g:config_dir = $XDG_CONFIG_HOME . '/vim'
+let g:data_dir = $XDG_DATA_HOME . '/vim'
 let g:undo_dir = g:cache_dir . '/undo'
 
-if !isdirectory(g:config_dir) | call mkdir(g:config_dir) | endif
+if !isdirectory(g:bundle_dir) | call mkdir(g:bundle_dir) | endif
 if !isdirectory(g:cache_dir) | call mkdir(g:cache_dir) | endif
+if !isdirectory(g:config_dir) | call mkdir(g:config_dir) | endif
+if !isdirectory(g:data_dir) | call mkdir(g:data_dir) | endif
 if !isdirectory(g:undo_dir) | call mkdir(g:undo_dir) | endif
 
 if has('nvim')
@@ -283,6 +287,7 @@ let g:tcommentMapLeader2 = ''
 " Yank Ring {{{
 let g:yankring_dot_repeat_yank = 1
 let g:yankring_clipboard_monitor = 0
+let g:yankring_history_dir = g:data_dir
 " }}}
 
 " Ultisnips {{{

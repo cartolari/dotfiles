@@ -165,24 +165,24 @@ let g:instant_markdown_autostart = 0
 
 " Lightline {{{
 function! LightlineFilename()
-  let filename = ""
-  if &readonly && &filetype != "help"
-    let filename .= " "
+  let l:filename = ''
+  if &readonly && &filetype !=# 'help'
+    let l:filename .= ' '
   endif
 
-  let filename .= (expand('%:t') != '' ? expand('%:t') : '[No Name]')
+  let l:filename .= (expand('%:t') !=# '' ? expand('%:t') : '[No Name]')
 
-  if &modified && &filetype != "help"
-    let filename .= " +"
+  if &modified && &filetype !=# 'help'
+    let l:filename .= ' +'
   endif
 
-  return filename
+  return l:filename
 endfunction
 
 function! LightlineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? ' '.branch : ''
+  if exists('*fugitive#head')
+    let l:branch = fugitive#head()
+    return l:branch !=# '' ? ' '. l:branch : ''
   endif
   return ''
 endfunction
@@ -210,13 +210,16 @@ let g:lightline.colorscheme = 'Tomorrow_Night'
 " }}}
 
 " Switch {{{
-autocmd FileType ruby let b:switch_custom_definitions =
-  \ [
-  \   {
-  \     'validates_\(\w\+\)_of\s\+\(:\w\+\)': 'validates \2, \1: true',
-  \     'validates\s\+:\(\w\+\),\s\+\(\w\+\):\s\+true':     'validates_\2_of :\1',
-  \   },
-  \ ]
+augroup ruby
+  autocmd!
+  autocmd FileType ruby let b:switch_custom_definitions =
+        \ [
+        \   {
+        \     'validates_\(\w\+\)_of\s\+\(:\w\+\)': 'validates \2, \1: true',
+        \     'validates\s\+:\(\w\+\),\s\+\(\w\+\):\s\+true':     'validates_\2_of :\1',
+        \   },
+        \ ]
+augroup end
 " }}}
 
 " Vim test {{{
@@ -231,10 +234,10 @@ let g:localvimrc_sandbox = 0
 " FZF {{{
 " Return a list with all open buffers
 function! s:buflist()
-  redir => ls
-  silent ls
+  redir => l:ls
+  silent l:ls
   redir END
-  return split(ls, '\n')
+  return split(l:ls, '\n')
 endfunction
 
 " Handles a MRU search in FZF
@@ -244,17 +247,17 @@ function! s:bufopen(e)
 
   " Fzf sends two lines the first with the key combination used to pick
   " a file and the second with the matched line
-  let [key, buffer_line] = a:e[0:1]
+  let [l:key, l:buffer_line] = a:e[0:1]
   " Extract the buffer number from the matched line
-  let buffer_number = matchstr(buffer_line, '^[ 0-9]*')
+  let l:buffer_number = matchstr(l:buffer_line, '^[ 0-9]*')
   " Pick the appropriate command based on the key combination used
-  let cmd = get({
+  let l:cmd = get({
         \ 'ctrl-x': 'sbuffer',
         \ 'ctrl-v': 'vertical sbuffer',
         \ 'ctrl-t': 'tabnew | buffer '
-        \ }, key, 'buffer')
+        \ }, l:key, 'buffer')
   " Run the picked command with the matched buffer
-  execute cmd . buffer_number
+  execute l:cmd . l:buffer_number
 endfunction
 
 " Command to list MRU files

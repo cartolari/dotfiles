@@ -1,14 +1,24 @@
 " vim: set foldlevel=0 foldmethod=marker:
 
-set nocompatible
 let g:mapleader = ','
 
 " Vimscripts {{{
+" Ensure XDG locations exists
+
+let g:config_dir = $XDG_CONFIG_HOME . '/vim'
+let g:cache_dir = $XDG_CACHE_HOME . '/vim'
+let g:undo_dir = g:cache_dir . '/undo'
+
+if !isdirectory(g:config_dir) | call mkdir(g:config_dir) | endif
+if !isdirectory(g:cache_dir) | call mkdir(g:cache_dir) | endif
+if !isdirectory(g:undo_dir) | call mkdir(g:undo_dir) | endif
+
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
 
-source $XDG_CONFIG_HOME/vim/bundles.vim
-source $XDG_CONFIG_HOME/vim/keymaps.vim
+execute 'source' . g:config_dir . '/bundles.vim'
+execute 'source' . g:config_dir . '/keymaps.vim'
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
 " }}}
 
@@ -37,7 +47,7 @@ set shiftround
 set laststatus=2
 set nobackup
 set noswapfile
-set undodir=$XDG_CACHE_HOME/vim/tmp/undo//
+let &undodir=g:undo_dir . '//'
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload

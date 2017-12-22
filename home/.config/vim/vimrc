@@ -13,7 +13,11 @@ if !isdirectory(g:config_dir) | call mkdir(g:config_dir) | endif
 if !isdirectory(g:cache_dir) | call mkdir(g:cache_dir) | endif
 if !isdirectory(g:undo_dir) | call mkdir(g:undo_dir) | endif
 
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+if has('nvim')
+  set viminfo+=n$XDG_CACHE_HOME/nvim/shada/main.shada
+else
+  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+endif
 set runtimepath+=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
 

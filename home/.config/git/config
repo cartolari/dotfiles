@@ -2,17 +2,16 @@
 	name = cartolari
 	email = bruno.cartolari@gmail.com
 [core]
-	editor = nvim
-	excludesfile = ~/.gitignore_global
+	editor = vim
 [alias]
 	co = checkout
 	st = status
 	ctags = !.git/hooks/ctags
 [diff]
-	tool = nvimdiff
+	tool = vimdiff
 [merge]
 	defaultToUpstream = true
-	tool = nvimdiff
+	tool = vimdiff
 [push]
 	default = simple
 [pull]
@@ -22,7 +21,7 @@
 [branch]
 	autosetuprebase = always
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/.config/git/template
 [grep]
 	patternType = perl
 	lineNumber = true

@@ -21,8 +21,7 @@ endif
 set runtimepath+=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
 
-execute 'source' . g:config_dir . '/bundles.vim'
-execute 'source' . g:config_dir . '/keymaps.vim'
+runtime bundles.vim
 runtime macros/matchit.vim " match the opening/closign html tag when pressing '%'
 " }}}
 

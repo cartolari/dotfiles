@@ -2,3 +2,4 @@
 .config/htop
 .config/git
 .config/npm
+.local/bin

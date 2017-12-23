@@ -28,8 +28,8 @@ nnoremap <leader>a =ip
 
 " Edit vimrc
 nnoremap <leader>ev :edit $MYVIMRC<CR>
-nnoremap <leader>eb :edit ~/.vim/bundles.vim<CR>
-nnoremap <leader>ek :edit ~/.vim/keymaps.vim<CR>
+nnoremap <leader>eb :execute 'edit ' . g:config_dir . '/bundles.vim'<CR>
+nnoremap <leader>ek :execute 'edit ' . g:config_dir . '/plugin/keymaps.vim'<CR>
 
 "Netrw
 nnoremap - :Explore<CR>

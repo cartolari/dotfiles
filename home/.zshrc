@@ -8,8 +8,6 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HYPHEN_INSENSITIVE="true"
 
-ZSH_CUSTOM=~/.zsh
-
 plugins=(
   autojump
   aws
@@ -37,6 +35,12 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_LIB_HOME=$HOME/.local/lib
 
+export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+export HISTFILE=$XDG_DATA_HOME/zsh_history
+export LESSHISTFILE=$XDG_DATA_HOME/lesshst
+export VAGRANT_HOME=$XDG_CONFIG_HOME/vagrant
+export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
+
 export GOPATH=~/go
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -49,7 +53,8 @@ export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
 export PATH=$PATH:/usr/bin/core_perl
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
-# export ZSH=~/.oh-my-zsh
+ZSH_CUSTOM=$XDG_CONFIG_HOME/zsh-custom
+
 export ZSH=/usr/share/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 

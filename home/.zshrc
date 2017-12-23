@@ -53,8 +53,6 @@ export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export ZSH=/usr/share/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-source ~/.azure-completion.zsh
-
 # Disable software control flow
 stty -ixon
 

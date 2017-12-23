@@ -161,6 +161,7 @@ highlight link ALEWarningSign question
 
 " Netrw {{{
 let g:netrw_localrmdir='rm -r'
+let g:netrw_home = g:data_dir
 " }}}
 
 " Vim instant markdown {{{

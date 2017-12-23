@@ -1,3 +1,4 @@
 .config
 .config/htop
 .config/git
+.config/npm

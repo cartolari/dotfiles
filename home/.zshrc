@@ -36,6 +36,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_LIB_HOME=$HOME/.local/lib
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+export GEMRC=$XDG_CONFIG_HOME/gemrc
 export HISTFILE=$XDG_DATA_HOME/zsh_history
 export LESSHISTFILE=$XDG_DATA_HOME/lesshst
 export VAGRANT_HOME=$XDG_CONFIG_HOME/vagrant

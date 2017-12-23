@@ -67,7 +67,8 @@ if [[ -n ${INSIDE_EMACS} ]]; then
 fi
 
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 

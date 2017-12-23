@@ -31,7 +31,6 @@ endif
 " File and Search {{{
   Plug 'dyng/ctrlsf.vim'
   Plug 'henrik/vim-indexed-search'
-  Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
   Plug 'junegunn/fzf.vim'
   Plug 'shougo/denite.nvim'
 " }}}

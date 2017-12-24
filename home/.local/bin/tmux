@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+exec "$(which --skip-alias --skip-tilde tmux)" \
+  -f "$XDG_CONFIG_HOME/tmux.conf" "$@"

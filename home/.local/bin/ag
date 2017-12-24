@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+exec "$(which --skip-alias --skip-tilde ag)" \
+  -p "$XDG_CONFIG_HOME/agignore" "$@"

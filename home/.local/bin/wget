@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+exec "$(which --skip-alias --skip-tilde wget)" \
+  --config="$XDG_CONFIG_HOME/wgetrc" "$@"

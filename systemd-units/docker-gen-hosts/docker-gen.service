@@ -1,9 +1,0 @@
-[Unit]
-Description=Updates hosts file according to docker containers
-
-[Service]
-ExecStart=/usr/local/bin/docker-gen -watch /etc/docker-gen/hosts.tmpl /etc/hosts
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target

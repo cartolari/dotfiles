@@ -1,0 +1,20 @@
+- name: Set Linux virtual memory options
+  sysctl:
+    name: "{{ item }}"
+    value: 4194304
+    sysctl_file: /etc/sysctl.d/vm.conf
+  items:
+    - vm.dirty_background_bytes
+    - vm.dirty_bytes
+
+- name: Disable NMI watchdog
+  sysctl:
+    name: kernel.nmi_watchdog
+    value: 0
+    sysctl_file: /etc/sysctl.d/disable_watchdog.conf
+
+- name: Increase maximum inotify watchers
+  sysctl:
+    name: fs.inotify.max_user_watches
+    sysctl_file: /etc/sysctl.d/50-max_user_watches.conf
+    value: 65536

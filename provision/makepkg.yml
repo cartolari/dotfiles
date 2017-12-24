@@ -1,0 +1,11 @@
+- name: Configure makepkg to use .gz extension
+  lineinfile:
+    path: /etc/makepkg.conf
+    line: PKGEXT='.pkg.tar.gz'
+    regexp: '^PKGEXT'
+
+- name: Configure makepkg to use pigz to compress files
+  lineinfile:
+    path: /etc/makepkg.conf
+    line: COMPRESSGZ=(pigz -c -f -n)
+    regexp: '^COMPRESSGZ'

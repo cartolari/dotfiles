@@ -18,7 +18,7 @@ endif
 " }}}
 
 " Completions and Snippets {{{
-  Plug 'git@github.com:cartolari/vim-clevertab.git', {'dir': '~/code/vim-clevertab/'}
+  Plug 'cartolari/vim-clevertab'
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sirver/ultisnips'

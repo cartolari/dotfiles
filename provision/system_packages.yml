@@ -1,0 +1,70 @@
+# Upgrade and install LTS kernel
+
+- name: Check if using United States mirrors
+  changed_when: False
+  check_mode: False
+  shell: |
+    grep Country < /etc/pacman.d/mirrorlist | \
+    grep -oP '\w+$' | \
+    sort -u | \
+    paste -sd,
+  register: enabled_mirrors
+
+- name: Enable United States mirrors
+  command: rankmirrors -f 0 -c United_States
+  when: enabled_mirrors.stdout_lines | join('') != 'United_States'
+
+- name: Refresh package database
+  pacman:
+    force: True
+    update_cache: True
+  when: enabled_mirrors.stdout != 'United_States'
+
+- name: Upgrade packages
+  pacman:
+    update_cache: True
+    upgrade: True
+
+- name: Check if Thomas Dickey GPG key is present
+  become: False
+  changed_when: False
+  check_mode: False
+  command: gpg --list-keys 702353E0F7E48EDB
+  ignore_errors: True
+  register: gpg_key
+
+- name: Import Thomas Dickey GPG key
+  become: False
+  shell: 'gpg --keyserver hkp://pgp.mit.edu --recv-keys 702353E0F7E48EDB'
+  when: gpg_key.rc != 0
+
+- name: Install pacaur
+  pacman: name=pacaur
+
+- name: Get installed packages from system
+  changed_when: False
+  check_mode: False
+  register: installed_packages_command
+  shell: "pacman -Q | awk '{ print $1 }'"
+
+- name: Set installed_packages fact
+  set_fact:
+    desktop_environment: "{{ lookup('env', 'XDG_CURRENT_DESKTOP') }}"
+    missing_gnome_packages: "{{ gnome_packages | difference(installed_packages_command.stdout_lines) }}"
+    missing_kde_packages: "{{ kde_packages | difference(installed_packages_command.stdout_lines) }}"
+    missing_packages: "{{ arch_packages | difference(installed_packages_command.stdout_lines) }}"
+
+- name: Install packages
+  become: False
+  shell: "pacaur -S --noconfirm --noedit {{ missing_packages | join (' ') }}"
+  when: "missing_packages | length > 0"
+
+- name: Install Gnome Packages
+  become: False
+  shell: "pacaur -S --noconfirm --noedit {{ missing_gnome_packages | join (' ') }}"
+  when: "missing_gnome_packages | length > 0 and desktop_environment == 'GNOME'"
+
+- name: Install KDE packages
+  become: False
+  shell: "pacaur -S --noconfirm --noedit {{ missing_kde_packages | join (' ') }}"
+  when: "missing_kde_packages | length > 0 and desktop_environment == 'KDE'"

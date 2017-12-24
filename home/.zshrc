@@ -1,12 +1,19 @@
 unsetopt nomatch
 
+export XDG_BIN_HOME=$HOME/.local/bin
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_LIB_HOME=$HOME/.local/lib
+
+export COMPLETION_WAITING_DOTS="true"
+export DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_UPDATE="true"
+export ENABLE_CORRECTION="true"
+export HYPHEN_INSENSITIVE="true"
 export UPDATE_ZSH_DAYS=7
-ZSH_THEME="agnoster"
-DISABLE_AUTO_UPDATE="true"
-DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
-HYPHEN_INSENSITIVE="true"
+export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
+export ZSH_THEME="agnoster"
 
 plugins=(
   autojump
@@ -29,17 +36,10 @@ man() {
     command man "$@"
 }
 
-export XDG_BIN_HOME=$HOME/.local/bin
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_LIB_HOME=$HOME/.local/lib
-
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export GEMRC=$XDG_CONFIG_HOME/gemrc
 export LESSHISTFILE=$XDG_DATA_HOME/lesshst
 export VAGRANT_HOME=$XDG_CONFIG_HOME/vagrant
-export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
 fc -p $XDG_DATA_HOME/zsh_history
 
 export GOPATH=~/go
@@ -49,7 +49,7 @@ export PATH=$PATH:$XDG_DATA_HOME/npm/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 export PATH=$PATH:/usr/bin/core_perl
 export PATH=$HOME/.local/bin:$PATH
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'

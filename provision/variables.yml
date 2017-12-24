@@ -1,0 +1,143 @@
+arch_packages:
+  - ansible
+  - aspell-en
+  - aspell-pt
+  - autojump
+  - aws-cli
+  - bash
+  - bash-completion
+  - bind-tools
+  - chromium-vaapi-bin
+  - chromium-widevine
+  - cloc
+  - cmake
+  - cmst
+  - connman
+  - ctags
+  - curl
+  - dbeaver
+  - dnsmasq
+  - docker-compose
+  - doctl-bin
+  - ebtables
+  - emacs
+  - enpass-bin
+  - firefox
+  - fzf
+  - git
+  - git-lfs-bin
+  - global
+  - go
+  - gpick
+  - gvim
+  - htop
+  - imagemagick
+  - iotop
+  - jdk8-openjdk
+  - jq
+  - libinput-gestures
+  - libva-intel-driver
+  - libva-utils
+  - linux414-headers
+  - meld
+  - moreutils
+  - ncurses5-compat-libs
+  - neovim
+  - net-tools
+  - nodejs
+  - noto-fonts
+  - npm
+  - nylas-mail-lives-bin
+  - oh-my-zsh-git
+  - openssh
+  - papirus-icon-theme
+  - pgadmin4
+  - pigz
+  - pkgfile
+  - postgresql-libs
+  - powerline
+  - powerline-fonts-git
+  - pv
+  - pygmentize
+  - python
+  - python-neovim
+  - python-pip
+  - python-psutil
+  - python2
+  - python2-boto
+  - python2-pip
+  - qemu
+  - remmina
+  - ripgrep
+  - ruby
+  - s3cmd
+  - sbt
+  - scala
+  - shellcheck
+  - slack-desktop
+  - sqlite
+  - sublime-text-dev
+  - sysdig
+  - terraform
+  - the_silver_searcher
+  - thermald
+  - tig
+  - tmux
+  - tree
+  - ttf-opensans
+  - ttf-ubuntu-font-family
+  - unzip
+  - vagrant
+  - virt-manager
+  - virtio-win
+  - virtualbox
+  - virtualbox-ext-oracle
+  - virtualbox-host-dkms
+  - wget
+  - whoneeds-git
+  - xclip
+  - xcursor-breeze
+  - xcursor-vanilla-dmz
+  - yarn
+  - zeal
+  - zip
+  - zsh
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-syntax-highlighting
+
+gnome_packages:
+  - arc-gtk-theme
+  - chrome-gnome-shell
+  - gnome-boxes
+  - gnome-clocks
+  - gnome-mpv
+  - gnome-terminal-transparency
+  - gnome-weather
+  - wireshark-gtk
+
+npm_packages:
+  - base16-builder
+  - typescript
+
+kde_packages:
+  - sddm-classic
+  - wireshark-qt
+
+python_packages:
+  - aws-shell
+  - pgcli
+  - ptpython
+  - py-mini-racer
+  - vim-vint
+
+ruby_packages:
+  - homesick
+  - rubocop
+
+fonts:
+  system: Open Sans 11
+  monospace: Source Code Pro for Powerline 11
+
+gtk_theme: Arc-Darker
+icon_theme: Papirus

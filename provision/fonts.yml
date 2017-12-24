@@ -1,0 +1,12 @@
+- name: Set Gnome interface settings
+  become: False
+  dconf:
+    key: '{{ item.key }}'
+    value: "'{{ item.value }}'"
+  with_items:
+    - { key: '/org/gnome/desktop/interface/document-font-name', value: '{{ fonts.system }}' }
+    - { key: '/org/gnome/desktop/interface/font-name', value: '{{ fonts.system }}' }
+    - { key: '/org/gnome/desktop/interface/gtk-theme', value: '{{ gtk_theme }}' }
+    - { key: '/org/gnome/desktop/interface/icon-theme', value: '{{ icon_theme }}' }
+    - { key: '/org/gnome/desktop/interface/monospace-font-name', value: '{{ fonts.monospace }}' }
+    - { key: '/org/gnome/desktop/wm/preferences/titlebar-font', value: '{{ fonts.system }}' }

@@ -78,6 +78,7 @@ arch_packages:
   - sqlite
   - sublime-text-dev
   - sysdig
+  - sysstat
   - terraform
   - the_silver_searcher
   - thermald

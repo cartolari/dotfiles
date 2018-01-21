@@ -373,3 +373,14 @@ let g:elm_format_autosave = 1
 " TypeScript {{{
 let g:tsuquyomi_single_quote_import = 1
 " }}}
+
+" Omnisharp {{{
+augroup Omnisharp
+  autocmd!
+  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+augroup end
+let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_server_type='roslyn'
+let g:Omnisharp_start_server=0
+let g:Omnisharp_stop_server=0
+" }}}

@@ -21,10 +21,11 @@ endif
   Plug 'cartolari/vim-clevertab'
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'omnisharp/omnisharp-vim'
   Plug 'sirver/ultisnips'
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
   Plug 'valloric/youcompleteme', {
-        \ 'do': 'python3 install.py --clang-completer --gocode-completer --tern-completer'
+        \ 'do': 'rm -rf third_party/ycmd/ycmd/completers/cs && python3 install.py --clang-completer --gocode-completer --tern-completer'
         \ }
 " }}}
 

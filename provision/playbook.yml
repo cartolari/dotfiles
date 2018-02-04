@@ -23,7 +23,6 @@
       copy:
         src: files/hid_apple.conf
         dest: /etc/modprobe.d/hid_apple.conf
-      notify: set hid_apple fnmode for current session
 
     - name: Disable Intel TCO watchdog
       copy:
@@ -48,9 +47,6 @@
         enabled: True
 
   handlers:
-    - name: set hid_apple fnmode for current session
-      shell: echo 2 > /sys/module/hid_apple/parameters/fnmode
-
     - name: restart network manager
       systemd:
         name: NetworkManager

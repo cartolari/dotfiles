@@ -50,6 +50,8 @@ arch_packages:
   - nylas-mail-lives-bin
   - oh-my-zsh-git
   - openssh
+  - otf-font-awesome
+  - otf-font-awesome-4
   - papirus-icon-theme
   - pgadmin4
   - pigz
@@ -85,6 +87,8 @@ arch_packages:
   - tig
   - tmux
   - tree
+  - ttf-font-awesome
+  - ttf-font-awesome-4
   - ttf-opensans
   - ttf-ubuntu-font-family
   - unzip

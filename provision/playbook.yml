@@ -30,6 +30,11 @@
         src: files/iTCO_wdt_blacklist.conf
         dest: /etc/modprobe.d/iTCO_wdt_blacklist.conf
 
+    - name: Disable pc speakers (internal beep)
+      copy:
+        src: files/nobeep.conf
+        dest: /etc/modprobe.d/nobeep.conf
+
     - name: Enable thermald
       systemd:
         name: thermald

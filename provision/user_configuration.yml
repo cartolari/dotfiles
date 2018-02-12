@@ -37,3 +37,9 @@
   command: libinput-gestures-setup autostart
   args:
     creates: ~/.config/autostart/libinput-gestures.desktop
+
+- name: Autostart disable-panel-shadow
+  become: False
+  copy:
+    dest: ~/.config/autostart/disable-panel-shadow.desktop
+    src: files/disable-panel-shadow.desktop

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Disable Panel Shadow
+Exec=/home/bruno/.local/bin/disable-panel-shadow
+StartupNotify=false
+Categories=System;
+Terminal=true

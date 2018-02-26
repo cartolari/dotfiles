@@ -1,0 +1,73 @@
+let mapleader = ','
+
+" Save current file
+nnoremap <leader>s :w<CR>
+inoremap <leader>s <Esc>:w<CR>
+
+" Exit insert mode
+inoremap jk <Esc>
+
+" Apply macros with Q
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+nnoremap <leader><leader> :Commands<CR>
+
+nnoremap <buffer> <M-Enter> O<Esc>jo<Esc>ki
+
+" Quit current file
+nnoremap <leader>q :q<CR>
+
+" Indent current paragraph
+nnoremap <leader>a =ip
+
+" Edit vimrc
+nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>eb :execute 'edit ' . g:config_dir . '/bundles.vim'<CR>
+nnoremap <leader>ek :execute 'edit ' . g:config_dir . '/plugin/keymaps.vim'<CR>
+
+"Netrw
+nnoremap - :Explore<CR>
+
+" Get current direcory in command mode
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Save as sudo
+cnoremap w!! w !sudo tee > /dev/null %
+
+" Fix common typos in command mode
+command! -bang Q q<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang W w<bang>
+command! -bang WQ wq<bang>
+command! -bang Wq wq<bang>
+
+"Remap arrow keys to easily resize windows
+nnoremap <silent> <Right> :vertical res +3<CR>
+nnoremap <silent> <Left> :vertical res -3<CR>
+nnoremap <silent> <Up> :res +3<CR>
+nnoremap <silent> <Down> :res -3<CR>
+
+" Toggle current folding
+nnoremap <Space> za
+
+" Start external command with !
+nnoremap ! :!
+
+" Invert ; and :
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" Mappings to IDEA Actions
+
+set surround
+
+nnoremap C-] :action GoToSymbol<CR>
+nnoremap gcc :action CommentByLineComment<CR>
+nnoremap == :action ReformatCode<CR>
+nnoremap / :action Find<CR>
+nnoremap <leader>n :action GoToClass<CR>
+nnoremap <leader>t :action GotoFile<CR>
+vnoremap / :action Find<CR>

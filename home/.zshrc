@@ -80,3 +80,11 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  ssh-agent > ~/.ssh-agent
+fi
+
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+  eval "$(<~/.ssh-agent)" > /dev/null
+fi

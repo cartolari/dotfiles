@@ -56,8 +56,16 @@
     path: ~/.config/systemd/user
     state: directory
 
-- name: Auto start ssh-agent
+- name: Create user ssh-agent unit
   become: False
   copy:
     dest: ~/.config/systemd/user/ssh-agent.service
     src: files/ssh-agent.service
+
+- name: Auto start ssh-agent
+  become: False
+  systemd:
+    name: ssh-agent.service
+    state: started
+    enabled: True
+    user: True

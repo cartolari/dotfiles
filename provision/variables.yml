@@ -16,6 +16,7 @@ arch_packages:
   - ctags
   - curl
   - dbeaver
+  - dhclient
   - dnsmasq
   - docker-compose
   - doctl-bin

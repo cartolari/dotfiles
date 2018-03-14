@@ -23,6 +23,7 @@ arch_packages:
   - emacs
   - enpass-bin
   - firefox
+  - fslint
   - fzf
   - git
   - git-lfs-bin

@@ -71,6 +71,7 @@ arch_packages:
   - python2-boto
   - python2-pip
   - qemu
+  - rclone
   - remmina
   - ripgrep
   - ruby

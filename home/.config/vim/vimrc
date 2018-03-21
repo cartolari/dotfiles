@@ -374,10 +374,11 @@ let g:elm_format_autosave = 1
 let g:tsuquyomi_single_quote_import = 1
 " }}}
 
-" Omnisharp {{{
+" C# {{{
 augroup Omnisharp
   autocmd!
   autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+  autocmd FileType cs setlocal sw=4 ts=4 sts=4
 augroup end
 let g:OmniSharp_selector_ui = 'fzf'
 let g:OmniSharp_server_type='roslyn'

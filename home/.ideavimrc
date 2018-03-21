@@ -66,6 +66,7 @@ set surround
 
 nnoremap C-] :action GoToSymbol<CR>
 nnoremap gcc :action CommentByLineComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
 nnoremap == :action ReformatCode<CR>
 nnoremap / :action Find<CR>
 nnoremap <leader>n :action GoToClass<CR>

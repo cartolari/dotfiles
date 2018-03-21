@@ -34,7 +34,7 @@ alias dlogs='docker-compose logs'
 alias drunb='docker-compose run --rm web bash'
 alias drunsb='docker-compose run --rm --service-ports web bash'
 alias start_dns='source ~/start_dns.sh'
-alias docker-clean='docker ps -qa --filter status=exited | xargs -r docker rm'
+alias docker-clean='docker ps -qa --filter status=exited --filter status=created | xargs -r docker rm'
 alias docker-clean-images='docker images -q --filter="dangling=true" | xargs -r docker rmi'
 alias docker-clean-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
 

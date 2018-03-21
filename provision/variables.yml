@@ -62,6 +62,7 @@ arch_packages:
   - postgresql-libs
   - powerline
   - powerline-fonts-git
+  - powertop
   - pv
   - pygmentize
   - python
@@ -89,6 +90,7 @@ arch_packages:
   - the_silver_searcher
   - thermald
   - tig
+  - tlp
   - tmux
   - tree
   - ttf-font-awesome

@@ -74,6 +74,7 @@ arch_packages:
   - python2-pip
   - qemu
   - rclone
+  - rclone-browser
   - remmina
   - ripgrep
   - ruby

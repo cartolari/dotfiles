@@ -110,6 +110,7 @@ arch_packages:
   - xcursor-breeze
   - xcursor-vanilla-dmz
   - yarn
+  - yay
   - zeal
   - zip
   - zsh

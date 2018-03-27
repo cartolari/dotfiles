@@ -78,6 +78,7 @@ arch_packages:
   - rclone-browser
   - remmina
   - ripgrep
+  - rmlint
   - ruby
   - s3cmd
   - sbt

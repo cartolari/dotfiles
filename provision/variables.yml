@@ -103,6 +103,7 @@ arch_packages:
   - unzip
   - vagrant
   - virt-manager
+  - virt-viewer
   - virtualbox
   - virtualbox-ext-oracle
   - virtualbox-host-dkms

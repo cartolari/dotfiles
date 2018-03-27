@@ -37,6 +37,7 @@ arch_packages:
   - iotop
   - jdk8-openjdk
   - jq
+  - lbzip2
   - libinput-gestures
   - libva-intel-driver
   - libva-utils

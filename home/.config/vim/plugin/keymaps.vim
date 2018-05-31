@@ -14,6 +14,7 @@ inoremap jk <Esc>
 " Apply macros with Q
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
+nnoremap <leader><leader> :Commands<CR>
 
 " Inserts one break before and one break after the current line
 if has('nvim')

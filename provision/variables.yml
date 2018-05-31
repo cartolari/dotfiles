@@ -41,7 +41,6 @@ arch_packages:
   - libinput-gestures
   - libva-intel-driver
   - libva-utils
-  - linux414-headers
   - meld
   - moreutils
   - ncurses5-compat-libs

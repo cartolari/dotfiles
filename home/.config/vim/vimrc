@@ -284,8 +284,8 @@ let g:ctrlsf_regex_pattern = 1
 " }}}
 
 " Disable standard tComment mappings {{{
-let g:tcommentMapLeader1 = ''
-let g:tcommentMapLeader2 = ''
+let g:tcomment_mapleader1 = ''
+let g:tcomment_mapleader2 = ''
 " }}}
 
 " Yank Ring {{{

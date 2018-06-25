@@ -56,7 +56,7 @@
        (setq powerline-height 25)
        (setq spaceline-window-numbers-unicode t)
        (setq spaceline-workspace-numbers-unicode t)
-       (set-face-attribute 'mode-line nil :font "Source Code Pro for Powerline-10")
+       (set-face-attribute 'mode-line nil :font "Fira Code-10")
        (set-face-attribute (spaceline-highlight-face-default) nil :weight 'bold)
        (spaceline-install
         '(((anzu workspace-number window-number evil-state) :face highlight-face :separator " | ")

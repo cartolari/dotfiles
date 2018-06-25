@@ -15,8 +15,6 @@
   :init
   (load-theme 'material t))
 
-(use-package spacemacs-theme)
-
 (use-package auto-highlight-symbol
   :commands (auto-highlight-symbol-mode)
   :config

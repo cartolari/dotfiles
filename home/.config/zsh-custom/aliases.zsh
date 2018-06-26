@@ -1,4 +1,3 @@
-alias ack='ack-grep'
 alias cls='printf "\033c"'
 alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias vi='vim'
@@ -6,18 +5,6 @@ alias server='python3 -m http.server'
 alias h='homesick'
 alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
 alias file-sizes='sudo find -mindepth 1 -maxdepth 1 -exec du -hs {} \; | sort -hr'
-
-# Apt
-alias apt-install='sudo apt-get install'
-alias apt-update='sudo apt-get update'
-alias apt-ppa='sudo add-apt-repository'
-alias apt-search='apt-cache search'
-alias apt-show='apt-cache show'
-alias apt-remove='sudo apt-get remove'
-alias apt-purge='sudo apt-get purge'
-alias apt-upgrade='sudo apt-get upgrade'
-alias apt-dist-upgrade='sudo apt-get dist-upgrade'
-alias apt-clear-kernels='dpkg -l linux-* | awk "/^ii/{ print \$2}" | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e [0-9] | grep -E "(image|headers)" | xargs sudo apt-get -y purge'
 
 # Docker
 alias d='docker'
@@ -33,7 +20,6 @@ alias dps='docker-compose ps'
 alias dlogs='docker-compose logs'
 alias drunb='docker-compose run --rm web bash'
 alias drunsb='docker-compose run --rm --service-ports web bash'
-alias start_dns='source ~/start_dns.sh'
 alias docker-clean='docker ps -qa --filter status=exited --filter status=created | xargs -r docker rm'
 alias docker-clean-images='docker images -q --filter="dangling=true" | xargs -r docker rmi'
 alias docker-clean-volumes='docker volume ls -qf dangling=true | xargs -r docker volume rm'
@@ -43,7 +29,6 @@ alias s='ssh'
 
 # Git
 alias gcln='git clone'
-alias gdc='git diff --cached'
 
 # Vagrant
 alias v='vagrant'

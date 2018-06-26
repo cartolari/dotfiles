@@ -3,7 +3,7 @@ alias ccat='pygmentize -g -O style=monokai -f console256 -g'
 alias vi='vim'
 alias server='python3 -m http.server'
 alias h='homesick'
-alias find-trailing='find . -type f -exec egrep -l " +$" {} \;'
+alias find-trailing='find . -type f -exec grep -E -l " +$" {} \;'
 alias file-sizes='sudo find -mindepth 1 -maxdepth 1 -exec du -hs {} \; | sort -hr'
 
 # Docker

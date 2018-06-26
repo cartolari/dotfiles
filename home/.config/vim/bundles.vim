@@ -93,6 +93,10 @@ endif
   Plug 'ElmCast/elm-vim'
 " }}}
 
+" Fish {{{
+  Plug 'dag/vim-fish'
+" }}}
+
 " HTML {{{
   Plug 'othree/html5.vim', {'for': 'html'}
   Plug 'mattn/emmet-vim'

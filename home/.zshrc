@@ -18,7 +18,6 @@ export ZSH_THEME="agnoster"
 plugins=(
   autojump
   aws
-  command-not-found
   docker
   docker-compose
   git
@@ -81,3 +80,4 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/doc/find-the-command/ftc.zsh

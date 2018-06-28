@@ -13,7 +13,7 @@ export ENABLE_CORRECTION="true"
 export HYPHEN_INSENSITIVE="true"
 export UPDATE_ZSH_DAYS=7
 export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
-export ZSH_THEME="agnoster"
+export ZSH_THEME="avit"
 
 plugins=(
   autojump

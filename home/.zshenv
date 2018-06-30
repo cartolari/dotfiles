@@ -1,9 +1,11 @@
-export GRML_ALWAYS_LOAD_ALL=1
 export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_LIB_HOME=$HOME/.local/lib
+
+export GRML_ALWAYS_LOAD_ALL=1
+export COMPDUMPFILE=$XDG_CACHE_HOME/zcompdump
 
 export EDITOR=nvim
 

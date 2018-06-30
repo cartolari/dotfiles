@@ -16,9 +16,11 @@ fi
 autoload -Uz bracketed-paste-magic
 autoload -Uz bracketed-paste-url-magic
 autoload -Uz url-quote-magic
+autoload -Uz select-word-style
 zle -N bracketed-paste bracketed-paste-magic
 zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
+select-word-style bash
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh

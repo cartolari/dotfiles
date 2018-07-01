@@ -30,3 +30,10 @@ source /usr/share/doc/find-the-command/ftc.zsh
 
 # Restore ALT-C binding overwritten by FZF
 bindkey '\ec' capitalize-word
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' check-for-staged-changes true
+zstyle ':vcs_info:*' formats '%F{white}[%F{green}%b%F{white}]%F{yellow} %u%c%f ' 'zsh: %r'
+zstyle ':vcs_info:*' stagedstr '✚'
+zstyle ':vcs_info:*' unstagedstr '●'
+zstyle ':prompt:grml:left:setup' items rc change-root path vcs percent

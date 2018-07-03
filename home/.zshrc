@@ -37,3 +37,8 @@ zstyle ':vcs_info:*' formats '%F{white}[%F{green}%b%F{white}]%F{yellow} %u%c%f '
 zstyle ':vcs_info:*' stagedstr '✚'
 zstyle ':vcs_info:*' unstagedstr '●'
 zstyle ':prompt:grml:left:setup' items rc change-root path vcs percent
+
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+autoload -Uz compinit
+compinit

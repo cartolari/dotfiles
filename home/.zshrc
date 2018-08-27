@@ -52,3 +52,8 @@ zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 autoload -Uz compinit
 compinit
+
+autoload -U bashcompinit
+bashcompinit
+
+complete -C aws_completer aws

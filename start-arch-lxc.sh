@@ -1,9 +1,14 @@
 #!/bin/bash
 
-set -euo pipefail
+set -xeuo pipefail
 IFS=$'\n\t'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+if [[ $EUID -ne 0 ]]; then
+ echo "This script must be run as root" 1>&2
+ exit 1
+fi
 
 # Network
 if ! grep -E '^USE_LXC_BRIDGE="true"' /usr/local/etc/default/lxc > /dev/null; then
@@ -40,7 +45,9 @@ create_disk() {
 
 mount_disk() {
   mkdir -p /usr/local/var/lib/lxc/arch/rootfs
-  mount /dev/nbd0p1 /usr/local/var/lib/lxc/arch/rootfs
+  if ! mountpoint /usr/local/var/lib/lxc/arch/rootfs; then
+    mount /dev/nbd0p1 /usr/local/var/lib/lxc/arch/rootfs
+  fi
 }
 
 # Container creation
@@ -59,7 +66,7 @@ if ! lxc-ls -f | grep -E '\barch\b' > /dev/null; then
     --arch amd64 
 else
   modprobe nbd max_part=8
-  [[ -b /dev/nbd0p1 ]] ||
+  [[ -e /dev/nbd0p1 ]] ||
     qemu-nbd --connect=/dev/nbd0 /home/chronos/user/containers/arch.qcow2
   mount_disk
   echo LXC container is created

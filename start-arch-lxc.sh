@@ -35,26 +35,25 @@ fi
 [[ -d /home/chronos/user/containers ]] || mkdir -p /home/chronos/user/containers
 chown -R chronos:chronos /home/chronos/user/containers
 
-create_disk() {
+modprobe nbd max_part=8
+[[ -f /home/chronos/user/containers/arch.qcow2 ]] ||
   qemu-img create -f qcow2 /home/chronos/user/containers/arch.qcow2 30G
-  modprobe nbd max_part=8
-  qemu-nbd --connect=/dev/nbd0 /home/chronos/user/containers/arch.qcow2
+[[ -e /dev/nbd0p1 ]] ||
+  qemu-nbd -c /dev/nbd0 -f qcow2 /home/chronos/user/containers/arch.qcow2
+
+if [[ ! -e /dev/nbd0p1 ]]; then
   sgdisk -n 1:0: /dev/nbd0
   mkfs.ext4 /dev/nbd0p1
-}
+fi
 
-mount_disk() {
-  mkdir -p /usr/local/var/lib/lxc/arch/rootfs
-  if ! mountpoint /usr/local/var/lib/lxc/arch/rootfs; then
-    mount /dev/nbd0p1 /usr/local/var/lib/lxc/arch/rootfs
-  fi
-}
+mkdir -p /usr/local/var/lib/lxc/arch/rootfs
+if ! mountpoint /usr/local/var/lib/lxc/arch/rootfs; then
+  mount /dev/nbd0p1 /usr/local/var/lib/lxc/arch/rootfs
+fi
 
 # Container creation
 if ! lxc-ls -f | grep -E '\barch\b' > /dev/null; then
   echo Creating LXC Container
-  create_disk
-  mount_disk
 
   # Override PATH so lxc-create use Chromebrew sed instead of system
   env PATH=/usr/local/bin:$PATH lxc-create \
@@ -65,10 +64,6 @@ if ! lxc-ls -f | grep -E '\barch\b' > /dev/null; then
     --release current \
     --arch amd64 
 else
-  modprobe nbd max_part=8
-  [[ -e /dev/nbd0p1 ]] ||
-    qemu-nbd --connect=/dev/nbd0 /home/chronos/user/containers/arch.qcow2
-  mount_disk
   echo LXC container is created
 fi
 

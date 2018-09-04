@@ -7,4 +7,5 @@ fi
 
 # Put your fun stuff here.
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:/sbin

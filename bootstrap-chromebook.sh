@@ -80,8 +80,8 @@ install_qemu_tools() {
       --disable-spice \
       --enable-vhost-net \
       --target-list=x86_64-softmmu
-   make -j4 qemu-img qemu-nbd
-   cp qemu-img qemu-nbd /usr/local/bin
+   make -j4
+   make install
   fi
 }
 

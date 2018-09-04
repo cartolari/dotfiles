@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk inetutils htop less'
+CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less sommelier'
 DNSMASQ_VERSION='2.79'
 LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/lib:/lib64
 LXC_BUILD_DIR=/tmp/lxc-src

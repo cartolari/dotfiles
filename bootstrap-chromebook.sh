@@ -12,6 +12,8 @@ LXC_VERSION='3.0.2'
 QEMU_DEPS='glib libepoxy libsdl2 mesa pixman'
 QEMU_VERSION='3.0.0'
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
 if [ '0' = "$(id -u)" ]; then
   echo This script should not be ran as root
   exit 1
@@ -88,6 +90,7 @@ install_qemu_tools() {
 
 echo 'Installing QEMU tools (qemu-img qemu-nbd)'
 install_qemu_tools
+[[ -f /usr/local/etc/qemu-ifup ]] || cp "$DIR/qemu-ifup" /usr/local/etc/qemu-ifup
 
 install_brctl() {
   if hash brctl; then

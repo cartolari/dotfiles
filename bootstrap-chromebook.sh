@@ -31,6 +31,8 @@ echo Installing general tools from Chromebrew
 echo "$CHROMEBREW_PACKAGES"
 crew install $CHROMEBREW_PACKAGES
 
+echo y | rw
+
 echo Installing LXC Dependencies
 echo "$LXC_DEPS"
 crew install $LXC_DEPS
@@ -132,5 +134,7 @@ download_initial_vm_disk() {
 }
 
 echo Installing initial ArchLinux VM disk
-
 download_initial_vm_disk
+
+echo Installing services
+[[ -f /etc/init/arch-vm.conf ]] || sudo cp upstart-services/arch-vm.conf /etc/init/arch-vm.conf

@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less sommelier'
+BRIDGE_UTILS_VERSION=1.6
+CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less sommelier wget'
 DNSMASQ_VERSION='2.79'
 LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/lib:/lib64
 LXC_BUILD_DIR=/tmp/lxc-src
@@ -87,3 +88,25 @@ install_qemu_tools() {
 
 echo 'Installing QEMU tools (qemu-img qemu-nbd)'
 install_qemu_tools
+
+install_brctl() {
+  if hash brctl; then
+    return
+  fi
+
+  local build_dir="bridge-utils-${BRIDGE_UTILS_VERSION}"
+  local source_file="${build_dir}.tar.xz"
+  cd /tmp
+  [[ -f "/tmp/$source_file" ]] || wget "https://www.kernel.org/pub/linux/utils/net/bridge-utils/$source_file"
+  rm -rf "$build_dir"
+  tar xf "$source_file"
+  cd "$build_dir"
+
+  autoconf
+  ./configure
+  make -j4
+  make install
+}
+
+echo Installing brctl
+install_brctl

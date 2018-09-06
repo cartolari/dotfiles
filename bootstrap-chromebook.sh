@@ -137,4 +137,6 @@ echo Installing initial ArchLinux VM disk
 download_initial_vm_disk
 
 echo Installing services
-[[ -f /etc/init/arch-vm.conf ]] || sudo cp upstart-services/arch-vm.conf /etc/init/arch-vm.conf
+sudo cp upstart-services/arch-vm.conf /etc/init/arch-vm.conf
+sudo cp upstart-services/sommelier-x1.conf /etc/init/sommelier-x1.conf
+sudo cp upstart-services/sommelier-x2.conf /etc/init/sommelier-x2.conf

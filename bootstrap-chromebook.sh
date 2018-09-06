@@ -22,6 +22,11 @@ fi
 sudo mount -i -o remount,exec,suid $HOME
 sudo mount -o remount,exec,suid /tmp
 
+echo Add power manager overrides
+# 4 hours
+echo '14400000' | sudo tee /var/lib/power_manager/plugged_suspend_ms
+sudo chown -R power:power /var/lib/power_manager/
+
 echo Installing Chromebrew
 if ! hash crew > /dev/null; then
   curl -Ls https://raw.github.com/skycocker/chromebrew/master/install.sh | bash

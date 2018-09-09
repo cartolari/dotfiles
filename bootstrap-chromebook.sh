@@ -143,9 +143,14 @@ download_initial_vm_disk
 
 echo Installing services
 sudo cp upstart-services/arch-vm.conf /etc/init/arch-vm.conf
+sudo cp upstart-services/crouton-clipboard.conf /etc/init/crouton-clipboard.conf
 sudo cp upstart-services/sommelier-x1.conf /etc/init/sommelier-x1.conf
 sudo cp upstart-services/sommelier-x2.conf /etc/init/sommelier-x2.conf
 
 echo Installing Node.JS
-nodebrew install 8
-nodebrew use 8
+nodebrew install 8 || true
+nodebrew use 8 || true
+
+echo Installing crouton-clipboard service
+[[ -d /home/chronos/user/.crouton-clipboard/ ]] ||
+  git clone https://github.com/zwhitchcox/crouton-clipboard.git /home/chronos/user/.crouton-clipboard/

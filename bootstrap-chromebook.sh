@@ -3,7 +3,7 @@
 set -euo pipefail
 
 BRIDGE_UTILS_VERSION=1.6
-CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less openssh sommelier wget'
+CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh sommelier wget'
 DNSMASQ_VERSION='2.79'
 LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/lib:/lib64
 LXC_BUILD_DIR=/tmp/lxc-src
@@ -145,3 +145,7 @@ echo Installing services
 sudo cp upstart-services/arch-vm.conf /etc/init/arch-vm.conf
 sudo cp upstart-services/sommelier-x1.conf /etc/init/sommelier-x1.conf
 sudo cp upstart-services/sommelier-x2.conf /etc/init/sommelier-x2.conf
+
+echo Installing Node.JS
+nodebrew install 8
+nodebrew use 8

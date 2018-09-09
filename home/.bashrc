@@ -10,3 +10,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export PAGER=/usr/local/bin/less
 export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:/sbin
+export PATH=$HOME/.nodebrew/current/bin:$PATH

@@ -11,6 +11,7 @@ LXC_DEPS='gcc7 gdb make libcap libseccomp libtool'
 LXC_VERSION='3.0.2'
 QEMU_DEPS='glib libepoxy libsdl2 mesa pixman'
 QEMU_VERSION='3.0.0'
+XSET_VERSION='1.2.4'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
@@ -154,3 +155,16 @@ nodebrew use 8 || true
 echo Installing crouton-clipboard service
 [[ -d /home/chronos/user/.crouton-clipboard/ ]] ||
   git clone https://github.com/zwhitchcox/crouton-clipboard.git /home/chronos/user/.crouton-clipboard/
+
+echo Installing xset
+if ! hash xset; then
+  rm -rf /tmp/xset*
+  cd /tmp
+  curl -SsL "https://www.x.org/releases/individual/app/xset-${XSET_VERSION}.tar.gz" > /tmp/xset.tar.gz
+  tar xf /tmp/xset.tar.gz
+  cd "/tmp/xset-${XSET_VERSION}"
+  autoconf
+  ./configure
+  make -j4
+  make install
+fi

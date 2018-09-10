@@ -129,7 +129,7 @@ download_initial_vm_disk() {
   fi
 
   # Get the previous fifth day of the month which is when
-  # ArchLinux images are release on VagrantCloud
+  # ArchLinux images are released on VagrantCloud
   local closest_fifth_day="2018.$(date -d '4 days ago' +%m).05"
   mkdir -p /home/chronos/user/vms
   cd /home/chronos/user/Downloads
@@ -137,6 +137,7 @@ download_initial_vm_disk() {
     wget "https://vagrantcloud.com/archlinux/boxes/archlinux/versions/$closest_fifth_day/providers/libvirt.box"
   tar xf libvirt.box box.img
   mv box.img /home/chronos/user/vms/archlinux.img
+  qemu-img resize /home/chronos/user/vms/archlinux.img 60G
 }
 
 echo Installing initial ArchLinux VM disk

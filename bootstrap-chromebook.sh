@@ -3,7 +3,7 @@
 set -euo pipefail
 
 BRIDGE_UTILS_VERSION=1.6
-CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh sommelier wget zsh'
+CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh socat sommelier wget zsh'
 DNSMASQ_VERSION='2.79'
 LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/lib:/lib64
 LXC_BUILD_DIR=/tmp/lxc-src

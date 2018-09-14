@@ -130,7 +130,7 @@ download_initial_vm_disk() {
 
   # Get the previous fifth day of the month which is when
   # ArchLinux images are released on VagrantCloud
-  local closest_fifth_day="2018.$(date -d '4 days ago' +%m).05"
+  local closest_fifth_day="$(date -d '4 days ago' +%Y.%m).05"
   mkdir -p /home/chronos/user/vms
   cd /home/chronos/user/Downloads
   [[ -f libvirt.box ]] ||

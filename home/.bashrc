@@ -11,3 +11,7 @@ export PAGER=/usr/local/bin/less
 export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:/sbin
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+# git completion
+if [ -f /usr/local/share/git-completion/git-completion.bash ]; then
+  source /usr/local/share/git-completion/git-completion.bash
+fi

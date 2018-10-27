@@ -23,6 +23,11 @@ fi
 sudo mount -i -o remount,exec,suid $HOME
 sudo mount -o remount,exec,suid /tmp
 
+if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
+  echo Defining password for user chronos
+  sudo passwd chronos
+fi
+
 echo Add power manager overrides
 # 4 hours
 echo '14400000' | sudo tee /var/lib/power_manager/plugged_suspend_ms

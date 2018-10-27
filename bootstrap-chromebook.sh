@@ -15,7 +15,7 @@ XSET_VERSION='1.2.4'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
-if [ '0' = "$(id -u)" ]; then
+if [ '0' = "$EUID" ]; then
   echo This script should not be ran as root
   exit 1
 fi

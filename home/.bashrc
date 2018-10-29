@@ -4,8 +4,7 @@ if [[ $- != *i* ]] ; then
   return
 fi
 
-
-# Put your fun stuff here.
+export DISPLAY=:0
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export PAGER=/usr/local/bin/less
 export PATH=/usr/local/sbin:$PATH

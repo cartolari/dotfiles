@@ -2,8 +2,9 @@
 
 set -euo pipefail
 
+AUGEAS_VERSION=1.11.0
 BRIDGE_UTILS_VERSION=1.6
-CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh socat sommelier wget zsh'
+CHROMEBREW_PACKAGES='chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh readline7 socat sommelier wget zsh'
 DNSMASQ_VERSION='2.79'
 LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/lib:/lib64
 LXC_BUILD_DIR=/tmp/lxc-src
@@ -11,6 +12,7 @@ LXC_DEPS='gcc7 gdb make libcap libseccomp libtool'
 LXC_VERSION='3.0.2'
 QEMU_DEPS='glib libepoxy libsdl2 mesa pixman'
 QEMU_VERSION='3.0.0'
+TOUCHPAD_MINIMUM_PRESSURE='0.05'
 XSET_VERSION='1.2.4'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
@@ -175,3 +177,24 @@ if ! hash xset; then
   make -j4
   make install
 fi
+
+echo Installing augeas
+if ! hash augtool; then
+  rm -rf /tmp/augeas*
+  cd /tmp
+  curl -Ssl "http://download.augeas.net/augeas-${AUGEAS_VERSION}.tar.gz" > /tmp/augeas.tar.gz
+  tar xf /tmp/augeas.tar.gz
+  cd "/tmp/augeas-${AUGEAS_VERSION}"
+  ./configure
+  make -j4
+  make install
+fi
+
+set +e
+read -r -d '' AUGEAS_SCRIPT <<EOF
+set etc/gesture/40-touchpad-cmt.conf/InputClass[Identifier = "CMT for Synaptics Touchpad"]/Option[. = "Tap Minimum Pressure"] "Tap Minimum Pressure"
+set etc/gesture/40-touchpad-cmt.conf/InputClass[Identifier = "CMT for Synaptics Touchpad"]/Option[. = "Tap Minimum Pressure"]/value $TOUCHPAD_MINIMUM_PRESSURE
+EOF
+set -e
+
+sudo env LD_LIBRARY_PATH=$LD_LIBRARY_PATH augtool -t 'Xorg incl /etc/gesture/*.conf' "$AUGEAS_SCRIPT"

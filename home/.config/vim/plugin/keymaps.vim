@@ -83,14 +83,14 @@ let g:UltiSnipsListSnippets="<C-l>"
 
 " Tab Completion
 function! CleverTabCustom()
-  inoremap <silent><tab> <c-r>=CleverTab#Complete('start')<cr>
-                        \<c-r>=CleverTab#Complete('ultisnips')<cr>
-                        \<c-r>=CleverTab#Complete('tab')<cr>
-                        \<c-r>=CleverTab#Complete('omni')<cr>
-                        \<c-r>=CleverTab#Complete('user')<cr>
-                        \<c-r>=CleverTab#Complete('keyword')<cr>
-                        \<c-r>=CleverTab#Complete('stop')<cr>
-  inoremap <silent><s-tab> <c-r>=CleverTab#Complete('prev')<cr>
+  inoremap <silent><Tab> <C-r>=CleverTab#Complete('start')<CR>
+                        \<C-r>=CleverTab#Complete('tab')<CR>
+                        \<C-r>=CleverTab#Complete('next')<CR>
+                        \<C-r>=CleverTab#Complete('ultisnips')<CR>
+                        \<C-r>=CleverTab#Complete('omni')<CR>
+                        \<C-r>=CleverTab#Complete('keyword')<CR>
+                        \<C-r>=CleverTab#Complete('stop')<CR>
+  inoremap <silent><S-Tab> <C-r>=CleverTab#Complete('prev')<CR>
 endfunction
 
 augroup Tab

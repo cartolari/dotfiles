@@ -311,6 +311,8 @@ let g:UltiSnipsUsePythonVersion = 3
 " }}}
 
 " YCM {{{
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_python_binary_path = 'python3'
 let g:ycm_python_interpreter = 'python3'

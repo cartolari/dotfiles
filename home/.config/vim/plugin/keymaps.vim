@@ -102,9 +102,6 @@ inoremap <silent> <CR> <C-r>=ExpandSnippetOrCarriageReturn()<CR>
 
 nnoremap <silent> <leader>t :FZF<CR>
 
-" Make
-nnoremap <silent> <leader>m :SyntasticCheck<CR>
-
 " Start external command with !
 nnoremap ! :!
 

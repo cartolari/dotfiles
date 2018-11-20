@@ -1,0 +1,15 @@
+snippet var "variable ... {}" b
+variable "${1:var_name}" {}$0
+endsnippet
+
+snippet varb "variable ... { ... }" b
+variable "${1:var_name}" {
+	${2:default = "$3"}
+}$0
+endsnippet
+
+snippet out "output ... { ... }" b
+variable "${1:output_name}" {
+	value = "$2"
+}$0
+endsnippet

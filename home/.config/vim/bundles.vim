@@ -156,7 +156,7 @@ endif
 " }}}
 
 " Yaml {{{
-  Plug 'ingydotnet/yaml-vim', {'for': 'yaml'}
+  Plug 'chase/vim-ansible-yaml', {'for': 'yaml'}
 " }}}
 
 " }}}

@@ -399,3 +399,10 @@ let g:OmniSharp_server_type='roslyn'
 let g:Omnisharp_start_server=0
 let g:Omnisharp_stop_server=0
 " }}}
+
+" YAML {{{
+augroup yaml
+  autocmd!
+  autocmd BufRead,BufNewFile *.yml,*.yaml set filetype=ansible
+augroup end
+" }}}

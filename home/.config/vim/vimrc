@@ -325,14 +325,6 @@ let g:ycm_semantic_triggers = {
 let g:gundo_prefer_python3 = 1
 " }}}
 
-" Vim Debug {{{
-let g:vdebug_options = {
-      \ 'path_maps': {
-      \ '/var/www/dc-commerce': '/home/bruno/code/vizir/dc-commerce/www/dc-commerce'
-      \ }
-      \ }
-" }}}
-
 " Denite {{{
 call denite#custom#var('file_rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
 call denite#custom#source('file_rec', 'sorters', ['sorter_sublime_multiprocess'])

@@ -44,6 +44,7 @@ endif
   Plug 'andrewradev/switch.vim'
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
+  Plug 'chriskempson/base16-vim'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
   Plug 'sjl/gundo.vim'

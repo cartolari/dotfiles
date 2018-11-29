@@ -1,3 +1,9 @@
+snippet res "resource ... { ... }" b
+resource "${1:resource_type}" "${2:resource_name}" {
+	$0
+}
+endsnippet
+
 snippet var "variable ... {}" b
 variable "${1:var_name}" {}$0
 endsnippet

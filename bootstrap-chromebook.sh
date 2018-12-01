@@ -180,6 +180,18 @@ if ! hash xset; then
   make install
 fi
 
+RCLONE_VERSION=1.44
+echo Installing rclone
+if ! hash rclone; then
+  rm -rf /tmp/rclone*
+  curl -SsL "https://github.com/ncw/rclone/releases/download/v$RCLONE_VERSION/rclone-v$RCLONE_VERSION-linux-amd64.zip" > /tmp/rclone.zip
+  cd /tmp
+  unzip rclone.zip
+  cd "/tmp/rclone-v$RCLONE_VERSION-linux-amd64"
+  cp rclone.1 /usr/local/share/man/man1/rclone.1
+  cp rclone /usr/local/bin/rclone
+fi
+
 echo Installing augeas
 if ! hash augtool; then
   rm -rf /tmp/augeas*

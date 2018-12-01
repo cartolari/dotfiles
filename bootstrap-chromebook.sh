@@ -157,6 +157,7 @@ sudo cp upstart-services/forward-http.conf /etc/init/forward-http.conf
 sudo cp upstart-services/forward-https.conf /etc/init/forward-https.conf
 sudo cp upstart-services/sommelier-x1.conf /etc/init/sommelier-x1.conf
 sudo cp upstart-services/sommelier-x2.conf /etc/init/sommelier-x2.conf
+sudo cp upstart-services/enable-hdmi-audio.conf /etc/init/enable-hdmi-audio.conf
 
 echo Installing Node.JS
 nodebrew install 8 || true

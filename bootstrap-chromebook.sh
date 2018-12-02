@@ -30,6 +30,16 @@ if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
   sudo passwd chronos
 fi
 
+if [[ "$(grep '^chronos:' /etc/passwd | cut -d: -f7)" != "/usr/local/bin/zsh" ]]; then
+  echo Changing default shell to ZSH
+  sudo chsh --shell /usr/local/bin/zsh chronos
+fi
+
+if [[ ! -f /etc/zsh/zshrc ]]; then
+  sudo mkdir -p /etc/zsh
+  sudo wget -O /etc/zsh/zshrc "https://git.grml.org/?p=grml-etc-core.git;a=blob_plain;f=etc/zsh/zshrc;hb=HEAD"
+fi
+
 echo Add power manager overrides
 # 4 hours
 echo '14400000' | sudo tee /var/lib/power_manager/plugged_suspend_ms

@@ -22,11 +22,18 @@ zle -N bracketed-paste bracketed-paste-url-magic
 zle -N self-insert url-quote-magic
 select-word-style bash
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/doc/find-the-command/ftc.zsh
+source_if_exists() {
+  local file=$1
+
+  if [[ -f "$file" ]]; then
+    source "$file" &> /dev/null
+  fi
+}
+source_if_exists /usr/share/fzf/completion.zsh
+source_if_exists /usr/share/fzf/key-bindings.zsh
+source_if_exists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source_if_exists /usr/share/doc/find-the-command/ftc.zsh
 
 # Restore ALT-C binding overwritten by FZF
 bindkey '\ec' capitalize-word

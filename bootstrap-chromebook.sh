@@ -180,7 +180,7 @@ if ! hash xset; then
   make install
 fi
 
-RCLONE_VERSION=1.44
+RCLONE_VERSION=1.45
 echo Installing rclone
 if ! hash rclone; then
   rm -rf /tmp/rclone*

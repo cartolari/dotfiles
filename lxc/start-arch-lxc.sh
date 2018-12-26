@@ -76,6 +76,7 @@ if lxc-ls -f | grep -E '\barch\b' | grep STOPPED > /dev/null; then
 
 # Distribution configuration
 lxc.include = /usr/local/share/lxc/config/common.conf
+lxc.include = /usr/local/share/lxc/config/nesting.conf
 lxc.arch = x86_64
 
 # Container specific configuration
@@ -83,9 +84,9 @@ lxc.rootfs.path = dir:/usr/local/var/lib/lxc/arch/rootfs
 lxc.uts.name = arch
 
 lxc.cgroup.devices.allow = a
+lxc.mount.auto = proc:rw sys:rw cgroup-full:rw
 
 # Network configuration
-# lxc.net.0.type = empty
 lxc.net.0.type = veth
 lxc.net.0.flags = up
 lxc.net.0.link = lxcbr0
@@ -95,5 +96,5 @@ lxc.net.0.ipv4.gateway = 10.0.3.1
 lxc.mount.entry=/home/chronos/user/Downloads/ home/bruno/Downloads none bind,optional,create=dir
 lxc.mount.entry=/run/chrome/ opt/chrome none bind,optional,create=dir 0 0
 EOF
-  lxc-start -n arch -l debug
+  lxc-start -n arch -l debug --logfile /dev/stdout
 fi

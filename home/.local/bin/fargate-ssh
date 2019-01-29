@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-require 'optparse'
-require 'aws-sdk'
+#!/usr/bin/env -S ruby -roptparse -raws-sdk
 
 ATTRIBUTES = %i[cluster profile region service ssh_key ssh_user].freeze
 Options = Struct.new(*ATTRIBUTES, keyword_init: true) do
@@ -47,21 +44,16 @@ task_arns = ecs.list_tasks(
 eni_id =
   ecs
   .describe_tasks(cluster: args.cluster, tasks: task_arns)
-  .tasks
-  .first
-  .attachments
-  .find { |x| x['type'] == 'ElasticNetworkInterface' }
+  .dig(:tasks, 0, :attachments)
+  .find { |x| x.type == 'ElasticNetworkInterface' }
   .details
-  .find { |x| x['name'] == 'networkInterfaceId' }
+  .find { |x| x.name == 'networkInterfaceId' }
   .value
 
 ip_addr =
   ec2
   .describe_network_interfaces(network_interface_ids: [eni_id])
-  .network_interfaces
-  .first
-  .association
-  .public_ip
+  .dig(:network_interfaces, 0, :association, :public_ip)
 
 exec('ssh -o StrictHostKeyChecking=false ' \
      "-i #{args.ssh_key} #{args.ssh_user}@#{ip_addr}")

@@ -132,6 +132,7 @@ gnome_packages:
 
 npm_packages:
   - base16-builder
+  - svgexport
   - typescript
 
 kde_packages:

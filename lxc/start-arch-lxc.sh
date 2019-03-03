@@ -98,6 +98,10 @@ lxc.net.0.ipv4.gateway = 10.0.3.1
 lxc.mount.entry=/home/chronos/user/Downloads/ home/bruno/Downloads none bind,optional,create=dir
 lxc.mount.entry=/run/chrome/ opt/chrome none bind,optional,create=dir 0 0
 lxc.mount.entry=/home/chronos/user/.homesick/repos/chromebook-dotfiles/lxc/ usr/local/lxc-scripts none bind,optional,create=dir 0 0
+
+lxc.mount.entry = /dev/dri dev/dri none bind,optional,create=dir
+lxc.mount.entry = /dev/snd dev/snd none bind,optional,create=dir
+lxc.mount.entry = /dev/video0 dev/video0 none bind,optional,create=file
 EOF
   lxc-start -n arch -l debug --logfile /dev/stdout
 fi

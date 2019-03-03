@@ -79,12 +79,14 @@ lxc.include = /usr/local/share/lxc/config/common.conf
 lxc.include = /usr/local/share/lxc/config/nesting.conf
 lxc.arch = x86_64
 
+lxc.cap.drop =
+
 # Container specific configuration
 lxc.rootfs.path = dir:/usr/local/var/lib/lxc/arch/rootfs
 lxc.uts.name = arch
 
 lxc.cgroup.devices.allow = a
-lxc.mount.auto = proc:rw sys:rw cgroup-full:rw
+lxc.mount.auto = proc:rw sys:rw cgroup-full:mixed:force
 
 # Network configuration
 lxc.net.0.type = veth

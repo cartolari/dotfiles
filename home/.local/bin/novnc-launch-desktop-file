@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+desktop_file=$1
+
+app_command=$(find \
+  ~/.local/share/applications \
+  /usr/share/applications \
+  -name "$desktop_file*.desktop" \
+  -exec grep -oP '(?<=^Exec=).*$' {} \; 2> /dev/null | \
+  sed 's/%f//g' | \
+  sed 's/"//g' | \
+  sed 's/%U//g'
+)
+
+exec $app_command

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+file_name_without_extension=$1
+
+find \
+  ~/.local/share/applications \
+  /usr/share/applications \
+  -name "$file_name_without_extension.desktop"

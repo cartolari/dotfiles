@@ -1,0 +1,22 @@
+[Unit]
+Description=NoVNC Xvnc for %i
+
+[Service]
+ExecStartPre=/bin/mkdir -p %T/novnc/%i
+ExecStartPre=/bin/bash -c "~/.local/bin/novnc-find-available-x11-display > %T/novnc/%i/display"
+ExecStartPre=cp %h/.local/share/novnc/default-environment %T/novnc/%i/environment
+ExecStartPre=/bin/bash -c "echo "DISPLAY=:$(~/.local/bin/novnc-find-available-x11-display)" >> %T/novnc/%i/environment"
+ExecStartPre=/bin/bash -c "cd ~/.local/share/novnc && npm i"
+ExecStartPre=cp %h/.local/share/novnc/index.html %T/novnc/%i/
+ExecStartPre=cp -r %h/.local/share/novnc/node_modules %T/novnc/%i/
+ExecStartPre=/bin/bash -c 'sed -i "s|__TITLE__|$(~/.local/bin/novnc-find-app-title %i)|" %T/novnc/%i/index.html'
+ExecStartPre=-%h/.local/share/npm/bin/svgexport /usr/share/icons/Papirus/64x64/apps/%i.svg %T/novnc/%i/favicon.png 256:256
+ExecStart=/bin/bash -c "Xvnc \
+  -SecurityTypes None \
+  -SetPrimary=0 \
+  -SendPrimary=0 \
+  -dpi 192 \
+  -depth 24 \
+  :$(cat %T/novnc/%i/display)"
+ExecStop=rm -rf %T/novnc/%i
+Restart=on-failure

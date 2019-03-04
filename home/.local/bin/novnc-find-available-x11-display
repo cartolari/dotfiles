@@ -1,0 +1,9 @@
+#!/bin/bash
+
+x11_display=10
+
+while [[ -e "/tmp/.X11-unix/X$x11_display" ]]; do
+  (( x11_display++ ))
+done
+
+echo $x11_display

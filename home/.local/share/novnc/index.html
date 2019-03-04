@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>__TITLE__</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+  <style type="text/css">
+    html { height: 100%; }
+    body { background-color: dimgrey; height: 100%; margin: 0; }
+  </style>
+
+  <script type="module" crossorigin="anonymous">
+    import RFB from './node_modules/@novnc/novnc/core/rfb.js';
+
+    let desktopName;
+    const scale = 2;
+
+    function disconnectedFromServer(e) {
+      if (e.detail.clean)
+        status('Disconnected');
+      else
+        status('Something went wrong, connection is closed');
+
+      setTimeout(() => location.reload(), 2000);
+    }
+
+    function status(text) {
+      console.log('Status = %s', text);
+    }
+
+    status('Connecting');
+
+    const rfb = new RFB(document.body, `wss://${location.hostname}/websockify`);
+    window.rfb = rfb;
+    rfb.viewOnly = false;
+    rfb.scaleViewport = true;
+    rfb.resizeSession = false;
+    rfb._display.changeCursor = rfb._display.defaultCursor;
+
+    const debounce = (fn, time) => {
+      let timeout;
+      return function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn.apply(this, arguments), time);
+      }
+    }
+
+    const resizeListener = debounce(() => {
+      RFB.messages.setDesktopSize(
+        rfb._sock,
+        document.body.clientWidth * scale,
+        document.body.clientHeight * scale,
+        rfb._screen_id,
+        rfb._screen_flags
+      );
+    }, 300);
+
+    rfb.addEventListener('connect', () => {
+      resizeListener();
+      window.addEventListener('resize', resizeListener);
+    });
+
+    rfb.addEventListener('connect', () => status('Connected to ' + desktopName));
+    rfb.addEventListener('disconnect', disconnectedFromServer);
+    rfb.addEventListener('desktopname', e => desktopName = e.detail.name);
+    rfb.addEventListener('clipboard', e => navigator.clipboard.writeText(e.detail.text));
+
+    let lastClipboardValue = '';
+    const clipboardWatcher = setInterval(() => {
+      navigator.clipboard.readText().then(text => {
+        if (lastClipboardValue === text) {
+          return;
+        }
+
+        rfb.clipboardPasteFrom(text);
+        lastClipboardValue = text;
+      }).catch(() => {});
+    }, 300);
+  </script>
+</head>
+
+<body>
+  <div id="screen"></div>
+</body>
+</html>

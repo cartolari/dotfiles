@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+
+chosen_app=$(find \
+  ~/.local/share/applications \
+  /usr/share/applications \
+  $(systemctl --user list-units | \
+    grep -oP '(?<=novnc-app@).*(?=\.service)' | \
+    sed 's/.*/-name &.desktop/' | \
+    paste -sd'|' | \
+    sed 's/|/ -o /g') | \
+  xargs grep -oPH '(?<=^Name=).*$' -m1 2> /dev/null | \
+  fzf -d ':' --with-nth=2
+)
+
+desktop_file_name=$(basename -s .desktop "$(cut -d':' -f1 <<< "$chosen_app")")
+systemctl stop --user "novnc-*@$desktop_file_name.service"
+systemctl reset-failed --user "novnc-*@$desktop_file_name.service"

@@ -4,3 +4,4 @@
 .config/npm
 .local/bin
 .config/systemd/user
+.local/share

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+chosen_app=$(find \
+  ~/.local/share/applications \
+  /usr/share/applications \
+  -name '*.desktop' \
+  -exec grep -oPH '(?<=^Name=).*$' {} -m1 \; 2> /dev/null | \
+  fzf -d ':' --with-nth=2
+)
+
+desktop_file_name=$(basename -s .desktop "$(cut -d':' -f1 <<< "$chosen_app")")
+systemctl start --user "novnc-app@$desktop_file_name.service"
+
+echo "Access $desktop_file_name.apps.localtest.me"

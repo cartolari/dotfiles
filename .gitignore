@@ -43,3 +43,5 @@ home/.emacs.d/url/
 
 # Ansible
 /provision/playbook.retry
+
+node_modules

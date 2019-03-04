@@ -1,0 +1,10 @@
+[Unit]
+Description=Setup loop devices
+
+[Service]
+ExecStart=/usr/local/lxc-scripts/setup-loop-devices.sh
+RemainAfterExit=false
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

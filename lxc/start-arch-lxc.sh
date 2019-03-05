@@ -100,7 +100,6 @@ lxc.mount.entry=/run/chrome/ opt/chrome none bind,optional,create=dir 0 0
 lxc.mount.entry=/home/chronos/user/.homesick/repos/chromebook-dotfiles/lxc/ usr/local/lxc-scripts none bind,optional,create=dir 0 0
 
 lxc.mount.entry = /dev/dri dev/dri none bind,optional,create=dir
-lxc.mount.entry = /dev/snd dev/snd none bind,optional,create=dir
 lxc.mount.entry = /dev/video0 dev/video0 none bind,optional,create=file
 
 lxc.mount.entry = /home/chronos/user/.homesick/repos/chromebook-dotfiles/lxc-systemd-services/mount-loop-devices.service etc/systemd/system/mount-loop-devices.service none bind,optional,create=file

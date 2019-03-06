@@ -50,10 +50,11 @@ fi
 if [[ ! -f "$CONTAINERS/arch.img" ]]; then
   prompt_confirmation "File $CONTAINERS/arch.img does not exist. Create it?"
 
-  for i in seq 1 8; do
-    time truncate -s +5G "$CONTAINERS/arch.img"
+  for i in seq 1 10; do
+    time dd if=/dev/zero bs=1M count=5000 | pv -s 5G -L 150M >> "$CONTAINERS/arch.img"
+    sleep 2
     time sync
-    sleep 3
+    sleep 15
   done
 fi
 chown -R chronos:chronos /home/chronos/user/containers

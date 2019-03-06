@@ -115,7 +115,7 @@ lxc.net.0.link = lxcbr0
 lxc.net.0.ipv4.address = 10.0.3.2/24
 lxc.net.0.ipv4.gateway = 10.0.3.1
 
-lxc.mount.entry=/home/chronos/user/Downloads/ home/bruno/Downloads none bind,optional,create=dir
+lxc.mount.entry=/home/chronos/user/Downloads/ home/cartolari/Downloads none bind,optional,create=dir
 lxc.mount.entry=/run/chrome/ opt/chrome none bind,optional,create=dir 0 0
 lxc.mount.entry=/home/chronos/user/.homesick/repos/chromebook-dotfiles/lxc/ usr/local/lxc-scripts none bind,optional,create=dir 0 0
 

@@ -4,11 +4,24 @@ set -xeuo pipefail
 IFS=$'\n\t'
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+CONTAINERS=/home/chronos/user/containers
 
 if [[ $EUID -ne 0 ]]; then
  echo "This script must be run as root" 1>&2
  exit 1
 fi
+
+prompt_confirmation() {
+  local question=$1
+
+  echo $question
+  read -r -p "$question [y/N] " response
+
+  if [[ ! "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
+    echo Cannot continue
+    exit 1
+  fi
+}
 
 # Network
 if ! grep -E '^USE_LXC_BRIDGE="true"' /usr/local/etc/default/lxc > /dev/null; then
@@ -33,22 +46,28 @@ fi
 
 # Storage
 [[ -d /home/chronos/user/containers ]] || mkdir -p /home/chronos/user/containers
+
+if [[ ! -f "$CONTAINERS/arch.img" ]]; then
+  prompt_confirmation "File $CONTAINERS/arch.img does not exist. Create it?"
+
+  for i in seq 1 8; do
+    time truncate -s +5G "$CONTAINERS/arch.img"
+    time sync
+    sleep 3
+  done
+fi
 chown -R chronos:chronos /home/chronos/user/containers
 
-modprobe nbd max_part=8
-[[ -f /home/chronos/user/containers/arch.qcow2 ]] ||
-  qemu-img create -f qcow2 /home/chronos/user/containers/arch.qcow2 30G
-[[ -e /dev/nbd0p1 ]] ||
-  qemu-nbd -c /dev/nbd0 -f qcow2 /home/chronos/user/containers/arch.qcow2
+time sync
 
-if [[ ! -e /dev/nbd0p1 ]]; then
-  sgdisk -n 1:0: /dev/nbd0
-  mkfs.ext4 /dev/nbd0p1
+if ! file /home/chronos/user/containers/arch.img | grep -i ext4 2> /dev/null; then
+  prompt_confirmation "File $CONTAINERS/arch.img does not have an EXT4 filesystem. Create it?"
+  mkfs.ext4 /home/chronos/user/containers/arch.img
 fi
 
 mkdir -p /usr/local/var/lib/lxc/arch/rootfs
 if ! mountpoint /usr/local/var/lib/lxc/arch/rootfs; then
-  mount /dev/nbd0p1 /usr/local/var/lib/lxc/arch/rootfs
+  mount /home/chronos/user/containers/arch.img /usr/local/var/lib/lxc/arch/rootfs
 fi
 
 # Container creation

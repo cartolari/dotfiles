@@ -2,8 +2,9 @@
 
 # pylint: disable=invalid-name
 
-from os import execvp
 from argparse import ArgumentParser
+from random import choice
+from os import execvp
 
 import boto3
 
@@ -41,11 +42,17 @@ session = boto3.Session(profile_name=args.profile, region_name=args.region)
 ec2 = session.client('ec2')
 beanstalk = session.client('elasticbeanstalk')
 environment_resources = beanstalk.describe_environment_resources(
-    EnvironmentName=args.environment
-)
-instance_id = environment_resources['EnvironmentResources']['Instances'][0]['Id']
-instance_info = ec2.describe_instances(InstanceIds=[instance_id])
-instance_ip = instance_info['Reservations'][0]['Instances'][0]['PublicIpAddress']
+        EnvironmentName=args.environment
+        )
+instance_ids = [x['Id'] for x in environment_resources['EnvironmentResources']['Instances']]
+instance_info = ec2.describe_instances(
+        Filters=[{
+            'Name': 'instance-state-name',
+            'Values': ['running']
+            }],
+        InstanceIds=instance_ids
+        )
+instance_ip = choice(instance_info['Reservations'][0]['Instances'])['PublicIpAddress']
 
 ssh_command_args = [
     ' ', '-i', args.ssh_key, '%s@%s' % (args.ssh_user, instance_ip)

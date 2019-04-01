@@ -20,7 +20,7 @@ ExecStart=/bin/bash -c "Xvnc \
   -SetPrimary=0 \
   -SendPrimary=0 \
   -dpi 192 \
-  -depth 24 \
+  -depth 16 \
   :$(cat %T/novnc/%i/display)"
 ExecStop=rm -rf %T/novnc/%i
 Restart=on-failure

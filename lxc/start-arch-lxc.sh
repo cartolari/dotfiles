@@ -121,6 +121,9 @@ lxc.mount.entry=/home/chronos/user/.homesick/repos/chromebook-dotfiles/lxc/ usr/
 
 lxc.mount.entry = /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry = /dev/video0 dev/video0 none bind,optional,create=file
+lxc.mount.entry = /dev/kvm dev/kvm none bind,optional,create=file
+lxc.mount.entry = /dev/vboxdrv dev/vboxdrv none bind,optional,create=file
+lxc.mount.entry = /dev/net dev/net none bind,optional,create=dir
 
 lxc.mount.entry = /home/chronos/user/.homesick/repos/chromebook-dotfiles/lxc-systemd-services/mount-loop-devices.service etc/systemd/system/mount-loop-devices.service none bind,optional,create=file
 EOF

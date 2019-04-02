@@ -5,7 +5,7 @@ Description=NoVNC Websockify for %i
 EnvironmentFile=%T/novnc/%i/environment
 ExecStartPre=-/usr/sbin/docker stop novnc-websockify-%i
 ExecStartPre=-/usr/sbin/docker rm -f novnc-websockify-%i
-ExecStartPre=/usr/sbin/docker pull efrecon/websockify
+ExecStartPre=-/usr/sbin/docker pull efrecon/websockify
 ExecStart=/bin/bash -c \
   "docker run \
   --name novnc-websockify-%i \

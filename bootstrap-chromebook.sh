@@ -161,13 +161,7 @@ echo Installing initial ArchLinux VM disk
 download_initial_vm_disk
 
 echo Installing services
-sudo cp upstart-services/arch-vm.conf /etc/init/arch-vm.conf
-sudo cp upstart-services/crouton-clipboard.conf /etc/init/crouton-clipboard.conf
-sudo cp upstart-services/forward-http.conf /etc/init/forward-http.conf
-sudo cp upstart-services/forward-https.conf /etc/init/forward-https.conf
-sudo cp upstart-services/sommelier-x1.conf /etc/init/sommelier-x1.conf
-sudo cp upstart-services/sommelier-x2.conf /etc/init/sommelier-x2.conf
-sudo cp upstart-services/enable-hdmi-audio.conf /etc/init/enable-hdmi-audio.conf
+sudo "$(which rsync)" -azvpu "$DIR/upstart-services/" /etc/init
 
 echo Installing Node.JS
 nodebrew install 8 || true

@@ -98,6 +98,3 @@ download_initial_vm_disk() {
 
 echo Installing initial ArchLinux VM disk
 download_initial_vm_disk
-
-[[ -f /usr/local/etc/qemu-ifup ]] || cp "$DIR/qemu-ifup" /usr/local/etc/qemu-ifup
-chmod +x /usr/local/etc/qemu-ifup

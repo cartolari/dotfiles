@@ -115,8 +115,6 @@ install_qemu_tools() {
 
 echo 'Installing QEMU tools (qemu-img qemu-nbd)'
 install_qemu_tools
-[[ -f /usr/local/etc/qemu-ifup ]] || cp "$DIR/qemu-ifup" /usr/local/etc/qemu-ifup
-chmod +x /usr/local/etc/qemu-ifup
 
 install_brctl() {
   if hash brctl; then

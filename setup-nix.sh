@@ -13,6 +13,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 echo 'Setting the filesystem to mount read/write...'
 sudo mount -o remount,rw /
+sudo mount -o remount,exec /tmp
 sudo mount -o remount,exec /mnt/stateful_partition
 sudo mount -i -o remount,exec /home/chronos/user
 

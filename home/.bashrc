@@ -5,10 +5,14 @@ if [[ $- != *i* ]] ; then
 fi
 
 export EDITOR=vim
-export PAGER=less
 export PATH=$PATH:/sbin
 export PATH=$PATH:/opt/VirtualBox
 
 if [ -f ~/.nix-profile/etc/bash_completion.d/git-completion.bash ]; then
   source ~/.nix-profile/etc/bash_completion.d/git-completion.bash
+fi
+
+export PAGER=more
+if hash less 2> /dev/null; then
+  export PAGER=less
 fi

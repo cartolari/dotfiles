@@ -47,6 +47,7 @@ nix-env -f "<nixpkgs>" -i -A openssh
 nix-env -f "<nixpkgs>" -i -A qemu
 nix-env -f "<nixpkgs>" -i -A rclone
 nix-env -f "<nixpkgs>" -i -A readline70
+nix-env -f "<nixpkgs>" -i -A ruby_2_6
 nix-env -f "<nixpkgs>" -i -A socat
 nix-env -f "<nixpkgs>" -i -A tig
 nix-env -f "<nixpkgs>" -i -A tmux

@@ -4,14 +4,11 @@ if [[ $- != *i* ]] ; then
   return
 fi
 
-export DISPLAY=:0
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export PAGER=/usr/local/bin/less
-export PATH=/usr/local/sbin:$PATH
+export EDITOR=vim
+export PAGER=less
 export PATH=$PATH:/sbin
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$PATH:/opt/VirtualBox
-# git completion
-if [ -f /usr/local/share/git-completion/git-completion.bash ]; then
-  source /usr/local/share/git-completion/git-completion.bash
+
+if [ -f ~/.nix-profile/etc/bash_completion.d/git-completion.bash ]; then
+  source ~/.nix-profile/etc/bash_completion.d/git-completion.bash
 fi

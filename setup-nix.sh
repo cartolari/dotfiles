@@ -26,6 +26,7 @@ fi
 
 if ! hash nix-env; then
   curl https://nixos.org/nix/install | sh
+  . /home/chronos/user/.nix-profile/etc/profile.d/nix.sh
 fi
 
 nix-env -f "<nixpkgs>" -i -A ag

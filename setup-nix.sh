@@ -32,6 +32,7 @@ nix-env -f "<nixpkgs>" -i -A augeas
 nix-env -f "<nixpkgs>" -i -A bridge-utils
 nix-env -f "<nixpkgs>" -i -A curl
 nix-env -f "<nixpkgs>" -i -A dnsmasq
+nix-env -f "<nixpkgs>" -i -A git
 nix-env -f "<nixpkgs>" -i -A gptfdisk
 nix-env -f "<nixpkgs>" -i -A htop
 nix-env -f "<nixpkgs>" -i -A inetutils

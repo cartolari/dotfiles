@@ -43,6 +43,8 @@ nix-env -f "<nixpkgs>" -i -A less
 nix-env -f "<nixpkgs>" -i -A libguestfs
 nix-env -f "<nixpkgs>" -i -A lxc
 nix-env -f "<nixpkgs>" -i -A lxd
+nix-env -f "<nixpkgs>" -i -A man
+nix-env -f "<nixpkgs>" -i -A man-pages
 nix-env -f "<nixpkgs>" -i -A nodejs-11_x
 nix-env -f "<nixpkgs>" -i -A openssh
 nix-env -f "<nixpkgs>" -i -A qemu

@@ -92,8 +92,6 @@ fi
 # Container startup
 if lxc-ls -f | grep -E '\barch\b' | grep STOPPED > /dev/null; then
   cat <<EOF > /usr/local/var/lib/lxc/arch/config
-# lxc.include = /usr/local/share/lxc/config/nesting.conf
-
 # Distribution configuration
 lxc.include = /usr/local/share/lxc/config/common.conf
 lxc.include = /usr/local/share/lxc/config/nesting.conf

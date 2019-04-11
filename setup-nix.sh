@@ -37,18 +37,15 @@ nix-env -f "<nixpkgs>" -i -A dnsmasq
 nix-env -f "<nixpkgs>" -i -A git
 nix-env -f "<nixpkgs>" -i -A gnused
 nix-env -f "<nixpkgs>" -i -A gptfdisk
-nix-env -f "<nixpkgs>" -i -A homesick
-nix-env --set-flag priority 10 homesick
-nix-env --set-flag priority 3 ruby
+nix-env -f "<nixpkgs>" -i -A homesick; nix-env --set-flag priority 10 homesick; nix-env --set-flag priority 3 ruby
 nix-env -f "<nixpkgs>" -i -A htop
 nix-env -f "<nixpkgs>" -i -A inetutils
 nix-env -f "<nixpkgs>" -i -A less
 nix-env -f "<nixpkgs>" -i -A libguestfs
 nix-env -f "<nixpkgs>" -i -A lxc
 nix-env -f "<nixpkgs>" -i -A lxd
-nix-env -f "<nixpkgs>" -i -A man
-nix-env --set-flag priority 4 man
 nix-env -f "<nixpkgs>" -i -A man-pages
+nix-env -f "<nixpkgs>" -i -A man; nix-env --set-flag priority 4 man
 nix-env -f "<nixpkgs>" -i -A nodejs-11_x
 nix-env -f "<nixpkgs>" -i -A openssh
 nix-env -f "<nixpkgs>" -i -A qemu

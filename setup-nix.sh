@@ -35,6 +35,7 @@ nix-env -f "<nixpkgs>" -i -A bridge-utils
 nix-env -f "<nixpkgs>" -i -A curl
 nix-env -f "<nixpkgs>" -i -A dnsmasq
 nix-env -f "<nixpkgs>" -i -A git
+nix-env -f "<nixpkgs>" -i -A gnused
 nix-env -f "<nixpkgs>" -i -A gptfdisk
 nix-env -f "<nixpkgs>" -i -A homesick
 nix-env --set-flag priority 10 homesick

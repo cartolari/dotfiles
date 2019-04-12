@@ -4,6 +4,8 @@ if [[ $- != *i* ]] ; then
   return
 fi
 
+shopt -s histappend
+
 export EDITOR=vim
 export PATH=$PATH:/sbin
 export PATH=$PATH:/opt/VirtualBox

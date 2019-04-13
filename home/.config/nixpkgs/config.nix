@@ -1,0 +1,40 @@
+{
+  packageOverrides = pkgs: with pkgs; {
+    myPackages = pkgs.buildEnv {
+      name = "my-packages";
+      paths = [
+        ag
+        augeas
+        bridge-utils
+        curl
+        dnsmasq
+        git
+        gnused
+        gptfdisk
+        homesick
+        htop
+        inetutils
+        less
+        libguestfs
+        lxc
+        lxd
+        man-pages
+        man
+        nodejs-11_x
+        openssh
+        qemu
+        rclone
+        readline70
+        (ruby_2_6.overrideAttrs (attrs: {
+          meta.priority = 3;
+        }))
+        socat
+        tig
+        tmux
+        wget
+        xorg.xset
+        zsh
+      ];
+    };
+  };
+}

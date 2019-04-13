@@ -17,6 +17,8 @@ sudo mount -o remount,exec /tmp
 sudo mount -o remount,exec /mnt/stateful_partition
 sudo mount -i -o remount,exec /home/chronos/user
 
+hash -r
+
 sudo "$DIR/mount-nix.sh"
 
 if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then

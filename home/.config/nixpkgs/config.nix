@@ -31,6 +31,7 @@
         socat
         tig
         tmux
+        vim
         wget
         xorg.xset
         zsh

@@ -9,7 +9,8 @@ fi
 
 TOUCHPAD_MINIMUM_PRESSURE='0.05'
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+REPO_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 
 echo 'Setting the filesystem to mount read/write...'
 sudo mount -o remount,rw /
@@ -39,7 +40,7 @@ fi
 
 mkdir -p ~/.config/nixpkgs
 [[ -e ~/.config/nixpkgs/config.nix ]] ||
-  ln -s "$DIR/home/.config/nixpkgs/config.nix" ~/.config/nixpkgs/config.nix
+  ln -s "$REPO_DIR/home/.config/nixpkgs/config.nix" ~/.config/nixpkgs/config.nix
 
 nix-env -f "<nixpkgs>" -iA myPackages
 
@@ -64,7 +65,7 @@ set -e
 sudo "$(which augtool)" -t 'Xorg incl /etc/gesture/*.conf' "$AUGEAS_SCRIPT"
 
 echo Installing services
-sudo "$(which rsync)" -azvpu "$DIR/upstart-services/" /etc/init
+sudo "$(which rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
 
 download_initial_vm_disk() {
   if [[ -f /home/chronos/user/vms/archlinux.img ]]; then

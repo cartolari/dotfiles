@@ -15,7 +15,8 @@ QEMU_VERSION='3.0.0'
 TOUCHPAD_MINIMUM_PRESSURE='0.05'
 XSET_VERSION='1.2.4'
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+REPO_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 
 if [ '0' = "$EUID" ]; then
   echo This script should not be ran as root
@@ -159,7 +160,7 @@ echo Installing initial ArchLinux VM disk
 download_initial_vm_disk
 
 echo Installing services
-sudo "$(which rsync)" -azvpu "$DIR/upstart-services/" /etc/init
+sudo "$(which rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
 
 echo Installing Node.JS
 nodebrew install 8 || true

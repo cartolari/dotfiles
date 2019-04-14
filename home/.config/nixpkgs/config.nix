@@ -15,7 +15,6 @@
         htop
         inetutils
         less
-        libguestfs
         lxc
         lxd
         man-pages

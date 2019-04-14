@@ -17,14 +17,20 @@ sudo mount -o remount,exec /tmp
 sudo mount -o remount,exec /mnt/stateful_partition
 sudo mount -i -o remount,exec /home/chronos/user
 
-hash -r
-
-sudo "$DIR/mount-nix.sh"
-
 if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
   echo Defining password for user chronos
   sudo passwd chronos
 fi
+
+mkdir -p /nix
+mkdir -p /home/chronos/user/nix
+if ! mountpoint /nix &> /dev/null; then
+  sudo mount --bind /home/chronos/user/nix /nix
+fi
+
+source ~/.bashrc
+
+hash -r
 
 if ! hash nix-env; then
   curl https://nixos.org/nix/install | sh

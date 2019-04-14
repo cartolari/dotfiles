@@ -31,35 +31,11 @@ if ! hash nix-env; then
   . /home/chronos/user/.nix-profile/etc/profile.d/nix.sh
 fi
 
-nix-env -f "<nixpkgs>" -i -A ag
-nix-env -f "<nixpkgs>" -i -A augeas
-nix-env -f "<nixpkgs>" -i -A bridge-utils
-nix-env -f "<nixpkgs>" -i -A curl
-nix-env -f "<nixpkgs>" -i -A dnsmasq
-nix-env -f "<nixpkgs>" -i -A git
-nix-env -f "<nixpkgs>" -i -A gnused
-nix-env -f "<nixpkgs>" -i -A gptfdisk
-nix-env -f "<nixpkgs>" -i -A homesick; nix-env --set-flag priority 15 homesick
-nix-env -f "<nixpkgs>" -i -A htop
-nix-env -f "<nixpkgs>" -i -A inetutils
-nix-env -f "<nixpkgs>" -i -A less
-nix-env -f "<nixpkgs>" -i -A libguestfs
-nix-env -f "<nixpkgs>" -i -A lxc
-nix-env -f "<nixpkgs>" -i -A lxd
-nix-env -f "<nixpkgs>" -i -A man-pages
-nix-env -f "<nixpkgs>" -i -A man
-nix-env -f "<nixpkgs>" -i -A nodejs-11_x
-nix-env -f "<nixpkgs>" -i -A openssh
-nix-env -f "<nixpkgs>" -i -A qemu
-nix-env -f "<nixpkgs>" -i -A rclone
-nix-env -f "<nixpkgs>" -i -A readline70
-nix-env -f "<nixpkgs>" -i -A ruby_2_6
-nix-env -f "<nixpkgs>" -i -A socat
-nix-env -f "<nixpkgs>" -i -A tig
-nix-env -f "<nixpkgs>" -i -A tmux
-nix-env -f "<nixpkgs>" -i -A wget
-nix-env -f "<nixpkgs>" -i -A xorg.xset
-nix-env -f "<nixpkgs>" -i -A zsh
+mkdir -p ~/.config/nixpkgs
+[[ -e ~/.config/nixpkgs/config.nix ]] ||
+  ln -s "$DIR/home/.config/nixpkgs/config.nix" ~/.config/nixpkgs/config.nix
+
+nix-env -f "<nixpkgs>" -iA myPackages
 
 echo Add power manager overrides
 # 4 hours

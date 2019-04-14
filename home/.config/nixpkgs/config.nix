@@ -8,6 +8,7 @@
         bridge-utils
         curl
         dnsmasq
+        file
         git
         gnused
         gptfdisk

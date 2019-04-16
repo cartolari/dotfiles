@@ -99,7 +99,7 @@ lxc-stop arch || true
 
 # Container startup
 if lxc-ls -f | grep -E '\barch\b' | grep STOPPED > /dev/null; then
-  rsync -azvpu "$DIR/arch/" /usr/local/var/lib/lxc/arch/
+  rsync -azvp "$DIR/arch/" /usr/local/var/lib/lxc/arch/
   mkdir -p /var/lib/lxc/rootfs
   lxc-start -n arch -l debug --logfile /dev/stdout
 fi

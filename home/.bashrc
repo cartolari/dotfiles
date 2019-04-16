@@ -9,6 +9,7 @@ shopt -s histappend
 export EDITOR=vim
 export PATH=$PATH:/sbin
 export PATH=$PATH:/opt/VirtualBox
+export LD_LIBRARY_PATH=
 
 if [ -f ~/.nix-profile/etc/bash_completion.d/git-completion.bash ]; then
   source ~/.nix-profile/etc/bash_completion.d/git-completion.bash

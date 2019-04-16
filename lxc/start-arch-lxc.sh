@@ -7,6 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 CONTAINERS=/home/chronos/user/containers
 LXC_PREFIX=/home/chronos/user/.nix-profile
 
+export LD_LIBRARY_PATH=
 export PATH=$LXC_PREFIX/bin:$PATH
 
 if [[ $EUID -ne 0 ]]; then

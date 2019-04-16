@@ -93,6 +93,8 @@ else
   echo LXC container is created
 fi
 
+lxc-stop arch || true
+
 . $DIR/mount-cgroups.sh
 
 # Container startup

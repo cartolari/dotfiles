@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+mkdir -p ~/.local/share/applications
+
 chosen_app=$(find \
   ~/.local/share/applications \
   /usr/share/applications \

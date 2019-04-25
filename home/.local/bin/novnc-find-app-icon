@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+desktop_entry_icon=$(\
+  find \
+  ~/.local/share/applications \
+  /usr/share/applications \
+  -name "$1.desktop" \
+  -exec grep -oP '(?<=^Icon=).*$' {} \; 2> /dev/null \
+  )
+
+if [[ "$desktop_entry_icon" =~ ^.*\.svg$ ]]; then
+  echo "$desktop_entry_icon"
+elif [[ -e "/usr/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg" ]]; then
+  echo "/usr/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg"
+fi

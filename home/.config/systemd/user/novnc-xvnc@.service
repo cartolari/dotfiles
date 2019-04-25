@@ -10,7 +10,7 @@ ExecStartPre=-/bin/bash -c "cd ~/.local/share/novnc && npm i"
 ExecStartPre=cp %h/.local/share/novnc/index.html %T/novnc/%i/
 ExecStartPre=cp -r %h/.local/share/novnc/node_modules %T/novnc/%i/
 ExecStartPre=/bin/bash -c 'sed -i "s|__TITLE__|$(~/.local/bin/novnc-find-app-title %i)|" %T/novnc/%i/index.html'
-ExecStartPre=-%h/.local/share/npm/bin/svgexport /usr/share/icons/Papirus/64x64/apps/%i.svg %T/novnc/%i/favicon.png 256:256
+ExecStartPre=-/bin/bash -c "%h/.local/share/npm/bin/svgexport $(%h/.local/bin/novnc-find-app-icon %i) %T/novnc/%i/favicon.png 256:256"
 ExecStart=/bin/bash -c "Xvnc \
   +extension COMPOSITE \
   +extension GLX \

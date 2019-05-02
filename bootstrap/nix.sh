@@ -23,14 +23,17 @@ if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
   sudo passwd chronos
 fi
 
-mkdir -p /nix
+sudo mkdir -p /nix
 mkdir -p /home/chronos/user/nix
 if ! mountpoint /nix &> /dev/null; then
   sudo mount --bind /home/chronos/user/nix /nix
 fi
 
-source ~/.bashrc
+if [[ -e /home/chronos/user/.nix-profile/etc/profile.d/nix.sh ]]; then
+  . /home/chronos/user/.nix-profile/etc/profile.d/nix.sh
+fi
 
+source ~/.bashrc
 hash -r
 
 if ! hash nix-env; then

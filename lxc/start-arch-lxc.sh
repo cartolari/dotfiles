@@ -73,9 +73,9 @@ if ! file /home/chronos/user/containers/arch.img | grep -i ext4 2> /dev/null; th
   mkfs.ext4 /home/chronos/user/containers/arch.img
 fi
 
-mkdir -p /usr/local/var/lib/lxc/arch/rootfs
-if ! mountpoint /usr/local/var/lib/lxc/arch/rootfs; then
-  mount /home/chronos/user/containers/arch.img /usr/local/var/lib/lxc/arch/rootfs
+mkdir -p /var/lib/lxc/arch/rootfs
+if ! mountpoint /var/lib/lxc/arch/rootfs; then
+  mount /home/chronos/user/containers/arch.img /var/lib/lxc/arch/rootfs
 fi
 
 # Container creation
@@ -99,7 +99,7 @@ lxc-stop arch || true
 
 # Container startup
 if lxc-ls -f | grep -E '\barch\b' | grep STOPPED > /dev/null; then
-  rsync -azvp "$DIR/arch/" /usr/local/var/lib/lxc/arch/
+  rsync -azvp "$DIR/arch/" /var/lib/lxc/arch/
   mkdir -p /var/lib/lxc/rootfs
   lxc-start -n arch -l debug --logfile /dev/stdout
 fi

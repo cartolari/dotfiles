@@ -69,23 +69,3 @@ sudo "$(which augtool)" -t 'Xorg incl /etc/gesture/*.conf' "$AUGEAS_SCRIPT"
 
 echo Installing services
 sudo "$(which rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
-
-download_initial_vm_disk() {
-  if [[ -f /home/chronos/user/vms/archlinux.img ]]; then
-    return
-  fi
-
-  # Get the previous fifth day of the month which is when
-  # ArchLinux images are released on VagrantCloud
-  local closest_fifth_day="$(date -d '4 days ago' +%Y.%m).05"
-  mkdir -p /home/chronos/user/vms
-  cd /home/chronos/user/Downloads
-  [[ -f libvirt.box ]] ||
-    wget "https://vagrantcloud.com/archlinux/boxes/archlinux/versions/$closest_fifth_day/providers/libvirt.box"
-  tar xf libvirt.box box.img
-  mv box.img /home/chronos/user/vms/archlinux.img
-  qemu-img resize /home/chronos/user/vms/archlinux.img 60G
-}
-
-echo Installing initial ArchLinux VM disk
-download_initial_vm_disk

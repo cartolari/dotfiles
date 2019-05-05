@@ -1,3 +1,10 @@
+if ! type isgrml > /dev/null; then
+  [[ -e /etc/zsh/zshrc ]] && . /etc/zsh/zshrc
+fi
+if [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
+  . ~/.nix-profile/etc/profile.d/nix.sh
+fi
+export PATH=$HOME/.local/bin:$PATH
 fc -p $XDG_DATA_HOME/zsh_history
 
 source $XDG_CONFIG_HOME/zsh-custom/aliases.zsh

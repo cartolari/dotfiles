@@ -35,7 +35,9 @@
         socat
         tig
         tmux
-        vim
+        (vimHugeX.overrideAttrs (attrs: {
+          meta.priority = 3;
+        }))
         wget
         xorg.xset
         zsh

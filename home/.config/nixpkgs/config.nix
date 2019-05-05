@@ -9,6 +9,7 @@
         curl
         dnsmasq
         file
+        fuse
         git
         gnused
         gptfdisk

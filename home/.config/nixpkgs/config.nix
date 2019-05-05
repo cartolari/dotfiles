@@ -42,6 +42,7 @@
         openssh
         papirus-icon-theme
         python
+        python27Packages.supervisor
         python3
         qemu
         rclone

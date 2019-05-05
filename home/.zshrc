@@ -1,5 +1,5 @@
 if ! type isgrml > /dev/null; then
-  [[ -e /etc/zsh/zshrc ]] && . /etc/zsh/zshrc
+  [[ -e ~/.nix-profile/etc/zsh/zshrc ]] && . ~/.nix-profile/etc/zsh/zshrc
 fi
 if [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
   . ~/.nix-profile/etc/profile.d/nix.sh

@@ -4,6 +4,7 @@
       name = "my-packages";
       paths = [
         ag
+        appimage-run
         augeas
         bridge-utils
         curl

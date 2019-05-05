@@ -2,10 +2,14 @@
 
 set -euo pipefail
 
+mkdir -p ~/.local/share/applications
+mkdir -p ~/.nix-profile/share/applications
+
 desktop_file=$1
 
 app_command=$(find \
   ~/.local/share/applications \
+  ~/.nix-profile/share/applications \
   /usr/share/applications \
   -name "$desktop_file*.desktop" \
   -exec grep -oP '(?<=^Exec=).*$' {} \; 2> /dev/null | \

@@ -2,11 +2,14 @@
 
 set -euo pipefail
 
+mkdir -p ~/.local/share/applications
+mkdir -p ~/.nix-profile/share/applications
+
 chosen_app=$(find \
   ~/.local/share/applications \
+  ~/.nix-profile/share/applications \
   /usr/share/applications \
-  $(systemctl --user list-units | \
-    grep -oP '(?<=novnc-app@).*(?=\.service)' | \
+  $(ls -1 /tmp/novnc | \
     sed 's/.*/-name &.desktop/' | \
     paste -sd'|' | \
     sed 's/|/ -o /g') | \
@@ -15,5 +18,7 @@ chosen_app=$(find \
 )
 
 desktop_file_name=$(basename -s .desktop "$(cut -d':' -f1 <<< "$chosen_app")")
-systemctl stop --user "novnc-*@$desktop_file_name.service"
-systemctl reset-failed --user "novnc-*@$desktop_file_name.service"
+cd "/tmp/novnc/$desktop_file_name"
+supervisorctl stop all; kill "$(cat supervisord.pid)"
+cd /tmp
+rm -rf "/tmp/novnc/$desktop_file_name"

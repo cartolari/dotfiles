@@ -3,9 +3,11 @@
 set -euo pipefail
 
 mkdir -p ~/.local/share/applications
+mkdir -p ~/.nix-profile/share/applications
 
 chosen_app=$(find \
   ~/.local/share/applications \
+  ~/.nix-profile/share/applications \
   /usr/share/applications \
   -name '*.desktop' \
   -exec grep -oPH '(?<=^Name=).*$' {} -m1 \; 2> /dev/null | \
@@ -13,6 +15,25 @@ chosen_app=$(find \
 )
 
 desktop_file_name=$(basename -s .desktop "$(cut -d':' -f1 <<< "$chosen_app")")
-systemctl start --user "novnc-app@$desktop_file_name.service"
+
+cd ~/.local/share/novnc && (npm i || true)
+
+mkdir -p "/tmp/novnc/$desktop_file_name"
+cd "/tmp/novnc/$desktop_file_name"
+
+novnc-find-available-x11-display > display
+cp ~/.local/share/novnc/default-environment environment
+echo "DISPLAY=:$(~/.local/bin/novnc-find-available-x11-display)" >> environment
+
+cp ~/.local/share/novnc/index.html .
+cp -r ~/.local/share/novnc/node_modules .
+sed -i "s|__TITLE__|$(novnc-find-app-title "$desktop_file_name")|" index.html
+svgexport "$(novnc-find-app-icon "$desktop_file_name")" favicon.png 256:256
+
+cp ~/.local/share/novnc/supervisord.conf .
+sed -i "s|__APP__|$desktop_file_name|" supervisord.conf
+mkdir -p logs
+
+supervisord -c supervisord.conf
 
 echo "Access $desktop_file_name.apps.localtest.me"

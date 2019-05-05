@@ -10,6 +10,7 @@
         dnsmasq
         file
         fuse
+        fzf
         git
         gnused
         gptfdisk

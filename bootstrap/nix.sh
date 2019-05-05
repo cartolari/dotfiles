@@ -70,6 +70,8 @@ sudo "$(which augtool)" -t 'Xorg incl /etc/gesture/*.conf' "$AUGEAS_SCRIPT"
 echo Installing services
 sudo "$(which rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
 
+sudo cp "$REPO_DIR/bootstrap/30-crosh-custom.sh" /usr/share/crosh/dev.d/
+
 echo Creating system groups
 sudo groupadd -f docker
 sudo groupadd -f input

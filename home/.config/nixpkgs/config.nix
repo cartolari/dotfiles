@@ -6,6 +6,7 @@
         ag
         appimage-run
         augeas
+        autojump
         bridge-utils
         curl
         dnsmasq

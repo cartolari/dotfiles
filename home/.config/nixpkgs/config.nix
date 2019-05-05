@@ -19,8 +19,8 @@
         less
         lxc
         lxd
-        man-pages
         man
+        man-pages
         nodejs-11_x
         openssh
         qemu

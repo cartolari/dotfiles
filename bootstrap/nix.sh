@@ -69,3 +69,12 @@ sudo "$(which augtool)" -t 'Xorg incl /etc/gesture/*.conf' "$AUGEAS_SCRIPT"
 
 echo Installing services
 sudo "$(which rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
+
+echo Creating system groups
+sudo groupadd -f docker
+sudo groupadd -f input
+sudo groupadd -f kvm
+sudo groupadd -f libvirt
+sudo groupadd -f vboxusers
+
+sudo usermod -aG docker,input,kvm,libvirt,vboxusers $USER

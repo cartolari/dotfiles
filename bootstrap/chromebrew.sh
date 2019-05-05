@@ -4,7 +4,7 @@ set -euo pipefail
 
 AUGEAS_VERSION=1.11.0
 BRIDGE_UTILS_VERSION=1.6
-CHROMEBREW_PACKAGES='ag chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh readline7 socat sommelier tmux wget zsh'
+CHROMEBREW_PACKAGES='ag chromebrew_scripts gptfdisk htop inetutils less nodebrew openssh readline socat tmux wget zsh'
 DNSMASQ_VERSION='2.79'
 LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/lib:/lib64
 LXC_BUILD_DIR=/tmp/lxc-src

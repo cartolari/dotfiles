@@ -37,6 +37,7 @@
         socat
         tig
         tmux
+        tree
         (vimHugeX.overrideAttrs (attrs: {
           meta.priority = 3;
         }))

@@ -6,7 +6,9 @@
         ag
         appimage-run
         augeas
-        autojump
+        (autojump.overrideAttrs (attrs: {
+          meta.priority = 3;
+        }))
         bridge-utils
         curl
         dnsmasq

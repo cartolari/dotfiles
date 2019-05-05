@@ -4,6 +4,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_LIB_HOME=$HOME/.local/lib
 
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
 export GRML_ALWAYS_LOAD_ALL=1
 export COMPDUMPFILE=$XDG_CACHE_HOME/zcompdump
 

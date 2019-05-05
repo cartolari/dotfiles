@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-exec "$(which --skip-alias --skip-tilde ag)" \
+exec "$(which -a --skip-alias ag | grep -v '.local/bin/' | head -n1)" \
   -p "$XDG_CONFIG_HOME/agignore" "$@"

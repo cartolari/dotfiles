@@ -12,6 +12,8 @@
         bridge-utils
         curl
         dnsmasq
+        docker
+        docker-compose
         file
         fuse
         fzf

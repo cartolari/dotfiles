@@ -17,6 +17,8 @@ export VAGRANT_HOME=$XDG_CONFIG_HOME/vagrant
 export FZF_DEFAULT_COMMAND='ag --hidden -l -g ""'
 export FZF_CTRL_T_COMMAND='ag --hidden -l -g ""'
 
+export LOCALE_ARCHIVE=/usr/lib64/locale/locale-archive
+
 export GOPATH=~/go
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1

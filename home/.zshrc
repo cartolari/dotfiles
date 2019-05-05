@@ -7,6 +7,10 @@ fi
 export PATH=$HOME/.local/bin:$PATH
 fc -p $XDG_DATA_HOME/zsh_history
 
+if [[ -z $MANPATH ]]; then
+  export MANPATH=~/.nix-profile/share/man
+fi
+
 source $XDG_CONFIG_HOME/zsh-custom/aliases.zsh
 
 # Disable software control flow

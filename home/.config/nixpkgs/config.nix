@@ -25,6 +25,7 @@
         gnused
         go
         gptfdisk
+        gnugrep
         grml-zsh-config
         homesick
         htop

@@ -41,8 +41,14 @@ source_if_exists ~/.nix-profile/share/fzf/completion.zsh
 source_if_exists /usr/share/fzf/key-bindings.zsh
 source_if_exists ~/.nix-profile/share/fzf/key-bindings.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source_if_exists ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source_if_exists ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/doc/find-the-command/ftc.zsh
+source_if_exists ~/.nix-profile/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh
+
+fpath=(~/.nix-profile/share/zsh/site-functions/ $fpath)
+autoload -U compinit && compinit
 
 # Restore ALT-C binding overwritten by FZF
 bindkey '\ec' capitalize-word

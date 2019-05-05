@@ -18,6 +18,7 @@
         git
         gnused
         gptfdisk
+        grml-zsh-config
         homesick
         htop
         inetutils
@@ -44,6 +45,8 @@
         wget
         xorg.xset
         zsh
+        zsh-autosuggestions
+        zsh-syntax-highlighting
       ];
     };
   };

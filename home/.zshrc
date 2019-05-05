@@ -50,6 +50,7 @@ source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highl
 source_if_exists ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/doc/find-the-command/ftc.zsh
 source_if_exists ~/.nix-profile/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh
+source_if_exists ~/.nix-profile/share/autojump/autojump.zsh
 
 fpath=(~/.nix-profile/share/zsh/site-functions/ $fpath)
 autoload -U compinit && compinit

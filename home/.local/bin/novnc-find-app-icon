@@ -25,4 +25,6 @@ elif [[ -e "/usr/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg" ]]; the
   echo "/usr/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg"
 elif [[ -e "$HOME/.nix-profile/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg" ]]; then
   echo "$HOME/.nix-profile/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg"
+else
+  echo "$desktop_entry_icon"
 fi

@@ -20,5 +20,6 @@ chosen_app=$(find \
 desktop_file_name=$(basename -s .desktop "$(cut -d':' -f1 <<< "$chosen_app")")
 cd "/tmp/novnc/$desktop_file_name"
 supervisorctl stop all; kill "$(cat supervisord.pid)"
+docker rm -f "novnc-websockify-$desktop_file_name"
 cd /tmp
 rm -rf "/tmp/novnc/$desktop_file_name"

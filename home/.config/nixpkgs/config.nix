@@ -31,6 +31,7 @@
         homesick
         htop
         inetutils
+        jetbrains.jdk
         less
         lxc
         lxd
@@ -70,6 +71,8 @@
           meta.priority = 3;
         }))
         wget
+        xorg.libXtst
+        xorg.libXi
         xorg.xset
         zip
         zsh

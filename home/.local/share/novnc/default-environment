@@ -1,4 +1,4 @@
 FONTCONFIG_FILE=/home/chronos/user/.homesick/repos/chromebook-dotfiles/font-config/local.conf
 GDK_SCALE=2
-GKD_BACKEND=x11
+GDK_BACKEND=x11
 QT_SCALE_FACTOR=2

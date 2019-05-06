@@ -2,16 +2,27 @@
 
 set -euo pipefail
 
+mkdir -p ~/.local/share/applications
+mkdir -p ~/.nix-profile/share/applications
+mkdir -p ~/.nix-profile/share/icons
+
 desktop_entry_icon=$(\
   find \
   ~/.local/share/applications \
+  ~/.nix-profile/share/applications \
   /usr/share/applications \
   -name "$1.desktop" \
   -exec grep -oP '(?<=^Icon=).*$' {} \; 2> /dev/null \
   )
 
+if [[ "$desktop_entry_icon" = '' ]]; then
+  desktop_entry_icon=$1
+fi
+
 if [[ "$desktop_entry_icon" =~ ^.*\.svg$ ]]; then
   echo "$desktop_entry_icon"
 elif [[ -e "/usr/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg" ]]; then
   echo "/usr/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg"
+elif [[ -e "$HOME/.nix-profile/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg" ]]; then
+  echo "$HOME/.nix-profile/share/icons/Papirus/64x64/apps/$desktop_entry_icon.svg"
 fi

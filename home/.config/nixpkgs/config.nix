@@ -10,6 +10,7 @@
         (autojump.overrideAttrs (attrs: {
           meta.priority = 3;
         }))
+        awscli
         bridge-utils
         cloc
         curl

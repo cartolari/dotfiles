@@ -10,7 +10,6 @@
         (autojump.overrideAttrs (attrs: {
           meta.priority = 3;
         }))
-        awscli
         bridge-utils
         cloc
         curl
@@ -47,6 +46,7 @@
         python
         python27Packages.supervisor
         python3
+        python37Packages.pip
         qemu
         rclone
         rclone-browser

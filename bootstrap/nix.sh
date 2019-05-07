@@ -53,11 +53,6 @@ echo '14400000' | sudo tee /var/lib/power_manager/plugged_suspend_ms
 sudo chown -R power:power /var/lib/power_manager/
 sudo restart powerd
 
-if [[ ! -f /etc/zsh/zshrc ]]; then
-  sudo mkdir -p /etc/zsh
-  sudo "$(which wget)" -O /etc/zsh/zshrc "https://git.grml.org/?p=grml-etc-core.git;a=blob_plain;f=etc/zsh/zshrc;hb=HEAD"
-fi
-
 set +e
 read -r -d '' AUGEAS_SCRIPT <<EOF
 set etc/gesture/40-touchpad-cmt.conf/InputClass[Identifier = "CMT for Synaptics Touchpad"]/Option[. = "Tap Minimum Pressure"] "Tap Minimum Pressure"

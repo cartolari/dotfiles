@@ -44,9 +44,10 @@
         openssh
         papirus-icon-theme
         python
-        python27Packages.supervisor
+        python2Packages.supervisor
         python3
-        python37Packages.pip
+        python3Packages.pip
+        python3Packages.setuptools
         qemu
         rclone
         rclone-browser

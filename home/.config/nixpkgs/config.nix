@@ -70,8 +70,9 @@
         tree
         unzip
         vagrant
-        (vimHugeX.overrideAttrs (attrs: {
+        (vim_configurable.override (attrs: {
           meta.priority = 3;
+          python = python3;
         }))
         wget
         xorg.libXtst

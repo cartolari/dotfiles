@@ -24,9 +24,13 @@ endif
   Plug 'omnisharp/omnisharp-vim'
   Plug 'sirver/ultisnips'
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
-  Plug 'valloric/youcompleteme', {
-        \ 'do': 'rm -rf third_party/ycmd/ycmd/completers/cs && python3 install.py --clang-completer --gocode-completer --tern-completer'
-        \ }
+  if isdirectory(expand('~/.nix-profile/share/vim-plugins/youcompleteme'))
+    Plug '~/.nix-profile/share/vim-plugins/youcompleteme'
+  else
+    Plug 'valloric/youcompleteme', {
+          \ 'do': 'rm -rf third_party/ycmd/ycmd/completers/cs && python3 install.py --clang-completer --gocode-completer --tern-completer'
+          \ }
+  end
 " }}}
 
 " File and Search {{{

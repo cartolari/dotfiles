@@ -36,6 +36,7 @@ endif
 " File and Search {{{
   Plug 'dyng/ctrlsf.vim'
   Plug 'henrik/vim-indexed-search'
+  Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'shougo/denite.nvim'
 " }}}

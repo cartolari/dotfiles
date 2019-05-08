@@ -13,6 +13,7 @@
         awscli
         bridge-utils
         cloc
+        cryptsetup
         curl
         dnsmasq
         docker

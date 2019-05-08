@@ -70,6 +70,7 @@
         tree
         unzip
         vagrant
+        vimPlugins.youcompleteme
         (vim_configurable.override (attrs: {
           meta.priority = 3;
           python = python3;

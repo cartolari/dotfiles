@@ -4,6 +4,7 @@
     myPackages = pkgs.buildEnv {
       name = "my-packages";
       paths = [
+        adapta-gtk-theme
         ag
         appimage-run
         augeas

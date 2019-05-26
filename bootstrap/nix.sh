@@ -126,3 +126,7 @@ sudo chown chronos:chronos ~/Downloads/code
 if ! mountpoint /dev/mapper/code > /dev/null; then
   sudo mount /dev/mapper/code ~/Downloads/code
 fi
+
+if ! [[ -e /etc/sysctl.d/99-custom.conf ]]; then
+  echo 'fs.inotify.max_user_watches = 524288' > /etc/sysctl.d/99-custom.conf
+fi

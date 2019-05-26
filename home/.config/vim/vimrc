@@ -69,6 +69,7 @@ set splitright
 set updatetime=250
 set colorcolumn=80
 set termguicolors
+set modeline
 if has('pythonx')
   set pyxversion=3
 endif

@@ -68,6 +68,7 @@
         terraform
         tig
         tigervnc
+        tint2
         tmux
         tree
         unzip

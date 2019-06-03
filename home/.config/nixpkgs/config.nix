@@ -14,6 +14,7 @@
         awscli
         bridge-utils
         cloc
+        compton
         cryptsetup
         curl
         dnsmasq

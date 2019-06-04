@@ -82,8 +82,9 @@ sudo groupadd -f input
 sudo groupadd -f kvm
 sudo groupadd -f libvirt
 sudo groupadd -f vboxusers
+sudo groupadd -f virtaccess
 
-sudo usermod -aG docker,fuse,input,kvm,libvirt,vboxusers "$USER"
+sudo usermod -aG docker,fuse,input,kvm,libvirt,vboxusers,virtaccess "$USER"
 
 # Prepare code.img for Docker because it can't properly map volumes on eCryptFS
 if [[ ! -e $CODE_IMG_FILE ]]; then

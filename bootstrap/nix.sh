@@ -73,6 +73,7 @@ sudo "$(command -v rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
 
 sudo cp "$REPO_DIR/bootstrap/30-crosh-custom.sh" /usr/share/crosh/dev.d/
 sudo cp "$REPO_DIR/bootstrap/51-android.rules" /etc/udev/rules.d/
+sudo cp "$REPO_DIR/bootstrap/99-kvm.rules" /etc/udev/rules.d/
 
 echo Creating system groups
 sudo groupadd -f docker

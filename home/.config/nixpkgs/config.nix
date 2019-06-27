@@ -6,7 +6,6 @@
       paths = [
         adapta-gtk-theme
         ag
-        appimage-run
         augeas
         (autojump.overrideAttrs (attrs: {
           meta.priority = 3;
@@ -34,10 +33,7 @@
         homesick
         htop
         inetutils
-        jetbrains.jdk
         less
-        lxc
-        lxd
         man
         man-pages
         ncurses5
@@ -79,9 +75,6 @@
           python = python3;
         }))
         wget
-        xorg.libXtst
-        xorg.libXi
-        xorg.xset
         zip
         zsh
         zsh-autosuggestions

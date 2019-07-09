@@ -12,8 +12,8 @@ TOUCHPAD_MINIMUM_PRESSURE='0.05'
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 REPO_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 
-CODE_IMG_FILE=/mnt/stateful_partition/code.img
-CODE_KEY_FILE="$HOME/.code-keyfile"
+CROUTON_IMG_FILE=/mnt/stateful_partition/crouton.img
+CROUTON_KEY_FILE="$HOME/.crouton-keyfile"
 
 # shellcheck source=./functions.sh
 . "$SCRIPT_DIR/functions.sh"
@@ -86,47 +86,43 @@ sudo groupadd -f virtaccess
 
 sudo usermod -aG docker,fuse,input,kvm,libvirt,vboxusers,virtaccess "$USER"
 
-# Prepare code.img for Docker because it can't properly map volumes on eCryptFS
-if [[ ! -e $CODE_IMG_FILE ]]; then
-  prompt_confirmation "File ~/code.img doesn't exist create it?"
-  sudo truncate -s 20G "$CODE_IMG_FILE"
+if [[ ! -e $CROUTON_IMG_FILE ]]; then
+  prompt_confirmation "File $CROUTON_IMG_FILE doesn't exist create it?"
+  sudo truncate -s 35G "$CROUTON_IMG_FILE"
 fi
 
-if [[ ! -e $CODE_KEY_FILE ]]; then
-  prompt_confirmation "File $CODE_KEY_FILE doesn't exist create it?"
-  dd if=/dev/urandom of="$CODE_KEY_FILE" bs=1024 count=4
+if [[ ! -e $CROUTON_KEY_FILE ]]; then
+  prompt_confirmation "File $CROUTON_KEY_FILE doesn't exist create it?"
+  dd if=/dev/urandom of="$CROUTON_KEY_FILE" bs=1024 count=4
 fi
 
-if ! sudo "$(command -v cryptsetup)" -v luksOpen --test-passphrase --key-file "$CODE_KEY_FILE" "$CODE_IMG_FILE"; then
-  echo Could not detect a dm-crypt partition in $CODE_IMG_FILE. Create it?
+if ! sudo "$(command -v cryptsetup)" -v luksOpen --test-passphrase --key-file "$CROUTON_KEY_FILE" "$CROUTON_IMG_FILE"; then
+  echo Could not detect a dm-crypt partition in $CROUTON_IMG_FILE. Create it?
   sudo "$(command -v cryptsetup)" -v \
     --cipher aes-xts-plain64 \
     --hash sha256 \
     --iter-time 3000 \
-    --key-file "$CODE_KEY_FILE" \
+    --key-file "$CROUTON_KEY_FILE" \
     --key-size 512 \
     --use-random \
     luksFormat \
-    "$CODE_IMG_FILE"
+    "$CROUTON_IMG_FILE"
 
   echo Created Encrypted partition. To add a password independent of the key file run:
-  echo sudo cryptsetup luksAddKey --key-file "$CODE_KEY_FILE" "$CODE_IMG_FILE"
+  echo sudo cryptsetup luksAddKey --key-file "$CROUTON_KEY_FILE" "$CROUTON_IMG_FILE"
 fi
 
-if [[ ! -e /dev/mapper/code ]]; then
-  sudo "$(command -v cryptsetup)" luksOpen --key-file "$CODE_KEY_FILE" "$CODE_IMG_FILE" code
+if [[ ! -e /dev/mapper/crouton ]]; then
+  sudo "$(command -v cryptsetup)" luksOpen --key-file "$CROUTON_KEY_FILE" "$CROUTON_IMG_FILE" crouton
 fi
 
-if ! sudo file -sL /dev/mapper/code | grep ext4; then
-  prompt_confirmation No ext4 filesystem detected on $CODE_IMG_FILE. Create one?
-  sudo mkfs.ext4 /dev/mapper/code
+if ! sudo file -sL /dev/mapper/crouton | grep ext4; then
+  prompt_confirmation No ext4 filesystem detected on $CROUTON_IMG_FILE. Create one?
+  sudo mkfs.ext4 /dev/mapper/crouton
 fi
 
-mkdir -p ~/Downloads/code
-sudo chown chronos:chronos ~/Downloads/code
-
-if ! mountpoint /dev/mapper/code > /dev/null; then
-  sudo mount /dev/mapper/code ~/Downloads/code
+if ! mountpoint /dev/mapper/crouton > /dev/null; then
+  sudo mount /dev/mapper/crouton /mnt/stateful_partition/crouton
 fi
 
 if ! [[ -e /etc/sysctl.d/99-custom.conf ]]; then

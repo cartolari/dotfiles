@@ -95,11 +95,6 @@ if ! hash docker-compose; then
     sudo install -T /dev/stdin /usr/local/bin/docker-compose
 fi
 
-if ! hash docker-machine; then
-  curl -L "https://github.com/docker/machine/releases/download/v0.16.1/docker-machine-$(uname -s)-$(uname -m)" |
-    sudo install -T /dev/stdin /usr/local/bin/docker-machine
-fi
-
 hash -r
 
 echo Unison Install
@@ -117,29 +112,7 @@ if [[ ! -f ~/.local/bin/unison ]]; then
 	cp src/unison src/unison-fsmonitor ~/.local/bin
 fi
 
-echo Docker VM Setup
-if ! docker-machine ls --filter name=default | grep -q '^default'; then
-  docker-machine create \
-    --driver virtualbox \
-    --virtualbox-cpu-count 2 \
-    --virtualbox-disk-size 40000 \
-    --virtualbox-memory 4096 \
-    default
-fi
-
-if ! docker-machine ls --filter name=default --filter state=Running | grep -q '^default'; then
-  docker-machine start default
-fi
-
-docker-machine scp -q ~/.local/bin/unison default:~/
-docker-machine scp -q ~/.local/bin/unison-fsmonitor default:~/
-docker-machine ssh default mkdir -p "/home/$USER/default"
-
-# shellcheck disable=SC2088
-docker-machine ssh default sudo cp '~/unison*' /usr/local/bin
-
 echo Unison Config Setup
-
 # Unison config
 mkdir -p ~/.unison
 
@@ -150,51 +123,8 @@ confirmbigdel=true
 repeat = watch
 
 root = /home/$USER/code
-root = socket://192.168.99.101:9090//home/$USER/code
+root = socket://10.0.2.2:9090//home/$USER/code
 EOF
-
-cat <<'EOF' > /tmp/unison-socket-daemon
-#!/bin/sh
-
-start() {
-  if [ -e /var/run/unison.pid ]; then
-    echo Unison is already running
-    exit 0
-  fi
-  start-stop-daemon --start --exec /usr/local/bin/unison -socket 9090 &> /tmp/unison.log
-}
-
-stop() {
-  kill $(pidof unison)
-}
-
-status() {
-  if [ -e /var/run/unison.pid ]; then
-    echo -e "\nunison is running.\n"
-    exit 0
-  else
-    echo -e "\nunison is not running.\n"
-    exit 1
-  fi
-}
-
-case $1 in
-  start) start
-    ;;
-  stop) stop
-    ;;
-  status) status
-    ;;
-  restart) stop; start
-    ;;
-  *) echo -e "\n$0 [start|stop|restart|status]\n"
-    ;;
-esac
-EOF
-
-chmod +x /tmp/unison-socket-daemon
-docker-machine scp /tmp/unison-socket-daemon default:/tmp/unison
-docker-machine ssh default sudo mv /tmp/unison /usr/local/etc/init.d/unison
 
 echo FZF
 if ! hash fzf; then

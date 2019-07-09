@@ -12,6 +12,8 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+DIR="$( cd "$(dirname "$0")" ; pwd -P  )"
+
 echo Installing essential packages
 sudo apt update
 sudo apt install -y \
@@ -93,6 +95,24 @@ if ! hash docker-compose; then
     -L \
     "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" | \
     sudo install -T /dev/stdin /usr/local/bin/docker-compose
+fi
+
+mkdir -p ~/.local/share/docker-vm
+cd ~/.local/share/docker-vm
+if [[ ! -f bionic-server-cloudimg-amd64.img ]]; then
+  curl -L https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img > bionic-server-cloudimg-amd64.img
+fi
+
+if [[ ! -f disk.img ]]; then
+  qemu-img create -b bionic-server-cloudimg-amd64.img -f qcow2 disk.img
+fi
+
+if [[ ! -f seed.iso ]]; then
+  (
+    cd "$DIR/docker-vm/seed"
+    genisoimage -output seed.iso -volid cidata -joliet -rock .
+    mv seed.iso ~/.local/share/docker-vm/seed.iso
+  )
 fi
 
 hash -r

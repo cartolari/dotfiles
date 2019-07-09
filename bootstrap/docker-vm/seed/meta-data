@@ -1,0 +1,2 @@
+instance-id: docker-vm
+local-hostname: docker-vm

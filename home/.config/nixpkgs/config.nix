@@ -12,6 +12,7 @@
         }))
         awscli
         bridge-utils
+        cdrkit
         cloc
         compton
         cryptsetup

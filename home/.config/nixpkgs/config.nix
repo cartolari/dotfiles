@@ -62,6 +62,7 @@
         shellcheck
         socat
         sqlite
+        sshpass
         terraform
         tig
         tigervnc

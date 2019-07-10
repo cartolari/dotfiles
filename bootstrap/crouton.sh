@@ -153,8 +153,8 @@ EOF
 
 echo FZF
 if ! hash fzf; then
-  sudo curl -SsLo /usr/local/bin/fzf \
-    https://github.com/junegunn/fzf-bin/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tgz
+  curl -SsL https://github.com/junegunn/fzf-bin/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tgz \ |
+    gunzip > /usr/local/bin/fzf
 fi
 
 if ! hash rg; then

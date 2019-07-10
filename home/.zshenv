@@ -36,3 +36,5 @@ export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$XDG_DATA_HOME/npm/bin
 export PATH=$PATH:/usr/bin/core_perl
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
+export DOCKER_HOST=tcp://10.0.2.2:2376

@@ -49,6 +49,7 @@ sudo apt install -y \
   exuberant-ctags \
   git \
   git-lfs \
+  golang-go \
   homesick \
   htop \
   inotify-tools \

@@ -75,6 +75,7 @@ sudo apt install -y \
   tmux \
   tree \
   vagrant \
+  vim-gtk \
   zsh \
   zsh-syntax-highlighting
 

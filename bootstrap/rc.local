@@ -4,8 +4,8 @@ mkdir -p /run/user/cartolari
 chown cartolari:cartolari /run/user/cartolari
 mkdir -p /home/cartolari/code
 chown cartolari:cartolari /home/cartolari/code
-cryptsetup luksOpen --key-file /home/cartolari/.docker-keyfile /var/lib/crouton-shared/docker/docker.img code
-mount /dev/mapper/crouton /home/cartolari/code
+cryptsetup luksOpen --key-file /home/cartolari/.code-keyfile /var/lib/crouton-shared/docker/code.img code
+mount /dev/mapper/code /home/cartolari/code
 
 su -c '/usr/bin/ssh-agent -D -a /run/user/cartolari/ssh-agent.socket' cartolari &
 /home/cartolari/.local/bin/start-docker-vm.sh &

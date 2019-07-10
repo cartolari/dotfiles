@@ -7,8 +7,8 @@ fi
 
 set -euo pipefail
 
-CODE_IMG_FILE=/var/lib/crouton-shared/docker/docker.img
-CODE_KEY_FILE="$HOME/.docker-keyfile"
+CODE_IMG_FILE=/var/lib/crouton-shared/docker/code.img
+CODE_KEY_FILE="$HOME/.code-keyfile"
 
 prompt_confirmation() {
   local question=$1

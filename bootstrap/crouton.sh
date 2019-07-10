@@ -45,6 +45,7 @@ echo Installing packages
 sudo apt install -y \
   autojump \
   cloc \
+  cmake \
   exuberant-ctags \
   git \
   git-lfs \

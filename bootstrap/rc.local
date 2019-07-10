@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mkdir -p /run/user/cartolari
+chown cartolari:cartolari /run/user/cartolari
+mkdir -p /home/cartolari/code
+chown cartolari:cartolari /home/cartolari/code
+
+su -c '/usr/bin/ssh-agent -D -a /run/user/cartolari/ssh-agent.socket' cartolari &
+/home/cartolari/.local/bin/start-docker-vm.sh &
+
+timeout 300s /bin/bash -c "echo '!' | telnet -e '!' 10.0.2.2 9090"
+su -c 'unison docker' cartolari &
+
+exit 0

@@ -166,3 +166,5 @@ mkdir -p ~/.local/share/zsh
 if [[ ! -d ~/.local/share/zsh/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/share/zsh/zsh-autosuggestions
 fi
+
+sudo cp "$DIR/rc.local" /etc/rc.local

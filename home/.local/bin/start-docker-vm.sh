@@ -8,6 +8,7 @@ fi
 sudo qemu-system-x86_64 \
   -cdrom /home/cartolari/.local/share/docker-vm/seed.iso \
   -cpu host \
+  -daemonize \
   -device virtio-balloon \
   -device virtio-net-pci,netdev=mynet0,mac=52:54:00:D3:EC:C7 \
   -device virtio-rng-pci \
@@ -17,6 +18,5 @@ sudo qemu-system-x86_64 \
   -enable-kvm \
   -m 8192 \
   -netdev tap,id=mynet0,script=/home/cartolari/.homesick/repos/chromebook-dotfiles/qemu-ifup \
-  -nographic \
   -smp "$(nproc)" \
   -vga virtio

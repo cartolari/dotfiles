@@ -159,4 +159,7 @@ if ! hash rg; then
   rm ripgrep_${RIPGREP_VERSION}_amd64.deb
 fi
 
-# zsh-autosuggestions
+mkdir -p ~/.local/share/zsh
+if [[ ! -d ~/.local/share/zsh/zsh-autosuggestions ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/share/zsh/zsh-autosuggestions
+fi

@@ -74,6 +74,7 @@ sudo apt install -y \
   silversearcher-ag \
   socat \
   sqlite \
+  sshpass \
   tig \
   tmux \
   tree \

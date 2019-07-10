@@ -13,5 +13,13 @@ HELP_crouton='
   Open a ZSH shell inside Crouton
 '
 cmd_crouton() {
-  SHELL=/bin/bash enter-chroot
+  SHELL=/bin/bash sudo /usr/local/bin/enter-chroot /bin/zsh -l
+}
+
+USAGE_crouton_bash=''
+HELP_crouton_bash='
+  Open a Bash shell inside Crouton
+'
+cmd_crouton_bash() {
+  SHELL=/bin/bash sudo /usr/local/bin/enter-chroot
 }

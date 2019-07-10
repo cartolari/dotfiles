@@ -57,6 +57,7 @@ sudo apt install -y \
   libncurses5-dev \
   lxc-utils \
   lxd \
+  net-tools \
   ocaml-nox \
   openconnect \
   postgresql-client-10 \

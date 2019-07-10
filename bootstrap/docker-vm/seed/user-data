@@ -50,6 +50,7 @@ write_files:
       [Service]
       Type=Simple
       Environment="PATH=/sbin:/bin:/usr/bin:/usr/local/bin"
+      Environment="HOME=/root"
       ExecStart=/usr/local/bin/unison -socket 9090
 
       [Install]

@@ -37,3 +37,9 @@ sudo cp "$REPO_DIR/bootstrap/99-kvm.rules" /etc/udev/rules.d/
 if ! [[ -e /etc/sysctl.d/99-custom.conf ]]; then
   echo 'fs.inotify.max_user_watches = 524288' > /etc/sysctl.d/99-custom.conf
 fi
+
+if [[ ! -e ~/.crouton-password ]]; then
+  echo New Crouton password generated in ~/.crouton-password
+  openssl rand 32 -hex > ~/.crouton-password
+  cat ~/.crouton-password
+fi

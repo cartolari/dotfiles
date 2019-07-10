@@ -62,3 +62,6 @@ write_files:
       ExecStart=
       ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2376
     path: /etc/systemd/system/docker.service.d/startup_options.conf
+
+  - content: fs.inotify.max_user_watches=524288
+    path: /etc/sysctl.d/40-max-user-watchers.conf

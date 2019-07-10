@@ -28,7 +28,7 @@ endif
     Plug '~/.nix-profile/share/vim-plugins/youcompleteme'
   else
     Plug 'valloric/youcompleteme', {
-          \ 'do': 'rm -rf third_party/ycmd/ycmd/completers/cs && python3 install.py --clang-completer --gocode-completer --tern-completer'
+          \ 'do': 'rm -rf third_party/ycmd/ycmd/completers/cs && python3 install.py --gocode-completer --tern-completer'
           \ }
   end
 " }}}

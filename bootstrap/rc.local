@@ -8,12 +8,5 @@ cryptsetup luksOpen --key-file /home/cartolari/.code-keyfile /var/lib/crouton-sh
 mount /dev/mapper/code /home/cartolari/code
 
 su -c '/usr/bin/ssh-agent -D -a /run/user/cartolari/ssh-agent.socket' cartolari &
-/home/cartolari/.local/bin/start-docker-vm.sh &
-
-timeout 300s /bin/bash -c "echo '!' | telnet -e '!' 10.0.2.2 9090"
-sshpass -p ubuntu ssh -o StrictHostKeyChecking=no ubuntu@10.0.2.2 sudo mkdir -p /run/user/cartolari
-sshpass -p ubuntu ssh -o StrictHostKeyChecking=no ubuntu@10.0.2.2 sudo chown ubuntu:ubuntu /run/user/cartolari
-ssh -N -R /run/user/cartolari/ssh-agent.socket:/run/user/cartolari/ssh-agent.socket -o StrictHostKeyChecking=no ubuntu@10.0.2.2 &
-su -c 'unison docker' cartolari &
 
 exit 0

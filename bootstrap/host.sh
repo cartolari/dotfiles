@@ -10,6 +10,15 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 REPO_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 
+export LD_LIBRARY_PATH=/usr/local/lib64:/usr/local/lib
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin
+
+if [[ ! -f /usr/local/bin/crew ]]; then
+  curl -Ls git.io/vddgY | bash
+fi
+
+crew install cryptsetup
+
 echo 'Setting the filesystem to mount read/write...'
 sudo mount -o remount,rw /
 sudo mount -o remount,exec /tmp
@@ -38,8 +47,9 @@ if ! [[ -e /etc/sysctl.d/99-custom.conf ]]; then
   echo 'fs.inotify.max_user_watches = 524288' > /etc/sysctl.d/99-custom.conf
 fi
 
-if [[ ! -e ~/.crouton-password ]]; then
-  echo New Crouton password generated in ~/.crouton-password
-  openssl rand 32 -hex > ~/.crouton-password
-  cat ~/.crouton-password
+echo Installing Docker
+if [[ ! -f /usr/local/bin/dockerd ]]; then
+  curl -SsL https://download.docker.com/linux/static/stable/x86_64/docker-18.09.7.tgz | sudo tar xzf - -C /usr/local/bin --strip-components=1
 fi
+
+sudo "$SCRIPT_DIR/setup-crouton-disk.sh"

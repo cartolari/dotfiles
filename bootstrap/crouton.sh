@@ -4,7 +4,6 @@ set -xeuo pipefail
 
 FZF_VERSION=0.18.0
 RIPGREP_VERSION=11.0.1
-UNISON_VERSION=2.48.4
 WHICH_VERSION=2.21
 
 if [ "$EUID" -eq 0 ]; then
@@ -101,55 +100,6 @@ if ! hash docker-compose; then
     "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" | \
     sudo install -T /dev/stdin /usr/local/bin/docker-compose
 fi
-
-mkdir -p ~/.local/share/docker-vm
-cd ~/.local/share/docker-vm
-if [[ ! -f bionic-server-cloudimg-amd64.img ]]; then
-  curl -L https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img > bionic-server-cloudimg-amd64.img
-fi
-
-if [[ ! -f disk.img ]]; then
-  qemu-img create -b bionic-server-cloudimg-amd64.img -f qcow2 disk.img
-fi
-
-if [[ ! -f seed.iso ]]; then
-  (
-    cd "$DIR/docker-vm/seed"
-    genisoimage -output seed.iso -volid cidata -joliet -rock .
-    mv seed.iso ~/.local/share/docker-vm/seed.iso
-  )
-fi
-
-hash -r
-
-echo Unison Install
-if [[ ! -f ~/.local/bin/unison ]]; then
-	curl -L \
-    https://github.com/bcpierce00/unison/archive/${UNISON_VERSION}.tar.gz | \
-    tar zxv -C /tmp
-	cd /tmp/unison-${UNISON_VERSION}
-	sed -i -e \
-    's/GLIBC_SUPPORT_INOTIFY 0/GLIBC_SUPPORT_INOTIFY 1/' \
-    src/fsmonitor/linux/inotify_stubs.c
-	make UISTYLE=text NATIVE=true STATIC=true
-
-  mkdir -p ~/.local/bin
-	cp src/unison src/unison-fsmonitor ~/.local/bin
-fi
-
-echo Unison Config Setup
-# Unison config
-mkdir -p ~/.unison
-
-cat <<EOF > ~/.unison/docker.prf
-auto = true
-batch = true
-confirmbigdel=true
-repeat = watch
-
-root = /home/$USER/code
-root = socket://10.0.2.2:9090//home/$USER/code
-EOF
 
 echo FZF
 if ! hash fzf; then

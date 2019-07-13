@@ -18,6 +18,7 @@ if [[ ! -f /usr/local/bin/crew ]]; then
 fi
 
 crew install cryptsetup
+crew install git iptables xzutils # Docker deps
 
 echo 'Setting the filesystem to mount read/write...'
 sudo mount -o remount,rw /

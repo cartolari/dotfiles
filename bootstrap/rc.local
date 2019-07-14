@@ -3,10 +3,6 @@
 mkdir -p /run/user/cartolari
 chown cartolari:cartolari /run/user/cartolari
 
-mkdir -p /home/cartolari/code
-[[ -d /mnt/stateful_partition/crouton/shared/code ]] &&
-  chown cartolari:cartolari /mnt/stateful_partition/crouton/shared/code
-
 su -c '/usr/bin/ssh-agent -D -a /run/user/cartolari/ssh-agent.socket' cartolari &
 
 exit 0

@@ -120,3 +120,8 @@ if [[ ! -d ~/.local/share/zsh/zsh-autosuggestions ]]; then
 fi
 
 sudo cp "$DIR/rc.local" /etc/rc.local
+
+# Clustergit
+[[ -f ~/.local/bin/clustergit ]]  ||
+  curl -SsL https://raw.githubusercontent.com/mnagel/clustergit/master/clustergit | \
+  install -m 0755 /dev/stdin ~/.local/bin/clustergit

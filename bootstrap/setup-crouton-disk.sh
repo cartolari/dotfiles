@@ -10,7 +10,7 @@ set -euo pipefail
 export LD_LIBRARY_PATH=/usr/local/lib64:/usr/local/lib
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin
 
-CROUTON_IMG_FILE=/mnt/stateful_partition/code.img
+CROUTON_IMG_FILE=/mnt/stateful_partition/crouton.img
 CROUTON_KEY_FILE=/home/chronos/user/.crouton-keyfile
 CROUTON_MOUNT_POINT=/mnt/stateful_partition/crouton
 

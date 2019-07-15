@@ -50,7 +50,8 @@ fi
 
 echo Installing Docker
 if [[ ! -f /usr/local/bin/dockerd ]]; then
-  curl -SsL https://download.docker.com/linux/static/stable/x86_64/docker-18.09.7.tgz | sudo tar xzf - -C /usr/local/bin --strip-components=1
+  curl -SsL https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-ce.tgz | sudo tar xzf - -C /usr/local/bin --strip-components=1
 fi
 
 sudo "$SCRIPT_DIR/setup-crouton-disk.sh"
+sudo cp "$SCRIPT_DIR/docker.json" /mnt/stateful_partition/docker.json

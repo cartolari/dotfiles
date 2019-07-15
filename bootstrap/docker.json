@@ -1,0 +1,13 @@
+{
+  "data-root": "/mnt/stateful_partition/docker",
+  "experimental": true,
+  "deprecated-key-path": "/var/lib/docker/key.json",
+  "hosts": [
+    "tcp://127.0.0.1:2376",
+    "unix:///var/run/docker.sock"
+  ],
+  "storage-driver": "devicemapper",
+  "storage-opts": [
+    "dm.override_udev_sync_check=true"
+  ]
+}

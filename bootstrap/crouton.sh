@@ -104,8 +104,7 @@ fi
 echo FZF
 if ! hash fzf; then
   curl -SsL https://github.com/junegunn/fzf-bin/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tgz | \
-    gunzip | \
-    sudo tee /usr/local/bin/fzf > /dev/null
+    sudo tar xzf - -C /usr/local/bin/
 fi
 
 if ! hash rg; then

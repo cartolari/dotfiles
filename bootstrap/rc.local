@@ -3,6 +3,4 @@
 mkdir -p /run/user/cartolari
 chown cartolari:cartolari /run/user/cartolari
 
-su -c '/usr/bin/ssh-agent -D -a /run/user/cartolari/ssh-agent.socket' cartolari &
-
 exit 0

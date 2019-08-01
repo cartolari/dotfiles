@@ -1,7 +1,12 @@
 {
+  "bip": "10.250.0.0/16",
   "data-root": "/mnt/stateful_partition/docker",
   "experimental": true,
   "deprecated-key-path": "/var/lib/docker/key.json",
+  "default-address-pools":[
+    { "base":"10.251.0.0/16", "size":24 },
+    { "base":"10.252.0.0/16", "size":24 }
+  ],
   "hosts": [
     "tcp://127.0.0.1:2376",
     "unix:///var/run/docker.sock"

@@ -38,14 +38,14 @@ sudo chown -R power:power /var/lib/power_manager/
 sudo restart powerd
 
 echo Installing services
-sudo "$(command -v rsync)" -azvpu "$REPO_DIR/upstart-services/" /etc/init
+sudo cp $REPO_DIR/upstart-services/* /etc/init
 
 sudo cp "$REPO_DIR/bootstrap/30-crosh-custom.sh" /usr/share/crosh/dev.d/
 sudo cp "$REPO_DIR/bootstrap/51-android.rules" /etc/udev/rules.d/
 sudo cp "$REPO_DIR/bootstrap/99-kvm.rules" /etc/udev/rules.d/
 
 if ! [[ -e /etc/sysctl.d/99-custom.conf ]]; then
-  echo 'fs.inotify.max_user_watches = 524288' > /etc/sysctl.d/99-custom.conf
+  echo 'fs.inotify.max_user_watches = 524288' | sudo tee /etc/sysctl.d/99-custom.conf
 fi
 
 echo Installing Docker

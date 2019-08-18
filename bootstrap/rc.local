@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p /run/user/cartolari
+chown cartolari:cartolari /run/user/cartolari
+
+exit 0

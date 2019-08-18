@@ -1,7 +1,9 @@
 .config
-.config/htop
 .config/git
+.config/htop
+.config/nixpkgs
 .config/npm
-.local/bin
 .config/systemd/user
+.local/bin
 .local/share
+containers

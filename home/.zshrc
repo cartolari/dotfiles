@@ -1,15 +1,9 @@
 if ! type isgrml > /dev/null; then
-  [[ -e ~/.nix-profile/etc/zsh/zshrc ]] && . ~/.nix-profile/etc/zsh/zshrc
+  [[ -e /etc/zsh/zshrc ]] && source /etc/zsh/zshrc
 fi
-if [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
-  . ~/.nix-profile/etc/profile.d/nix.sh
-fi
+
 export PATH=$HOME/.local/bin:$PATH
 fc -p $XDG_DATA_HOME/zsh_history
-
-if [[ -z $MANPATH ]]; then
-  export MANPATH=~/.nix-profile/share/man
-fi
 
 source $XDG_CONFIG_HOME/zsh-custom/aliases.zsh
 
@@ -41,21 +35,13 @@ source_if_exists() {
   fi
 }
 source_if_exists /usr/share/fzf/completion.zsh
-source_if_exists ~/.nix-profile/share/fzf/completion.zsh
 source_if_exists /usr/share/fzf/key-bindings.zsh
-source_if_exists ~/.nix-profile/share/fzf/key-bindings.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source_if_exists ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source_if_exists ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source_if_exists ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/doc/find-the-command/ftc.zsh
-source_if_exists ~/.nix-profile/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh
-source_if_exists ~/.nix-profile/share/autojump/autojump.zsh
 source_if_exists /usr/share/autojump/autojump.zsh
 
-fpath=(~/.nix-profile/share/zsh/site-functions/ $fpath)
 autoload -U compinit && compinit
 
 # Restore ALT-C binding overwritten by FZF

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+swaylock \
+  --screenshots \
+  --clock \
+  --indicator \
+  --indicator-radius 100 \
+  --indicator-thickness 7 \
+  --effect-blur 10x10

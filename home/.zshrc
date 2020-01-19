@@ -2,6 +2,10 @@ if ! type isgrml > /dev/null; then
   [[ -e /etc/zsh/zshrc ]] && source /etc/zsh/zshrc
 fi
 
+if [[ -z $DISPLAY  ]] && [[ $(tty) = /dev/tty1  ]]; then
+  exec sway
+fi
+
 export PATH=$HOME/.local/bin:$PATH
 fc -p $XDG_DATA_HOME/zsh_history
 

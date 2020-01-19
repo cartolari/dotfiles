@@ -38,6 +38,8 @@ export PATH=$PATH:$XDG_DATA_HOME/npm/bin
 export PATH=$PATH:/usr/bin/core_perl
 export PATH=$PATH:$HOME/.dotnet/tools
 
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
 
-export DOCKER_HOST=tcp://localhost:2376
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'

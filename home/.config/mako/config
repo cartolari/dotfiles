@@ -1,0 +1,9 @@
+background-color=#333333EE
+border-color=#333333DD
+border-radius=5
+default-timeout=10000
+font=Roboto 11
+icons=1
+padding=15,10
+text-color=#ffffff
+width=300

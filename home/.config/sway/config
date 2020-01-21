@@ -33,10 +33,10 @@ bindswitch --reload lid:off output $laptop enable
 # gaps inner 10
 
 exec swayidle -w \
-         timeout 120 lock \
+         timeout 120 ~/.local/bin/lock \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-         before-sleep lock
+         before-sleep ~/.local/bin/lock
 
 input "1739:52602:00304238304C4C44:00_06CB:CD7A_Touchpad" {
     dwt enabled
@@ -66,7 +66,7 @@ input * xkb_options ctrl:nocaps
     bindsym alt+space exec synapse
     bindsym alt+tab workspace next
     bindsym alt+shift+tab workspace prev
-    bindsym ctrl+alt+l exec lock
+    bindsym ctrl+alt+l exec ~/.local/bin/lock
 
     # Kill focused window
     bindsym $mod+Shift+q kill

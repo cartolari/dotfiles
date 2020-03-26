@@ -47,14 +47,13 @@ endif
         \ 'javascript', 'html', 'xml', 'css',
         \ 'scss', 'less', 'yaml', 'vim' ]}
   Plug 'andrewradev/switch.vim'
+  Plug 'danielwe/base16-vim'
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
-  Plug 'danielwe/base16-vim'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
   Plug 'sjl/gundo.vim'
   Plug 'terryma/vim-multiple-cursors'
-  Plug 'tommcdo/vim-exchange'
   Plug 'tommcdo/vim-exchange'
   Plug 'tomtom/tcomment_vim'
   Plug 'tpope/vim-abolish'

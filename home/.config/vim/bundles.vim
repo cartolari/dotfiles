@@ -52,6 +52,7 @@ endif
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'majutsushi/tagbar'
+  Plug 'osyo-manga/vim-over'
   Plug 'sjl/gundo.vim'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'tommcdo/vim-exchange'

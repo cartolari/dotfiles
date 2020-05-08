@@ -22,8 +22,14 @@ set $term alacritty
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/Wallpapers/4k-hd-river.jpg fill
-output DP-1 resolution 1920x1080 position 0,0 scale 1
-output DP-3 resolution 1920x1080 position 0,0 scale 1
+output DP-1 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-2 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-3 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-4 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-5 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-6 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-7 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-8 resolution 1920x1080 position 0,0 scale 1 enable
 output eDP-1 resolution 3840x2400 position 0,1080 scale 2
 
 set $laptop eDP-1

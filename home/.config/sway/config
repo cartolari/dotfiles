@@ -5,6 +5,7 @@ exec mako
 exec redshift -m wayland
 exec synapse -s
 exec ydotoold
+exec brillo -c 5 -S
 
 ### Variables
 #

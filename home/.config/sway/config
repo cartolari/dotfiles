@@ -7,6 +7,7 @@ exec ulauncher
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots
 exec brillo -c 5 -S
+exec blueman-applet
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {

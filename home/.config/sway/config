@@ -3,7 +3,7 @@
 exec libinput-gestures-setup start
 exec mako
 exec redshift -m wayland
-exec synapse -s
+exec ulauncher
 exec ydotoold
 exec brillo -c 5 -S
 
@@ -70,7 +70,6 @@ input * xkb_options ctrl:nocaps
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym alt+space exec synapse
     bindsym alt+tab workspace next
     bindsym alt+shift+tab workspace prev
     bindsym ctrl+alt+l exec ~/.local/bin/lock
@@ -79,7 +78,7 @@ input * xkb_options ctrl:nocaps
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec synapse
+    bindsym $mod+d exec ulauncher
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -210,6 +209,6 @@ for_window [app_id="xfce4-notifyd"] border none; move down 0; move right 0
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="org.kde.krunner"] border none; floating enable
-for_window [app_id="synapse"] border none; floating enable
+for_window [app_id="ulauncher"] border none; floating enable
 
 include /etc/sway/config.d/*

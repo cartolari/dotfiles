@@ -7,6 +7,11 @@ exec ulauncher
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots
 exec brillo -c 5 -S
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+  gsettings set $gnome-schema cursor-theme 'Vanilla-DMZ'
+}
 
 ### Variables
 #
@@ -209,7 +214,6 @@ bar {
     position top
     swaybar_command waybar
 }
-
 
 for_window [app_id="xfce4-notifyd"] border none; move down 0; move right 0
 for_window [app_id="pavucontrol"] floating enable

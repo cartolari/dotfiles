@@ -1,0 +1,27 @@
+#!/bin/bash
+
+screenshot_type=$1
+set -euo pipefail
+
+screenshot_name="$(~/.local/bin/screenshot-name)"
+
+case $screenshot_type in
+  area )
+    grim -g "$(slurp)" - | wl-copy
+    notify-send.sh "Screenshot copied to clipboard"
+    ;;
+  current-window )
+    grim -g "$(~/.local/bin/sway-current-window-bounds)" "$screenshot_name"
+    notify-send.sh \
+      -d "xdg-open \"$(dirname ${screenshot_name})\"" \
+      -i "$screenshot_name" \
+      "Screenshot taken"
+    ;;
+  * )
+    grim "$screenshot_name"
+    notify-send.sh \
+      -d "xdg-open \"$(dirname ${screenshot_name})\"" \
+      -i "$screenshot_name" \
+      "Screenshot taken"
+    ;;
+esac

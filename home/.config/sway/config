@@ -5,6 +5,7 @@ exec mako
 exec redshift -m wayland
 exec ulauncher
 exec ydotoold
+exec mkdir -p ~/Pictures/Screenshots
 exec brillo -c 5 -S
 
 ### Variables
@@ -198,6 +199,11 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Print
+bindsym --release Print exec ~/.local/bin/screenshot
+bindsym --release Ctrl+Print exec ~/.local/bin/screenshot current-window
+bindsym --release Ctrl+Shift+Print exec ~/.local/bin/screenshot area
 
 bar {
     position top

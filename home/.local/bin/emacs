@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ ! -f ~/.terminfo/x/xterm-24bit ]]; then
+  tic -x -o ~/.terminfo ~/.emacs.d/terminfo-24bit.src
+fi
+
+export TERM=xterm-24bit
+exec "$(which -a --skip-alias emacs | grep -v '.local/bin' | head -n1)" "$@"

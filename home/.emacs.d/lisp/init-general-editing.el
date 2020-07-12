@@ -20,6 +20,8 @@
 
 (use-package crux)
 
+(use-package diminish)
+
 (use-package discover-my-major
   :commands (discover-my-major discover-my-mode))
 

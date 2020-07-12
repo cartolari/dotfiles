@@ -38,7 +38,6 @@ endif
   Plug 'henrik/vim-indexed-search'
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
-  Plug 'shougo/denite.nvim'
 " }}}
 
 " General Programming {{{

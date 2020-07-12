@@ -77,3 +77,4 @@ autoload -U bashcompinit
 bashcompinit
 
 complete -C aws_completer aws
+export LS_COLORS=':ow=01;04;32'

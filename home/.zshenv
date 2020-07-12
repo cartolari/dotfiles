@@ -41,5 +41,6 @@ export PATH=$PATH:$HOME/.dotnet/tools
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
+export LS_COLORS=$LS_COLORS':ow=01;04;32'
 
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'

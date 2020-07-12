@@ -10,6 +10,7 @@
   :commands (projectile-global-mode)
   :config
   (projectile-global-mode 1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p R") 'my/projectile-regenerate-tags)
   (with-eval-after-load 'evil
     (key-seq-define evil-normal-state-map ",t" 'helm-projectile))

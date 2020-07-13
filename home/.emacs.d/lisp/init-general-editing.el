@@ -160,6 +160,7 @@
 
 (use-package winner-mode
   :ensure nil
+  :if nil
   :init
   (add-hook 'after-init-hook 'winner-mode))
 

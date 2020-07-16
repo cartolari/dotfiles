@@ -1,7 +1,5 @@
 " vim: set foldlevel=0 foldmethod=marker:
 
-let g:mapleader = ','
-
 " Vimscripts {{{
 " Ensure XDG locations exists
 
@@ -70,6 +68,12 @@ set updatetime=250
 set colorcolumn=80
 set termguicolors
 set modeline
+set hidden
+if ! has("nvim")
+  set signcolumn=number
+endif
+set timeoutlen=500
+set redrawtime=5000
 if has('pythonx')
   set pyxversion=3
 endif
@@ -155,6 +159,7 @@ end
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_echo_msg_warning_str = 'W'
+let g:ale_linters = {'javascript': [], 'typescript': []}
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -253,41 +258,15 @@ let g:localvimrc_sandbox = 0
 " }}}
 
 " FZF {{{
-" Return a list with all open buffers
-function! s:buflist()
-  redir => l:ls
-  silent l:ls
-  redir END
-  return split(l:ls, '\n')
-endfunction
-
-" Handles a MRU search in FZF
-function! s:bufopen(e)
-  " Exit if no file was picked
-  if len(a:e) < 2 | return | endif
-
-  " Fzf sends two lines the first with the key combination used to pick
-  " a file and the second with the matched line
-  let [l:key, l:buffer_line] = a:e[0:1]
-  " Extract the buffer number from the matched line
-  let l:buffer_number = matchstr(l:buffer_line, '^[ 0-9]*')
-  " Pick the appropriate command based on the key combination used
-  let l:cmd = get({
-        \ 'ctrl-x': 'sbuffer',
-        \ 'ctrl-v': 'vertical sbuffer',
-        \ 'ctrl-t': 'tabnew | buffer '
-        \ }, l:key, 'buffer')
-  " Run the picked command with the matched buffer
-  execute l:cmd . l:buffer_number
-endfunction
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 
 " Command to list MRU files
 command! FZFMru call fzf#run({
-      \ 'source': reverse(<sid>buflist()),
-      \ 'sink*': function('<sid>bufopen'),
-      \ 'options': '--expect=ctrl-t,ctrl-v,ctrl-x',
-      \ 'down': len(<sid>buflist()) + 2
-      \ })
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'window': g:fzf_layout.window,
+\ })
 " }}}
 
 " CtrlSF {{{
@@ -307,34 +286,8 @@ let g:yankring_clipboard_monitor = 0
 let g:yankring_history_dir = g:data_dir
 " }}}
 
-" Ultisnips {{{
-let g:UltiSnipsUsePythonVersion = 3
-" }}}
-
-" YCM {{{
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_python_interpreter = 'python3'
-let g:ycm_semantic_triggers = {
-     \  'elm' : ['.'],
-     \ }
-" }}}
-
 " Gundo {{{
 let g:gundo_prefer_python3 = 1
-" }}}
-
-" Denite {{{
-call denite#custom#var('file_rec', 'command', ['rg', '--files', '--hidden', '--glob', '!.git'])
-call denite#custom#source('file_rec', 'sorters', ['sorter_sublime_multiprocess'])
-call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#option('default', 'winheight', 10)
-
-hi link deniteMatched Underline
-hi link deniteMatchedChar DiffText
 " }}}
 
 " GitGutter {{{
@@ -377,25 +330,45 @@ let g:user_emmet_settings = {
 let g:elm_format_autosave = 1
 " }}}
 
-" TypeScript {{{
-let g:tsuquyomi_single_quote_import = 1
-" }}}
-
-" C# {{{
-augroup Omnisharp
-  autocmd!
-  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-  autocmd FileType cs setlocal sw=4 ts=4 sts=4
-augroup end
-let g:OmniSharp_selector_ui = 'fzf'
-let g:OmniSharp_server_type='roslyn'
-let g:Omnisharp_start_server=0
-let g:Omnisharp_stop_server=0
-" }}}
-
 " YAML {{{
 augroup yaml
   autocmd!
   autocmd BufRead,BufNewFile *.yml,*.yaml set filetype=ansible
 augroup end
+" }}}
+
+" COC {{{
+let g:coc_config_home = g:config_dir . "/coc"
+let g:coc_global_extensions = [
+      \ "coc-css",
+      \ "coc-dictionary",
+      \ "coc-eslint",
+      \ "coc-go",
+      \ "coc-highlight",
+      \ "coc-html",
+      \ "coc-java",
+      \ "coc-json",
+      \ "coc-lists",
+      \ "coc-markdownlint",
+      \ "coc-omnisharp",
+      \ "coc-python",
+      \ "coc-sh",
+      \ "coc-snippets",
+      \ "coc-solargraph",
+      \ "coc-spell-checker",
+      \ "coc-sql",
+      \ "coc-syntax",
+      \ "coc-tag",
+      \ "coc-template",
+      \ "coc-tslint-plugin",
+      \ "coc-tsserver",
+      \ "coc-vimlsp",
+      \ "coc-xml",
+      \ "coc-yaml",
+      \ ]
+" }}}
+
+" COC FZF {{{
+let g:coc_fzf_preview = ''
+let g:coc_fzf_opts = []
 " }}}

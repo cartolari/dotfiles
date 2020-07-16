@@ -16,22 +16,14 @@ endif
 " }}}
 
 " Completions and Snippets {{{
-  Plug 'cartolari/vim-clevertab'
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'omnisharp/omnisharp-vim'
-  Plug 'sirver/ultisnips'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-endwise', {'for': ['ruby', 'sh', 'zsh', 'vim', 'c', 'cpp']}
-  if isdirectory(expand('~/.nix-profile/share/vim-plugins/youcompleteme'))
-    Plug '~/.nix-profile/share/vim-plugins/youcompleteme'
-  else
-    Plug 'valloric/youcompleteme', {
-          \ 'do': 'rm -rf third_party/ycmd/ycmd/completers/cs && python3 install.py --gocode-completer --tern-completer'
-          \ }
-  end
 " }}}
 
 " File and Search {{{
+  Plug 'antoinemadec/coc-fzf'
   Plug 'dyng/ctrlsf.vim'
   Plug 'henrik/vim-indexed-search'
   Plug 'junegunn/fzf'
@@ -152,7 +144,6 @@ endif
 
 " Typescript {{{
   Plug 'leafgarland/typescript-vim'
-  Plug 'Quramy/tsuquyomi'
 " }}}
 
 " Tmux {{{
@@ -175,6 +166,7 @@ endif
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'itchyny/lightline.vim'
   Plug 'konfekt/fastfold'
+  Plug 'liuchengxu/vim-which-key'
 " }}}
 
 call plug#end()

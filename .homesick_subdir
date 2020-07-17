@@ -1,5 +1,4 @@
 .config
-.config/git
 .config/htop
 .config/nixpkgs
 .config/npm

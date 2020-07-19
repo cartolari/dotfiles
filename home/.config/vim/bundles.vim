@@ -105,7 +105,7 @@ endif
 " }}}
 
 " JavaScript {{{
-  Plug 'mxw/vim-jsx'
+  Plug 'MaxMEllon/vim-jsx-pretty'
   Plug 'posva/vim-vue'
 " }}}
 

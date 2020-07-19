@@ -18,11 +18,6 @@ nnoremap Q @q
 vnoremap Q :norm @q<cr>
 nnoremap <leader><leader> :Commands<CR>
 
-" Inserts one break before and one break after the current line
-if has('nvim')
-  autocmd FileType * if &l:modifiable | nnoremap <buffer> <M-Enter> O<Esc>jo<Esc>ki| endif
-endif
-
 " Quit current file
 nnoremap <leader>q :q<CR>
 

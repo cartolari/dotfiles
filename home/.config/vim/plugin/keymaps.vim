@@ -94,6 +94,7 @@ let g:which_key_map.c = 'Commands'
 let g:which_key_map.e = {
       \ 'name': '+ Edit Configuration Files',
       \ 'b': 'Bundles (plugins)',
+      \ 'c': [':CocConfig', 'Coc'],
       \ 'k': 'Keymaps',
       \ 'v': 'Vimrc',
       \ }

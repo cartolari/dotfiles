@@ -1,4 +1,5 @@
 " vim: set foldlevel=0 foldmethod=marker:
+" cSpell:disable
 
 if has('vim_starting')
   call plug#begin($XDG_DATA_HOME . '/vim/bundle')

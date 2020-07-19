@@ -1,5 +1,8 @@
 {
-  "cSpell.enabled": false,
+  "cSpell.enabled": true,
+  "cSpell.userWords": [
+    "solargraph"
+  ],
   "eslint.enable": false,
   "solargraph.promptDownload": true,
   "tslint.autoFixOnSave": true,

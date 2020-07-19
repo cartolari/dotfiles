@@ -109,6 +109,10 @@ endif
   Plug 'posva/vim-vue'
 " }}}
 
+" JSON {{{
+  Plug 'kevinoid/vim-jsonc'
+" }}}
+
 " QML {{{
   Plug 'peterhoeg/vim-qml'
 " }}}

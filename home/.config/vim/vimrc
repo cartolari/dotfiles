@@ -204,23 +204,44 @@ function! ALEGetStatusLine() abort
   let l:counts = ale#statusline#Count(bufnr(''))
 
   let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
+  let l:warnings = l:counts.total - l:all_errors
 
   return l:counts.total == 0 ? '' : printf(
         \ '✗ %d ⚠ %d',
         \ all_errors,
-        \ all_non_errors
+        \ warnings
         \)
+endfunction
+
+
+function! CocStatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, '✗ ' . info['error'])
+  endif
+
+  if get(info, 'warning', 0)
+    call add(msgs, '⚠ ' . info['warning'])
+  endif
+
+  return join(msgs, ' ') . get(g:, 'coc_status', '')
 endfunction
 
 let g:lightline = {
   \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'ale', 'filename' ] ]
+  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'ale', 'filename', 'cocstatus', 'currentfunction' ] ]
   \ },
   \ 'component': {
   \   'filename': '%{LightlineFilename()}',
   \   'fugitive': '%{LightlineFugitive()}',
-  \   'ale': '%{ALEGetStatusLine()}'
+  \   'ale': '%{ALEGetStatusLine()}',
+  \   'cocstatus': '%{CocStatusDiagnostic()}',
+  \ },
+  \ 'component_function': {
+  \   'currentfunction': 'CocCurrentFunction'
   \ },
   \ 'component_visible_condition': {
   \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',

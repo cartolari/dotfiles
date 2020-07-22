@@ -36,3 +36,6 @@
 [merge "yarn-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P -c yarn
+[merge "pnpm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = pnpm-merge-driver %A %O %B %P

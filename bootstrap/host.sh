@@ -10,7 +10,7 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 REPO_DIR="$(readlink -f "$SCRIPT_DIR/..")"
 
-export LD_LIBRARY_PATH=/usr/local/lib64:/usr/local/lib
+unset LD_LIBRARY_PATH
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin
 
 if [[ ! -f /usr/local/bin/crew ]]; then

@@ -31,12 +31,6 @@ if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
   sudo passwd chronos
 fi
 
-echo Add power manager overrides
-# 4 hours
-echo '14400000' | sudo tee /var/lib/power_manager/plugged_suspend_ms
-sudo chown -R power:power /var/lib/power_manager/
-sudo restart powerd
-
 echo Installing services
 sudo cp $REPO_DIR/upstart-services/* /etc/init
 

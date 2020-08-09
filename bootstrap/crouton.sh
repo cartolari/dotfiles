@@ -60,8 +60,6 @@ sudo apt install -y \
   ocaml-nox \
   openconnect \
   postgresql-client-10 \
-  python \
-  python-pip \
   python3 \
   python3-pip \
   qemu-kvm \

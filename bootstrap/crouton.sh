@@ -80,6 +80,8 @@ sudo apt install -y \
   zsh \
   zsh-syntax-highlighting
 
+sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
+
 echo ZSH Setup
 sudo mkdir -p /etc/zsh
 sudo touch /etc/zsh/zshrc
@@ -103,12 +105,6 @@ echo FZF
 if ! hash fzf; then
   curl -SsL https://github.com/junegunn/fzf-bin/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tgz | \
     sudo tar xzf - -C /usr/local/bin/
-fi
-
-if ! hash rg; then
-  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/$RIPGREP_VERSION/ripgrep_${RIPGREP_VERSION}_amd64.deb
-  sudo dpkg -i ripgrep_${RIPGREP_VERSION}_amd64.deb
-  rm ripgrep_${RIPGREP_VERSION}_amd64.deb
 fi
 
 mkdir -p ~/.local/share/zsh

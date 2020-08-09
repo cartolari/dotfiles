@@ -94,6 +94,10 @@ if ! hash docker; then
   curl -SsL https://get.docker.com | sh
 fi
 
+echo NodeJS Setup
+curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo apt install -y nodejs
+
 if ! hash docker-compose; then
   curl \
     -L \

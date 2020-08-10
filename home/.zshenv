@@ -44,3 +44,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export LS_COLORS=$LS_COLORS':ow=01;04;32'
 
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export DOCKER_HOST=tcp://localhost:2376

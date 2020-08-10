@@ -78,7 +78,8 @@ sudo apt install -y \
   vagrant \
   vim-gtk \
   zsh \
-  zsh-syntax-highlighting
+  zsh-syntax-highlighting \
+  zsh-autosuggestions
 
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
@@ -109,11 +110,6 @@ echo FZF
 if ! hash fzf; then
   curl -SsL https://github.com/junegunn/fzf-bin/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tgz | \
     sudo tar xzf - -C /usr/local/bin/
-fi
-
-mkdir -p ~/.local/share/zsh
-if [[ ! -d ~/.local/share/zsh/zsh-autosuggestions ]]; then
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/share/zsh/zsh-autosuggestions
 fi
 
 sudo cp "$DIR/rc.local" /etc/rc.local

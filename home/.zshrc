@@ -38,9 +38,11 @@ source_if_exists() {
     source "$file" &> /dev/null
   fi
 }
+
 source_if_exists /usr/share/fzf/completion.zsh
 source_if_exists /usr/share/fzf/key-bindings.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source_if_exists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/doc/find-the-command/ftc.zsh

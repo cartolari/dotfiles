@@ -20,6 +20,9 @@ Inside the chroot:
 bootstrap/crouton-chroot.sh
 ```
 
+Now add the file shares in `bootstrap/crouton-shares` to the Crouton
+installation modifying /etc/crouton/shares inside the chroot.
+
 To update it:
 
 ```bash

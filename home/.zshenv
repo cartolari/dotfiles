@@ -9,6 +9,10 @@ if [[ -z "$XDG_RUNTIME_DIR" ]]; then
 fi
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+if hash apt &> /dev/null && [[ "$(ls -di /)" != "2" ]]; then
+  # Inside a Chroot running Ubuntu, so we'll assume Chrome OS
+  export SSH_AUTH_SOCK=/run/chrome/ssh-agent.socket
+fi
 
 export GRML_ALWAYS_LOAD_ALL=1
 export COMPDUMPFILE=$XDG_CACHE_HOME/zcompdump

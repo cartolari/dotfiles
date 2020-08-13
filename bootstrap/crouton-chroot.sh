@@ -82,6 +82,7 @@ sudo apt install -y \
   zsh-autosuggestions
 
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
+[[ -e /usr/bin/bat ]] || sudo ln -s /usr/bin/batcat /usr/bin/bat
 
 echo ZSH Setup
 sudo mkdir -p /etc/zsh

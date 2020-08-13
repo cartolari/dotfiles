@@ -84,6 +84,15 @@ sudo apt install -y \
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 [[ -e /usr/bin/bat ]] || sudo ln -s /usr/bin/batcat /usr/bin/bat
 
+cat <<EOF | sudo tee /etc/ssh/sshd_config.d/crouton.conf
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+ListenAddress 127.0.0.1
+Port 2223
+EOF
+
 echo ZSH Setup
 sudo mkdir -p /etc/zsh
 sudo touch /etc/zsh/zshrc

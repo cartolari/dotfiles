@@ -1,6 +1,8 @@
 #!/bin/bash
 
 mkdir -p /run/user/cartolari
+mkdir -p /run/sshd
 chown cartolari:cartolari /run/user/cartolari
+/usr/sbin/sshd
 
 exit 0

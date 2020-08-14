@@ -46,6 +46,7 @@ sudo apt install -y \
   cloc \
   cmake \
   exuberant-ctags \
+  fzf \
   git \
   git-lfs \
   golang-go \
@@ -78,8 +79,8 @@ sudo apt install -y \
   vagrant \
   vim-gtk \
   zsh \
-  zsh-syntax-highlighting \
-  zsh-autosuggestions
+  zsh-autosuggestions \
+  zsh-syntax-highlighting
 
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 [[ -e /usr/bin/bat ]] || sudo ln -s /usr/bin/batcat /usr/bin/bat
@@ -114,12 +115,6 @@ if ! hash docker-compose; then
     -L \
     "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" | \
     sudo install -T /dev/stdin /usr/local/bin/docker-compose
-fi
-
-echo FZF
-if ! hash fzf; then
-  curl -SsL https://github.com/junegunn/fzf-bin/releases/download/$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tgz | \
-    sudo tar xzf - -C /usr/local/bin/
 fi
 
 sudo cp "$DIR/rc.local" /etc/rc.local

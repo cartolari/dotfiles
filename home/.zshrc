@@ -41,6 +41,8 @@ source_if_exists() {
 
 source_if_exists /usr/share/fzf/completion.zsh
 source_if_exists /usr/share/fzf/key-bindings.zsh
+source_if_exists /usr/share/doc/fzf/examples/completion.zsh
+source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -102,8 +102,8 @@ function! HideOverLength()
   endif
 endfunction
 
-command HideOverLength call HideOverLength()
-command ShowOverLength call ShowOverLength()
+command! HideOverLength call HideOverLength()
+command! ShowOverLength call ShowOverLength()
 " }}}
 
 augroup markdown " {{{

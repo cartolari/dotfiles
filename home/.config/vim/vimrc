@@ -373,6 +373,7 @@ let g:coc_global_extensions = [
       \ "coc-markdownlint",
       \ "coc-omnisharp",
       \ "coc-python",
+      \ "coc-rust-analyzer",
       \ "coc-sh",
       \ "coc-snippets",
       \ "coc-solargraph",
@@ -392,4 +393,11 @@ let g:coc_global_extensions = [
 " COC FZF {{{
 let g:coc_fzf_preview = ''
 let g:coc_fzf_opts = []
+" }}}
+
+" Rust {{{
+augroup rust
+  autocmd!
+  autocmd BufWritePre,FileWritePre *.rs call CocAction('format')
+augroup end
 " }}}

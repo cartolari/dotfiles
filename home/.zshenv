@@ -41,6 +41,7 @@ export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$XDG_DATA_HOME/npm/bin
 export PATH=$PATH:/usr/bin/core_perl
 export PATH=$PATH:$HOME/.dotnet/tools
+export PATH=$PATH:~/.cargo/bin
 
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland

@@ -32,11 +32,12 @@ if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
 fi
 
 echo Installing services
-sudo cp "$REPO_DIR/"upstart-services/* /etc/init
+sudo cp "$REPO_DIR"/bootstrap/common/upstart-services /etc/init
+sudo cp "$REPO_DIR"/bootstrap/crouton/upstart-services /etc/init
 
-sudo cp "$REPO_DIR/bootstrap/30-crosh-custom.sh" /usr/share/crosh/dev.d/
-sudo cp "$REPO_DIR/bootstrap/51-android.rules" /etc/udev/rules.d/
-sudo cp "$REPO_DIR/bootstrap/99-kvm.rules" /etc/udev/rules.d/
+sudo cp "$SCRIPT_DIR/30-crosh-custom.sh" /usr/share/crosh/dev.d/
+sudo cp "$SCRIPT_DIR/51-android.rules" /etc/udev/rules.d/
+sudo cp "$SCRIPT_DIR/99-kvm.rules" /etc/udev/rules.d/
 
 if ! [[ -e /etc/sysctl.d/99-custom.conf ]]; then
   echo 'fs.inotify.max_user_watches = 524288' | sudo tee /etc/sysctl.d/99-custom.conf
@@ -47,5 +48,5 @@ if [[ ! -f /usr/local/bin/dockerd ]]; then
   curl -SsL https://download.docker.com/linux/static/stable/x86_64/docker-17.09.0-ce.tgz | sudo tar xzf - -C /usr/local/bin --strip-components=1
 fi
 
-sudo "$SCRIPT_DIR/setup-crouton-disk.sh"
+sudo "$SCRIPT_DIR/crouton-setup-disk.sh"
 sudo cp "$SCRIPT_DIR/docker.json" /mnt/stateful_partition/docker.json

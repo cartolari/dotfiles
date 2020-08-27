@@ -8,7 +8,7 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
-REPO_DIR="$(readlink -f "$SCRIPT_DIR/..")"
+REPO_DIR="$(readlink -f "$SCRIPT_DIR/../..")"
 
 unset LD_LIBRARY_PATH
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin
@@ -32,8 +32,8 @@ if [[ "$(sudo passwd --status chronos | awk '{ print $2 }')" != "P" ]]; then
 fi
 
 echo Installing services
-sudo cp "$REPO_DIR"/bootstrap/common/upstart-services /etc/init
-sudo cp "$REPO_DIR"/bootstrap/crouton/upstart-services /etc/init
+sudo cp "$REPO_DIR"/bootstrap/common/upstart-services/* /etc/init
+sudo cp "$REPO_DIR"/bootstrap/crouton/upstart-services/* /etc/init
 
 sudo cp "$SCRIPT_DIR/30-crosh-custom.sh" /usr/share/crosh/dev.d/
 sudo cp "$SCRIPT_DIR/51-android.rules" /etc/udev/rules.d/

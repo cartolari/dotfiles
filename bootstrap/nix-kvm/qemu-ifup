@@ -8,6 +8,10 @@
 # This work is licensed under the terms of the GNU GPL, version 2.  See
 # the COPYING file in the top-level directory.
 
+export LD_LIBRARY_PATH=
+
+~/.nix-profile/etc/profile.d/nix.sh
+
 # Set to the name of your bridge
 BRIDGE=br0
 

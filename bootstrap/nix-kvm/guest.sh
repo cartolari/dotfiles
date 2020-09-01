@@ -77,6 +77,7 @@ yay -S --needed --noconfirm \
   openconnect \
   packer \
   pgadmin4 \
+  picom \
   postgresql-libs \
   powerline \
   python \
@@ -96,12 +97,14 @@ yay -S --needed --noconfirm \
   scala \
   shellcheck-bin \
   sqlite \
+  supervisor \
   sysdig \
   sysstat \
   terraform \
   the_silver_searcher \
   tig \
   tigervnc \
+  tint2 \
   tmux \
   tree \
   ufw \

@@ -10,7 +10,7 @@
 
 export LD_LIBRARY_PATH=
 
-~/.nix-profile/etc/profile.d/nix.sh
+/home/chronos/user/.nix-profile/etc/profile.d/nix.sh
 
 # Set to the name of your bridge
 BRIDGE=br0

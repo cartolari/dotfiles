@@ -60,6 +60,7 @@ yay -S --needed --noconfirm \
   git-lfs \
   global \
   go \
+  graphviz \
   grml-zsh-config \
   gufw \
   htop \

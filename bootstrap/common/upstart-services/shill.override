@@ -1,1 +1,1 @@
-env BLACKLISTED_DEVICES=br0,tun0
+env BLOCKED_DEVICES=br0,tun0

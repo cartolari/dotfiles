@@ -51,6 +51,7 @@ echo Installing packages
 nix-env -f '<nixpkgs>' -iA bridge-utils
 nix-env -f '<nixpkgs>' -iA dnsmasq
 nix-env -f '<nixpkgs>' -iA gptfdisk
+nix-env -f '<nixpkgs>' -iA oathToolkit
 nix-env -f '<nixpkgs>' -iA openfortivpn
 nix-env -f '<nixpkgs>' -iA openvpn
 nix-env -f '<nixpkgs>' -iA qemu

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -e
+
+export LD_LIBRARY_PATH=
+
+ITEM_NAME="${1:-h}"
+
+if [ "$#" -ne 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+ echo "BitWarden OpenVPN Connect"
+ echo "Usage: bw-openvpn-connect [bitwarden-item-name]"
+ exit 1
+fi
+
+BW_SESSION=$(bw unlock --raw)
+export BW_SESSION
+
+sudo mkdir -p /tmp/bw-openvpn-connect/
+sudo chown chronos:chronos /tmp/bw-openvpn-connect
+DATE="$(date +%Y-%m-%d-%Hh-%Mm-%Ss)"
+BASE_DIR="$(mktemp -d /tmp/bw-openvpn-connect/"${DATE}".XXX)"
+CREDENTIALS_FILE="${BASE_DIR}/credentials"
+EXPECT_SCRIPT_FILE="${BASE_DIR}/expect"
+OPENVPN_CONFIG_FILE="${BASE_DIR}/config"
+
+touch "$CREDENTIALS_FILE"
+touch "$EXPECT_SCRIPT_FILE"
+touch "$OPENVPN_CONFIG_FILE"
+
+bw get item "$ITEM_NAME" | jq -r '.notes' > "$OPENVPN_CONFIG_FILE"
+
+USERNAME=$(bw get item "$ITEM_NAME" | jq -r '.login.username')
+PASSWORD=$(bw get item "$ITEM_NAME" | jq -r '.login.password')
+TOTP_SEED=$(bw get item "$ITEM_NAME" | jq -r '.login.totp')
+TOTP="$(oathtool -b --totp "$TOTP_SEED")"
+
+sudo chown root:root "$CREDENTIALS_FILE"
+sudo chmod 400 "$CREDENTIALS_FILE"
+
+cleanup() {
+  rm -rf "$BASE_DIR"
+}
+
+trap cleanup EXIT SIGINT
+
+echo "$USERNAME" | sudo tee "$CREDENTIALS_FILE" > /dev/null
+echo "$PASSWORD" | sudo tee -a "$CREDENTIALS_FILE" > /dev/null
+
+cat <<EOF > "$EXPECT_SCRIPT_FILE"
+set timeout -1
+spawn /usr/sbin/openvpn --config "$OPENVPN_CONFIG_FILE" --auth-user-pass "$CREDENTIALS_FILE"
+match_max 100000
+expect -exact "CHALLENGE: Enter Google Authenticator Code"
+send -- "$TOTP\\r"
+expect eof
+EOF
+
+sudo "$(which expect)" "$EXPECT_SCRIPT_FILE"

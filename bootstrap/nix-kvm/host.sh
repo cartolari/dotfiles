@@ -48,16 +48,21 @@ sudo cp "$REPO_DIR"/bootstrap/common/upstart-services/* /etc/init
 sudo cp "$REPO_DIR"/bootstrap/nix-kvm/upstart-services/* /etc/init
 
 echo Installing packages
+nix-env -f '<nixpkgs>' -iA bitwarden-cli
 nix-env -f '<nixpkgs>' -iA bridge-utils
 nix-env -f '<nixpkgs>' -iA dnsmasq
 nix-env -f '<nixpkgs>' -iA expect
 nix-env -f '<nixpkgs>' -iA gptfdisk
+nix-env -f '<nixpkgs>' -iA jq
 nix-env -f '<nixpkgs>' -iA oathToolkit
 nix-env -f '<nixpkgs>' -iA openfortivpn
 nix-env -f '<nixpkgs>' -iA openvpn
 nix-env -f '<nixpkgs>' -iA qemu
 nix-env -f '<nixpkgs>' -iA socat
 nix-env -f '<nixpkgs>' -iA telnet
+
+echo Copying scripts
+sudo cp "$SCRIPT_DIR"/host-bin/* /usr/local/bin
 
 echo Setup the VM
 mkdir -p "$VM_DISK_FOLDER"

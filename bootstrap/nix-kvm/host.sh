@@ -50,6 +50,7 @@ sudo cp "$REPO_DIR"/bootstrap/nix-kvm/upstart-services/* /etc/init
 echo Installing packages
 nix-env -f '<nixpkgs>' -iA bridge-utils
 nix-env -f '<nixpkgs>' -iA dnsmasq
+nix-env -f '<nixpkgs>' -iA expect
 nix-env -f '<nixpkgs>' -iA gptfdisk
 nix-env -f '<nixpkgs>' -iA oathToolkit
 nix-env -f '<nixpkgs>' -iA openfortivpn

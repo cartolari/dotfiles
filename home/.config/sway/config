@@ -59,17 +59,11 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-input "1133:16641:Logitech_Rechargeable_Touchpad_T650" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
+input "type:keyboard" {
+    xkb_layout us,br
+    xkb_variant altgr-intl,
+    xkb_options ctrl:nocaps,grp:win_space_toggle
 }
-
-input * xkb_layout us
-input * xkb_layout us
-input * xkb_variant altgr-intl
-input * xkb_options ctrl:nocaps
 
 ### Key bindings
 #

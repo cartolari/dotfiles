@@ -1,18 +1,30 @@
 # Read `man 5 sway` for a complete reference.
 
 exec libinput-gestures-setup start
-exec mako
+# exec mako
+exec /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec redshift -m wayland
 exec ulauncher
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots
 exec brillo -c 5 -S
 exec blueman-applet
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob \
+  --anchor bottom \
+  --background-color "#FF3F3E39" \
+  --bar-color "#FFEEEEEC" \
+  --border 0 \
+  --border-color "#FFFFFFFF" \
+  --height 40 \
+  --margin 50 \
+  --width 400
+
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema cursor-theme 'Vanilla-DMZ'
 }
+seat seat0 xcursor_theme Vanilla-DMZ 24
 
 ### Variables
 #
@@ -38,13 +50,13 @@ output DP-5 resolution 1920x1080 position 0,0 scale 1 enable
 output DP-6 resolution 1920x1080 position 0,0 scale 1 enable
 output DP-7 resolution 1920x1080 position 0,0 scale 1 enable
 output DP-8 resolution 1920x1080 position 0,0 scale 1 enable
-output eDP-1 resolution 3840x2400 position 0,1080 scale 2
+output eDP-1 resolution 3840x2400 position 0,1080 scale 3
 
 set $laptop eDP-1
 bindswitch --reload lid:on output $laptop disable
 bindswitch --reload lid:off output $laptop enable
 
-# gaps inner 10
+gaps inner 10
 
 exec swayidle -w \
          timeout 120 ~/.local/bin/lock \
@@ -190,11 +202,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# TODO: Setup WOB with brightness adjustments
 bindsym XF86MonBrightnessUp exec brillo -A 5
 bindsym XF86MonBrightnessDown exec brillo -U 5
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec pamixer -ud 5 && pamixer --get-volume > $SWAYSOCK.wob
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -210,12 +223,14 @@ bar {
     swaybar_command waybar
 }
 
-for_window [app_id="xfce4-notifyd"] border none; move down 0; move right 0
+# for_window [app_id="xfce4-notifyd"] border none; move down 0; move right 0
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="org.kde.krunner"] border none; floating enable
 for_window [app_id="ulauncher"] border none; floating enable
 for_window [app_id="blueman-manager"]; floating enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"]; floating enable
+
+default_border pixel 2
 
 include /etc/sway/config.d/*

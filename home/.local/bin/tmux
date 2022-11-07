@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-exec "$(which -a --skip-alias tmux | grep -v '.local/bin/' | head -n1)" \
-  -f "$XDG_CONFIG_HOME/tmux.conf" -u "$@"

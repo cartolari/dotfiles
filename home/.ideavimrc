@@ -1,5 +1,8 @@
 let mapleader = ','
 
+set relativenumber
+set number
+
 " Save current file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>

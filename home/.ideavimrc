@@ -15,8 +15,6 @@ nnoremap Q @q
 vnoremap Q :norm @q<cr>
 nnoremap <leader><leader> :Commands<CR>
 
-nnoremap <buffer> <M-Enter> O<Esc>jo<Esc>ki
-
 " Quit current file
 nnoremap <leader>q :q<CR>
 

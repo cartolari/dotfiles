@@ -6,3 +6,4 @@
 .local/bin
 .local/share
 containers
+.config/wob

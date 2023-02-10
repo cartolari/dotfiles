@@ -216,6 +216,7 @@ for_window [app_id="org.kde.krunner"] border none; floating enable
 for_window [app_id="ulauncher"] border none; floating enable
 for_window [app_id="blueman-manager"]; floating enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"]; floating enable
+for_window [class="Spotify"]; floating enable
 
 default_border pixel 2
 

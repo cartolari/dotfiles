@@ -9,7 +9,8 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        "format": "{name}: {icon}",
+        // "format": "{name}: {icon}",
+        "format": "{icon}",
         "format-icons": {
             // "1": "",
             // "2": "",

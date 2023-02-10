@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+workspaces = JSON.parse `swaymsg -t get_workspaces`
+active_worskpace = workspaces.find { |workspace| workspace['focused'] }
+active_output = active_worskpace['output']
+output_workspaces = workspaces.select { |workspace| workspace['output'] == active_output }
+
+puts output_workspaces.last['name'].to_i + 1

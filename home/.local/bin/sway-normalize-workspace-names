@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+
+require 'json'
+require 'securerandom'
+
+workspaces = JSON.parse `swaymsg -t get_workspaces`
+outputs = JSON.parse `swaymsg -t get_outputs`
+
+outputs.each_with_index do |output, index|
+  base_index = index * 100
+  workspaces
+    .select { |w| w['output'] == output['name'] }
+    .each_with_index do |workspace, workspace_index|
+      system "swaymsg rename workspace #{workspace['name']} to #{base_index + 10 + workspace_index}"
+    end
+end

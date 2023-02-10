@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+raise 'Invalid parameters' unless ARGV.length == 1
+raise 'Invalid parameters' unless %w[next prev].include? ARGV.first
+
+target = ARGV.first
+
+outputs = JSON.parse `swaymsg -t get_outputs`
+output_names = outputs.map { |x| x['name'] }
+focused_output = outputs.find { |x| x['focused'] }
+focused_output_index = output_names.find_index focused_output['name']
+
+puts output_names[
+  focused_output_index.send(target == 'next' ? 'succ' : 'pred') % outputs.size
+]

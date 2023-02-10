@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'securerandom'
+
+raise 'Invalid parameters' unless ARGV.length == 1
+raise 'Invalid parameters' unless %w[next prev].include? ARGV.first
+
+target = ARGV.first
+
+workspaces = JSON.parse `swaymsg -t get_workspaces`
+outputs = JSON.parse `swaymsg -t get_outputs`
+
+active_worskpace = workspaces.find { |workspace| workspace['focused'] }
+active_output = active_worskpace['output']
+output_workspaces = workspaces.select { |workspace| workspace['output'] == active_output }
+active_worskpace_index = output_workspaces.map { |workspace| workspace['name'] }.find_index active_worskpace['name']
+active_output_index = outputs.map { |o| o['name'] }.find_index active_output
+base_index = active_output_index * 100 + 10 # 5, 25, 25 ...
+
+if target == 'prev'
+  printf '%d', base_index + active_worskpace_index - 1
+else
+  printf '%d', base_index + active_worskpace_index + 1
+end

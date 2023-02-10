@@ -1,6 +1,7 @@
 # Read `man 5 sway` for a complete reference.
 
 exec libinput-gestures-setup start
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 # exec mako
 exec /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec redshift -m wayland
@@ -41,15 +42,15 @@ set $term alacritty
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/Wallpapers/4k-hd-river.jpg fill
+output * bg /usr/share/backgrounds/gnome/oceans.svg fill
 output DP-1 resolution 1920x1080 position 0,0 scale 1 enable
 output DP-2 resolution 1920x1080 position 0,0 scale 1 enable
 output DP-3 resolution 1920x1080 position 0,0 scale 1 enable
 output DP-4 resolution 1920x1080 position 0,0 scale 1 enable
-output DP-5 resolution 1920x1080 position 0,0 scale 1 enable
-output DP-6 resolution 1920x1080 position 0,0 scale 1 enable
-output DP-7 resolution 1920x1080 position 0,0 scale 1 enable
-output DP-8 resolution 1920x1080 position 0,0 scale 1 enable
+output DP-5 resolution 1920x1080 position 1280,1080 scale 1 enable
+output DP-6 resolution 1920x1080 position 3200,1080 scale 1 enable
+output DP-7 resolution 1920x1080 position 1280,1080 scale 1 enable
+output DP-8 resolution 1920x1080 position 3200,1080 scale 1 enable
 output eDP-1 resolution 3840x2400 position 0,1080 scale 3
 
 set $laptop eDP-1
@@ -83,8 +84,6 @@ input "type:keyboard" {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym alt+tab workspace next
-    bindsym alt+shift+tab workspace prev
     bindsym ctrl+alt+l exec ~/.local/bin/lock
 
     # Kill focused window
@@ -132,30 +131,21 @@ input "type:keyboard" {
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+
+    # Create workspace
+    bindsym $mod+c exec '~/.local/bin/sway-normalize-workspace-names && swaymsg workspace $(~/.local/bin/sway-create-workspace-index)'
+
+    bindsym $mod+tab exec 'swaymsg focus output $(~/.local/bin/sway-next-output next)'
+    bindsym $mod+shift+tab exec 'swaymsg focus output $(~/.local/bin/sway-next-output prev)'
+    bindsym $mod+m exec 'swaymsg focus output $(~/.local/bin/sway-next-output next)'
+
+    bindsym alt+tab workspace next_on_output
+    bindsym alt+shift+tab workspace prev_on_output
+    bindsym $mod+n workspace next_on_output
+    bindsym $mod+p workspace prev_on_output
+
+    bindsym $mod+shift+n exec '~/.local/bin/sway-normalize-workspace-names && swaymsg move container to workspace $(~/.local/bin/sway-index-on-output next) && swaymsg workspace next_on_output'
+    bindsym $mod+shift+p exec '~/.local/bin/sway-normalize-workspace-names && swaymsg move container to workspace $(~/.local/bin/sway-index-on-output prev) && swaymsg workspace prev_on_output'
 
 #
 # Layout stuff:

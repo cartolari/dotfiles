@@ -2,8 +2,8 @@
 
 exec libinput-gestures-setup start
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-# exec mako
-exec /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec swaync
+
 # TODO: Doesn't work anymore
 exec redshift -m wayland
 exec ulauncher
@@ -97,6 +97,8 @@ input "type:keyboard" {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Shift+o exec swaync-client -t -sw
 #
 # Moving around:
 #
@@ -206,7 +208,6 @@ bar {
     swaybar_command waybar
 }
 
-# for_window [app_id="xfce4-notifyd"] border none; move down 0; move right 0
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="org.kde.krunner"] border none; floating enable

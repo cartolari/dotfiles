@@ -1,0 +1,7 @@
+#!/bin/bash
+
+swayidle -w \
+  timeout 120  "$HOME/.local/bin/lock" \
+  timeout 300  'swaymsg "output * power off"' \
+  resume       'swaymsg "output * power on"' \
+  before-sleep "$HOME/.local/bin/lock"

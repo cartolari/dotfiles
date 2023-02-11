@@ -1,6 +1,7 @@
 #!/bin/bash
 
 swaylock \
+  -f \
   --screenshots \
   --clock \
   --indicator \

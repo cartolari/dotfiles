@@ -12,6 +12,9 @@ outputs.each_with_index do |output, index|
   workspaces
     .select { |w| w['output'] == output['name'] }
     .each_with_index do |workspace, workspace_index|
-      system "swaymsg rename workspace #{workspace['name']} to #{base_index + 10 + workspace_index}"
+      old_name = workspace['name']
+      new_name = base_index + 10 + workspace_index
+
+      system "swaymsg rename workspace #{old_name} to #{new_name}" if new_name != old_name
     end
 end

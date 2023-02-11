@@ -2,9 +2,10 @@
 
 swaylock \
   -f \
-  --screenshots \
   --clock \
+  --effect-blur 10x10 \
+  --fade-in 0.2 \
   --indicator \
   --indicator-radius 100 \
   --indicator-thickness 7 \
-  --effect-blur 10x10
+  --screenshots

@@ -4,19 +4,13 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "sway/language", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "tray"],
+    "modules-right": ["idle_inhibitor", "sway/language", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "custom/notification", "tray"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        // "format": "{name}: {icon}",
         "format": "{icon}",
         "format-icons": {
-            // "1": "",
-            // "2": "",
-            // "3": "",
-            // "4": "",
-            // "5": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -38,7 +32,7 @@
         "spacing": 5
     },
     "clock": {
-        "format": "{:%a %d %b %Y %H:%M}",
+        "format": "{:%a, %d %b %Y %H:%M}",
         "tooltip": false
     },
     "cpu": {
@@ -54,18 +48,29 @@
         "max-length": 50
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
-        "tooltip": false
+      "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+      "format": "{temperatureC}°C "
     },
     "backlight": {
         "device": "intel_backlight",
         "format": "{percent}% {icon}",
         "format-icons": ["", ""]
+    },
+    "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup>●</sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup>●</sup></span>",
+        "dnd-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
     },
     "battery": {
         "bat": "BAT0",
@@ -75,16 +80,13 @@
             "critical": 6
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-        "tooltip": false
+        "tooltip": true
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
@@ -94,9 +96,8 @@
         "tooltip": false
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",

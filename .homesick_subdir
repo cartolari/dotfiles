@@ -7,3 +7,4 @@
 .local/share
 containers
 .config/wob
+.local/share/applications

@@ -4,8 +4,8 @@ exec libinput-gestures-setup start
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swaync
 
-# TODO: Doesn't work anymore
-exec redshift -m wayland
+exec /usr/lib/geoclue-2.0/demos/agent
+exec gammastep-indicator
 exec ulauncher
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots

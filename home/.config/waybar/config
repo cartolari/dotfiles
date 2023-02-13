@@ -57,8 +57,9 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format": "{percent}% ",
+        "on-scroll-down": "brillo -U 1",
+        "on-scroll-up": "brillo -A 1"
     },
     "custom/notification": {
       "tooltip": false,

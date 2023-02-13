@@ -56,11 +56,17 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
-#clock,
-#battery,
 #cpu,
 #memory,
-#temperature,
+#disk,
+#temperature
+{
+  margin: 0 3px;
+  color: #ffffff;
+}
+
+#clock,
+#battery,
 #backlight,
 #network,
 #pulseaudio,

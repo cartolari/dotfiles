@@ -43,6 +43,10 @@
         "format": "{}% ",
         "tooltip": false
     },
+    "disk": {
+      "format": "{}% ",
+      "path": "/"
+    },
     "sway/language": {
         "format": "{}",
         "max-length": 50

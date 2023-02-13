@@ -13,6 +13,7 @@ exec brillo -c 5 -S
 exec blueman-applet
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec ~/.local/bin/wob-subscribe-to-volume-changes
+exec copyq
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -213,6 +214,7 @@ for_window [app_id="ulauncher"] border none; floating enable
 for_window [app_id="blueman-manager"]; floating enable
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"]; floating enable
 for_window [class="Spotify"]; floating enable
+for_window [app_id="com.github.hluk.copyq"]; floating enable
 
 default_border pixel 2
 

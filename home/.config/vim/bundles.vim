@@ -113,6 +113,10 @@ endif
   Plug 'kevinoid/vim-jsonc'
 " }}}
 
+" Ledger {{{
+  Plug 'ledger/vim-ledger'
+" }}}
+
 " QML {{{
   Plug 'peterhoeg/vim-qml'
 " }}}

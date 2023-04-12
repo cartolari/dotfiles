@@ -49,3 +49,5 @@
 [merge "pnpm-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = pnpm-merge-driver %A %O %B %P
+[rebase]
+	autoStash = true

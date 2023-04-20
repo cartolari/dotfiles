@@ -7,7 +7,7 @@ screenshot_name="$(~/.local/bin/screenshot-name)"
 
 case $screenshot_type in
   area )
-    grim -g "$(slurp)" - | wl-copy
+    grim -g "$(slurp)" - | tee "$screenshot_name" | wl-copy
     notify-send.sh "Screenshot copied to clipboard"
     ;;
   current-window )

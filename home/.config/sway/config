@@ -7,7 +7,7 @@ exec swaync
 exec kanshi
 exec /usr/lib/geoclue-2.0/demos/agent
 exec gammastep-indicator
-exec ulauncher
+exec albert
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots
 exec brillo -c 5 -S
@@ -15,6 +15,7 @@ exec blueman-applet
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec ~/.local/bin/wob-subscribe-to-volume-changes
 exec copyq
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -84,7 +85,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec ulauncher
+    bindsym $mod+d exec albert toggle
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

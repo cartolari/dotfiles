@@ -1,11 +1,13 @@
 profile docked {
-	output "Dell Inc. DELL P2419H 7MRYD53" mode 1920x1080 position 1920,0
-	output "Dell Inc. DELL P2419H 8BJYD53" mode 1920x1080 position 0,0
-  output eDP-1 mode 3840x2400 position 320,1080 scale 3
+  output eDP-1 mode 3840x2400 position 0,0 scale 3
+  output "Dell Inc. DELL P2419H 8BJYD53" mode 1920x1080 position 1280,0
+  output "Dell Inc. DELL P2419H 7MRYD53" mode 1920x1080 position 3200,0
 
-  exec notify-send Kanshi 'Applying new layout'
+  exec notify-send int:transient:1 Desktop 'Layout Updated'
 }
 
 profile undocked {
   output eDP-1 mode 3840x2400 position 0,0 scale 3
+
+  exec notify-send int:transient:1 Desktop 'Layout Updated'
 }

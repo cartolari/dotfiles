@@ -2,6 +2,7 @@
 
 exec libinput-gestures-setup start
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME=qt6ct
 exec swaync
 
 exec kanshi

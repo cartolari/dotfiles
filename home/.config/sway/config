@@ -214,9 +214,12 @@ for_window [app_id="nm-connection-editor"] floating enable
 for_window [app_id="org.kde.krunner"] border none; floating enable
 for_window [app_id="ulauncher"] border none; floating enable
 for_window [app_id="blueman-manager"]; floating enable
-for_window [app_id="firefox" title="Firefox - Sharing Indicator"]; floating enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"]; floating enable
 for_window [class="Spotify"]; floating enable
 for_window [app_id="com.github.hluk.copyq"]; floating enable
+for_window [app_id="xfce4-appfinder"]; floating enable
+for_window [app_id="com.github.tchx84.Flatseal"]; floating enable
+for_window [app_id="wdisplays"] floating enable
 
 default_border pixel 2
 

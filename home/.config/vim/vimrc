@@ -82,7 +82,8 @@ scriptencoding utf-8
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme base16-monokai
+" colorscheme base16-monokai
+colorscheme base16-oceanicnext
 " }}}
 
 " Highlight {{{
@@ -104,6 +105,8 @@ endfunction
 
 command! HideOverLength call HideOverLength()
 command! ShowOverLength call ShowOverLength()
+
+let g:highlightedyank_highlight_duration = 250
 " }}}
 
 augroup markdown " {{{
@@ -288,6 +291,19 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'window': g:fzf_layout.window,
 \ })
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all'
 " }}}
 
 " CtrlSF {{{

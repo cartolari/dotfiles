@@ -174,6 +174,7 @@ endif
   Plug 'itchyny/lightline.vim'
   Plug 'konfekt/fastfold'
   Plug 'liuchengxu/vim-which-key'
+  Plug 'machakann/vim-highlightedyank'
 " }}}
 
 call plug#end()

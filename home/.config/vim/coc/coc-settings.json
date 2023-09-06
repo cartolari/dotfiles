@@ -1,14 +1,18 @@
 {
   "cSpell.enabled": true,
   "cSpell.userWords": [
+    "Apprunner",
+    "Mutex",
+    "Streamable",
+    "nestjs",
     "solargraph"
   ],
-  "eslint.enable": false,
+  "eslint.enable": true,
   "solargraph.promptDownload": true,
   "tslint.autoFixOnSave": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "typescript.preferences.quoteStyle": "double",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
   "diagnostic.errorSign": "✗",
   "diagnostic.hintSign": "🛈",
   "diagnostic.infoSign": "🛈",

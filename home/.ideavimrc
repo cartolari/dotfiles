@@ -3,6 +3,17 @@ let mapleader = ','
 set relativenumber
 set number
 
+" Plugins
+set argtextobj
+set commentary
+set exchange
+set highlightedyank
+set ideajoin
+set matchit
+set surround
+set textobj-indent
+set vim-paragraph-motion
+
 " Save current file
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>
@@ -63,11 +74,9 @@ vnoremap : ;
 
 " Mappings to IDEA Actions
 
-set surround
-
 nnoremap C-] :action GoToSymbol<CR>
-nnoremap gcc :action CommentByLineComment<CR>
-vnoremap gc :action CommentByLineComment<CR>
+"nnoremap gcc :action CommentByLineComment<CR>
+"vnoremap gc :action CommentByLineComment<CR>
 nnoremap == :action ReformatCode<CR>
 nnoremap / :action Find<CR>
 nnoremap <leader>n :action GoToClass<CR>

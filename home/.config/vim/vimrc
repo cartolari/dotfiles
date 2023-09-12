@@ -391,7 +391,7 @@ let g:coc_global_extensions = [
       \ "coc-python",
       \ "coc-rust-analyzer",
       \ "coc-sh",
-      \ "coc-snippets",
+      \ "coc-ultisnips",
       \ "coc-solargraph",
       \ "coc-spell-checker",
       \ "coc-sql",

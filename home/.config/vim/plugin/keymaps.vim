@@ -158,6 +158,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+
 vnoremap <Tab> <Plug>(coc-snippets-select)
 
 " GoTo code navigation.

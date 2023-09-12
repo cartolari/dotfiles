@@ -12,7 +12,7 @@
   "tslint.autoFixOnSave": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.quoteStyle": "single",
-  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "diagnostic.errorSign": "✗",
   "diagnostic.hintSign": "🛈",
   "diagnostic.infoSign": "🛈",

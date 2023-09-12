@@ -1,0 +1,105 @@
+global !p
+
+import re
+
+def to_camel_case(s):
+	words = re.split(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_-]', s)
+	return ''.join(word.capitalize() for word in words)
+
+def complete(t, opts):
+	if t:
+		opts = [m[len(t):] for m in opts if m.startswith(t)]
+	if len(opts) == 1:
+		return opts[0]
+	return "(" + "|".join(opts) + ")"
+
+endglobal
+
+snippet ct "construtor"
+public constructor($0) {}
+endsnippet
+
+snippet pro "private readonly"
+private readonly $0
+endsnippet
+
+snippet class "class ... {}" b
+${1:export }class ${2:`!p snip.rv = to_camel_case(vim.eval("expand('%:t:r')"))`} {
+	$0
+}
+endsnippet
+
+snippet mt "public method() { ... }"
+$1`!p snip.rv=complete(t[1], ['private', 'public'])` ${2:async }${3:method}($5): ${4:`!p snip.rv='Promise<void>' if t[2] == 'async ' else 'void'`} {
+	${0:throw new Error('Not implemented')};
+}
+endsnippet
+
+snippet plogger "private logger"
+private readonly logger = new Logger($0);
+endsnippet
+
+snippet schemas "import schemas" b
+import * as Schemas from '@onyx/schemas';
+endsnippet
+
+snippet entity
+import { BaseEntity } from '@onyx/onyx-entities';
+import { BaseClass, Optional, Uuid } from '@onyx/ts-extensions';
+
+export interface ${1:`!p snip.rv = to_camel_case(vim.eval("expand('%:t:r')"))`}Attributes extends BaseEntity {
+  $0
+}
+
+export type Optional$1Attributes = Optional<$1Attributes, 'createdAt' | 'id' | 'updatedAt'>;
+
+export class $1 extends BaseClass<$1Attributes>() {
+  public constructor(
+    attributes: Optional$1Attributes,
+  ) {
+    super({
+      createdAt: new Date(),
+      id: Uuid.new(),
+      updatedAt: new Date(),
+      ...attributes,
+    });
+  }
+}
+endsnippet
+
+snippet nestct
+import { Controller, $1 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+
+import { ApiScopes } from '@onyx/params-decorators';
+
+@ApiTags('$6')
+@Controller()
+export class `!p snip.rv = to_camel_case(vim.eval("expand('%:t:r')"))` {
+  @ApiScopes('$4:$5`!p snip.rv=complete(t[5], ['read', 'write'])`')
+  @${1}`!p snip.rv=complete(t[1], ['Get', 'Post', 'Put', 'Delete', 'Patch', 'Options', 'Head', 'All'])`('$2')
+  public async ${3:do$1}(): Promise<${7:void}> {
+    ${0:throw new Error('Not implemented yet')};
+  }
+}
+endsnippet
+
+snippet zod
+export const ${1:`!p snip.rv = to_camel_case(vim.eval("expand('%:t:r')"))`} = z.object({
+	$0
+});
+export type $1 = z.TypeOf<typeof $1>;
+endsnippet
+
+snippet zoddto
+import { z } from 'zod';
+
+import { createZodDto } from '@anatine/zod-nestjs';
+
+export const ${1:`!p snip.rv = to_camel_case(vim.eval("expand('%:t:r')"))`} = z.object({
+  $0
+});
+export type $1 = z.TypeOf<typeof $1>;
+
+export class $1C extends createZodDto($1) {}
+endsnippet

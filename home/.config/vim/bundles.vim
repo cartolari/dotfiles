@@ -17,6 +17,7 @@ endif
 " }}}
 
 " Completions and Snippets {{{
+  Plug 'Sirver/Ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}

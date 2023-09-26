@@ -42,6 +42,7 @@ endif
   Plug 'embear/vim-localvimrc'
   Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
+  Plug 'lambdalisue/suda.vim'
   Plug 'majutsushi/tagbar'
   Plug 'osyo-manga/vim-over'
   Plug 'sjl/gundo.vim'

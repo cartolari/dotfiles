@@ -218,6 +218,8 @@ for_window [app_id="com.github.hluk.copyq"]; floating enable
 for_window [app_id="xfce4-appfinder"]; floating enable
 for_window [app_id="com.github.tchx84.Flatseal"]; floating enable
 for_window [app_id="wdisplays"] floating enable
+for_window [app_id="albert"] floating enable; border none
+for_window [app_id="mate-volume-control"] floating enable
 
 default_border pixel 2
 

@@ -3,8 +3,10 @@ global !p
 import re
 
 def to_camel_case(s):
-	words = re.split(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_-]', s)
-	return ''.join(word.capitalize() for word in words)
+    words = re.split(r'(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|[_-]|(?<=[a-zA-Z])(?=[.])|(?<=[.])(?=[a-zA-Z])', s)
+    camel_case = ''.join(word.capitalize() for word in words)
+
+    return camel_case.replace('.', '')
 
 def complete(t, opts):
 	if t:

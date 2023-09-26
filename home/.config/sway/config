@@ -8,10 +8,8 @@ exec swaync
 exec kanshi
 exec /usr/lib/geoclue-2.0/demos/agent
 exec gammastep-indicator
-exec albert
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots
-exec brillo -c 5 -S
 exec blueman-applet
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec ~/.local/bin/wob-subscribe-to-volume-changes
@@ -85,7 +83,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec albert toggle
+    bindsym $mod+d exec tofi-drun
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

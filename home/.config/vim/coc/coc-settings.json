@@ -13,6 +13,7 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.importModuleSpecifier": "non-relative",
+  "coc.source.ultisnips.priority": 1,
   "diagnostic.errorSign": "✗",
   "diagnostic.hintSign": "🛈",
   "diagnostic.infoSign": "🛈",

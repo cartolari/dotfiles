@@ -64,7 +64,6 @@ endif
   Plug 'airblade/vim-gitgutter'
   Plug 'christoomey/vim-system-copy'
   Plug 'christoomey/vim-tmux-runner'
-  Plug 'gregsexton/gitv'
   Plug 'tpope/vim-fugitive'
 " }}}
 

@@ -6,8 +6,6 @@ exec dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME=qt6ct
 exec swaync
 
 exec kanshi
-exec /usr/lib/geoclue-2.0/demos/agent
-exec gammastep-indicator
 exec ydotoold
 exec mkdir -p ~/Pictures/Screenshots
 exec blueman-applet
@@ -15,6 +13,8 @@ exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec ~/.local/bin/wob-subscribe-to-volume-changes
 exec copyq
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec wlsunset -s 19:00 -S 06:00 -t 5000
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -35,9 +35,8 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg ~/Downloads/material.png fill
+
 output eDP-1 resolution 3840x2400 position 0,0 scale 3 enable
 output "Dell Inc. DELL P2419H 8BJYD53" resolution 1920x1080 position 1280,0 enable
 output "Dell Inc. DELL P2419H 7MRYD53" resolution 1920x1080 position 3200,0 enable
@@ -48,11 +47,13 @@ bindswitch --reload lid:off output $laptop enable
 
 gaps inner 10
 gaps inner 10
-blur enable
-shadows enable
-shadow_blur_radius 10
-smart_corner_radius enable
-corner_radius 5
+
+# Sway FX
+# blur enable
+# shadows enable
+# shadow_blur_radius 10
+# smart_corner_radius enable
+# corner_radius 5
 
 exec ~/.local/bin/start-sway-idle
 
@@ -83,7 +84,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec tofi-drun
+    bindsym $mod+d exec tofi-drun-full-screen
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -201,6 +202,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym --release Print exec ~/.local/bin/screenshot
 bindsym --release Ctrl+Print exec ~/.local/bin/screenshot current-window
 bindsym --release Ctrl+Shift+Print exec ~/.local/bin/screenshot area
+# Logitech MX Keys Mini
+bindcode --release $mod+Shift+13 exec ~/.local/bin/screenshot area
 
 bar {
     position top
@@ -219,7 +222,8 @@ for_window [app_id="xfce4-appfinder"]; floating enable
 for_window [app_id="com.github.tchx84.Flatseal"]; floating enable
 for_window [app_id="wdisplays"] floating enable
 for_window [app_id="albert"] floating enable; border none
-for_window [app_id="mate-volume-control"] floating enable
+for_window [app_id="mate-volume-control"] floating enable; resize set 1000 600
+for_window [app_id="solaar"] floating enable; resize set 1000 600
 
 default_border pixel 2
 

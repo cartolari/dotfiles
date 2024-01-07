@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+WIDTH=$(swaymsg -t get_outputs | jq '.[] | select(.focused) | .rect.width' | head -n1)
+HEIGHT=$(swaymsg -t get_outputs | jq '.[] | select(.focused) | .rect.height' | head -n1)
+
+tofi-drun --height "$HEIGHT" --width "$WIDTH"

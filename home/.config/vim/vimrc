@@ -143,6 +143,7 @@ augroup vimrcEx
         \ endif
   " Allow stylesheets and html to autocomplete hyphenated words
   autocmd FileType html,css,scss,sass setlocal iskeyword+=-
+  autocmd BufRead,BufNewFile *.hbs set filetype=html
   " Remove any trailing whitespace before saving
   autocmd BufWrite * :FixWhitespace
   " Resize splits when the window is resized
@@ -351,9 +352,6 @@ let g:terraform_fmt_on_save = 1
 " }}}
 
 " JS {{{
-augroup jsx " {{{
-  autocmd FileType javascript runtime! ftplugin/html/sparkup.html
-augroup end " }}}
 
 let g:jsx_ext_required = 0
 let g:user_emmet_settings = {
@@ -415,4 +413,9 @@ augroup rust
   autocmd!
   autocmd BufWritePre,FileWritePre *.rs call CocAction('format')
 augroup end
+" }}}
+
+" Gtags {{{
+" Block annoying messages from Global
+let g:loaded_gtags_cscope = '1'
 " }}}

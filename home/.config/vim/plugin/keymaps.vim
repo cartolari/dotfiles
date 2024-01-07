@@ -110,6 +110,7 @@ let g:which_key_map.c = {
       \ 'name' : '+ Code Actions (COC)',
       \ 'a' : {
       \   'name': '+ Actions',
+      \   'a': [':CocCommand eslint.executeAutofix', 'Fix All ESLint issues'],
       \   'f': [':CocFix', 'AutoFix'],
       \   'l': [':CocFzfList actions', 'List current actions'],
       \ },

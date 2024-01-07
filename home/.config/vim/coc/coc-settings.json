@@ -5,7 +5,8 @@
     "Mutex",
     "Streamable",
     "nestjs",
-    "solargraph"
+    "solargraph",
+    "ultisnips"
   ],
   "eslint.enable": true,
   "solargraph.promptDownload": true,
@@ -13,9 +14,11 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.importModuleSpecifier": "non-relative",
+  "coc.preferences.useQuickfixForLocations": true,
   "coc.source.ultisnips.priority": 1,
   "diagnostic.errorSign": "✗",
   "diagnostic.hintSign": "🛈",
   "diagnostic.infoSign": "🛈",
-  "diagnostic.warningSign": "⚠"
+  "diagnostic.warningSign": "⚠",
+  "java.import.gradle.java.home": "/usr/lib/jvm/java-8-openjdk"
 }

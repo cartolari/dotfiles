@@ -1,11 +1,17 @@
 #!/bin/bash
 
+last_volume=''
+
 pactl subscribe | \
   grep --line-buffered "Event 'change' on sink" | \
   while read -r; do
-    if [[ "$(pamixer --get-mute)" == "true" ]]; then
-      echo 0 > "${SWAYSOCK}.wob"
-    else
-      pamixer --get-volume > "${SWAYSOCK}.wob"
+    current_volume=$(pamixer --get-volume)
+    if [[ "$(pamixer --get-mute)" == 'true' ]]; then
+      current_volume='0'
+    fi
+
+    if [[ "$current_volume" != "$last_volume" ]]; then
+      last_volume=$current_volume
+      echo "$current_volume" > "${SWAYSOCK}.wob"
     fi
   done

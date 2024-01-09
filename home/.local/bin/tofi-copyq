@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+INDEX=$(
+"$SCRIPT_DIR/copyq-dump" | \
+  jq '"\(.row) \(.text)"' | \
+  perl -pe 's/(^"|"$)//g' | \
+  tofi --config ~/.config/tofi/copyq-config | \
+  grep -oP '^\d+'
+)
+
+copyq "select($INDEX)"

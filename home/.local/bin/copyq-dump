@@ -1,0 +1,16 @@
+#!/bin/bash
+
+read -r -d '' COPYQ_SCRIPT <<'EOF'
+var result=[];
+for (var i = 0; i < size(); ++i ) {
+    var obj = {};
+    obj.row = i;
+    obj.mimetypes = str(read("?", i)).split("\n");
+    obj.mimetypes.pop();
+    obj.text = str(read(i));
+    result.push(obj);
+}
+JSON.stringify(result);
+EOF
+
+copyq - <<< "$COPYQ_SCRIPT" | jq -c -r .[]

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Clipboard History
+Comment=Manages system audio
+Exec=/home/cartolari/.local/bin/tofi-copyq
+Categories=System
+Keywords=system;process;task

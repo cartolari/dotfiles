@@ -12,6 +12,7 @@ if status is-interactive
   end
 
   source_if_exists /usr/share/fish/functions/autojump.fish
+  source_if_exists /usr/share/autojump/autojump.fish
   source_if_exists /usr/share/fish/vendor_functions.d/fzf_key_bindings.fish
   source_if_exists /etc/fish/completions/rclone.fish
 end

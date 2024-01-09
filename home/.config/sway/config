@@ -203,7 +203,7 @@ bindsym --release Print exec ~/.local/bin/screenshot
 bindsym --release Ctrl+Print exec ~/.local/bin/screenshot current-window
 bindsym --release Ctrl+Shift+Print exec ~/.local/bin/screenshot area
 # Logitech MX Keys Mini
-bindcode --release $mod+Shift+13 exec ~/.local/bin/screenshot area
+bindcode $mod+Shift+13 exec ~/.local/bin/screenshot area
 
 bar {
     position top

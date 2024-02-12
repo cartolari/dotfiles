@@ -25,7 +25,7 @@ if [ -z "${BRIGHTNESS:-}" ]; then
   show_help
 fi
 
-if ! lsmod | grep i2c-dev; then
+if ! lsmod | grep i2c_dev > /dev/null; then
   echo 'Loading i2c-dev module'
   sudo modprobe i2c-dev
 fi

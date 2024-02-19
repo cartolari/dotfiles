@@ -24,6 +24,7 @@ home/.emacs.d/auto-save-list/
 home/.emacs.d/cache
 home/.emacs.d/cider-history
 home/.emacs.d/custom.el
+home/.emacs.d/eln-cache/
 home/.emacs.d/elpa
 home/.emacs.d/eshell/
 home/.emacs.d/games
@@ -36,6 +37,7 @@ home/.emacs.d/recentf
 home/.emacs.d/session.*
 home/.emacs.d/smex-items
 home/.emacs.d/tramp
+home/.emacs.d/transient/
 home/.emacs.d/url/
 /home/.emacs.d/.emacs.desktop
 /home/.emacs.d/.emacs.desktop.lock

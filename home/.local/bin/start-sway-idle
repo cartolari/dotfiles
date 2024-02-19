@@ -1,7 +1,16 @@
 #!/bin/bash
 
+SWAY_VERSION="$(sway --version | grep -oP '[\d\.]+')"
+MIN_SWAY_VERSION_FOR_POWER_COMMAND='1.8'
+
+if [ "$(printf '%s\n%s' "$MIN_SWAY_VERSION_FOR_POWER_COMMAND" "$SWAY_VERSION" | sort -V | head -n1)" = "$REQUIRED" ]; then
+  POWER_COMMAND_NAME='power'
+else
+  POWER_COMMAND_NAME='dpms'
+fi
+
 swayidle -w \
   timeout 120  "$HOME/.local/bin/lock" \
-  timeout 300  'swaymsg "output * power off"' \
-  resume       'swaymsg "output * power on"' \
+  timeout 300  "swaymsg 'output * $POWER_COMMAND_NAME off'" \
+  resume       "swaymsg 'output * $POWER_COMMAND_NAME on'" \
   before-sleep "$HOME/.local/bin/lock"

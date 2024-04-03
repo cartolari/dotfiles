@@ -1,4 +1,4 @@
 #!/bin/bash
 
-update-external-displays-brightness -b 30
+/home/cartolari/.local/bin/update-external-displays-brightness -b 30
 exit 0

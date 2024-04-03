@@ -1,0 +1,10 @@
+[Unit]
+Description=Sway layout manager
+
+[Service]
+ExecStart=/usr/bin/kanshi
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=default.target

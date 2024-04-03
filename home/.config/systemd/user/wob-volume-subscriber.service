@@ -1,0 +1,11 @@
+[Unit]
+BindsTo=pipewire-pulse.service
+Description=Send PulseAudio volume events to WOB
+
+[Service]
+ExecStart=%h/.local/bin/wob-subscribe-to-volume-changes
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=WOB (Wayland Overlay Bar) Socket
+
+[Socket]
+ListenFIFO=%t/wob.socket
+Service=wob.service

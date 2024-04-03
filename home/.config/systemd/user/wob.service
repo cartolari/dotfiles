@@ -1,0 +1,14 @@
+[Unit]
+Description=WOB (Wayland Overlay Bar)
+
+[Service]
+ExecStart=/usr/bin/wob --verbose
+Restart=always
+Sockets=wob.socket
+StandardError=journal
+StandardInput=socket
+StandardOutput=journal
+Type=simple
+
+[Install]
+WantedBy=default.target

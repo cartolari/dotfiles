@@ -1,6 +1,10 @@
 #!/bin/bash
 
+set -euo pipefail
+
 last_volume=''
+
+SOCKET=${XDG_RUNTIME_DIR}/wob.socket
 
 pactl subscribe | \
   grep --line-buffered "Event 'change' on sink" | \
@@ -12,6 +16,6 @@ pactl subscribe | \
 
     if [[ "$current_volume" != "$last_volume" ]]; then
       last_volume=$current_volume
-      echo "$current_volume" > "${SWAYSOCK}.wob"
+      echo "$current_volume" > "$SOCKET"
     fi
   done

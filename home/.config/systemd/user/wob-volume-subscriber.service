@@ -1,5 +1,6 @@
 [Unit]
 BindsTo=pipewire-pulse.service
+BindsTo=wob.service
 Description=Send PulseAudio volume events to WOB
 
 [Service]

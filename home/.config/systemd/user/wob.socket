@@ -3,4 +3,8 @@ Description=WOB (Wayland Overlay Bar) Socket
 
 [Socket]
 ListenFIFO=%t/wob.socket
+RemoveOnStop=true
 Service=wob.service
+
+[Install]
+WantedBy=default.target

@@ -213,7 +213,6 @@ for_window [app_id="ulauncher"] border none; floating enable
 for_window [app_id="blueman-manager"]; floating enable
 for_window [app_id="org.gnome.Calculator"]; floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"]; floating enable
-for_window [class="Spotify"]; floating enable
 for_window [app_id="com.github.hluk.copyq"]; floating enable
 for_window [app_id="xfce4-appfinder"]; floating enable
 for_window [app_id="com.github.tchx84.Flatseal"]; floating enable
@@ -223,5 +222,6 @@ for_window [app_id="mate-volume-control"] floating enable; resize set 1000 600
 for_window [app_id="solaar"] floating enable; resize set 1000 600
 
 default_border pixel 2
+default_floating_border pixel 2
 
 include /etc/sway/config.d/*

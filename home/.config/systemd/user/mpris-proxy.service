@@ -1,6 +1,7 @@
 [Unit]
-BindsTo=pipewire-pulse.service
+BindsTo=sway-session.target
 Description=Forward bluetooth midi controls via mpris2 so they are picked up by supporting media players
+PartOf=pipewire-pulse.service
 
 [Service]
 Type=simple

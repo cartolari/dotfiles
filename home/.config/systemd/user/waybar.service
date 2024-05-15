@@ -1,9 +1,9 @@
 [Unit]
 BindsTo=sway-session.target
-Description=Sway layout manager
+Description=Waybar
 
 [Service]
-ExecStart=/usr/bin/kanshi
+ExecStart=/usr/bin/waybar
 Restart=always
 Type=simple
 

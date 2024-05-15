@@ -1,10 +1,11 @@
 [Unit]
-Description=WOB (Wayland Overlay Bar) Socket
+BindsTo=sway-session.target
+Description=Wayland Overlay Bar Socket
+PartOf=pipewire-pulse.service
 
 [Socket]
 ListenFIFO=%t/wob.socket
 RemoveOnStop=true
-Service=wob.service
 
 [Install]
 WantedBy=default.target

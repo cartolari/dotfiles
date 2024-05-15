@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SOCKET="${XDG_RUNTIME_DIR}/wob.socket"
+rm -f "$SOCKET"
+
+mkfifo "$SOCKET"
+exec tail -f "$SOCKET" | /usr/bin/wob

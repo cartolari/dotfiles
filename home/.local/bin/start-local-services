@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill -HUP -u cartolari runsvdir
+
+exec runsvdir -P ~/.local/share/services

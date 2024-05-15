@@ -12,6 +12,7 @@ exec copyq
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec wlsunset -s 19:00 -S 06:00 -t 5000
+exec ~/.local/bin/start-local-services
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -204,7 +205,7 @@ bindcode $mod+Shift+13 exec ~/.local/bin/screenshot area
 
 bar {
     position top
-    swaybar_command waybar
+    swaybar_command tail -f /dev/null
 }
 
 for_window [app_id="pavucontrol"] floating enable

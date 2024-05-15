@@ -47,3 +47,6 @@ home/.emacs.d/url/
 /provision/playbook.retry
 
 node_modules
+
+# Runit
+home/.local/share/services/*/supervise

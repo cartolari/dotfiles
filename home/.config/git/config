@@ -3,7 +3,7 @@
 	email = bruno.cartolari@gmail.com
 [core]
 	editor = vim
-  pager = delta
+  pager = ~/.local/bin/git-pager
 [interactive]
   diffFilter = delta --color-only
 [add.interactive]

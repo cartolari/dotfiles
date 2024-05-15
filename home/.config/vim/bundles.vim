@@ -142,6 +142,10 @@ endif
   Plug 'derekwyatt/vim-scala'
 " }}}
 
+" {{{ Sway
+  Plug 'jamespeapen/swayconfig.vim'
+" }}}
+
 " Stylus {{{
   Plug 'wavded/vim-stylus'
 " }}}

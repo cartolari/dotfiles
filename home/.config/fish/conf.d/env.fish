@@ -6,7 +6,11 @@ set -gx XDG_LIB_HOME $HOME/.local/lib
 
 
 if ! set -q XDG_RUNTIME_DIR
-  set -gx XDG_RUNTIME_DIR /run/user/cartolari
+  if test (uname) = "Darwin"
+    set -gx XDG_RUNTIME_DIR ~/Library/Caches
+  else
+    set -gx XDG_RUNTIME_DIR /run/user/cartolari
+  end
 end
 
 set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"

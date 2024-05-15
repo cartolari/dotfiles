@@ -24,4 +24,4 @@ sudo apt install -qy \
 [[ -e /usr/bin/bat ]] || sudo ln -s /usr/bin/b{atc,}at
 
 homesick clone cartolari/dotfiles
-homesick link
+homesick link --force

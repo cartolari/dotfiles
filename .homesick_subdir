@@ -8,3 +8,4 @@
 containers
 .config/wob
 .local/share/applications
+.config/avizo

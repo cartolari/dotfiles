@@ -185,11 +185,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym XF86MonBrightnessUp exec brillo -u 150000 -A 5 && echo "$(brillo -G) / 1" | bc > $SWAYSOCK.wob
-bindsym XF86MonBrightnessDown exec brillo -u 150000 -U 5 && echo "$(brillo -G) / 1" | bc > $SWAYSOCK.wob
-bindsym XF86AudioRaiseVolume exec pamixer -ui 5
-bindsym XF86AudioLowerVolume exec pamixer -ud 5
-bindsym XF86AudioMute exec pamixer --toggle-mute
+bindsym XF86MonBrightnessUp exec lightctl up
+bindsym XF86MonBrightnessDown exec lightctl down
+bindsym XF86AudioRaiseVolume exec volumectl up
+bindsym XF86AudioLowerVolume exec volumectl down
+bindsym XF86AudioMute exec volumectl toggle-mute
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next

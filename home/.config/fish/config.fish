@@ -6,7 +6,10 @@ function source_if_exists
   end
 end
 
-if status is-interactive
+awk 'BEGIN { RS="\0"; } /^-c$/ { found=1 } END { if (found) exit 1 }' /proc/$fish_pid/cmdline
+set will_run_specific_command $status
+
+if status is-interactive; and test $will_run_specific_command -eq 0
   if ! set -q TMUX
     tmux attach-session -t default || tmux new-session -s default
   end

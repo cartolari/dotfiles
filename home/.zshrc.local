@@ -14,9 +14,10 @@ source $XDG_CONFIG_HOME/zsh-custom/aliases.zsh
 # Disable software control flow
 stty -ixon
 
-if [[ -z "$TMUX" ]]; then
+if [[ -z "$TMUX" && "$TERM_PROGRAM" != "vscode" ]]; then
   tmux attach-session -t default || tmux new-session -s default
 fi
+
 if [[ -n ${INSIDE_EMACS} ]]; then
   # This shell runs inside an Emacs *shell*/*term* buffer.
   unsetopt zle

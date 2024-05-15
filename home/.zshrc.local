@@ -49,6 +49,7 @@ source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highl
 source_if_exists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/doc/find-the-command/ftc.zsh
 source_if_exists /usr/share/autojump/autojump.zsh
+source_if_exists /etc/zsh/zshrc.default.inc.zsh
 
 autoload -U compinit && compinit
 

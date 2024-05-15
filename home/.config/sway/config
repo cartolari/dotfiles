@@ -65,7 +65,7 @@ input type:touchpad {
 input "type:keyboard" {
     xkb_layout us
     xkb_variant intl
-    xkb_options ctrl:nocaps,grp:win_space_toggle
+    xkb_options ctrl:nocaps
 }
 
 ### Key bindings
@@ -80,7 +80,8 @@ input "type:keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec ~/.local/bin/tofi-drun-full-screen
+    bindsym $mod+d exec albert toggle
+    bindsym $mod+space exec albert toggle
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -160,7 +161,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent

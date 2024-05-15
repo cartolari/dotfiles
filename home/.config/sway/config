@@ -16,10 +16,9 @@ exec ~/.local/bin/start-local-services
 
 set $gnome-schema org.gnome.desktop.interface
 
-exec_always {
-  gsettings set $gnome-schema cursor-theme 'Vanilla-DMZ'
-}
-seat seat0 xcursor_theme Vanilla-DMZ 24
+exec_always gsettings set $gnome-schema cursor-theme 'DMZ-White'
+
+seat seat0 xcursor_theme DMZ-White 24
 
 ### Variables
 #

@@ -13,6 +13,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec wlsunset -s 19:00 -S 06:00 -t 5000
 exec ~/.local/bin/start-local-services
+exec ~/.local/bin/start-sway-idle
 
 set $gnome-schema org.gnome.desktop.interface
 
@@ -51,8 +52,6 @@ gaps inner 10
 # shadow_blur_radius 10
 # smart_corner_radius enable
 # corner_radius 5
-
-exec ~/.local/bin/start-sway-idle
 
 input type:touchpad {
     dwt enabled

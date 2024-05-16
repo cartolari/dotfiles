@@ -25,3 +25,5 @@ sudo apt install -qy \
 
 homesick clone cartolari/dotfiles
 homesick link --force
+
+vim -c 'PlugInstall --sync' +qall

@@ -87,7 +87,9 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 " WhichKey
 nnoremap <silent> <leader> :WhichKey ','<CR>
 vnoremap <silent> <leader> :WhichKeyVisual ','<CR>
-call which_key#register(',', 'g:which_key_map')
+if exists('which_key#register')
+  call which_key#register(',', 'g:which_key_map')
+endif
 
 let g:which_key_map = {}
 let g:which_key_map.c = 'Commands'

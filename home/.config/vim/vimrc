@@ -82,8 +82,11 @@ scriptencoding utf-8
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" colorscheme base16-monokai
-colorscheme base16-oceanicnext
+
+let custom_colorscheme = 'base16-oceanicnext'
+if !empty(findfile('colors/' . custom_colorscheme . '.vim', &rtp))
+  execute('colorscheme ' . custom_colorscheme)
+endif
 " }}}
 
 " Highlight {{{

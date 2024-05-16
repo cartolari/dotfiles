@@ -6,8 +6,11 @@ function source_if_exists
   end
 end
 
-awk 'BEGIN { RS="\0"; } /^-c$/ { found=1 } END { if (found) exit 1 }' /proc/$fish_pid/cmdline
-set will_run_specific_command $status
+set will_run_specific_command 0
+if test -f /proc/$fish_pid/cmdline
+  awk 'BEGIN { RS="\0"; } /^-c$/ { found=1 } END { if (found) exit 1 }' /proc/$fish_pid/cmdline
+  set will_run_specific_command $status
+end
 
 if status is-interactive; and test $will_run_specific_command -eq 0
   if ! set -q TMUX

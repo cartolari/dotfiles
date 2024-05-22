@@ -14,6 +14,8 @@ sudo apt install -qy \
   fzf \
   homesick \
   htop \
+  neovim \
+  python3-pynvim \
   silversearcher-ag \
   tig \
   tmux \

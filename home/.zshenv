@@ -8,7 +8,7 @@ if [[ -z "$XDG_RUNTIME_DIR" ]]; then
   if [[ $(uname) == "Darwin" ]]; then
     export XDG_RUNTIME_DIR=~/Library/Caches
   else
-    export XDG_RUNTIME_DIR=/run/user/cartolari
+    export XDG_RUNTIME_DIR=/run/user/1000
   fi
 fi
 

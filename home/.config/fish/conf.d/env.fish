@@ -9,7 +9,7 @@ if ! set -q XDG_RUNTIME_DIR
   if test (uname) = "Darwin"
     set -gx XDG_RUNTIME_DIR ~/Library/Caches
   else
-    set -gx XDG_RUNTIME_DIR /run/user/cartolari
+    set -gx XDG_RUNTIME_DIR /run/user/1000
   end
 end
 

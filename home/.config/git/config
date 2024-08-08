@@ -5,7 +5,7 @@
 	editor = vim
   pager = ~/.local/bin/git-pager
 [interactive]
-  diffFilter = delta --color-only
+  diffFilter = ~/.local/bin/git-diff-filter
 [add.interactive]
     useBuiltin = false # required for git 2.37.0
 [delta]

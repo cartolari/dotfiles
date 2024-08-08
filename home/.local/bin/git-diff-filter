@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if command -v delta &> /dev/null; then
+  exec delta --color-only "$@"
+fi
+
+exec less "$@"

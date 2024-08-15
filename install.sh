@@ -11,7 +11,7 @@ fi
 sudo apt install -qy \
   autojump \
   bat \
-  fzf \
+  curl \
   homesick \
   htop \
   neovim \
@@ -22,6 +22,9 @@ sudo apt install -qy \
   tree \
   zsh-autosuggestions \
   zsh-syntax-highlighting
+
+curl -sL "https://github.com/junegunn/fzf/releases/download/v0.54.3/fzf-0.54.3-linux_amd64.tar.gz" | \
+  sudo tar -xz -C /usr/local/bin
 
 [[ -e /usr/bin/bat ]] || sudo ln -s /usr/bin/b{atc,}at
 

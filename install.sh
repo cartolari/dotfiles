@@ -31,4 +31,4 @@ curl -sL "https://github.com/junegunn/fzf/releases/download/v0.54.3/fzf-0.54.3-l
 homesick clone cartolari/dotfiles
 homesick link --force
 
-vim -c 'PlugInstall --sync' +qall
+vim +PlugInstall +qall

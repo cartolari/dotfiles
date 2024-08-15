@@ -1,0 +1,7 @@
+#!/bin/bash
+
+type -a "$1" | \
+  sed "s/$1 is //" | \
+  grep '^/' | \
+  grep -v .local/bin | \
+  head -n1

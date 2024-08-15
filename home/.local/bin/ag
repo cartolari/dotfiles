@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-exec "$(which -a --skip-alias ag | grep -v '.local/bin/' | head -n1)" \
+exec "$(~/.local/bin/find-global-command ag)" \
   -p "$XDG_CONFIG_HOME/agignore" "$@"

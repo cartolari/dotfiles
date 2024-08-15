@@ -5,4 +5,4 @@ if [[ ! -f ~/.terminfo/x/xterm-24bit ]]; then
 fi
 
 export TERM=xterm-24bit
-exec "$(which -a --skip-alias emacs | grep -v '.local/bin' | head -n1)" "$@"
+exec "$(~/.local/bin/find-global-command emacs)" "$@"

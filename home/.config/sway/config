@@ -220,6 +220,8 @@ for_window [app_id="wdisplays"] floating enable
 for_window [app_id="albert"] floating enable; border none
 for_window [app_id="mate-volume-control"] floating enable; resize set 1000 600
 for_window [app_id="solaar"] floating enable; resize set 1000 600
+for_window [app_id="localsend"] floating enable
+for_window [title="^CrystalSound.*$"] floating enable
 
 default_border pixel 2
 default_floating_border pixel 2

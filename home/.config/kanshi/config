@@ -6,6 +6,14 @@ profile docked {
   exec notify-send -h int:transient:1 --icon=video-display 'Desktop Layout Updated'
 }
 
+profile dockedLg {
+  output "Goldstar Company Ltd LG ULTRAFINE 402AZTHAF761" mode 3840x2160 position 0,0 scale 1.5 enable
+  output "Goldstar Company Ltd LG ULTRAFINE 402AZPUAF800" mode 3840x2160 position 2560,0 scale 1.5 enable
+  output eDP-1 mode 3840x2400 position 512,1440 scale 2.5
+
+  exec notify-send -h int:transient:1 --icon=video-display 'Desktop Layout Updated'
+}
+
 profile dockedUltrasharp {
   output eDP-1 mode 3840x2400 position 505,1440 scale 2.5
   output "Dell Inc. DELL U2723QE C0X6FP3" mode 3840x2160 position 0,0 enable scale 1.5

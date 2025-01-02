@@ -67,5 +67,3 @@ fish_add_path -g $ANDROID_HOME/emulator
 fish_add_path -g $ANDROID_HOME/tools
 fish_add_path -g $ANDROID_HOME/tools/bin
 fish_add_path -g $ANDROID_HOME/platform-tools
-
-set -gx AWS_DEFAULT_PROFILE onyx-production

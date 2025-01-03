@@ -36,7 +36,7 @@ set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/config"
 set -gx NVIM_TUI_ENABLE_TRUE_COLOR 1
 
 fish_add_path -g $GOPATH/bin$file
-fish_add_path -g $HOME/.local/share/gem/ruby/3.0.0/bin
+fish_add_path -g $HOME/.local/share/gem/ruby/3.3.0/bin
 fish_add_path -g $HOME/bin
 fish_add_path -g $HOME/scripts
 fish_add_path -g $XDG_DATA_HOME/npm/bin

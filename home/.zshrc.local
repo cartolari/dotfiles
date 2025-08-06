@@ -18,6 +18,11 @@ if [[ -z "$TMUX" && "$TERM_PROGRAM" != "vscode" ]]; then
   tmux attach-session -t default || tmux new-session -s default
 fi
 
+# Ensure proper TERM for syntax highlighting in tmux
+if [[ -n "$TMUX" ]]; then
+  export TERM=screen-256color
+fi
+
 if [[ -n ${INSIDE_EMACS} ]]; then
   # This shell runs inside an Emacs *shell*/*term* buffer.
   unsetopt zle

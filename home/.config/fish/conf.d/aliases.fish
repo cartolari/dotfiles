@@ -158,7 +158,9 @@ alias gpd='git push --dry-run'
 alias gpfwl='git push --force-with-lease'
 alias gpoat='git push origin --all && git push origin --tags'
 alias gpristine='git reset --hard && git clean -dfx'
-alias gpsup='git push --set-upstream origin $(git_current_branch)'
+function gpsup
+  git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+end
 alias gpu='git push upstream'
 alias gpv='git push -v'
 alias gr='git remote'

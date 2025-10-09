@@ -38,11 +38,13 @@ yay -S --needed --noconfirm \
   fslint \
   fzf \
   go \
+  gocryptfs \
   graphviz \
   grml-zsh-config \
   htop \
   imagemagick \
   jdk-openjdk \
+  jq \
   linux-headers \
   moreutils \
   neovim \

@@ -13,7 +13,7 @@ if test -f /proc/$fish_pid/cmdline
 end
 
 if status is-interactive; and test $will_run_specific_command -eq 0
-  if ! set -q TMUX
+  if ! set -q TMUX; and test "$TERMINAL_EMULATOR" != "JetBrains-JediTerm"
     tmux attach-session -t default || tmux new-session -s default
   end
 

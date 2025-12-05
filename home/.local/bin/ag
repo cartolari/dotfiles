@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-exec "$(~/.local/bin/find-global-command ag)" \
-  -p "$XDG_CONFIG_HOME/agignore" "$@"

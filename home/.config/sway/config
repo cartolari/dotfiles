@@ -37,7 +37,7 @@ output * bg ~/Downloads/material.png fill
 
 output eDP-1 resolution 3840x2400 position 0,0 scale 3 enable
 
-# gaps inner 10
+gaps inner 10
 
 set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
@@ -221,7 +221,8 @@ for_window [app_id="solaar"] floating enable; resize set 1000 600
 for_window [app_id="localsend"] floating enable
 for_window [title="^CrystalSound.*$"] floating enable
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
+focus_follows_mouse no
 
 include /etc/sway/config.d/*

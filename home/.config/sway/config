@@ -77,8 +77,8 @@ input "type:keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec "echo -n toggle | socat - ~/.cache/albert/ipc_socket"
-    bindsym $mod+space exec "echo -n toggle | socat - ~/.cache/albert/ipc_socket"
+    bindsym $mod+d exec ~/.local/bin/tofi-drun-full-screen
+    bindsym $mod+space exec ~/.local/bin/tofi-drun-full-screen
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

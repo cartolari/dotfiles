@@ -1,0 +1,1 @@
+/usr/share/sway-contrib/inactive-windows-transparency.py

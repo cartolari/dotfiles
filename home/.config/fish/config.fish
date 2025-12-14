@@ -19,6 +19,7 @@ if status is-interactive; and test $will_run_specific_command -eq 0
 
   source_if_exists /usr/share/fish/functions/autojump.fish
   source_if_exists /usr/share/autojump/autojump.fish
+  source_if_exists /opt/homebrew/opt/autojump/share/autojump/autojump.fish
   source_if_exists /etc/fish/completions/rclone.fish
 
   fzf --fish | source

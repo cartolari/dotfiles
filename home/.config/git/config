@@ -14,7 +14,6 @@
 [alias]
 	co = checkout
 	st = status
-	ctags = !.git/hooks/ctags
 	sync = !git fetch origin && git rebase origin/master && git push --force-with-lease
 	sync-main = !git fetch origin && git rebase origin/main && git push --force-with-lease
 [diff]

@@ -45,14 +45,12 @@ source_if_exists() {
   fi
 }
 
-source_if_exists /usr/share/fzf/completion.zsh
-source_if_exists /usr/share/fzf/key-bindings.zsh
-source_if_exists /usr/share/doc/fzf/examples/completion.zsh
-source_if_exists /usr/share/doc/fzf/examples/key-bindings.zsh
+eval "$(fzf --zsh)"
 source_if_exists /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source_if_exists /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_if_exists /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 source_if_exists /usr/share/doc/find-the-command/ftc.zsh
 source_if_exists /usr/share/autojump/autojump.zsh
 source_if_exists /etc/zsh/zshrc.default.inc.zsh

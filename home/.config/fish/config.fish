@@ -19,12 +19,9 @@ if status is-interactive; and test $will_run_specific_command -eq 0
 
   source_if_exists /usr/share/fish/functions/autojump.fish
   source_if_exists /usr/share/autojump/autojump.fish
-  source_if_exists /usr/share/fish/vendor_functions.d/fzf_key_bindings.fish
   source_if_exists /etc/fish/completions/rclone.fish
-end
 
-function fish_user_key_bindings
-	fzf_key_bindings
+  fzf --fish | source
 end
 
 set -g __fish_git_prompt_show_informative_status 1

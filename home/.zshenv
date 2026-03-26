@@ -21,7 +21,7 @@ fi
 export GRML_ALWAYS_LOAD_ALL=1
 export COMPDUMPFILE=$XDG_CACHE_HOME/zcompdump
 
-export EDITOR=nvim
+export EDITOR=vim
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export GEMRC=$XDG_CONFIG_HOME/gemrc

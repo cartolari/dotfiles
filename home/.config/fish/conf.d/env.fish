@@ -19,7 +19,7 @@ set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 #   export SSH_AUTH_SOCK /run/chrome/ssh-agent.socket
 # end
 
-set -gx EDITOR nvim
+set -gx EDITOR vim
 
 set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -gx GEMRC $XDG_CONFIG_HOME/gemrc

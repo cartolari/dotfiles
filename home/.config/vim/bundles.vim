@@ -17,6 +17,7 @@ endif
 " }}}
 
 " Completions and Snippets {{{
+  Plug 'Exafunction/windsurf.vim'
   Plug 'Sirver/Ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
